@@ -1,0 +1,963 @@
+//////////////////////////////////////////////////////////////////////////////
+// Copyright (c) Microsoft Corporation.  All rights reserved.                
+//
+// File: ShellCmdDef.ctc
+//
+// Contents:
+//
+// NOTE: PLEASE DO NOT USE TABS IN THIS FILE!  USE SPACES ONLY!
+//////////////////////////////////////////////////////////////////////////////
+
+#include "stdidcmd.h"
+#include "vsshlids.h"
+#include "sharedids.h"
+#include "msobtnid.h"
+#include "virtkeys.h"
+#include "sccmnid.h"
+#include "cmddefui.h"
+
+#define NO_ICON         guidOfficeIcon:msotcidNoIcon
+#define MSO_ICON(Name)  guidOfficeIcon:msotcid##Name
+
+#define ADDSYM_FLAGS      DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|TEXTCHANGES|TEXTCHANGESBUTTON
+#define CWO_FLAGS         COMMANDWELLONLY|DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED
+
+//////////////////////////////////////////////////////////////////////////////
+// CMDS_SECTION
+//
+// This sections defines all the commands that shell creates
+//
+//////////////////////////////////////////////////////////////////////////////
+CMDS_SECTION guidSHLMainMenu
+  APPID_BUTTONS_BEGIN
+    // GUID:CMDID                               PRIMARY GROUP      PRIORITY ICONID                                    BUTTONTYPE     FLAGS                                                                           BUTTONTEXT, MENUTEXT, TOOLTIPTXT, COMMANDNAME
+    // File Menu Commands
+#ifndef VSE
+    guidVSStd97:cmdidNewProject,                Group_Undefined:0, 0x0000,  guidSHLMainMenu:2,                        BUTTON,        DYNAMICVISIBILITY|TEXTMENUUSEBUTTON,                                            "New &Project...", "&Project...", "New Project";
+    guidVSStd2K:cmdidNewProjectFromExisting,    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "New Project From &Existing Code...", "Project From &Existing Code...", "New Project From Existing Code";
+    guidVSStd97:cmdidSelectProjectTemplate,     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ALLOWPARAMS|COMMANDWELLONLY,                                                    "Select Projec&t Template...", "Select Projec&t Template...", "Select Project Template";
+#endif //!VSE
+    guidVSStd97:cmdidFileNew,                   Group_Undefined:0, 0x0000,  guidSHLMainMenu:22,                       BUTTON,        TEXTCHANGESBUTTON|ALLOWPARAMS|DYNAMICVISIBILITY|TEXTMENUUSEBUTTON,              "&New File...", "&File...", "New File";
+#ifndef VSE
+    guidVSStd97:cmdidOpenProject,               Group_Undefined:0, 0x0000,  guidSHLMainMenu:21,                       BUTTON,        ALLOWPARAMS|DYNAMICVISIBILITY|TEXTMENUUSEBUTTON,                                "Open &Project...", "&Project/Solution...", "Open Project";
+    guidVSStd97:cmdidOpenProjectStartPage,      Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Open &Project...", "&Project...", "Open Project";      
+#endif //!VSE
+    guidVSStd97:cmdidWhatsNewStartPage,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "What's new in Visual Studio 2005?", "What's new in Visual Studio 2005?", "What's new in Visual Studio 2005?";      
+    guidVSStd97:cmdidSamplesStartPage,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Samples and Walkthroughs", "Samples and Walkthroughs", "Samples and Walkthroughs";      
+    guidVSStd97:cmdidStarterKitStartPage,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Use a Starter Kit", "Use a Starter Kit", "Use a Starter Kit";      
+    guidVSStd97:cmdidHowDoIStartPage,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "How Do I...?", "How Do I...?", "How Do I...?";      
+
+    guidVSStd97:cmdidFileOpen,                  Group_Undefined:0, 0x0000,  MSO_ICON(Open),                           BUTTON,        TEXTCHANGESBUTTON|ALLOWPARAMS|DYNAMICVISIBILITY|TEXTMENUUSEBUTTON,              "&Open File...", "&File...", "Open File";
+    guidVSStd97:cmdidFileOpenFromWeb,           Group_Undefined:0, 0x0000,  guidSHLMainMenu:27,                       BUTTON,        TEXTCHANGESBUTTON|DYNAMICVISIBILITY,                                            "File From W&eb...", "File From W&eb...", "Open File From Web";
+#ifndef VSE
+    guidVSStd97:cmdidAddNewProject,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE,                                             "Add &New Project...", "&New Project...", "Add New Project";
+    guidVSStd97:cmdidAddExistingProject,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ALLOWPARAMS|DYNAMICVISIBILITY|DEFAULTINVISIBLE,                                 "Add &Existing Project...", "&Existing Project...", "Add Existing Project";
+#endif //!VSE
+    guidVSStd97:cmdidFileClose,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "&Close";
+#ifndef VSE
+    guidVSStd97:cmdidOpenSolution,              Group_Undefined:0, 0x0000,  guidSHLMainMenu:19,                       BUTTON,        ALLOWPARAMS|DYNAMICVISIBILITY,                                                  "Op&en Solution...";
+    guidVSStd97:cmdidCloseSolution,             Group_Undefined:0, 0x0000,  guidSHLMainMenu:20,                       BUTTON,        DYNAMICVISIBILITY,                                                              "Close Solu&tion";
+    guidVSStd2K:cmdidCloseProject,              Group_Undefined:0, 0x0000,  guidSHLMainMenu:20,                       BUTTON,        DYNAMICVISIBILITY,                                                              "Close Projec&t";
+    guidVSStd97:cmdidRename,                    Group_Undefined:0, 0x0000,  MSO_ICON(Rename),                         BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Rena&me";
+    guidVSStd97:cmdidMRUFile1,                  Group_Undefined:0, 0x0000,  MSO_ICON(RecentFileList),                 BUTTON,        DYNAMICVISIBILITY|DYNAMICITEMSTART|TEXTCHANGES,                                 "Recent File List";
+    guidVSStd97:cmdidMRUProj1,                  Group_Undefined:0, 0x0000,  MSO_ICON(RecentFileList),                 BUTTON,        DYNAMICVISIBILITY|DYNAMICITEMSTART|TEXTCHANGES,                                 "Recent Project List";
+#endif //!VSE
+
+    guidVSStd97:cmdidSaveProjectItem,           Group_Undefined:0, 0x0000,  MSO_ICON(Save),                           BUTTON,        TEXTCHANGES,                                                                    "Sa&ve Selected Items", "&Save Selected Items";
+    guidVSStd97:cmdidSaveProjectItemAs,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        TEXTCHANGES,                                                                    "Save Selected Items &As...";
+    guidVSStd2K:ECMD_SAVECOPYOFITEMAS,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|TEXTCHANGES,                 "Save &Copy of Selected Item(s) As...";
+    guidVSStd97:cmdidSaveOptions,               Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE,                                             "Ad&vanced Save Options...";
+    guidVSStd97:cmdidSaveSolution,              Group_Undefined:0, 0x0000,  MSO_ICON(SaveAll),                        BUTTON,        ,                                                                               "Save A&ll";
+    guidVSStd97:cmdidPageSetup,                 Group_Undefined:0, 0x0000,  MSO_ICON(PrintSetup),                     BUTTON,        ,                                                                               "Page Set&up...";
+    guidVSStd97:cmdidPrintPreview,              Group_Undefined:0, 0x0000,  MSO_ICON(PrintPreview),                   BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|TEXTCHANGES,                 "Print Pre&view";
+    guidVSStd97:cmdidPrint,                     Group_Undefined:0, 0x0000,  MSO_ICON(Print),                          BUTTON,        TEXTCHANGES,                                                                    "&Print...";
+    guidVSStd97:cmdidPrintDefault,              Group_Undefined:0, 0x0000,  MSO_ICON(Print),                          BUTTON,        COMMANDWELLONLY|DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|TEXTCHANGES, "&Print";
+    guidVSStd97:cmdidExit,                      Group_Undefined:0, 0x0000,  MSO_ICON(Exit),                           BUTTON,        ,                                                                               "E&xit";
+
+    guidVSStd2K:cmdidCopyFullPathName,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Copy &Full Path";
+    guidVSStd2K:cmdidBrowseToFileInExplorer,    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "&Open Containing Folder";
+    guidVSStd2K:cmdidCloseAllButThis,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Close &All But This";
+    
+    // Edit Menu Commands
+    guidVSStd97:cmdidUndo,                      Group_Undefined:0, 0x0000,  MSO_ICON(Undo),                           BUTTON,        TEXTCHANGES,                                                                    "&Undo";
+    guidVSStd97:cmdidRedo,                      Group_Undefined:0, 0x0000,  MSO_ICON(Redo),                           BUTTON,        TEXTCHANGES,                                                                    "&Redo";
+    guidVSStd2K:cmdidGlobalUndo,                Group_Undefined:0, 0x0000,  MSO_ICON(Undo),                           BUTTON,        TEXTCHANGES,                                                                    "U&ndo Last Global Action";
+    guidVSStd2K:cmdidGlobalRedo,                Group_Undefined:0, 0x0000,  MSO_ICON(Redo),                           BUTTON,        TEXTCHANGES,                                                                    "Redo &Last Global Action";
+    guidVSStd97:cmdidCut,                       Group_Undefined:0, 0x0000,  MSO_ICON(Cut),                            BUTTON,        DYNAMICVISIBILITY,                                                              "Cu&t";
+    guidVSStd97:cmdidCopy,                      Group_Undefined:0, 0x0000,  MSO_ICON(Copy),                           BUTTON,        DYNAMICVISIBILITY|TEXTCHANGESBUTTON,                                            "Cop&y", "&Copy";
+    guidVSStd97:cmdidPaste,                     Group_Undefined:0, 0x0000,  MSO_ICON(Paste),                          BUTTON,        DYNAMICVISIBILITY,                                                              "&Paste";
+    guidVSStd97:cmdidPasteNextTBXCBItem,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED,                             "C&ycle Clipboard Ring";
+    guidVSStd97:cmdidDelete,                    Group_Undefined:0, 0x0000,  MSO_ICON(Delete),                         BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES,                                                  "&Delete";
+#ifndef VSE
+    guidVSStd97:cmdidRemove,                    Group_Undefined:0, 0x0000,  guidSHLMainMenu:7,                        BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTCHANGES,                                 "Re&move";
+#endif //!VSE
+    guidVSStd97:cmdidSelectAll,                 Group_Undefined:0, 0x0000,  MSO_ICON(SelectAll),                      BUTTON,        ,                                                                               "Select &All";
+
+    guidVSStd97:cmdidFind,                      Group_Undefined:0, 0x0000,  guidSHLMainMenu:37,                       BUTTON,        ALLOWPARAMS|DYNAMICVISIBILITY,                                                  "&Find", "Quick &Find";
+    guidVSStd97:cmdidReplace,                   Group_Undefined:0, 0x0000,  guidSHLMainMenu:38,                       BUTTON,        ALLOWPARAMS|DYNAMICVISIBILITY,                                                  "R&eplace", "Quick &Replace";
+    guidVSStd97:cmdidFindInFiles,               Group_Undefined:0, 0x0000,  guidSHLMainMenu:8,                        BUTTON,        ALLOWPARAMS|DYNAMICVISIBILITY,                                                  "F&ind in Files";
+    guidVSStd97:cmdidReplaceInFiles,            Group_Undefined:0, 0x0000,  guidSHLMainMenu:9,                        BUTTON,        ALLOWPARAMS|DYNAMICVISIBILITY,                                                  "Replace in File&s";
+    guidVSStd97:cmdidObjectSearch,              Group_Undefined:0, 0x0000,  guidSHLMainMenu:10,                       BUTTON,        ALLOWPARAMS|DYNAMICVISIBILITY,                                                  "Find S&ymbol";
+    guidVSStd97:cmdidQuickObjectSearch,         Group_Undefined:0, 0x0000,  guidSHLMainMenu:10,                       BUTTON,        ALLOWPARAMS|CWO_FLAGS,                                                          "&Quick Find Symbol";    
+    guidVSStd97:cmdidGoto,                      Group_Undefined:0, 0x0000,  MSO_ICON(Exit),                           BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|ALLOWPARAMS,                                 "&Go To...";
+    guidVSStd97:cmdidObjectVerbList0,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DYNAMICITEMSTART|TEXTCHANGES,                                 "Object Verb List";
+
+    // View Menu Commands
+    guidVSStd97:cmdidPropertyPages,             Group_Undefined:0, 0x0000,  MSO_ICON(ViewPropertyPages),              BUTTON,        DYNAMICVISIBILITY,                                                              "Propert&y Pages";
+    guidVSStd97:cmdidRefresh,                   Group_Undefined:0, 0x0000,  guidSHLMainMenu:6,                        BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|TEXTCHANGES,                 "Re&fresh";
+    guidVSStd97:cmdidZoomDialog,                Group_Undefined:0, 0x0000,  MSO_ICON(Zoom),                           BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED,                             "&Zoom...";
+    guidVSStd97:cmdidFullScreen,                Group_Undefined:0, 0x0000,  MSO_ICON(FullScreen),                     BUTTON,        ICONANDTEXT,                                                                    "F&ull Screen";
+    guidVSStd97:cmdidFullScreen2,               Group_Undefined:0, 0x0000,  MSO_ICON(FullScreen),                     BUTTON,        ICONANDTEXT|DYNAMICVISIBILITY|DEFAULTINVISIBLE|NOCUSTOMIZE,                     "F&ull Screen";
+    guidVSStd97:cmdidViewCode,                  Group_Undefined:0, 0x0000,  guidSHLMainMenu:25,                       BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON,                                "View &Code", "&Code";
+
+#ifndef VSE
+    guidVSStd97:cmdidViewForm,                  Group_Undefined:0, 0x0000,  guidSHLMainMenu:26,                       BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON,                                "View &Designer", "&Designer";
+#else
+    guidVSStd97:cmdidViewForm,                  Group_Undefined:0, 0x0000,  MSO_ICON(ViewVBEObject),                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON,                                "View Ob&ject", "Ob&ject";
+#endif //!VSE
+    guidVSStd97:cmdidToggleDesigner,            Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        NOBUTTONCUSTOMIZE|NOSHOWONMENUCONTROLLER|DEFAULTINVISIBLE,                      "Toggle Designer", "Designer";
+    guidVSStd97:cmdidProjectProperties,         Group_Undefined:0, 0x0000,  MSO_ICON(ViewPropertyPages),              BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTCHANGES,                                 "&Properties";
+    guidVSStd97:cmdidPropSheetOrProperties,     Group_Undefined:0, 0x0000,  guidSHLMainMenu:30,                       BUTTON,        DYNAMICVISIBILITY,                                                              "P&roperties";
+    guidVSStd2K:cmdidSetTrackSelInSlnExp,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ALLOWPARAMS|COMMANDWELLONLY,                                                    "Track Activity in Solution Explorer";
+    guidVSStd2K:cmdidSetBuildStartupsOnlyOnRun, Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ALLOWPARAMS|COMMANDWELLONLY,                                                    "Build Startup Projects Only On Run";
+
+    guidVSStd97:cmdidOpen,                      Group_Undefined:0, 0x0000,  guidSHLMainMenu:5,                        BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES,                                                  "&Open";
+    guidVSStd97:cmdidOpenWith,                  Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Ope&n With...";
+
+    guidVSStd97:cmdidPreviewInBrowser,          Group_Undefined:0, 0x0000,  guidSHLMainMenu:3,                        BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES,                                                  "View in &Browser";
+    guidVSStd97:cmdidBrowseWith,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Browse Wit&h...";
+
+    guidVSStd97:cmdidEditLabel,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY|DEFAULTINVISIBLE|DEFAULTDISABLED,                               "Edit &Label";
+    guidVSStd97:cmdidProjectExplorer,           Group_Undefined:0, 0x0000,  guidSHLMainMenu:14,                       BUTTON,        TEXTCHANGES,                                                                    "Solution &Explorer", "Solution Ex&plorer";
+    guidVSStd97:cmdidPropertiesWindow,          Group_Undefined:0, 0x0000,  MSO_ICON(Properties),                     BUTTON,        DYNAMICVISIBILITY,                                                              "Properties &Window", , "Properties Window";
+    guidVSStd97:cmdidToolbox,                   Group_Undefined:0, 0x0000,  MSO_ICON(Toolbox),                        BUTTON,        DYNAMICVISIBILITY,                                                              "Toolbo&x";
+    
+    guidVSStd2K:cmdidStartPage,                 Group_Undefined:0, 0x0000,  guidSHLMainMenu:29,                       BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES,                                                  "Start Pa&ge", , "Show Start Page";
+
+    guidVSStd2K:cmdidOpenInCodeView,            Group_Undefined:0, 0x0000,  guidSHLMainMenu:25,                       BUTTON,        COMMANDWELLONLY|DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON,                "View &Code", "&Code";
+    guidVSStd2K:cmdidOpenInFormView,            Group_Undefined:0, 0x0000,  guidSHLMainMenu:26,                       BUTTON,        COMMANDWELLONLY|DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON,                "View &Designer", "&Designer";
+
+    guidVSStd97:cmdidBookmarkWindow,            Group_Undefined:0, 0x0000,  guidBookmarkIcon:8,                       BUTTON,        DYNAMICVISIBILITY,                                                              "&Bookmark Window";
+    guidVSStd97:cmdidCodeExpansionWindow,       Group_Undefined:0, 0x0000,  guidBookmarkIcon:13,                       BUTTON,        DYNAMICVISIBILITY,                                                              "Code Snippe&ts Manager...";
+
+
+    guidVSStd97:cmdidCommandWindow,             Group_Undefined:0, 0x0000,  guidSHLMainMenu:13,                       BUTTON,        ,                                                                               "&Command Window";
+
+    guidVSStd97:cmdidObjectBrowser,             Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:12,              BUTTON,        ,                                                                               "Ob&ject Browser";
+    guidVSStd97:cmdidClassView,                 Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:10,              BUTTON,        ,                                                                               "Cl&ass View";
+    guidVSStd97:cmdidResourceView,              Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:11,              BUTTON,        ,                                                                               "&Resource View";
+    guidVSStd97:cmdidDocOutlineWindow,          Group_Undefined:0, 0x0000,  MSO_ICON(OutlineView),                    BUTTON,        DYNAMICVISIBILITY,                                                              "&Document Outline";
+    guidVSStd97:cmdidOutputWindow,              Group_Undefined:0, 0x0000,  MSO_ICON(FieldList),                      BUTTON,        DYNAMICVISIBILITY,                                                              "&Output";
+    guidVSStd97:cmdidFindResultWindow1,         Group_Undefined:0, 0x0000,  guidSHLMainMenu:11,                       BUTTON,        DONTCACHE|TEXTCHANGES,                                                          "Find Results &1";
+    guidVSStd97:cmdidFindResultWindow2,         Group_Undefined:0, 0x0000,  guidSHLMainMenu:12,                       BUTTON,        ,                                                                               "Find Results &2";
+    guidVSStd97:cmdidObjectSearchResults,       Group_Undefined:0, 0x0000,  guidSHLMainMenu:32,                       BUTTON,        ,                                                                               "Find S&ymbol Results";
+    guidVSStd2K:cmdidCodeDefView,               Group_Undefined:0, 0x0000,  guidCodeDefViewButtons:1,                 BUTTON,        ,                                                                               "Code &Definition Window";
+    guidVSStd2K:cmdidCallBrowser1,              Group_Undefined:0, 0x0000,  guidCallBrowserButtons:1,                 BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DYNAMICITEMSTART|TEXTCHANGES,                "&Call Browser", "&Call Browser", "&Call Browser", "Call Browser";
+
+    // Project Menu Commands
+#ifndef VSE
+    guidVSStd97:cmdidTaskListWindow,            Group_Undefined:0, 0x0000,  MSO_ICON(NewTask),                        BUTTON,        ,                                                                               "Tas&k List";
+    guidVSStd97:cmdidErrorListWindow,           Group_Undefined:0, 0x0000,  guidErrorListIcon:1,                      BUTTON,        ,                                                                               "Error L&ist";
+    guidVSStd97:cmdidAddNewItem,                Group_Undefined:0, 0x0000,  guidSHLMainMenu:1,                        BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTMENUUSEBUTTON|TEXTCONTEXTUSEBUTTON|TEXTCHANGES, "Add Ne&w Item...",      "Ne&w Item...",      "Add New Item",      "Add New Item";
+    guidVSStd97:cmdidAddExistingItem,           Group_Undefined:0, 0x0000,  guidSHLMainMenu:16,                       BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTMENUUSEBUTTON|TEXTCONTEXTUSEBUTTON|TEXTCHANGES, "Add Existin&g Item...", "Existin&g Item...", "Add Existing Item", "Add Existing Item";
+#endif //VSE
+
+    guidVSStd97:cmdidNewFolder,                 Group_Undefined:0, 0x0000,  MSO_ICON(NewFolder),                      BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTCHANGES,                                 "New Fol&der";
+    guidVSStd97:cmdidProjectReferences,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTCHANGES,                                 "Proje&ct References...";
+    guidVSStd97:cmdidSetStartupProject,         Group_Undefined:0, 0x0000,  MSO_ICON(StartupSettings),                BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTCHANGES,                                 "Set as St&artUp Project";
+    guidVSStd97:cmdidSlnCfgMgr,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE,                                             "C&onfiguration Manager...";
+    guidVSStd97:cmdidProjectDependencies,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE,                                             "Project Dependencie&s...";
+    guidVSStd97:cmdidBuildOrder,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE,                                             "Project Bu&ild Order...";
+
+    guidVSStd97:cmdidReloadProject,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES,                                                  "Re&load Project";
+    guidVSStd97:cmdidUnloadProject,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES,                                                  "Un&load Project";
+
+    guidVSStd2K:cmdidEditProjectFile,           Group_Undefined:0, 0x0000,  guidSHLMainMenu:5,                        BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTCHANGES,                                 "&Edit Project File";
+
+    guidVSStd2K:cmdidNewSolutionFolder,         Group_Undefined:0, 0x0000,  guidSHLMainMenu:34,                       BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTMENUUSEBUTTON|TEXTCONTEXTUSEBUTTON,      "Add New Solution Fol&der", "New Solution Fol&der", "Add New Solution Folder", "Add New Solution Folder";
+    guidVSStd2K:cmdidNewSolutionFolderBar,      Group_Undefined:0, 0x0000,  guidSHLMainMenu:34,                       BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTMENUUSEBUTTON|TEXTCONTEXTUSEBUTTON,      "Add New Solution Fol&der", "New Solution Fol&der", "Add New Solution Folder", "Add New Solution Folder";
+    guidVSStd2K:cmdidHideFolder,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE,                                             "&Hide Folder";
+    guidVSStd2K:cmdidUnhideFolders,             Group_Undefined:0, 0x0000,  guidSHLMainMenu:35,                       BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE,                                             "U&nhide Folders";
+    guidVSStd2K:cmdidUnhideAll,                 Group_Undefined:0, 0x0000,  guidSHLMainMenu:35,                       BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE,                                             "U&nhide All";
+    guidVSStd2K:cmdidSaveFolderAsSolution,      Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE,                                             "E&xport Folder as Solution...";
+
+    guidVSStd2K:cmdidDataShortcut,              Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE,                                             "Data...";
+
+    // Build menu Commands
+    guidVSStd97:cmdidBuildSln,                  Group_Undefined:0, 0x0000,  guidBuildCmdIcons:3,                      BUTTON,        TEXTCHANGES|DYNAMICVISIBILITY,                                                  "&Build Solution";
+    guidVSStd97:cmdidRebuildSln,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        TEXTCHANGES|DYNAMICVISIBILITY,                                                  "&Rebuild Solution";
+    guidVSStd97:cmdidDeploySln,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        TEXTCHANGES|DYNAMICVISIBILITY,                                                  "&Deploy Solution";
+    guidVSStd97:cmdidCleanSln,                  Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        TEXTCHANGES|DYNAMICVISIBILITY,                                                  "&Clean Solution";
+
+    guidVSStd97:cmdidBuildSel,                  Group_Undefined:0, 0x0000,  guidBuildCmdIcons:2,                      BUTTON,        TEXTCHANGES|DYNAMICVISIBILITY,                                                  "B&uild Selection";
+    guidVSStd97:cmdidRebuildSel,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        TEXTCHANGES|DYNAMICVISIBILITY,                                                  "R&ebuild Selection";
+    guidVSStd97:cmdidDeploySel,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        TEXTCHANGES|DYNAMICVISIBILITY,                                                  "De&ploy Selection";
+    guidVSStd97:cmdidCleanSel,                  Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        TEXTCHANGES|DYNAMICVISIBILITY,                                                  "Clea&n Selection";
+    guidVSStd2K:ECMD_RUNFXCOPSEL,               Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        TEXTCHANGES|DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED,                 "Run Code Analysis on Selection";
+    guidVSStd2K:ECMD_RUNFXCOPPROJCTX,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        TEXTCHANGES|DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED,                 "Run Code Analysis on Selection";
+    guidVSStd2K:ECMD_PUBLISHSELECTION,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        TEXTCHANGES|DYNAMICVISIBILITY,                                                  "Publis&h Selection";
+
+    guidVSStd97:cmdidBuildCtx,                  Group_Undefined:0, 0x0000,  guidBuildCmdIcons:2,                      BUTTON,        DYNAMICVISIBILITY,                                                              "B&uild";
+    guidVSStd97:cmdidRebuildCtx,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "R&ebuild";
+    guidVSStd97:cmdidDeployCtx,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Depl&oy";
+    guidVSStd97:cmdidCleanCtx,                  Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Clea&n";
+    guidVSStd2K:ECMD_PUBLISHSLNCTX,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Pu&blish...";
+
+    guidVSStd97:cmdidBatchBuildDlg             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Ba&tch Build...";
+
+    guidVSStd97:cmdidCancelBuild,               Group_Undefined:0, 0x0000,  guidBuildCmdIcons:4,                      BUTTON,        DYNAMICVISIBILITY,                                                              "C&ancel";
+
+    guidVSStd97:cmdidBuild1,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DYNAMICITEMSTART|TEXTCHANGES,                                 "Build Project List";
+    guidVSStd97:cmdidRebuild1,                  Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DYNAMICITEMSTART|TEXTCHANGES,                                 "Rebuild All Project List";
+    guidVSStd97:cmdidClean1,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DYNAMICITEMSTART|TEXTCHANGES,                                 "Clean Project List";
+    guidVSStd97:cmdidDeploy1,                   Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DYNAMICITEMSTART|TEXTCHANGES,                                 "Deploy Project List";
+    guidVSStd97:cmdidMoveFileToProject1,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DYNAMICITEMSTART|TEXTCHANGES,                                 "Move into Project List";
+
+    guidVSStd2K:cmdidBuildOnlyProject,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTCHANGES,                                 "Build Only Project";
+    guidVSStd2K:cmdidRebuildOnlyProject,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTCHANGES,                                 "Rebuild Only Project";
+    guidVSStd2K:cmdidCleanOnlyProject,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTCHANGES,                                 "Clean Only Project";
+    guidVSStd2K:cmdidStaticAnalysisOnlyProject, Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|TEXTCHANGES,                                 "Run Code &Analysis on Only Project";
+   
+    guidVSStd97:cmdidBuildProjPicker,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Project Picker Build", "&Projects...";
+    guidVSStd97:cmdidRebuildProjPicker,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Project Picker Rebuild", "&Projects...";
+    guidVSStd97:cmdidCleanProjPicker,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Project Picker Clean", "&Projects...";
+    guidVSStd97:cmdidDeployProjPicker,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Project Picker Deploy", "&Projects...";
+    guidVSStd97:cmdidMoveFileToProjectPick,     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Project Picker Move Into", "&Locations...";
+
+    // Tools Menu Commands
+#ifndef VSE
+    guidVSStd97:cmdidAddinManager,              Group_Undefined:0, 0x0000,  MSO_ICON(AddInManager),                   BUTTON,        ,                                                                               "&Add-in Manager...";
+#endif
+    guidVSStd97:cmdidToolsOptions,              Group_Undefined:0, 0x0000,  MSO_ICON(Options),                        BUTTON,        ALLOWPARAMS,                                                                    "&Options...";
+    guidVSStd97:cmdidCustomizeToolbars,         Group_Undefined:0, 0x0000,  MSO_ICON(Customize),                      BUTTON,        ,                                                                               "&Customize...";
+
+    guidVSStd2K:cmdidManageUserSettings,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ALLOWPARAMS,                                                                    "&Import and Export Settings...";
+
+    guidVSStd97:cmdidCustomizeKeyboard,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Customize &Keyboard...";
+
+    guidVSStd97:cmdidExternalCommands,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "&External Tools...";
+    guidVSStd97:cmdidTool1,                     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 1";
+    guidVSStd97:cmdidTool2,                     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 2";
+    guidVSStd97:cmdidTool3,                     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 3";
+    guidVSStd97:cmdidTool4,                     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 4";
+    guidVSStd97:cmdidTool5,                     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 5";
+    guidVSStd97:cmdidTool6,                     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 6";
+    guidVSStd97:cmdidTool7,                     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 7";
+    guidVSStd97:cmdidTool8,                     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 8";
+    guidVSStd97:cmdidTool9,                     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 9";
+    guidVSStd97:cmdidTool10,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 10";
+    guidVSStd97:cmdidTool11,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 11";
+    guidVSStd97:cmdidTool12,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 12";
+    guidVSStd97:cmdidTool13,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 13";
+    guidVSStd97:cmdidTool14,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 14";
+    guidVSStd97:cmdidTool15,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 15";
+    guidVSStd97:cmdidTool16,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 16";
+    guidVSStd97:cmdidTool17,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 17";
+    guidVSStd97:cmdidTool18,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 18";
+    guidVSStd97:cmdidTool19,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 19";
+    guidVSStd97:cmdidTool20,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 20";
+    guidVSStd97:cmdidTool21,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 21";
+    guidVSStd97:cmdidTool22,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 22";
+    guidVSStd97:cmdidTool23,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 23";
+    guidVSStd97:cmdidTool24,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|TEXTCHANGESBUTTON|DONTCACHE,                      "External Command 24";
+
+    guidVSStd97:cmdidAlias,                     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY|ALLOWPARAMS,                                                    "Alias";
+    guidVSStd97:cmdidGotoCommandLine,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Go To &Command Line";
+    guidVSStd97:cmdidImmediateMode,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Immediate Mode";
+    guidVSStd97:cmdidShell,                     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY|ALLOWPARAMS,                                                    "Shell";
+    guidVSStd97:cmdidLogCommandWindow,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY|ALLOWPARAMS,                                                    "Log Command Window Output";
+
+    // Window Menu Commands
+    guidVSStd97:cmdidNewWindow,                 Group_Undefined:0, 0x0000,  guidSHLMainMenu:23,                       BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE,                                             "&New Window";
+    guidVSStd97:cmdidSplit,                     Group_Undefined:0, 0x0000,  MSO_ICON(Split),                          BUTTON,        TEXTCHANGES|DYNAMICVISIBILITY,                                                  "S&plit";
+    guidVSStd97:cmdidCascade,                   Group_Undefined:0, 0x0000,  MSO_ICON(CascadeWindows),                 BUTTON,        DYNAMICVISIBILITY,                                                              "&Cascade";
+    guidVSStd97:cmdidTileHorz,                  Group_Undefined:0, 0x0000,  MSO_ICON(TileWindowsHorizontally),        BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|DONTCACHE,                                        "Tile Hori&zontally";
+    guidVSStd97:cmdidTileVert,                  Group_Undefined:0, 0x0000,  MSO_ICON(TileWindowsVertically),          BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES|DONTCACHE,                                        "Tile &Vertically";
+    guidVSStd97:cmdidCloseAllDocuments,         Group_Undefined:0, 0x0000,  MSO_ICON(Close),                          BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES,                                                  "C&lose All Documents";
+    guidVSStd97:cmdidWindow1,                   Group_Undefined:0, 0x0000,  MSO_ICON(WindowList),                     BUTTON,        DYNAMICVISIBILITY|DYNAMICITEMSTART|TEXTCHANGES,                                 "Window List";
+    guidVSStd97:cmdidMoreWindows,               Group_Undefined:0, 0x0000,  MSO_ICON(MoreWindows),                    BUTTON,        DYNAMICVISIBILITY,                                                              "&Windows...";
+    guidVSStd97:cmdidPaneNextPane,              Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Next Pane";
+    guidVSStd97:cmdidPanePrevPane,              Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Previous Pane";
+    // The following command has the "DONTCACHE" flag appended because we require different dynamic text
+    // for context menus and the view main menu (in the HTML/XML editor). This flag ensures that we get
+    // a QueryStatus call every time a menu with this command is displayed. This is a performance hit
+    // so the DONTCACHE flag should only be sparingly used.
+    guidVSStd97:cmdidViewNextTab,               Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|TEXTCHANGES|DONTCACHE|COMMANDWELLONLY,       "Next View";
+    guidVSStd97:cmdidPaneNextTab,               Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Next Tab";
+    guidVSStd97:cmdidPanePrevTab,               Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Previous Tab";
+    guidVSStd97:cmdidPaneNextSubPane,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Next Subpane";
+    guidVSStd97:cmdidPanePrevSubPane,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Previous Subpane";
+    guidVSStd97:cmdidPaneCloseToolWindow,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Close Tool Window";
+    guidVSStd97:cmdidPaneActivateDocWindow,     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Activate Document Window";
+    guidVSStd97:cmdidNextDocument,              Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Next Document Window";
+    guidVSStd97:cmdidPrevDocument,              Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Previous Document Window";
+    guidVSStd97:cmdidNextDocumentNav,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Next Document Window Nav";
+    guidVSStd97:cmdidPrevDocumentNav,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Previous Document Window Nav";
+    guidVSStd2K:cmdidNextToolWindow,            Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Next Tool Window";
+    guidVSStd2K:cmdidPrevToolWindow,            Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Previous Tool Window";
+    guidVSStd2K:cmdidNextToolWindowNav,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Next Tool Window Nav";
+    guidVSStd2K:cmdidPrevToolWindowNav,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Previous Tool Window Nav";
+    guidVSStd97:cmdidCloseDocument,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Close Document Window", "&Close";
+    guidVSStd97:cmdidMoveToDropdownBar,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Move to Navigation Bar";
+
+    guidVSStd97:cmdidSplitNext,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Next Split Pane";
+    guidVSStd97:cmdidSplitPrev,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Previous Split Pane";
+
+    // Auto Hide context menu items - should not appear in cmdwell at all
+    guidVSStd97:cmdidAutoHideContext1,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICITEMSTART|TEXTCHANGES|DYNAMICVISIBILITY,                                 "AutoHidden Windows";
+
+    // Help Menu Commands
+    guidVSStd97:cmdidTechSupport,               Group_Undefined:0, 0x0000,  MSO_ICON(PSSHelp),                        BUTTON,        ,                                                                               "&Technical Support";
+    guidVSStd97:cmdidCheckForUpdates,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Chec&k for Updates";
+    guidVSStd2K:cmdidRegistration,              Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|TEXTCHANGES,                 "Register &Product...";
+    guidVSStd97:cmdidF1Help,                    Group_Undefined:0, 0x0000,  MSO_ICON(F1Help),                         BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|COMMANDWELLONLY|ALLOWPARAMS,                 "F1 Help";
+    guidVSStd97:cmdidAbout,                     Group_Undefined:0, 0x0000,  MSO_ICON(HelpAbout),                      BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES,                                                  "&About";
+
+    // Watch Context Menu Commands
+//    guidVSStd97:cmdidDeleteWatch,             Group_Undefined:0, 0x0000,  MSO_ICON(DeleteWatch),                    BUTTON,        ,                                                                               "&Delete Watch";
+
+    // Treegrid context menu commands
+//    guidVSStd97:cmdidCollapseWatch,           Group_Undefined:0, 0x0000,  MSO_ICON(CollapseParent),                 BUTTON,        ,                                                                               "Co&llapse Parent";
+//    guidVSStd97:cmdidElasticColumn,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Elastic column";
+
+    // results lists commands
+    guidVSStd97:cmdidClearPane,                 Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:4,              BUTTON,        COMMANDWELLONLY|DYNAMICVISIBILITY,                                              "Clear Al&l",               , "Clear the current list",                               "Clear All",                          "Clear All",                          "Clear All";
+    guidVSStd97:cmdidGotoErrorTag,              Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:1,              BUTTON,        COMMANDWELLONLY,                                                                "&Go To Location",          , "Go to the location on the current line",  "Go To Location",                     "Go To Location",                     "Go To Location ";
+    guidVSStd97:cmdidNextLocation,              Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:3,              BUTTON,        COMMANDWELLONLY,                                                                "Go To &Next Location",     , "Go to the next location in the list",     "Goto Next Location",                 "Go To Next Location",                "Go To Next Location ";
+    guidVSStd97:cmdidPreviousLocation,          Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:2,              BUTTON,        COMMANDWELLONLY,                                                                "Go To &Previous Location", , "Go to the previous location in the list", "Goto Previous Location",             "Go To Prev Location",                "Go To Prev Location ";
+
+    // User Task toolbar commands
+    guidVSStd2K:cmdidCreateUserTask,            Group_Undefined:0, 0x0000, MSO_ICON(NewTask),                        BUTTON,        COMMANDWELLONLY,                                                                 "&Create User Task",        , "Create User Task",                   "Create User Task",                "Create User Task",                "Create User Task";
+
+    // Error List toolbar commands
+    guidVSStd2K:cmdidErrorListShowErrors,       Group_Undefined:0, 0x0000, guidErrorIcon:1,                          BUTTON,        COMMANDWELLONLY|ICONANDTEXT|TEXTCHANGES|DONTCACHE,                               "&Errors",                  , "Errors",                                  "Errors",                             "Errors",                             "Errors";
+    guidVSStd2K:cmdidErrorListShowWarnings,     Group_Undefined:0, 0x0000, guidErrorIcon:2,                          BUTTON,        COMMANDWELLONLY|ICONANDTEXT|TEXTCHANGES|DONTCACHE,                               "&Warnings",                , "Warnings",                                "Warnings",                           "Warnings",                           "Warnings";
+    guidVSStd2K:cmdidErrorListShowMessages,     Group_Undefined:0, 0x0000, guidErrorIcon:3,                          BUTTON,        COMMANDWELLONLY|ICONANDTEXT|TEXTCHANGES|DONTCACHE,                               "&Messages",                , "Messages",                                "Messages",                           "Messages",                           "Messages";
+
+    // Output Window toolbar/context menu commands
+    guidVSStd2K:cmdidClearPaneOW,               Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:4,              BUTTON,        COMMANDWELLONLY|NoKeyCustomize,                                                 "Clear Al&l",               , "Clear All",                          "Clear Output Window",                "Clear Output Window", "Clear Output Window";
+    guidVSStd2K:cmdidGotoErrorTagOW,            Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:1,              BUTTON,        COMMANDWELLONLY|NoKeyCustomize,                                                 "&Go To Location",          , "Find Message in Code",  "Go To Output Window Location",       "Go To Output Window Location", "Go To Output Window Location ";
+    guidVSStd2K:cmdidGotoPrevErrorTagOW,        Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:2,              BUTTON,        COMMANDWELLONLY|NoKeyCustomize,                                                 "Go To &Previous Location", , "Go to Previous Message", "Go To Prev Output Window Location",  "Go To Output Window Prev Location", "Go To Output Window Prev Location ";
+    guidVSStd2K:cmdidGotoNextErrorTagOW,        Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:3,              BUTTON,        COMMANDWELLONLY|NoKeyCustomize,                                                 "Go To &Next Location",     , "Go to Next Message",     "Go To Next Output Window Location",  "Go To Output Window Next Location", "Go To Output Window Next Location ";
+    guidVSStd2K:cmdidToggleWordWrapOW,          Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:5,              BUTTON,        COMMANDWELLONLY|NoKeyCustomize,                                                 "&Toggle word wrap",        , "Toggle Word Wrap",     "Toggle Output Window Word Wrap",  "Toggle Output Window Word Wrap", "Toggle Output Window Word Wrap";
+
+    // Snippet Window buttons
+    guidVSStd2K:cmdidSnippetProp,               Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY|TEXTONLY,                                                       "&Properties";
+    guidVSStd2K:cmdidSnippetRef,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY|TEXTONLY,                                                       "Re&ferences";    
+    guidVSStd2K:cmdidSnippetRepl,               Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY|TEXTONLY,                                                       "&Replacements";
+
+    // Find Results 1 toolbar/context menu commands
+    guidVSStd2K:cmdidClearPaneFR1,              Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:4,              BUTTON,        COMMANDWELLONLY,                                                                "Clear Al&l",               , "Clear All",                               "Clear Find Results 1",               "Clear Find Results 1",               "Clear Find Results 1";
+    guidVSStd2K:cmdidGotoErrorTagFR1,           Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:1,              BUTTON,        COMMANDWELLONLY,                                                                "&Go To Location",          , "Go to the location on the current line",  "Go To Find Results 1 Location",      "Go To Find Results 1 Location",      "Go To Find Results 1 Location ";
+    guidVSStd2K:cmdidGotoPrevErrorTagFR1,       Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:2,              BUTTON,        COMMANDWELLONLY,                                                                "Go To &Previous Location", , "Go to the previous location in the list", "Go To Prev Find Results 1 Location", "Go To Find Results 1 Prev Location", "Go To Find Results 1 Prev Location ";
+    guidVSStd2K:cmdidGotoNextErrorTagFR1,       Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:3,              BUTTON,        COMMANDWELLONLY,                                                                "Go To &Next Location",     , "Go to the next location in the list",     "Go To Next Find Results 1 Location", "Go To Find Results 1 Next Location", "Go To Find Results 1 Next Location ";
+
+    // Find Results 2 toolbar/context menu commands
+    guidVSStd2K:cmdidClearPaneFR2,              Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:4,              BUTTON,        COMMANDWELLONLY,                                                                "Clear Al&l",               , "Clear All",                               "Clear Find Results 2",               "Clear Find Results 2",               "Clear Find Results 2";
+    guidVSStd2K:cmdidGotoErrorTagFR2,           Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:1,              BUTTON,        COMMANDWELLONLY,                                                                "&Go To Location",          , "Go to the location on the current line",  "Go To Find Results 2 Location",      "Go To Find Results 2 Location",      "Go To Find Results 2 Location ";
+    guidVSStd2K:cmdidGotoPrevErrorTagFR2,       Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:2,              BUTTON,        COMMANDWELLONLY,                                                                "Go To &Previous Location", , "Go to the previous location in the list", "Go To Prev Find Results 2 Location", "Go To Find Results 2 Prev Location", "Go To Find Results 2 Prev Location ";
+    guidVSStd2K:cmdidGotoNextErrorTagFR2,       Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:3,              BUTTON,        COMMANDWELLONLY,                                                                "Go To &Next Location",     , "Go to the next location in the list",     "Go To Next Find Results 2 Location", "Go To Find Results 2 Next Location", "Go To Find Results 2 Next Location ";
+
+    // Unified Find toolbar/context menu commands
+    guidVSStd2K:cmdidGotoQuick,                 Group_Undefined:0, 0x0000,  guidSHLMainMenu:37,                       BUTTON,        COMMANDWELLONLY,                                                                "Quick Find",         , "Switch to Quick Find",                    "Switch to Quick Find",               "Switch to Quick Find",               "Switch to Quick Find";
+    guidVSStd2K:cmdidGotoFIF,                   Group_Undefined:0, 0x0000,  guidSHLMainMenu:8,                        BUTTON,        COMMANDWELLONLY,                                                                "Find In Files",      , "Switch to Find In Files",                 "Switch to Find In Files",            "Switch to Find In Files",            "Switch to Find In Files";
+    guidVSStd2K:cmdidGotoSymbol,                Group_Undefined:0, 0x0000,  guidSHLMainMenu:10,                       BUTTON,        COMMANDWELLONLY,                                                                "Find Symbol",        , "Switch to Find Symbol",                   "Switch to Find Symbol",              "Switch to Find Symbol",              "Switch to Find Symbol";
+    guidVSStd2K:cmdidGotoQuickReplace,          Group_Undefined:0, 0x0000,  guidSHLMainMenu:38,                       BUTTON,        COMMANDWELLONLY,                                                                "Quick Replace",      , "Switch to Quick Replace",                 "Switch to Quick Replace",            "Switch to Quick Replace",            "Switch to Quick Replace";
+    guidVSStd2K:cmdidGotoReplaceInFiles,        Group_Undefined:0, 0x0000,  guidSHLMainMenu:9,                        BUTTON,        COMMANDWELLONLY,                                                                "Replace in Files",   , "Switch to Replace In Files",              "Switch to Replace In Files",         "Switch to Replace In Files",         "Switch to Replace In Files";
+
+    // Regex builder context menu commands
+    guidVSStd97:cmdidSingleChar,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               ".  Any single character";
+    guidVSStd97:cmdidZeroOrMore,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "*  Zero or more";
+    guidVSStd97:cmdidOneOrMore,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "+  One or more";
+    guidVSStd97:cmdidBeginLine,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "^  Beginning of line";
+    guidVSStd97:cmdidEndLine,                   Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "$  End of line";
+    guidVSStd97:cmdidBeginWord,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "<  Beginning of word";
+    guidVSStd97:cmdidEndWord,                   Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               ">  End of word";
+    guidVSStd97:cmdidCharInSet,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "[ ]  Any one character in the set";
+    guidVSStd97:cmdidCharNotInSet,              Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "[^ ]  Any one character not in the set";
+    guidVSStd97:cmdidOr,                        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               " |  Or";
+    guidVSStd97:cmdidEscape,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "\  Escape Special Character";
+    guidVSStd97:cmdidTagExp,                    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "{ }  Tag expression";
+    guidVSStd97:cmdidLineBreak,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                                   "\n   Line break";
+    guidVSStd97:cmdidCPPIdentifier,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               ":i   C/C++ identifier";
+    guidVSStd97:cmdidQuotedString,              Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                                 ":q   Quoted string";
+    guidVSStd97:cmdidSpaceOrTab,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               ":b   Space or Tab";
+    guidVSStd97:cmdidInteger,                   Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               ":z   Integer";
+
+    guidVSStd97:cmdidWhiteSpace,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Whitespace";
+    // Regex builder context help menu commands
+    guidVSStd97:cmdidPatternMatchHelp,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Help on Pattern Matching";
+    guidVSStd97:cmdidRegExList,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Complete Character List";
+    //Regex builder wildcard menu commands
+    guidVSStd97:cmdidWildZeroOrMore,            Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "*  Zero or more of any character";
+    guidVSStd97:cmdidWildSingleChar,            Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "?  Any single character";
+    guidVSStd97:cmdidWildSingleDigit,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        TEXTCHANGES,                                                                    "  Any single digit";
+    guidVSStd97:cmdidWildCharInSet,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "[ ]  Any one character in the set";
+    guidVSStd97:cmdidWildCharNotInSet,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "[! ]  Any one character not in the set";
+    guidVSStd97:cmdidWildEscape,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "\  Escape Special Character";
+
+    guidVSStd97:cmdidFindWhatText,              Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "'Find What' Text";
+    guidVSStd97:cmdidTaggedExp1,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Tagged Expression 1";
+    guidVSStd97:cmdidTaggedExp2,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Tagged Expression 2";
+    guidVSStd97:cmdidTaggedExp3,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Tagged Expression 3";
+    guidVSStd97:cmdidTaggedExp4,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Tagged Expression 4";
+    guidVSStd97:cmdidTaggedExp5,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Tagged Expression 5";
+    guidVSStd97:cmdidTaggedExp6,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Tagged Expression 6";
+    guidVSStd97:cmdidTaggedExp7,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Tagged Expression 7";
+    guidVSStd97:cmdidTaggedExp8,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Tagged Expression 8";
+    guidVSStd97:cmdidTaggedExp9,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "Tagged Expression 9";
+
+    guidVSStd97:cmdidMoveToTop,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Move To &Top";
+    guidVSStd97:cmdidWindowHelp,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTCHANGES,                  "Window &Help";
+
+    // Bookmark window toolbar/context menu commands
+    guidVSStd2K:cmdidNewBookmarkFolder,       Group_Undefined:0,  0x0000,   guidBookmarkIcon:7,                       BUTTON,        COMMANDWELLONLY,                                                "New Folder",                , "New Folder",                    "New Folder",               "New Folder",               "New Folder";
+    // Use DONTCACHE flag so that when a user manually disables or enables a bookmark, the text gets updated appropriately
+    guidVSStd2K:cmdidDeleteBookmark,          Group_Undefined:0,  0x0000,   guidBookmarkIcon:6,                       BUTTON,        COMMANDWELLONLY|TEXTCHANGES,                                    "Delete",                    , "Delete",                    "Delete",               "Delete Bookmark",               "Delete Bookmark";    
+    guidVSStd2K:cmdidRenameBookmark,          Group_Undefined:0,  0x0000,   NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                "Rename",                    , "Rename",                    "Rename",               "Rename",               "Rename";    
+    guidVSStd2K:cmdidBookmarkWindowGoToBookmark,Group_Undefined:0,  0x0000, NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                "Goto Bookmark",             , "Goto Bookmark",                    "Goto Bookmark",               "Goto Bookmark",               "Goto Bookmark";    
+    
+    // Code Browsing and search cmds $UNDONE: icons, mnemonics and accels for these
+    guidVSStd97:cmdidPopBrowseContext,          Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:32,              BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Pop &Browse Context";
+    guidVSStd97:cmdidBrowseNext,                Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:30,              BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Browse &Next", , "Next Definition, Declaration or Reference";
+    guidVSStd97:cmdidBrowsePrev,                Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:31,              BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Browse &Previous", , "Previous Definition, Declaration or Reference";
+    guidVSStd97:cmdidBrowseUnload,              Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED,                             "Unload Source Bro&wser Files", , "Unload Source Browser Files";
+    guidVSStd97:cmdidGotoDefn,                  Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:15,              BUTTON,        ALLOWPARAMS|DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY, "&Go To Definition";
+    guidVSStd97:cmdidSyncClassView,             Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:18,              BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Synchroni&ze Class View";
+    guidVSStd97:cmdidGotoRef,                   Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:24,              BUTTON,        ALLOWPARAMS|DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY, "Go To Re&ference";
+    guidVSStd97:cmdidGotoDecl,                  Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:16,              BUTTON,        ALLOWPARAMS|DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY, "Go To Decl&aration";
+    guidVSStd97:cmdidBrowseDefn,                Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:17,              BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY|TEXTCHANGES, "&Browse Definition";
+    guidVSStd97:cmdidFindReferences,            Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Find &All References";
+
+    guidVSStd97:cmdidShowRefs,                  Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:33,              BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Show References", , "Show Definitions and References";
+// Removed in 7.0. Enable if VC re-adds this functionality in future ver
+//    guidVSStd97:cmdidShowMembers,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Show Members";
+//    guidVSStd97:cmdidShowBases,               Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Show Base Classes";
+//    guidVSStd97:cmdidShowDerived,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Show Derived Classes";
+//    guidVSStd97:cmdidShowDefns,               Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Show Definitions";
+//    guidVSStd97:cmdidShowCallers,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Show Callers";
+//    guidVSStd97:cmdidShowCallees,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Show Calls";
+
+    guidVSStd97:cmdidAddClass,                  Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:1,               BUTTON,        ADDSYM_FLAGS|TEXTMENUUSEBUTTON|TEXTCONTEXTUSEBUTTON,                            "Add &Class...", "&Class...", "Add Class", "Add Class";
+    guidVSStd97:cmdidAddNestedClass,            Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ADDSYM_FLAGS,                                                                   "Add &Nested Class...";
+    guidVSStd97:cmdidAddInterface,              Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:19,              BUTTON,        ADDSYM_FLAGS,                                                                   "Add Inter&face...";      
+    guidVSStd97:cmdidAddMethod,                 Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:2,               BUTTON,        ADDSYM_FLAGS,                                                                   "Add &Method...";         
+    guidVSStd97:cmdidAddProperty,               Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:20,              BUTTON,        ADDSYM_FLAGS,                                                                   "Add Proper&ty...";
+    guidVSStd97:cmdidAddEvent,                  Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:21,              BUTTON,        ADDSYM_FLAGS,                                                                   "Add E&vent...";       
+    guidVSStd97:cmdidAddVariable,               Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:23,              BUTTON,        ADDSYM_FLAGS,                                                                   "Add Varia&ble...";
+    guidVSStd97:cmdidAddFunction,               Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:2,               BUTTON,        ADDSYM_FLAGS,                                                                   "Add F&unction...";       
+    guidVSStd97:cmdidAddConnectionPoint,        Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:29,              BUTTON,        ADDSYM_FLAGS,                                                                   "Add C&onnection Point...";
+    guidVSStd97:cmdidImplementInterface,        Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:22,              BUTTON,        ADDSYM_FLAGS,                                                                   "Imp&lement Interface...";
+    guidVSStd97:cmdidOverride,                  Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ADDSYM_FLAGS,                                                                   "&Override";
+    guidVSStd97:cmdidAddIndexer,                Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:28,              BUTTON,        ADDSYM_FLAGS,                                                                   "Add Inde&xer...";
+
+    guidVSStd97:cmdidDefineSubset,              Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTONLY|COMMANDWELLONLY,                                     "&...",                          "Edit Custom Component Set...",      "Edit Custom Component Set",     "Edit Custom Component Set",  "Edit Custom Component Set", "Edit Custom Component Set";
+
+    guidVSStd97:cmdidCVGroupingNone,            Group_Undefined:0, 0x0000,  MSO_ICON(SortUp),                         BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View &Sort Alphabetically",        "&Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd97:cmdidCVGroupingSortOnly,        Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:25,              BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Sort By &Type",               "Sort By &Type", "Sort By Type";
+    guidVSStd97:cmdidCVGroupingSortAccess,      Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:27,              BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Sort By Acc&ess",             "Sort By Acc&ess", "Sort By Access";
+    guidVSStd97:cmdidCVGroupingGrouped,         Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:26,              BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Group By T&ype",              "Group By T&ype", "Group By Type";
+    guidVSStd97:cmdidCVShowPackages,            Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:5,               BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Show &Projects",              "Show &Projects";
+    guidVSStd97:cmdidCVNewFolder,               Group_Undefined:0, 0x0000,  MSO_ICON(NewFolder),                      BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "Class View New Fol&der",                 "New Fol&der",                 ,       ,   "NewClassViewFolder";
+    guidVSStd2K:cmdidCVShowProjectReferences,   Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Show Project &References",    "Show Project &References", "Show Project References";
+
+    //guidVSStd97:cmdidOBShowPackages,            Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:5,               BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                            "Object Browser Show B&rowse Containers", "Show B&rowse Containers";
+    guidVSStd97:cmdidOBShowHidden,              Group_Undefined:0, 0x0000,  MSO_ICON(ObjectBrowserShowHiddenMembers), BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Show &Hidden Types And Members",    "Show &Hidden Types And Members", "Show Hidden Types And Members";
+    guidVSStd97:cmdidCVShowHidden,              Group_Undefined:0, 0x0000,  MSO_ICON(ObjectBrowserShowHiddenMembers), BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Show &Hidden Types And Members",    "Show &Hidden Types And Members", "Show Hidden Types And Members";
+    //guidVSStd97:cmdidOBEnableGrouping,          Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:6,               BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                            "Object Browser Gr&ouping and Sorting",   "Gr&ouping and Sorting";     
+    //guidVSStd97:cmdidOBSetGroupingCriteria,     Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:4,               BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                            "Object Browser Set Gro&uping",           "Set Gro&uping...";        
+    guidVSStd97:cmdidOBBack,                    Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:13,              BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "Object Browser &Back",                   "&Back",     "Back";
+    guidVSStd97:cmdidCVBack,                    Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:13,              BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "Class View &Back",                       "&Back",     "Back";
+    guidVSStd97:cmdidOBForward,                 Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:14,              BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "Object Browser &Forward",                "&Forward",  "Forward";
+    guidVSStd97:cmdidCVForward,                 Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:14,              BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "Class View &Forward",                "&Forward",  "Forward";
+    guidVSStd97:cmdidExpandAll,                 Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "Expand All";
+
+    //guidVSStd97:cmdidOBSearchOptWholeWord,      Group_Undefined:0, 0x0000,  guidFindIcon:3,                           BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Object Browser Filter Option Whole Word","Whole word";
+    //guidVSStd97:cmdidOBSearchOptSubstring,      Group_Undefined:0, 0x0000,  guidFindIcon:4,                           BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Object Browser Filter Option Substring", "Substring";
+    //guidVSStd97:cmdidOBSearchOptPrefix,         Group_Undefined:0, 0x0000,  guidFindIcon:5,                           BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Object Browser Filter Option Prefix",    "Prefix";
+    //guidVSStd97:cmdidOBSearchOptCaseSensitive,  Group_Undefined:0, 0x0000,  guidFindIcon:2,                           BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Object Browser Filter Option Match Case","Case";
+
+    guidVSStd2K:cmdidOBNamespacesView,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser View Objects by &Namespace", "View &Namespaces", "View Objects by Namespace";
+    guidVSStd2K:cmdidOBContainersView,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser View Objects by Physical &Container", "View &Containers", "View Objects by Physical Container";
+
+    guidVSStd2K:cmdidOBTypeBrowserSettings,     Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,                  BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Object Browser Settings", "Object Browser Settings";
+    guidVSStd2K:cmdidCVTypeBrowserSettings,     Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,                  BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Class View Settings",     "Class View Settings";
+
+    guidVSStd97:cmdidOBSortObjectsAlpha,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser &Sort Objects Alphabetically", "&Sort Alphabetically",    "Sort Objects Alphabetically";
+    guidVSStd97:cmdidCVSortObjectsAlpha,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View &Sort Objects Alphabetically",     "&Sort Alphabetically",    "Sort Objects Alphabetically";
+    guidVSStd97:cmdidOBSortObjectsType,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Sort Objects By &Type",        "Sort By Object &Type",    "Sort Objects By Type";
+    guidVSStd97:cmdidCVSortObjectsType,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Sort Objects By &Type",            "Sort By Object &Type",    "Sort Objects By Type";
+    guidVSStd97:cmdidOBSortObjectsAccess,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Sort Objects By Acc&ess",      "Sort By Object Acc&ess",  "Sort Objects By Access";
+    guidVSStd97:cmdidCVSortObjectsAccess,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Sort Objects By Acc&ess",          "Sort By Object Acc&ess",  "Sort Objects By Access";
+    guidVSStd97:cmdidOBGroupObjectsType,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Group Objects By T&ype",       "Gro&up By Object Type",   "Group Objects By Type";
+    guidVSStd97:cmdidCVGroupObjectsType,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Group Objects By T&ype",           "Gro&up By Object Type",   "Group Objects By Type";
+    
+    guidVSStd2K:cmdidOBSortByBestMatch,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,         "Object Browser Sort By Best &Match",          "Sort By Best Matc&h",     "Sort By Best Match";
+    guidVSStd2K:cmdidCVSortByBestMatch,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,         "Class View Sort By Best &Match",              "Sort By Best Matc&h",     "Sort By Best Match";
+    
+    //guidVSStd2K:cmdidFSRSortObjectsAlpha,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,         "Find symbol Results &Sort Objects Alphabetically",  "&Sort Alphabetically",    "Sort Alphabetically";
+    //guidVSStd2K:cmdidFSRSortByBestMatch,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,         "Find symbol Results Sort By Best &Match",           "Sort By Best Matc&h",     "Sort By Best Match";
+    
+    //guidVSStd97:cmdidOBGroupObjectsAccess,      Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:26,              BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Grou&p Objects By Access",   "Grou&p By Object Access", "Group Objects By Access";
+
+    guidVSStd2K:cmdidOBViewMembersAsImplementor,Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Show Private Me&mbers",   "Show Private Me&mbers",   "Show Private Members";
+    guidVSStd2K:cmdidCVViewMembersAsImplementor,Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Show Private Me&mbers",       "Show Private Me&mbers",   "Show Private Members";
+    guidVSStd2K:cmdidOBViewMembersAsSubclass,   Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Sho&w Protected Members", "Sho&w Protected Members", "Show Protected Members";
+    guidVSStd2K:cmdidCVViewMembersAsSubclass,   Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Show Protected Mem&bers",     "Show Protected Mem&bers", "Show Protected Members";
+    guidVSStd2K:cmdidOBViewMembersAsUser,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Show P&ublic Members",    "Show P&ublic Members",    "Show Public Members";
+    guidVSStd2K:cmdidCVViewMembersAsUser,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Show P&ublic Members",        "Show P&ublic Members",    "Show Public Members";
+    guidVSStd2K:cmdidOBViewOtherMembers,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Show &Other Members",     "Show &Other Members",     "Show Other Members";
+    guidVSStd2K:cmdidCVViewOtherMembers,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Show &Other Members",         "Show &Other Members",     "Show Other Members";
+    guidVSStd2K:cmdidOBShowInheritedMembers,    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Show &Inherited Members", "Show &Inherited Members", "Show Inherited Members";
+    guidVSStd2K:cmdidCVShowInheritedMembers,    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Show &Inherited Members",     "Show &Inherited Members", "Show Inherited Members";
+
+    guidVSStd2K:cmdidOBShowBaseTypes,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Show &Base Types",    "Show &Base Types",    "Show Base Types";
+    guidVSStd2K:cmdidCVShowBaseTypes,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Show &Base Types",        "Show &Base Types",    "Show Base Types";
+    guidVSStd2K:cmdidOBShowDerivedTypes,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Show &Derived Types", "Show &Derived Types", "Show Derived Types";
+    guidVSStd2K:cmdidCVShowDerivedTypes,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Show &Derived Types",     "Show &Derived Types", "Show Derived Types";
+
+    guidVSStd97:cmdidOBSortMembersAlpha,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser &Sort Members Alphabetically","&Sort Alphabetically",   "Sort Members Alphabetically";
+    guidVSStd97:cmdidCVSortMembersAlpha,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View &Sort Members Alphabetically",    "&Sort Alphabetically",   "Sort Members Alphabetically";
+    guidVSStd97:cmdidOBSortMembersType,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Sort Members By &Type",       "Sort By Member &Type",   "Sort Members By Type";
+    guidVSStd97:cmdidCVSortMembersType,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Sort Members By &Type",           "Sort By Member &Type",   "Sort Members By Type";
+    guidVSStd97:cmdidOBSortMembersAccess,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Sort Members By Acc&ess",     "Sort By Member Acc&ess", "Sort Members By Access";
+    guidVSStd97:cmdidCVSortMembersAccess,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Sort Members By Acc&ess",         "Sort By Member Acc&ess", "Sort Members By Access";
+    guidVSStd2K:cmdidOBGroupMembersType,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Gro&up Members By Type",      "Group By Member Ty&pe",  "Group Members By Type";
+    guidVSStd2K:cmdidCVGroupMembersType,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Gro&up Members By Type",          "Group By Member Ty&pe",  "Group Members By Type";
+
+    guidVSStd2K:cmdidOBSearch,                  Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,                 BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Object Browser Search", "Search", "Search";
+    guidVSStd2K:cmdidCVSearch,                  Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,                 BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|TEXTMENUCTRLUSEMENU,          "Class View Search", "Search", "Search";
+    guidVSStd2K:cmdidOBSearchCmd,               Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,                 BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|ALLOWPARAMS|TEXTMENUCTRLUSEMENU,  "Object Browser Search", "Search", "Search";
+    guidVSStd2K:cmdidCVSearchCmd,               Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,                 BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY|ALLOWPARAMS|TEXTMENUCTRLUSEMENU,  "Class View Search", "Search", "Search";
+    guidVSStd2K:cmdidOBGoToSearchCmd,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                               "Object Browser Go To Search Combo";
+    guidVSStd2K:cmdidCVGoToSearchCmd,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                               "Class View Go To Search Combo";
+    
+
+    guidVSStd2K:cmdidOBClearSearch,             Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:38,                 BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "Object Browser Clear Search", "Clear Search", "Clear Search";
+    guidVSStd2K:cmdidCVClearSearch,             Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:38,                 BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "Class View Clear Search", "Clear Search", "Clear Search";
+
+    guidVSStd2K:cmdidOBFilterToType,            Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:37,              BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "Object Browser Filter To &Type", "F&ilter To Type", "Filter To Type";
+    guidVSStd2K:cmdidCVFilterToType,            Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:37,              BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "Class View Filter To &Type", "F&ilter To Type", "Filter To Type";
+    
+    guidVSStd2K:cmdidOBAddReference,            Group_Undefined:0, 0x0000,  guidObjectBrowserButtons:36,              BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "Object Browser Add Reference", "Add Reference", "Add to References in Selected Project in Solution Explorer", "Add to References in Selected Project in Solution Explorer";
+
+    // Code Definition View context menu commands
+    guidVSStd2K:cmdidCodeDefViewGoToPrev,       Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:2,               BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Go To Pre&vious",                   "Go To Pre&vious",    "Go To Previous";
+    guidVSStd2K:cmdidCodeDefViewGoToNext,       Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:3,              BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "Go To &Next",                       "Go To &Next",        "Go To Next";
+    guidVSStd2K:cmdidCodeDefViewEditDefinition, Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "&Edit Definition",                  "&Edit Definition",   "Edit Definition";
+    guidVSStd2K:cmdidCodeDefViewChooseEncoding, Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|COMMANDWELLONLY,             "&Choose Encoding...",               "&Choose Encoding...", "Choose Encoding";
+
+    // Call Browser UI & context menus.
+    //guidVSStd2K:cmdidCallBrowserShowCallsTo,        Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,                       BUTTON,        DYNAMICVISIBILITY|TEXTCHANGESBUTTON,                                  "Show Calls &To", "Show Calls &To";
+    guidVSStd2K:cmdidCallBrowserShowCallsTo,        Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|TEXTMENUCTRLUSEMENU,          "Call Browser Show Call&ers Graph",                "Show Call&ers Graph",              "Show Callers Graph",               "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowserShowCallsFrom,      Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|TEXTMENUCTRLUSEMENU,          "Call Browser Show Call &Graph",                   "Show Call &Graph",                 "Show Call Graph",                  "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowserShowNewCallsTo,     Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|TEXTMENUCTRLUSEMENU,          "Call Browser Show Callers Graph In &New Window",  "Show Callers Graph In &New Window","Show Callers Graph In New Window", "Show Callers Graph In New Window";
+    guidVSStd2K:cmdidCallBrowserShowNewCallsFrom,   Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|TEXTMENUCTRLUSEMENU,          "Call Browser Show Call Graph In New &Window",     "Show Call Graph In New &Window",   "Show Call Graph In New Window",    "Show Call Graph In New Window";
+
+    // Call Browser commands (No UI, Command window only).
+    guidVSStd2K:cmdidCallBrowserShowCallsToCmd,      Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|TEXTMENUCTRLUSEMENU|ALLOWPARAMS|COMMANDWELLONLY,  "Call Browser Call&ers Graph",            "Show Call&ers Graph",                  "Callers Graph",            "Callers Graph";
+    guidVSStd2K:cmdidCallBrowserShowCallsFromCmd,    Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|TEXTMENUCTRLUSEMENU|ALLOWPARAMS|COMMANDWELLONLY,  "Call Browser Call &Graph",               "Show Call &Graph",                     "Call Graph",               "Call Graph";
+    guidVSStd2K:cmdidCallBrowserShowNewCallsToCmd,   Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|TEXTMENUCTRLUSEMENU|ALLOWPARAMS|COMMANDWELLONLY,  "Call Browser Call&ers Graph New Window", "Show Call&ers Graph in New Window",    "Callers Graph New Window", "Callers Graph New Window";
+    guidVSStd2K:cmdidCallBrowserShowNewCallsFromCmd, Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|TEXTMENUCTRLUSEMENU|ALLOWPARAMS|COMMANDWELLONLY,  "Call Browser Call &Graph New Window",    "Show Call &Graph in New Window",       "Call Graph New Window",    "Call Graph New Window";
+
+    guidVSStd2K:cmdidCallBrowser1ShowCallsTo,       Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser2ShowCallsTo,       Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser3ShowCallsTo,       Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser4ShowCallsTo,       Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser5ShowCallsTo,       Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser6ShowCallsTo,       Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser7ShowCallsTo,       Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser8ShowCallsTo,       Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser9ShowCallsTo,       Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser10ShowCallsTo,      Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser11ShowCallsTo,      Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser12ShowCallsTo,      Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser13ShowCallsTo,      Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser14ShowCallsTo,      Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser15ShowCallsTo,      Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+    guidVSStd2K:cmdidCallBrowser16ShowCallsTo,      Group_Undefined:0, 0x0000,  guidCallBrowserButtons:2,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call&ers Graph", "Show Call&ers Graph", "Show Callers Graph", "Show Callers Graph";
+
+    guidVSStd2K:cmdidCallBrowser1ShowCallsFrom,     Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser2ShowCallsFrom,     Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser3ShowCallsFrom,     Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser4ShowCallsFrom,     Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser5ShowCallsFrom,     Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser6ShowCallsFrom,     Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser7ShowCallsFrom,     Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser8ShowCallsFrom,     Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser9ShowCallsFrom,     Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser10ShowCallsFrom,    Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser11ShowCallsFrom,    Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser12ShowCallsFrom,    Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser13ShowCallsFrom,    Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser14ShowCallsFrom,    Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser15ShowCallsFrom,    Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+    guidVSStd2K:cmdidCallBrowser16ShowCallsFrom,    Group_Undefined:0, 0x0000,  guidCallBrowserButtons:3,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Show Call &Graph", "Show Call &Graph", "Show Call Graph", "Show Call Graph";
+
+    guidVSStd2K:cmdidCallBrowser1Settings,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser2Settings,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser3Settings,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser4Settings,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser5Settings,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser6Settings,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser7Settings,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser8Settings,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser9Settings,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser10Settings,         Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser11Settings,         Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser12Settings,         Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser13Settings,         Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser14Settings,         Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser15Settings,         Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    guidVSStd2K:cmdidCallBrowser16Settings,         Group_Undefined:0, 0x0000,  guidCallBrowserButtons:5,             BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER|COMMANDWELLONLY,                       "Call Browser Settings", "Call Browser Settings";
+    
+    guidVSStd2K:cmdidCallBrowser1ShowFullNames,     Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser2ShowFullNames,     Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser3ShowFullNames,     Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser4ShowFullNames,     Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser5ShowFullNames,     Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser6ShowFullNames,     Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser7ShowFullNames,     Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser8ShowFullNames,     Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser9ShowFullNames,     Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser10ShowFullNames,    Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser11ShowFullNames,    Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser12ShowFullNames,    Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser13ShowFullNames,    Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser14ShowFullNames,    Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser15ShowFullNames,    Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    guidVSStd2K:cmdidCallBrowser16ShowFullNames,    Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Show Fully &Qualified Names", "Show Fully &Qualified Names", "Show Fully Qualified Names", "Show Fully Qualified Names";
+    
+    guidVSStd2K:cmdidCallBrowser1SortAlpha,         Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser2SortAlpha,         Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser3SortAlpha,         Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser4SortAlpha,         Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser5SortAlpha,         Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser6SortAlpha,         Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser7SortAlpha,         Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser8SortAlpha,         Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser9SortAlpha,         Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser10SortAlpha,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser11SortAlpha,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser12SortAlpha,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser13SortAlpha,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser14SortAlpha,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser15SortAlpha,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    guidVSStd2K:cmdidCallBrowser16SortAlpha,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort &Alphabetically", "Sort &Alphabetically", "Sort Alphabetically", "Sort Alphabetically";
+    
+    guidVSStd2K:cmdidCallBrowser1SortAccess,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser2SortAccess,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser3SortAccess,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser4SortAccess,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser5SortAccess,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser6SortAccess,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser7SortAccess,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser8SortAccess,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser9SortAccess,        Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser10SortAccess,       Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser11SortAccess,       Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser12SortAccess,       Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser13SortAccess,       Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser14SortAccess,       Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser15SortAccess,       Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+    guidVSStd2K:cmdidCallBrowser16SortAccess,       Group_Undefined:0, 0x0000,  NO_ICON,                              BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY|DONTCACHE,                                    "Sort By A&ccess", "Sort By A&ccess", "Sort By Access", "Sort By Access";
+
+    guidVSStd2K:cmdidCallBrowser1Search,            Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser2Search,            Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser3Search,            Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser4Search,            Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser5Search,            Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser6Search,            Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser7Search,            Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser8Search,            Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser9Search,            Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser10Search,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser11Search,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser12Search,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser13Search,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser14Search,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser15Search,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+    guidVSStd2K:cmdidCallBrowser16Search,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:4,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Search", "Search", "Search", "Search";
+
+    guidVSStd2K:cmdidCallBrowser1Refresh,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser2Refresh,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser3Refresh,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser4Refresh,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser5Refresh,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser6Refresh,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser7Refresh,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser8Refresh,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser9Refresh,           Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser10Refresh,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser11Refresh,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser12Refresh,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser13Refresh,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser14Refresh,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser15Refresh,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+    guidVSStd2K:cmdidCallBrowser16Refresh,          Group_Undefined:0, 0x0000,  guidCallBrowserButtons:6,             BUTTON,        DYNAMICVISIBILITY|COMMANDWELLONLY,                                              "Call Browser Refresh", "Refresh", "Refresh", "Refresh";
+
+    // PropBrs Context Menu Commands
+    guidVSStd97:cmdidPbrsToggleStatus,          Group_Undefined:0, 0x0000,  MSO_ICON(StatusBar),                      BUTTON,        ,                                                                               "&Description";
+    guidVSStd97:cmdidPropbrsHide,               Group_Undefined:0, 0x0000,  MSO_ICON(HideWindow),                     BUTTON,        ,                                                                               "&Hide";
+
+    guidVSStd97:cmdidPRSortAlphabeticaly,       Group_Undefined:0, 0x0000,  MSO_ICON(SortUp),                         BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "Sort Properties Alphabetically",         "Sort Alphabetically";
+    guidVSStd97:cmdidPRSortByCategory,          Group_Undefined:0, 0x0000,  guidSharedBmps4:bmpid4SortCategory,       BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "Sort Properties By Category",            "Sort By Category";
+//  guidVSStd97:cmdidPRViewPropertyPages,       Group_Undefined:0, 0x0000,  MSO_ICON(ViewPropertyPages),              BUTTON,        DYNAMICVISIBILITY|DEFAULTDISABLED|COMMANDWELLONLY,                              "View Property Pages",                    "Property Pages";
+
+
+    // Dockable / Hide commands
+    guidVSStd97:cmdidDockingView,               Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Doc&kable";
+    guidVSStd97:cmdidDockingViewFloater,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "&Floating";
+    guidVSStd97:cmdidDockingViewDocument,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "&Tabbed Document";
+    guidVSStd97:cmdidHideActivePane,            Group_Undefined:0, 0x0000,  MSO_ICON(HideWindow),                     BUTTON,        ,                                                                               "&Hide";
+    guidVSStd97:cmdidAutoHideWindow,            Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "&Auto Hide";
+    guidVSStd97:cmdidAutoHideAllWindows,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "A&uto Hide All";
+// removed as requested cmcguire 8/13/2003
+//    guidVSStd97:cmdidDisableDockingChanges,     Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "&Disable Docking Changes";
+// removed as requested cmcguire 10/22/2003
+//    guidVSStd97:cmdidToggleFloat,               Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TEXTCHANGES,                                                  "&Toggle Floating";
+    guidVSStd97:cmdidResetLayout,               Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "&Reset Window Layout";
+
+
+    guidVSStd97:cmdidCancelEZDrag,              Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "C&ancel";
+    guidVSStd97:cmdidMoveToNextEZCntr,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Move to Ne&xt Tab Group";
+    guidVSStd97:cmdidMoveToPreviousEZCntr,      Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY,                                                              "Move to P&revious Tab Group";
+    
+// the starter item  for the ezmdi open files context menu
+    guidEzMDI:cmdidEzMDIFile1,                  Group_Undefined:0, 0x0000,  MSO_ICON(Open),                           BUTTON,        DYNAMICVISIBILITY|DYNAMICITEMSTART|TEXTCHANGES|DONTCACHE,                       "EzMDI File List";
+// this command will have no default placement, it will be used by accelerator to invoke the above menu
+    guidVSStd2K:cmdidShowEzMDIFileMenu,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Show EzMDI File List", , "File List", "Show File List";
+
+    // MenuDesigner Context Menu commands
+    guidVSStd97:cmdidInsertNewMenu,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|ROUTETODOCS,                                 "&Insert New";
+    guidVSStd97:cmdidInsertSeparator,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|ROUTETODOCS,                                 "Insert &Separator";
+    guidVSStd97:cmdidEditMenuNames,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|ROUTETODOCS,                                 "&Edit Names";
+    guidVSStd97:cmdidEditMenuIDs,               Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|ROUTETODOCS,                                 "&Edit IDs";
+    guidVSStd97:cmdidCode,                      Group_Undefined:0, 0x0000,  MSO_ICON(CodeWindow),                     BUTTON,        DYNAMICVISIBILITY|DEFAULTINVISIBLE|ROUTETODOCS,                                 "&View Code";
+
+    // Standard Toolbar commands
+    guidVSStd97:cmdidMultiLevelUndo,            Group_Undefined:0, 0x0000,  MSO_ICON(Undo),                           SPLITDROPDOWN, COMMANDWELLONLY,                                                                "&Undo", , , "MultiLevel Undo";
+    guidVSStd97:cmdidMultiLevelRedo,            Group_Undefined:0, 0x0000,  MSO_ICON(Redo),                           SPLITDROPDOWN, COMMANDWELLONLY,                                                                "&Redo", , , "MultiLevel Redo";
+
+    guidVSStd97:cmdidShellNavBackward,          Group_Undefined:0, 0x0000,  guidSHLMainMenu:17,                       BUTTON,        FIXMENUCONTROLLER|NOSHOWONMENUCONTROLLER,                                       "Navigate &Backward", , , ;
+    guidVSStd97:cmdidShellNavForward,           Group_Undefined:0, 0x0000,  guidSHLMainMenu:18,                       BUTTON,        ,                                                                               "Navigate &Forward", , , ;
+    guidVSStd97:cmdidShellNavigate1,            Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DYNAMICITEMSTART|TEXTCHANGES|DONTCACHE,                       "Navigate To";
+    guidVSStd97:cmdidShellWindowNavigate1,      Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DYNAMICITEMSTART|TEXTCHANGES,                                 "Navigate To Window";
+
+    // generic back/forward, not shown on the menus, but processed by different toolwindows (OB, CV, WB)
+    guidVSStd2K:cmdidNavigateBack,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DEFAULTDISABLED|COMMANDWELLONLY,                                                 "&Backward";
+    guidVSStd2K:cmdidNavigateForward,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DEFAULTDISABLED|COMMANDWELLONLY,                                                 "&Forward";
+        
+    // Toolbox component Context Menu
+    guidVSStd97:cmdidToolboxAddItem,            Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|TextMenuUseButton,                                            "Choose Toolbo&x Items...", "Choose &Items...", "Add/Remove Toolbox Items", "Add/Remove Toolbox Items", "Add/Remove Toolbox Items", "Add/Remove Toolbox Items";
+    guidVSStd97:cmdidToolboxRenameItem,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY|DYNAMICVISIBILITY,                                              "&Rename Item",,,   "Toolbox Rename Item";
+    guidVSStd97:cmdidToolboxReset,              Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "R&eset Toolbox", "R&eset Toolbox";
+
+    // Toolbox tab Context Menu
+    guidVSStd97:cmdidToolboxDeleteTab,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY|DYNAMICVISIBILITY,                                              "&Delete Tab",,,    "Toolbox Delete Tab";
+    guidVSStd97:cmdidToolboxRenameTab,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY|DYNAMICVISIBILITY,                                              "&Rename Tab",,,    "Toolbox Rename Tab";
+
+    // Toolbox tab/item Context Menu
+    guidVSStd97:cmdidToolboxAddTab,             Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY|DYNAMICVISIBILITY,                                              "&Add Tab",,,       "Toolbox Add Tab";
+    guidVSStd97:cmdidToolboxSortItems,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "S&ort Items Alphabetically",,,    "Toolbox Sort Items";
+    guidVSStd97:cmdidToolboxShowAllTabs,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "&Show All",,,      "Toolbox Show All";
+    guidVSStd97:cmdidToolboxListView,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "&List View",,,     "Toolbox List View";
+
+    // Toolbox tab/item move Context Menu
+    guidVSStd97:cmdidToolboxTabMoveUp,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Move &Up",,,       "Toolbox Move Tab Up";
+    guidVSStd97:cmdidToolboxTabMoveDown,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Move Do&wn",,,     "Toolbox Move Tab Down";
+
+    // New File/Add New Item Open button drop-down menu
+    guidVSStd97:cmdidOpenDropDownOpen,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "&Open";
+    guidVSStd97:cmdidOpenDropDownOpenWith,      Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Open &With...";
+
+    // External Tools Args Cur Menu
+    guidVSStd97:cmdidExtToolsCurPath,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Item Pat&h",,,      "Insert the Current Item's Path";
+    guidVSStd97:cmdidExtToolsCurDir,            Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "&Item Directory",,, "Insert the Current Item's Directory";
+    guidVSStd97:cmdidExtToolsCurFileName,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Item &File Name",,, "Insert the Current Item's File Name";
+    guidVSStd97:cmdidExtToolsCurExtension,      Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Item E&xtension",,, "Insert the Current Item's File Extension";
+
+    // External Tools Args Target Menu
+    guidVSStd97:cmdidExtToolsTargetPath,        Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "T&arget Path",,,      "Insert the Current Project's Build Target Path";
+    guidVSStd97:cmdidExtToolsTargetDir,         Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Ta&rget Directory",,, "Insert the Current Project's Build Target Directory";
+    guidVSStd97:cmdidExtToolsTargetFileName,    Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Tar&get Name",,,      "Insert the Current Project's Build Target Name";
+    guidVSStd97:cmdidExtToolsTargetExtension,   Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Targ&et Extension",,, "Insert the Current Project's Build Target File Extension";
+
+    // External Tools Args Editor Menu
+    guidVSStd97:cmdidExtToolsCurLine,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "C&urrent Line",,,     "Insert the Current Line Position";
+    guidVSStd97:cmdidExtToolsCurCol,            Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Current &Column",,,   "Insert the Current Column Position";
+    guidVSStd97:cmdidExtToolsCurText,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Current &Text",,,     "Insert the Selected Text";
+
+    // External Tools Args Proj Menu
+    guidVSStd97:cmdidExtToolsProjDir,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "&Project Directory",,,     "Insert the Current Project's Directory";
+    guidVSStd97:cmdidExtToolsProjFileName,      Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Project File &Name",,,     "Insert the Current Project's File Name";
+                                                                                                                                    
+    // External Tools Args Sln Menu                                                                                                 
+    guidVSStd97:cmdidExtToolsSlnDir,            Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "&Solution Directory",,,     "Insert the Current Solution's Directory";
+    guidVSStd97:cmdidExtToolsSlnFileName,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Solution Fi&le Name",,,     "Insert the Current Solution's File Name";
+
+    // Stub (unloaded/placeholder) Project  Context Menu
+    guidVSStd97:cmdidLoadUnloadedProject,       Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        ,                                                                               "&Load Project";
+
+    // Find Tool Window commands
+    guidVSStd97:cmdidFindStop,                  Group_Undefined:0, 0x0000,  guidToolWindowGotoButtons:6,              BUTTON,        COMMANDWELLONLY,                                                                "Stop Search",             , "Stops a background Find",                           "Stop Find";
+    guidVSStd97:cmdidFindNext,                  Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Find Next",               , "Finds the next occurrence",                         "Find Next";
+    guidVSStd97:cmdidFindPrev,                  Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Find Previous",           , "Finds the previous occurrence",                     "Find Previous";
+    guidVSStd97:cmdidFindSelectedNext,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Find Next (Selected)",    , "Finds the next occurrence of the selected text",    "Find Next (Selected)";
+    guidVSStd97:cmdidFindSelectedPrev,          Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        COMMANDWELLONLY,                                                                "Find Previous (Selected)",, "Finds the previous occurrence of the selected text", "Find Previous (Selected)";
+
+    // commands on the CodeWindow context menu
+    guidVSStd97:cmdidMarkerCmd0,                Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DYNAMICVISIBILITY|DYNAMICITEMSTART|TEXTCHANGES,                                 "Marker Commands";
+
+    // no commands context menu
+    guidVSStd97:cmdidNoCmdsAvailable,           Group_Undefined:0, 0x0000,  NO_ICON,                                  BUTTON,        DEFAULTDISABLED,                                                                "No Commands Available";
+
+  APPID_BUTTONS_END
+
+  APPID_COMBOS_BEGIN
+    // GUID:CMDID                               PRIMARY GROUP      PRIORITY CMDID to get list         COMBO WIDTH COMBOYPE       FLAGS                                                                           BUTTONTEXT                        MENUTEXT                  TOOLTIPTXT                      COMMANDNAME                CANONICAL                 LOCALIZEDCANONICAL
+#if 0                                   
+    guidVSStd97:cmdidWindowUIList,              Group_Undefined:0, 0x0000,  cmdidWindowUIGetList,     100,        DROPDOWNCOMBO, DYNAMICVISIBILITY,                                                              "Load/Save Window UI";
+#endif                                  
+    guidVSStd97:cmdidSearchCombo,               Group_Undefined:0, 0x0000,  cmdidSearchGetList,       185,        DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS,                        "Find",                           ,                         ,                               "Go To Find Combo",        "Go To Find Combo",       "Go To Find Combo";
+    guidVSStd97:cmdidOBSearchCombo,             Group_Undefined:0, 0x0000,  cmdidOBSearchMRUList,     20,         DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Object Browser Search";
+    guidVSStd97:cmdidCVSearchCombo,             Group_Undefined:0, 0x0000,  cmdidCVSearchMRUList,     20,         DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Class View Search";
+    guidVSStd97:cmdidSubsetCombo,               Group_Undefined:0, 0x0000,  cmdidSubsetGetList,       260,        DROPDOWNCOMBO, DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED|ICONANDTEXT|COMMANDWELLONLY, "Browse: ",                       "Object Browsing Scope:", "Choose object browsing scope", "Object Browsing Scope",   "Object Browsing Scope",  "Object Browsing Scope";
+    guidVSStd97:cmdidSolutionCfg,               Group_Undefined:0, 0x0000,  cmdidSolutionCfgGetList,  90,        DROPDOWNCOMBO, DYNAMICVISIBILITY|DEFAULTINVISIBLE|COMMANDWELLONLY,                              "Solution Configurations";
+    guidVSStd2K:cmdidSolutionPlatform,          Group_Undefined:0, 0x0000,  cmdidSolutionPlatformGetList,  160,   DROPDOWNCOMBO, DYNAMICVISIBILITY|DEFAULTINVISIBLE|COMMANDWELLONLY,                             "Solution Platforms";
+    guidVSStd2K:cmdidOutputPaneCombo,           Group_Undefined:0, 0x0000,  cmdidOutputPaneComboList, 300,        DROPDOWNCOMBO, DYNAMICVISIBILITY|ICONANDTEXT,                                                  "&Show output from: ";
+    guidVSStd2K:cmdidTaskListProviderCombo,     Group_Undefined:0, 0x0000,  cmdidTaskListProviderComboList, 250,  DROPDOWNCOMBO, DYNAMICVISIBILITY,                                                              "&Categories";
+    guidVSStd2K:cmdidCallBrowser1SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser1SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser2SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser2SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser3SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser3SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser4SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser4SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser5SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser5SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser6SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser6SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser7SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser7SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser8SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser8SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser9SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser9SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser10SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser10SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser11SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser11SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser12SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser12SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser13SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser13SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser14SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser14SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser15SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser15SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+    guidVSStd2K:cmdidCallBrowser16SearchCombo,   Group_Undefined:0, 0x0000,  cmdidCallBrowser16SearchComboList, 20, DYNAMICCOMBO,  CaseSensitive|NoAutoComplete|COMMANDWELLONLY|FILTERKEYS|STRETCHHORIZONTALLY,    "Call Browser Search";
+  APPID_COMBOS_END
+
+  BITMAPS_BEGIN
+    guidErrorListIcon:IDBMP_ERRORLIST, 1;
+    guidSHLMainMenu:IDBMP_SHELLCUSTOMBUTTONS, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38;
+    guidObjectBrowserButtons:IDBMP_OBJECTBROWSERBUTTONS, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38;
+    guidBuildCmdIcons:IDBMP_BUILD_BUTTONS, 1, 2, 3, 4;
+    guidUFindIcon:IDBMP_UFINDBUTTONS, 1, 2, 3;
+    guidBookmarkIcon:IDBMP_BOOKMARKBUTTONS, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18;
+    guidCallBrowserButtons:IDBMP_CALLBROWSERBUTTONS, 1, 2, 3, 4, 5, 6;
+    guidCodeDefViewButtons:IDBMP_CODEDEFVIEWBUTTONS, 1;
+    guidToolWindowGotoButtons:IDBMP_TOOLWINDOWGOTOBUTTONS, 1, 2, 3, 4, 5, 6;
+    guidServerExpIcon:IDBMP_SERVEREXP_IMAGES, 1, 2, 3, 4, 5, 6, 7;
+BITMAPS_END
+
+CMDS_END
+
+#ifndef VSE
+CMDS_SECTION CLSID_VsTaskListPackage
+  APPID_BUTTONS_BEGIN
+    // GUID:CMDID                                                  PRIMARY GROUP      PRIORITY ICONID   BUTTONTYPE  FLAGS                                                               BUTTONTEXT               MENUTEXT       TOOLTIPTXT         COMMANDNAME
+
+    CLSID_VsTaskListPackage:cmdidTaskListNextError,                Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     DEFAULTDISABLED,                                                    "Ne&xt Task",            ,              ,                  "Next Task";
+    CLSID_VsTaskListPackage:cmdidTaskListPrevError,                Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     DEFAULTDISABLED,                                                    "P&revious Task",        ,              ,                  "Previous Task";
+    CLSID_VsTaskListPackage:cmdidErrorListNextError,               Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     DEFAULTDISABLED|COMMANDWELLONLY,                                    "Ne&xt Error",           ,              ,                  "Next Error";
+    CLSID_VsTaskListPackage:cmdidErrorListPrevError,               Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     DEFAULTDISABLED|COMMANDWELLONLY,                                    "P&revious Error",       ,              ,                  "Previous Error";
+    CLSID_VsTaskListPackage:cmdidTaskListTaskHelp,                 Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Show Task &Help";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle1,            Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column1",                ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle2,            Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column2",                ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle3,            Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column3",                ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle4,            Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column4",                ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle5,            Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column5",                ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle6,            Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column6",                ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle7,            Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column7",                ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle8,            Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column8",                ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle9,            Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column9",                ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle10,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column10",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle11,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column11",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle12,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column12",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle13,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column13",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle14,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column14",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle15,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column15",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle16,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column16",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle17,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column17",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle18,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column18",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle19,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column19",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle20,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column20",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle21,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column21",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle22,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column22",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle23,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column23",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle24,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column24",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnToggle25,           Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column25",               ,           ,                   "Show Or Hide Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort1,              Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column1",                ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort2,              Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column2",                ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort3,              Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column3",                ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort4,              Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column4",                ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort5,              Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column5",                ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort6,              Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column6",                ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort7,              Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column7",                ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort8,              Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column8",                ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort9,              Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column9",                ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort10,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column10",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort11,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column11",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort12,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column12",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort13,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column13",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort14,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column14",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort15,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column15",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort16,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column16",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort17,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column17",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort18,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column18",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort19,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column19",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort20,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column20",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort21,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column21",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort22,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column22",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort23,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column23",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort24,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column24",               ,           ,                   "Sort Column";
+    CLSID_VsTaskListPackage:cmdidTaskListColumnSort25,             Group_Undefined:0, 0x0000,  NO_ICON, BUTTON,     TEXTCHANGES|DEFAULTDISABLED|DEFAULTINVISIBLE|DYNAMICVISIBILITY|COMMANDWELLONLY, "Column25",               ,           ,                   "Sort Column";
+
+  APPID_BUTTONS_END
+
+  APPID_COMBOS_BEGIN
+    // GUID:CMDID                                                  PRIMARY GROUP       PRIORITY  CMDID to get list     COMBO WIDTH     COMBOYPE              FLAGS                   BUTTONTEXT              MENUTEXT              TOOLTIPTXT        COMMANDNAME
+  APPID_COMBOS_END
+
+CMDS_END
+#endif //!VSE
+
+// Commands for document outline package
+CMDS_SECTION guidDocOutlinePkg
+
+  APPID_BUTTONS_BEGIN
+    // GUID:CMDID                               PRIMARY GROUP      PRIORITY ICONID                              BUTTONTYPE    FLAGS                                                BUTTONTEXT                MENUTEXT                TOOLTIPTXT        COMMANDNAME
+    guidDocOutlinePkg:cmdidSyncOutline,         Group_Undefined:0, 0x0000,  NO_ICON,                            BUTTON,       DYNAMICVISIBILITY|DEFAULTINVISIBLE|DEFAULTDISABLED,  "Synchroni&ze Document Outline";
+  APPID_BUTTONS_END
+
+CMDS_END
+
+CMDS_SECTION guidCommonIDEPackage
+
+    APPID_BUTTONS_BEGIN
+    // GUID:CMDID                                          PRIMARY GROUP            PRIORITY  ICONID               BUTTONTYPE    FLAGS                       BUTTONTEXT                                MENUTEXT                TOOLTIPTXT        COMMANDNAME
+    //guidCommonIDEPackageCmd:cmdidControlGallery,           Group_Undefined:0,        0x0000,   NO_ICON,             BUTTON,       ,                           "Add O&nline Community Control...";
+    APPID_BUTTONS_END
+
+CMDS_END
+
+// Commands for VSDesigner Package
+
+CMDS_SECTION guid_VSDesignerPackage
+
+  APPID_BUTTONS_BEGIN
+    // GUID:CMDID                               PRIMARY GROUP         PRIORITY ICONID                       BUTTONTYPE    FLAGS               BUTTONTEXT                MENUTEXT                TOOLTIPTXT        COMMANDNAME
+    guidVSStd2K:cmdid_SE_ServerExplorer,        Group_Undefined:0,    0x0000,  guidServerExpIcon:3,         BUTTON,       ,                   "Ser&ver Explorer";
+    guidVSStd2K:cmdid_SE_DataExplorer,          Group_Undefined:0,    0x0000,  guidServerExpIcon:3,         BUTTON,       ,                   "&Database Explorer";
+  APPID_BUTTONS_END
+
+CMDS_END
+

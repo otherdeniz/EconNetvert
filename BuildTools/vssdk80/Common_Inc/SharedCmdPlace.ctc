@@ -1,0 +1,1798 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+// File: SharedCmdPlace.ctc
+//
+// Common menu command placements
+//
+////////////////////////////////////////////////////////////////////////////////
+#include "stdidcmd.h"
+#include "vsshlids.h"
+#include "sharedids.h"
+#include "wbids.h"
+#include "msobtnid.h"
+#include "virtkeys.h"
+
+
+CMDS_SECTION Pkg_Undefined
+   MENUS_BEGIN
+        // GUID:MENUID                                    PARENT GROUP                                PRIORITY    TYPE                            COMMANDTEXT             MENUTEXT
+
+        // toolbars
+        guidSHLMainMenu:IDM_VS_TOOL_CLASSVIEW,            guidSHLMainMenu:IDM_VS_TOOL_CLASSVIEW,      0x0000,     TOOLWINDOWTOOLBAR|ALWAYSCREATE, "Class View",           "Class View";
+        guidSHLMainMenu:IDM_VS_TOOL_CLASSVIEW_GO,         guidSHLMainMenu:IDM_VS_TOOL_CLASSVIEW_GO,   0x0000,     TOOLWINDOWTOOLBAR|ALWAYSCREATE, "Class View Go Toolbar", "Class View Go Toolbar";
+
+        guidSHLMainMenu:IDM_VS_TOOL_PROPERTIES,           guidSHLMainMenu:IDM_VS_TOOL_PROPERTIES,     0x0000,     TOOLWINDOWTOOLBAR|ALWAYSCREATE, "Properties",           "Properties";
+        
+#ifndef VSE
+        // These toolbars need to be defined at vs level for office. (Bug 150574)
+        guidSHLMainMenu:IDM_VS_TOOL_SCHEMA,               guidSHLMainMenu:IDM_VS_TOOL_SCHEMA,         0x0000,     TOOLBAR | DEFAULTDOCKED     ,   "XML Schema",           "XML Schema";
+        guidSHLMainMenu:IDM_VS_TOOL_DATA,                 guidSHLMainMenu:IDM_VS_TOOL_DATA,           0x0000,     TOOLBAR | DEFAULTDOCKED     ,   "XML Data",             "XML Data";
+#endif //!VSE
+
+        // table menu
+        guidSharedMenuGroup:IDM_VS_LAYOUT_MENU,           guidSHLMainMenu:IDG_VS_MM_TOOLSADDINS,      0x0201,     ,                               "La&yout",               "La&yout";
+
+        // cascading menus
+        guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_FONT,      guidSharedMenuGroup:IDG_VS_FORMAT_PARAGRAPH,0x0100,     ,                               "&Font",                "&Font";
+        guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_JUSTIFY,   guidSharedMenuGroup:IDG_VS_FORMAT_PARAGRAPH,0x0200,     ,                               "&Justify",             "&Justify";
+        guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_ALIGN,     guidSharedMenuGroup:IDG_VS_FORMAT_ALIGN,    0x0100,     ,                               "Align",                "&Align";
+        guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_SIZE,      guidSharedMenuGroup:IDG_VS_FORMAT_ALIGN,    0x0200,     ,                               "Make Same Size",       "&Make Same Size";
+        guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_SPACE_X,   guidSharedMenuGroup:IDG_VS_FORMAT_SPACE,    0x0100,     ,                               "Horizontal Spacing",   "&Horizontal Spacing";
+        guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_SPACE_Y,   guidSharedMenuGroup:IDG_VS_FORMAT_SPACE,    0x0200,     ,                               "Vertical Spacing",     "&Vertical Spacing";
+        guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_CENTER,    guidSharedMenuGroup:IDG_VS_FORMAT_CENTER,   0x0100,     ,                               "Center in Form",       "&Center in Form";
+        guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_ORDER,     guidSharedMenuGroup:IDG_VS_FORMAT_ORDER,    0x0100,     ,                               "Order",                "&Order";
+        guidSharedMenuGroup:IDM_VS_CSCD_LAYOUT_POSITION,  guidSharedMenuGroup:IDG_VS_LAYOUT_POSITION, 0x0100,     ,                               "Position",             "&Position";
+        guidSharedMenuGroup:IDM_VS_CSCD_TABLE_INSERT,     guidSharedMenuGroup:IDG_VS_TABLE_MAIN,      0x0200,     ,                               "&Insert",              "&Insert";
+        guidSharedMenuGroup:IDM_VS_CSCD_TABLE_DELETE,     guidSharedMenuGroup:IDG_VS_TABLE_MAIN,      0x0300,     ,                               "&Delete",              "&Delete";
+        guidSharedMenuGroup:IDM_VS_CSCD_TABLE_SELECT,     guidSharedMenuGroup:IDG_VS_TABLE_MAIN,      0x0400,     ,                               "&Select",              "&Select";
+        guidSharedMenuGroup:IDM_VS_CSCD_TABLE_RESIZE,     guidSharedMenuGroup:IDG_VS_TABLE_MAIN,      0x0500,     ,                               "&Resize",              "&Resize";
+        guidSharedMenuGroup:IDM_VS_CSCD_PROJECT_WEB,      guidSharedMenuGroup:IDG_VS_PROJ_PROJECT,    0x0300,     ,                               "We&b Project",         "We&b Project";
+#ifndef VSE
+#ifndef No_Multi_Project_Solutions
+        guidSHLMainMenu:IDM_VS_CSCD_SOLUTION_ADD,         guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_ADD,   0x0100,     ,                               "Add",                  "A&dd";
+#endif // No_Multi_Project_Solutions
+#endif //!VSE
+        guidSHLMainMenu:IDM_VS_CSCD_PROJECT_ADD,          guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD,    0x0100,     ,                               "Add",                  "A&dd";
+        guidSHLMainMenu:IDM_VS_CSCD_PROJECT_DEBUG,        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_START,  0x0200,     ,                               "Debu&g",               "Debu&g";
+
+        guidSHLMainMenu:IDM_VS_CSCD_SLNFLDR_ADD,          guidSHLMainMenu:IDG_VS_CTXT_SLNFLDR_ADD,    0x0100,     ,                               "Add",                  "A&dd";
+
+        guidSHLMainMenu:IDM_VS_CSCD_CV_PROJADD,           guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJADD,   0x0100,     ,                              "Add",                  "Add";
+        guidSHLMainMenu:IDM_VS_CSCD_CV_ITEMADD,           guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMADD,   0x0100,    ,                               "Add",                  "Add";
+
+        guidStdEditor:IDM_VS_EDITOR_ADVANCED_MENU,        guidStdEditor:IDG_VS_EDITOR_LANGUAGE_INFO,  0xFE00,     ,                               "Ad&vanced",            "Ad&vanced";
+        guidStdEditor:IDM_VS_EDITOR_BOOKMARK_MENU,        guidStdEditor:IDG_VS_EDITOR_LANGUAGE_INFO,  0xFF00,     ,                               "Boo&kmarks",           "Boo&kmarks";
+        guidStdEditor:IDM_VS_EDITOR_OUTLINING_MENU,       guidStdEditor:IDG_VS_EDITOR_LANGUAGE_INFO,  0xFF80,     ,                               "&Outlining",           "&Outlining";
+        guidStdEditor:IDM_VS_EDITOR_INTELLISENSE_MENU,    guidStdEditor:IDG_VS_EDITOR_LANGUAGE_INFO,  0xFFF0,     ,                               "&IntelliSense",         "&IntelliSense";
+        guidStdEditor:IDM_VS_TOOL_TEXTEDITOR,             guidStdEditor:IDM_VS_TOOL_TEXTEDITOR,       0x0000,     TOOLBAR|DEFAULTDOCKED,          "Text Editor",          "Text Editor";
+
+        // Context menus
+        // Solution Explorer
+#ifndef No_Project_And_Solution_Shortcut_Menus
+        guidSHLMainMenu:IDM_VS_CTXT_SOLNEXPL_ALL,         guidSHLMainMenu:IDG_VS_MENU_CONTEXTMENUS,   0x0040,      CONTEXT | NOTINTBLIST | NOCUSTOMIZE,         "Project and Solution Context Menus";
+#endif // No_Project_And_Solution_Shortcut_Menus
+        guidSHLMainMenu:IDM_VS_CTXT_MISCFILESPROJ,        guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0100,      CONTEXT | NOTINTBLIST,         "Misc Files Project";
+#ifndef No_Solution_Folder_Commands
+        guidSHLMainMenu:IDM_VS_CTXT_SOLNFOLDER,           guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Solution Folder";
+#endif // No_Solution_Folder_Commands
+        guidSHLMainMenu:IDM_VS_CTXT_SOLNNODE,             guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0300,      CONTEXT | NOTINTBLIST,         "Solution";
+        guidSHLMainMenu:IDM_VS_CTXT_XPROJ_SLNPROJ,        guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Cross Project Solution Project";
+        guidSHLMainMenu:IDM_VS_CTXT_XPROJ_SLNITEM,        guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Cross Project Solution Item";
+        guidSHLMainMenu:IDM_VS_CTXT_XPROJ_PROJITEM,       guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Cross Project Project Item";
+#ifndef No_Solution_Folder_Commands
+        guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJFLDR,  guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Cross Project Multi Project/Folder";
+#endif // No_Solution_Folder_Commands
+        guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJ,      guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Cross Project Multi Project";
+        guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIITEM,      guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Cross Project Multi Item";
+#ifndef No_Solution_Folder_Commands
+        guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIFOLDER,    guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Cross Project Multi Solution Folder";
+#endif // No_Solution_Folder_Commands
+        guidSHLMainMenu:IDM_VS_CTXT_PROJNODE,             guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Project";
+        guidSHLMainMenu:IDM_VS_CTXT_ITEMNODE,             guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Item";
+        guidSHLMainMenu:IDM_VS_CTXT_FOLDERNODE,           guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Folder";
+        guidSHLMainMenu:IDM_VS_CTXT_WEBREFFOLDER,         guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Web Reference Folder";
+        guidSHLMainMenu:IDM_VS_CTXT_REFERENCEROOT,        guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Reference Root";
+        guidSHLMainMenu:IDM_VS_CTXT_REFERENCE,            guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Reference Item";
+        guidSHLMainMenu:IDM_VS_CTXT_APPDESIGNERFOLDER,    guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "App Designer Folder";
+
+        guidSHLMainMenu:IDM_VS_CTXT_WEBPROJECT,           guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Web Project Folder";
+        guidSHLMainMenu:IDM_VS_CTXT_WEBFOLDER,            guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Web Folder";
+        guidSHLMainMenu:IDM_VS_CTXT_WEBITEMNODE,          guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Web Item";
+        guidSHLMainMenu:IDM_VS_CTXT_WEBSUBWEBNODE,        guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,   0x0000,      CONTEXT | NOTINTBLIST,         "Web SubWeb";
+
+        // Class View
+        guidSHLMainMenu:IDM_VS_CTXT_CV_ALL,               guidSHLMainMenu:IDG_VS_MENU_CONTEXTMENUS,   0x0020,      CONTEXT | NOTINTBLIST | NOCUSTOMIZE,         "Class View Context Menus";
+        guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT,           guidSHLMainMenu:IDG_VS_CTXT_CV_ALL,         0x0000,      CONTEXT | NOTINTBLIST,         "Class View Project";
+        guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT_REFERENCE, guidSHLMainMenu:IDG_VS_CTXT_CV_ALL,         0x0000,      CONTEXT | NOTINTBLIST,         "Class View Project Reference";
+        guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT_REFS_FOLDER, guidSHLMainMenu:IDG_VS_CTXT_CV_ALL,       0x0000,      CONTEXT | NOTINTBLIST,         "Class View Project References Folder";
+        
+        guidSHLMainMenu:IDM_VS_CTXT_CV_ITEM,              guidSHLMainMenu:IDG_VS_CTXT_CV_ALL,         0x0000,      CONTEXT | NOTINTBLIST,         "Class View Item";
+        guidSHLMainMenu:IDM_VS_CTXT_CV_MEMBER,            guidSHLMainMenu:IDG_VS_CTXT_CV_ALL,         0x0000,      CONTEXT | NOTINTBLIST,         "Class View Member";
+        guidSHLMainMenu:IDM_VS_CTXT_CV_NON_SYMBOL_MEMBERS,guidSHLMainMenu:IDG_VS_CTXT_CV_ALL,         0x0000,      CONTEXT | NOTINTBLIST,         "Class View Grouping Members";
+        guidSHLMainMenu:IDM_VS_CTXT_CV_FOLDER,            guidSHLMainMenu:IDG_VS_CTXT_CV_ALL,         0x0000,      CONTEXT | NOTINTBLIST,         "Class View Folder";
+        guidSHLMainMenu:IDM_VS_CTXT_CV_GROUPINGFOLDER,    guidSHLMainMenu:IDG_VS_CTXT_CV_ALL,         0x0000,      CONTEXT | NOTINTBLIST,         "Class View Grouping Folder";
+        guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE,          guidSHLMainMenu:IDG_VS_CTXT_CV_ALL,         0x0000,      CONTEXT | NOTINTBLIST,         "Class View Multi-select";
+        guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE_MEMBERS,  guidSHLMainMenu:IDG_VS_CTXT_CV_ALL,         0x0000,      CONTEXT | NOTINTBLIST,         "Class View Multi-select members";
+
+        // Editor Code Window
+        guidSHLMainMenu:IDM_VS_CTXT_EDITOR_ALL,           guidSHLMainMenu:IDG_VS_MENU_CONTEXTMENUS,   0x0010,      CONTEXT | NOTINTBLIST | NOCUSTOMIZE,         "Editor Context Menus";
+
+        // Right drag context menu
+        guidSHLMainMenu:IDM_VS_CTXT_RIGHT_DRAG,           guidSHLMainMenu:0,                          0x0000,      CONTEXT,                       "Drag and Drop";
+
+        // Menu controllers
+        guidSHLMainMenu:IDM_VS_MNUCTRL_CVGROUPING,        guidSHLMainMenu:0,                          0x0000,      MENUCONTROLLERLATCHED,         "Class View Settings";
+
+        // Error correction context menu
+        guidSHLMainMenu:IDM_VS_CTXT_ERROR_CORRECTION,     guidSHLMainMenu:0,                          0x0000,      CONTEXT,                       "Error Correction";
+
+    // Grouping menu for unparented context menus
+        guidSHLMainMenu:IDM_VS_CTXT_MISC,                 guidSHLMainMenu:IDG_VS_MENU_CONTEXTMENUS,   0xEEEE,      CONTEXT|ALWAYSCREATE|NOTINTBLIST|NOCUSTOMIZE, "Other Context Menus";
+
+        guid_SE_MenuGroup:IDM_SE_CONTEXT_STANDARD,        guid_SE_MenuGroup:0,                        0x0000,      CONTEXT,                        "Server Explorer";
+
+        guid_SE_MenuGroup:IDM_SE_TOOLBAR_SERVEREXPLORER,  guidSHLMainMenu:IDM_SE_TOOLBAR_SERVEREXPLORER, 0x0000,   TOOLWINDOWTOOLBAR,              "Server Explorer",         "Server Explorer";
+
+   MENUS_END
+
+   NEWGROUPS_BEGIN
+   
+        //Context Menu containers, created for display in menu 'Customize' mode
+        guidSHLMainMenu:IDG_VS_CTXT_CV_ALL,               guidSHLMainMenu:IDM_VS_CTXT_CV_ALL,        0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_SOLNEXPL_ALL,         guidSHLMainMenu:IDM_VS_CTXT_SOLNEXPL_ALL,  0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_EDITOR_ALL,           guidSHLMainMenu:IDM_VS_CTXT_EDITOR_ALL,    0x0100;
+
+         // Format menu
+        guidSharedMenuGroup:IDG_VS_FORMAT_STYLE,          guidSHLMainMenu:IDM_VS_MENU_FORMAT,        0x0100;
+        guidSharedMenuGroup:IDG_VS_FORMAT_COLOR,          guidSHLMainMenu:IDM_VS_MENU_FORMAT,        0x0200;
+        guidSharedMenuGroup:IDG_VS_FORMAT_PARAGRAPH,      guidSHLMainMenu:IDM_VS_MENU_FORMAT,        0x0300;
+        guidSharedMenuGroup:IDG_VS_FORMAT_ANCHORS,        guidSHLMainMenu:IDM_VS_MENU_FORMAT,        0x0400;
+        guidSharedMenuGroup:IDG_VS_FORMAT_INDENT,         guidSHLMainMenu:IDM_VS_MENU_FORMAT,        0x0500;
+        guidSharedMenuGroup:IDG_VS_FORMAT_ALIGN,          guidSHLMainMenu:IDM_VS_MENU_FORMAT,        0x0600;
+        guidSharedMenuGroup:IDG_VS_FORMAT_SPACE,          guidSHLMainMenu:IDM_VS_MENU_FORMAT,        0x0700;
+        guidSharedMenuGroup:IDG_VS_FORMAT_CENTER,         guidSHLMainMenu:IDM_VS_MENU_FORMAT,        0x0900;
+        guidSharedMenuGroup:IDG_VS_FORMAT_ORDER,          guidSHLMainMenu:IDM_VS_MENU_FORMAT,        0x0A00;
+        guidSharedMenuGroup:IDG_VS_FORMAT_LOCK,           guidSHLMainMenu:IDM_VS_MENU_FORMAT,        0x0B00;
+        guidSharedMenuGroup:IDG_VS_FORMAT_ELEMENT,        guidSHLMainMenu:IDM_VS_MENU_FORMAT,        0x0C00;
+        guidSharedMenuGroup:IDG_VS_FORMAT_GRID,           guidSHLMainMenu:IDM_VS_MENU_FORMAT,        0x0D00;
+        
+        // Paragraph submenu
+        guidSharedMenuGroup:IDG_VS_FORMAT_FONTFACE,       guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_FONT,       0x0100;
+        guidSharedMenuGroup:IDG_VS_FORMAT_FONTSCRIPT,     guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_FONT,       0x0200;
+        guidSharedMenuGroup:IDG_VS_FORMAT_JUSTIFY,        guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_JUSTIFY,    0x0100;
+        
+        // Align submenu
+        guidSharedMenuGroup:IDG_VS_FORMAT_ALIGN_X,        guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_ALIGN,      0x0100;
+        guidSharedMenuGroup:IDG_VS_FORMAT_ALIGN_Y,        guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_ALIGN,      0x0200;
+        guidSharedMenuGroup:IDG_VS_FORMAT_ALIGN_GRID,     guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_ALIGN,      0x0300;
+        
+        // Size submenu
+        guidSharedMenuGroup:IDG_VS_FORMAT_SIZE,           guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_SIZE,       0x0100;
+        
+        // Space submenus
+        guidSharedMenuGroup:IDG_VS_FORMAT_SPACE_X,        guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_SPACE_X,    0x0100;
+        guidSharedMenuGroup:IDG_VS_FORMAT_SPACE_Y,        guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_SPACE_Y,    0x0100;
+        
+        // Center submenu
+        guidSharedMenuGroup:IDG_VS_FORMAT_CENTER_CMDS,    guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_CENTER,     0x0100;
+        
+        // Order submenu
+        guidSharedMenuGroup:IDG_VS_FORMAT_ORDER_CMDS,     guidSharedMenuGroup:IDM_VS_CSCD_FORMAT_ORDER,      0x0100;
+
+        // Position submenu
+        guidSharedMenuGroup:IDG_VS_LAYOUT_POSITION_CMDS,     guidSharedMenuGroup:IDM_VS_CSCD_LAYOUT_POSITION,   0x0100;
+        guidSharedMenuGroup:IDG_VS_LAYOUT_POSITION_OPTIONS,  guidSharedMenuGroup:IDM_VS_CSCD_LAYOUT_POSITION,   0x0200;
+        
+        // View menu
+        guidSharedMenuGroup:IDG_VS_VIEW_LINKS,            guidSHLMainMenu:IDM_VS_MENU_VIEW,                  0x0400;
+        guidSharedMenuGroup:IDG_VS_VIEW_OPTIONS,          guidSHLMainMenu:IDM_VS_MENU_VIEW,                  0x0600;
+        guidSharedMenuGroup:IDG_VS_VIEW_TABORDER,         guidSHLMainMenu:IDM_VS_MENU_VIEW,                  0x0800;
+  
+        // Project menu
+        guidSharedMenuGroup:IDG_VS_PROJ_PROJECT,          guidSHLMainMenu:IDM_VS_MENU_PROJECT,               0xC300;
+        guidSharedMenuGroup:IDG_VS_PROJ_ADDREMOVE,        guidSHLMainMenu:IDM_VS_MENU_PROJECT,               0xC400;
+        guidSharedMenuGroup:IDG_VS_PROJ_ADMIN,            guidSHLMainMenu:IDM_VS_MENU_PROJECT,               0xFF00;
+        
+        // Web Project submenu
+        guidSharedMenuGroup:IDG_VS_PROJ_WEB1,             guidSharedMenuGroup:IDM_VS_CSCD_PROJECT_WEB,       0x0100;
+        guidSharedMenuGroup:IDG_VS_PROJ_WEB2,             guidSharedMenuGroup:IDM_VS_CSCD_PROJECT_WEB,       0x0200;
+        
+        // Table menu
+        guidSharedMenuGroup:IDG_VS_LAYOUT_INSERT,         guidSharedMenuGroup:IDM_VS_LAYOUT_MENU,             0x0100;
+        guidSharedMenuGroup:IDG_VS_TABLE_MAIN,            guidSharedMenuGroup:IDM_VS_LAYOUT_MENU,             0x0500;
+        guidSharedMenuGroup:IDG_VS_LAYOUT_POSITION,       guidSharedMenuGroup:IDM_VS_LAYOUT_MENU,          0x0700;
+        
+        // Table Sub-menus
+        guidSharedMenuGroup:IDG_VS_TABLE_INSERT_1,        guidSharedMenuGroup:IDM_VS_CSCD_TABLE_INSERT,      0x0100;
+        guidSharedMenuGroup:IDG_VS_TABLE_INSERT_2,        guidSharedMenuGroup:IDM_VS_CSCD_TABLE_INSERT,      0x0200;
+        guidSharedMenuGroup:IDG_VS_TABLE_INSERT_3,        guidSharedMenuGroup:IDM_VS_CSCD_TABLE_INSERT,      0x0300;
+        guidSharedMenuGroup:IDG_VS_TABLE_INSERT_4,        guidSharedMenuGroup:IDM_VS_CSCD_TABLE_INSERT,      0x0400;
+        guidSharedMenuGroup:IDG_VS_TABLE_DELETE,          guidSharedMenuGroup:IDM_VS_CSCD_TABLE_DELETE,      0x0100;
+        guidSharedMenuGroup:IDG_VS_TABLE_SELECT,          guidSharedMenuGroup:IDM_VS_CSCD_TABLE_SELECT,      0x0100;
+        guidSharedMenuGroup:IDG_VS_TABLE_RESIZE,          guidSharedMenuGroup:IDM_VS_CSCD_TABLE_RESIZE,      0x0100;
+
+        // Tools menu
+        guidSharedMenuGroup:IDG_VS_TOOLS_EDITOPT,         guidSHLMainMenu:IDM_VS_MENU_TOOLS,                 0xE100;
+
+        // Insert menu
+        //guidSharedMenuGroup:IDG_VS_INSERT_TAGS,           guidSharedMenuGroup:IDM_VS_INSERT_MENU,            0x0100;
+        //guidSharedMenuGroup:IDG_VS_INSERT_TAGS2,          guidSharedMenuGroup:IDM_VS_INSERT_MENU,            0x0200;
+
+        // Editor menu groups
+        guidStdEditor:IDG_VS_EDITOR_LANGUAGE_INFO,          guidSHLMainMenu:IDM_VS_MENU_EDIT,                  0xA800;
+        guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,          guidStdEditor:IDM_VS_EDITOR_ADVANCED_MENU,         0xFD00;
+        guidStdEditor:IDG_VS_EDITOR_BOOKMARK_ALLDOCS_CMDS,  guidStdEditor:IDM_VS_EDITOR_BOOKMARK_MENU,         0xFE00; 
+        guidStdEditor:IDG_VS_EDITOR_BOOKMARK_FOLDER_CMDS,   guidStdEditor:IDM_VS_EDITOR_BOOKMARK_MENU,         0xFE10; 
+        guidStdEditor:IDG_VS_EDITOR_BOOKMARK_DOCUMENT_CMDS, guidStdEditor:IDM_VS_EDITOR_BOOKMARK_MENU,         0xFE20; 
+        guidStdEditor:IDG_VS_EDITOR_BOOKMARK_TASKLIST_CMDS, guidStdEditor:IDM_VS_EDITOR_BOOKMARK_MENU,         0xFE40; 
+        guidSHLMainMenu:IDG_VS_CODEWIN_CTXT_OUTLINING,      guidStdEditor:IDM_VS_EDITOR_OUTLINING_MENU,        0xFE70;
+        guidStdEditor:IDG_VS_EDITOR_OUTLINING_CMDS,         guidStdEditor:IDM_VS_EDITOR_OUTLINING_MENU,        0xFE80;
+        guidStdEditor:IDG_VS_EDITOR_CMDS,                   guidSHLMainMenu:IDM_VS_MENU_EDIT,                  0xFF00;
+        guidStdEditor:IDG_VS_EDITOR_INTELLISENSE_CMDS,      guidStdEditor:IDM_VS_EDITOR_INTELLISENSE_MENU,     0xFF10;
+        guidSHLMainMenu:IDG_VS_CODEWIN_SNIPPETS,            guidStdEditor:IDM_VS_EDITOR_INTELLISENSE_MENU,     0xFF11;
+        
+        // Edit toolbar Groups
+        guidStdEditor:IDG_VS_EDITTOOLBAR_COMPLETION,      guidStdEditor:IDM_VS_TOOL_TEXTEDITOR,              0x0100;
+        guidStdEditor:IDG_VS_EDITTOOLBAR_INDENT,          guidStdEditor:IDM_VS_TOOL_TEXTEDITOR,              0x0101;
+        guidStdEditor:IDG_VS_EDITTOOLBAR_COMMENT,         guidStdEditor:IDM_VS_TOOL_TEXTEDITOR,              0x0102;
+        guidStdEditor:IDG_VS_EDITTOOLBAR_TEMPBOOKMARKS,   guidStdEditor:IDM_VS_TOOL_TEXTEDITOR,              0x0103;
+        
+        // Project toolbar Groups
+        guidSharedMenuGroup:IDG_VS_PROJ_TOOLBAR2,         guidSHLMainMenu:IDM_VS_TOOL_PROJWIN,               0x0020;
+        guidSharedMenuGroup:IDG_VS_PROJ_TOOLBAR4,         guidSHLMainMenu:IDM_VS_TOOL_PROJWIN,               0x0040;
+        guidSharedMenuGroup:IDG_VS_PROJ_TOOLBAR5,         guidSHLMainMenu:IDM_VS_TOOL_PROJWIN,               0x0050;
+
+        // Solution node context menu groups
+        guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_BUILD,       guidSHLMainMenu:IDM_VS_CTXT_SOLNNODE,              0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_CONFIG,       guidSHLMainMenu:IDM_VS_CTXT_SOLNNODE,              0x0200;
+#ifndef No_Multi_Project_Solutions
+        guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_ADD,         guidSHLMainMenu:IDM_VS_CTXT_SOLNNODE,              0x0300;
+#endif // No_Multi_Project_Solutions
+        guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_START,       guidSHLMainMenu:IDM_VS_CTXT_SOLNNODE,              0x0500;
+#ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_SCC,         guidSHLMainMenu:IDM_VS_CTXT_SOLNNODE,              0x0700;
+#endif // No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_TRANSFER,    guidSHLMainMenu:IDM_VS_CTXT_SOLNNODE,              0x0800;
+#ifndef No_Solution_Folder_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_UNHIDE,      guidSHLMainMenu:IDM_VS_CTXT_SOLNNODE,              0x0880;
+#endif // No_Solution_Folder_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_PROPERTIES,  guidSHLMainMenu:IDM_VS_CTXT_SOLNNODE,              0x0900;
+        // Sub-menus
+#ifndef No_Multi_Project_Solutions
+        guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_ADD_PROJ,    guidSHLMainMenu:IDM_VS_CSCD_SOLUTION_ADD,          0x0100;
+#ifndef No_Solution_Folder_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_ADD_ITEM,    guidSHLMainMenu:IDM_VS_CSCD_SOLUTION_ADD,          0x0200;
+#endif // No_Solution_Folder_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_DEBUG,       guidSHLMainMenu:IDM_VS_CSCD_SOLUTION_DEBUG,        0x0100;
+#endif // No_Multi_Project_Solutions
+
+#ifndef No_Solution_Folder_Commands
+        // Solution folder node context menu groups
+        guidSHLMainMenu:IDG_VS_CTXT_SLNFLDR_BUILD,        guidSHLMainMenu:IDM_VS_CTXT_SOLNFOLDER,            0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_SLNFLDR_ADD,          guidSHLMainMenu:IDM_VS_CTXT_SOLNFOLDER,            0x0200;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_TRANSFER,     guidSHLMainMenu:IDM_VS_CTXT_SOLNFOLDER,            0x0500;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_UNLOADRELOAD, guidSHLMainMenu:IDM_VS_CTXT_SOLNFOLDER,            0x0600;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_PROPERTIES,   guidSHLMainMenu:IDM_VS_CTXT_SOLNFOLDER,            0x0700;
+        // Sub-menus
+        guidSHLMainMenu:IDG_VS_CTXT_SLNFLDR_ADD_PROJ,     guidSHLMainMenu:IDM_VS_CSCD_SLNFLDR_ADD,           0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_SLNFLDR_ADD_ITEM,     guidSHLMainMenu:IDM_VS_CSCD_SLNFLDR_ADD,           0x0200;
+#endif // No_Solution_Folder_Commands
+
+        // Project node context menu groups
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_BUILD,        guidSHLMainMenu:IDM_VS_CTXT_PROJNODE,              0x0100;
+#ifndef No_Profile_Guided_Optimization
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_BUILD_PGO,    guidSHLMainMenu:IDM_VS_CTXT_PROJNODE,              0x0110;
+#endif
+        guidSHLMainMenu:IDG_VS_CTXT_COMPILELINK,          guidSHLMainMenu:IDM_VS_CTXT_PROJNODE,              0x0180;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_CONFIG,       guidSHLMainMenu:IDM_VS_CTXT_PROJNODE,              0x0200;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD,          guidSHLMainMenu:IDM_VS_CTXT_PROJNODE,              0x0300;
+#ifndef No_ViewInClassDiagram_Menu
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_CLASSDIAGRAM, guidSHLMainMenu:IDM_VS_CTXT_PROJNODE,              0x0350;
+#endif //!No_ViewInClassDiagram_Menu
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_START,        guidSHLMainMenu:IDM_VS_CTXT_PROJNODE,              0x0400;
+#ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_SCC,          guidSHLMainMenu:IDM_VS_CTXT_PROJNODE,              0x0600;
+#endif // No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_TRANSFER,     guidSHLMainMenu:IDM_VS_CTXT_PROJNODE,              0x0700;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_UNLOADRELOAD, guidSHLMainMenu:IDM_VS_CTXT_PROJNODE,              0x0780;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_PROPERTIES,   guidSHLMainMenu:IDM_VS_CTXT_PROJNODE,              0x0800;
+        // Sub-menus
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_ITEMS,    guidSHLMainMenu:IDM_VS_CSCD_PROJECT_ADD,           0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_FORMS,    guidSHLMainMenu:IDM_VS_CSCD_PROJECT_ADD,           0x0200;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_MISC,     guidSHLMainMenu:IDM_VS_CSCD_PROJECT_ADD,           0x0300;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_DEBUG,        guidSHLMainMenu:IDM_VS_CSCD_PROJECT_DEBUG,         0x0100;
+
+        // Miscellaneous Files project context menu
+        guidSHLMainMenu:IDG_VS_MISCFILES_PROJ,            guidSHLMainMenu:IDM_VS_CTXT_MISCFILESPROJ,         0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_TRANSFER,     guidSHLMainMenu:IDM_VS_CTXT_MISCFILESPROJ,         0x0300;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_PROPERTIES,   guidSHLMainMenu:IDM_VS_CTXT_MISCFILESPROJ,         0x0400;
+
+        // Multi selection (solution/project) context menu
+#ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_SCC,         guidSHLMainMenu:IDM_VS_CTXT_XPROJ_SLNPROJ,         0x0200;
+#endif // No_Source_Control_Commands
+
+#ifndef No_Solution_Folder_Commands
+        // Multi solution folder node context menu groups
+        guidSHLMainMenu:IDG_VS_CTXT_SLNFLDR_BUILD,        guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIFOLDER,     0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_TRANSFER,     guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIFOLDER,     0x0500;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_UNLOADRELOAD, guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIFOLDER,     0x0600;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_PROPERTIES,   guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIFOLDER,     0x0700;
+#endif // No_Solution_Folder_Commands
+
+        // Multi project context menu
+        guidSHLMainMenu:IDG_VS_CTXT_MULTIPROJ_BUILD,      guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJ,       0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_CONFIG,       guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJ,       0x0200;
+#ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_SCC,          guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJ,       0x0400;
+#endif // No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_MULTISELECT_TRANSFER, guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJ,       0x0500;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_UNLOADRELOAD, guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJ,       0x0580;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_PROPERTIES,   guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJ,       0x0600;
+
+#ifndef No_Solution_Folder_Commands
+        // Multi project/folder context menu
+        guidSHLMainMenu:IDG_VS_CTXT_MULTIPROJ_BUILD,      guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJFLDR,   0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_CONFIG,       guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJFLDR,   0x0200;
+        guidSHLMainMenu:IDG_VS_CTXT_MULTISELECT_TRANSFER, guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJFLDR,   0x0500;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_UNLOADRELOAD, guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJFLDR,   0x0580;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_PROPERTIES,   guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIPROJFLDR,   0x0600;
+#endif // No_Solution_Folder_Commands
+
+        // Common Item Node context menu
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_OPEN,            guidSHLMainMenu:IDM_VS_CTXT_ITEMNODE,              0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEW,            guidSHLMainMenu:IDM_VS_CTXT_ITEMNODE,              0x0200;
+        guidSHLMainMenu:IDG_VS_CTXT_COMPILELINK,          guidSHLMainMenu:IDM_VS_CTXT_ITEMNODE,              0x0280;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEWBROWSER,     guidSHLMainMenu:IDM_VS_CTXT_ITEMNODE,              0x0300;
+#ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_SCC,             guidSHLMainMenu:IDM_VS_CTXT_ITEMNODE,              0x0400;
+#endif // No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_INCLUDEEXCLUDE,  guidSHLMainMenu:IDM_VS_CTXT_ITEMNODE,              0x0500;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_TRANSFER,        guidSHLMainMenu:IDM_VS_CTXT_ITEMNODE,              0x0600;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_PROPERTIES,      guidSHLMainMenu:IDM_VS_CTXT_ITEMNODE,              0x0700;
+
+        // Solution and Item context menu
+#ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_SCC,         guidSHLMainMenu:IDM_VS_CTXT_XPROJ_SLNITEM,         0x0100;
+#endif // No_Source_Control_Commands
+
+        // Multi-item context menu
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_OPEN,            guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIITEM,       0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEW,            guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIITEM,       0x0200;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEWBROWSER,     guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIITEM,       0x0300;
+#ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_SCC,             guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIITEM,       0x0400;
+#endif // No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_INCLUDEEXCLUDE,  guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIITEM,       0x0500;
+        guidSHLMainMenu:IDG_VS_CTXT_MULTISELECT_TRANSFER, guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIITEM,       0x0600;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_PROPERTIES,      guidSHLMainMenu:IDM_VS_CTXT_XPROJ_MULTIITEM,       0x0700;
+  
+        // Project & Item context menu
+#ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_SCC,          guidSHLMainMenu:IDM_VS_CTXT_XPROJ_PROJITEM,        0x0100;
+#endif // No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_DELETE,               guidSHLMainMenu:IDM_VS_CTXT_XPROJ_PROJITEM,        0x0200;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_PROPERTIES,   guidSHLMainMenu:IDM_VS_CTXT_XPROJ_PROJITEM,        0x0300;
+
+        // Common Folder Node context menu
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEWBROWSER,     guidSHLMainMenu:IDM_VS_CTXT_FOLDERNODE,            0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_FOLDER_ADD,           guidSHLMainMenu:IDM_VS_CTXT_FOLDERNODE,            0x0200;
+#ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_SCC,             guidSHLMainMenu:IDM_VS_CTXT_FOLDERNODE,            0x0300;
+#endif // No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_INCLUDEEXCLUDE,  guidSHLMainMenu:IDM_VS_CTXT_FOLDERNODE,            0x0400;
+        guidSHLMainMenu:IDG_VS_CTXT_FOLDER_TRANSFER,      guidSHLMainMenu:IDM_VS_CTXT_FOLDERNODE,            0x0500;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_PROPERTIES,      guidSHLMainMenu:IDM_VS_CTXT_FOLDERNODE,            0x0600;
+
+        // Web Reference Folder Node context menu
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEWBROWSER,     guidSHLMainMenu:IDM_VS_CTXT_WEBREFFOLDER,          0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_WEBREFFOLDER_ADD,     guidSHLMainMenu:IDM_VS_CTXT_WEBREFFOLDER,          0x0200;
+#ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_SCC,             guidSHLMainMenu:IDM_VS_CTXT_WEBREFFOLDER,          0x0300;
+#endif // No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_INCLUDEEXCLUDE,  guidSHLMainMenu:IDM_VS_CTXT_WEBREFFOLDER,          0x0400;
+        guidSHLMainMenu:IDG_VS_CTXT_FOLDER_TRANSFER,      guidSHLMainMenu:IDM_VS_CTXT_WEBREFFOLDER,          0x0500;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_PROPERTIES,      guidSHLMainMenu:IDM_VS_CTXT_WEBREFFOLDER,          0x0600;
+
+        // App Designer Folder Node context menu
+        guidSHLMainMenu:IDG_VS_CTXT_APPDESIGNERFOLDER_OPEN,guidSHLMainMenu:IDM_VS_CTXT_APPDESIGNERFOLDER,     0x0100;
+#ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_SCC,              guidSHLMainMenu:IDM_VS_CTXT_APPDESIGNERFOLDER,     0x0200;
+#endif // No_Source_Control_Commands
+        // Common Reference Root Node context menu
+        guidSHLMainMenu:IDG_VS_CTXT_REFROOT_ADD,          guidSHLMainMenu:IDM_VS_CTXT_REFERENCEROOT,         0x0100;
+
+        // Common Reference Item Node context menu
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_OPEN,            guidSHLMainMenu:IDM_VS_CTXT_REFERENCE,             0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_REFERENCE,            guidSHLMainMenu:IDM_VS_CTXT_REFERENCE,             0x0200;        
+        guidSHLMainMenu:IDG_VS_CTXT_DELETE,               guidSHLMainMenu:IDM_VS_CTXT_REFERENCE,             0x0300;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_PROPERTIES,      guidSHLMainMenu:IDM_VS_CTXT_REFERENCE,             0x0400;
+
+        // Properties panel group
+        guidSHLMainMenu:IDG_VS_PROPERTIES_SORT,         guidSHLMainMenu:IDM_VS_TOOL_PROPERTIES,              0x0100;
+        guidSHLMainMenu:IDG_VS_PROPERTIES_PAGES,        guidSHLMainMenu:IDM_VS_TOOL_PROPERTIES,              0x0200;    
+
+        // ClassView groups
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_NAVIGATION,                guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_EDIT,                      guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_DISPLAY2,                  guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,                  guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMGRP,                    guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMACCESSGRP,              guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_SHOW_INHERITED,            guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_BASE_DERIVED_GRP,          guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_SETTINGS,                  guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_BROWSERSETTINGSBTN,        guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_SEARCH,                    guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_SEARCH2,                   guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_FOLDERS,                   guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_FOLDERS2,                  guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_FOLDERS_EDIT,              guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJADD,                   guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMADD,                   guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,               guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMWIZARDS,               guidSHLMainMenu:IDM_VS_SYMBOLS_DUMMY,               0x0000;
+        
+        // Error correction context menu
+        guidSHLMainMenu:IDG_VS_CTXT_ERROR_CORRECTION,               guidSHLMainMenu:IDM_VS_CTXT_ERROR_CORRECTION,       0x0100;
+
+        // Right drag context menu
+        guidSharedMenuGroup:IDG_VS_CTXT_RIGHT_DRAG1,                guidSHLMainMenu:IDM_VS_CTXT_RIGHT_DRAG,             0x0100;
+        guidSharedMenuGroup:IDG_VS_CTXT_RIGHT_DRAG2,                guidSHLMainMenu:IDM_VS_CTXT_RIGHT_DRAG,             0x0200;
+
+        // Server Explorer context menu is divided into 4 sections: Global context menu, Delete, Data View, and node context menu.
+        guid_SE_MenuGroup:IDG_SE_CONTEXT_SQLINSTANCE,               guid_SE_MenuGroup:IDM_SE_CONTEXT_STANDARD,           0x0080,     DYNAMIC;
+        guid_SE_MenuGroup:IDG_SE_CONTEXT_GENERAL,                   guid_SE_MenuGroup:IDM_SE_CONTEXT_STANDARD,           0x0100,     DYNAMIC;
+        guid_SE_MenuGroup:IDG_SE_CONTEXT_DELETE,                    guid_SE_MenuGroup:IDM_SE_CONTEXT_STANDARD,           0x0200,     DYNAMIC;
+        guid_SE_MenuGroup:IDG_SE_CONTEXT_DATA,                      guid_SE_MenuGroup:IDM_SE_CONTEXT_STANDARD,           0x0300,     DYNAMIC;
+        guidVSData:IDG_DV_CONNECTION,                               guid_SE_MenuGroup:IDM_SE_CONTEXT_STANDARD,			 0x0350,	 DYNAMIC;
+        guid_SE_MenuGroup:IDG_SE_CONTEXT_NODE,                      guid_SE_MenuGroup:IDM_SE_CONTEXT_STANDARD,           0x0400,     DYNAMIC;
+        guid_SE_MenuGroup:IDG_SE_CONTEXT_DATAPROP,                  guid_SE_MenuGroup:IDM_SE_CONTEXT_STANDARD,           0x0500,     DYNAMIC;
+		
+        // server explorer toolbar is divided into 2 groups.
+        guid_SE_MenuGroup:IDG_SE_TOOLBAR_REFRESH,                   guid_SE_MenuGroup:IDM_SE_TOOLBAR_SERVEREXPLORER,     0x0100;
+        //unused...
+        //guid_SE_MenuGroup:IDG_SE_TOOLBAR_VIEW,                    guid_SE_MenuGroup:IDM_SE_TOOLBAR_SERVEREXPLORER,     0x0200;
+        // Create a group of Menus in Tools menu for Server Explorer's <Add..> nodes.
+        guid_SE_MenuGroup:IDG_SE_TOOLS_ADD,                         guidSHLMainMenu:IDM_VS_MENU_TOOLS,                   0x8000;
+
+   NEWGROUPS_END
+CMDS_END
+
+CMDPLACEMENT_SECTION
+        //     GUID: CMDID                       PARENT MENU                                            PRIORITY
+
+        // Format menu commands
+        guidVSStd2K:ECMD_EDITSTYLE,               guidSharedMenuGroup:IDG_VS_FORMAT_STYLE,              0x0100;
+        guidVSStd97:cmdidForeColor,               guidSharedMenuGroup:IDG_VS_FORMAT_COLOR,              0x0100;
+        guidVSStd97:cmdidBackColor,               guidSharedMenuGroup:IDG_VS_FORMAT_COLOR,              0x0200;
+        guidVSStd2K:ECMD_LAYOUTUNINDENT,          guidSharedMenuGroup:IDG_VS_FORMAT_INDENT,             0x0100;
+        guidVSStd2K:ECMD_LAYOUTINDENT,            guidSharedMenuGroup:IDG_VS_FORMAT_INDENT,             0x0200;
+        guidVSStd97:cmdidLockControls,            guidSharedMenuGroup:IDG_VS_FORMAT_LOCK,               0x0200;
+        guidVSStd2K:ECMD_LOCKELEMENT,             guidSharedMenuGroup:IDG_VS_FORMAT_ELEMENT,            0x0100;
+
+        // Paragraph submenu
+        guidVSStd97:cmdidBold,                    guidSharedMenuGroup:IDG_VS_FORMAT_FONTFACE,           0x0100;
+        guidVSStd97:cmdidItalic,                  guidSharedMenuGroup:IDG_VS_FORMAT_FONTFACE,           0x0200;
+        guidVSStd97:cmdidUnderline,               guidSharedMenuGroup:IDG_VS_FORMAT_FONTFACE,           0x0300;
+        
+        guidVSStd2K:ECMD_SUPERSCRIPT,             guidSharedMenuGroup:IDG_VS_FORMAT_FONTSCRIPT,         0x0100;
+        guidVSStd2K:ECMD_SUBSCRIPT,               guidSharedMenuGroup:IDG_VS_FORMAT_FONTSCRIPT,         0x0200;        
+        
+        guidVSStd97:cmdidJustifyLeft,             guidSharedMenuGroup:IDG_VS_FORMAT_JUSTIFY,            0x0100;
+        guidVSStd97:cmdidJustifyCenter,           guidSharedMenuGroup:IDG_VS_FORMAT_JUSTIFY,            0x0200;
+        guidVSStd97:cmdidJustifyRight,            guidSharedMenuGroup:IDG_VS_FORMAT_JUSTIFY,            0x0300;
+        guidVSStd97:cmdidJustifyGeneral,          guidSharedMenuGroup:IDG_VS_FORMAT_JUSTIFY,            0x0400;
+
+        guidVSStd2K:ECMD_HYPERLINK,               guidSharedMenuGroup:IDG_VS_FORMAT_ANCHORS,            0x0100;
+        guidVSStd2K:ECMD_BOOKMARK,                guidSharedMenuGroup:IDG_VS_FORMAT_ANCHORS,            0x0200;
+
+        // Align submenu
+        guidVSStd97:cmdidAlignLeft,               guidSharedMenuGroup:IDG_VS_FORMAT_ALIGN_X,            0x0100;
+        guidVSStd97:cmdidAlignVerticalCenters,    guidSharedMenuGroup:IDG_VS_FORMAT_ALIGN_X,            0x0200;
+        guidVSStd97:cmdidAlignRight,              guidSharedMenuGroup:IDG_VS_FORMAT_ALIGN_X,            0x0300;
+        
+        guidVSStd97:cmdidAlignTop,                guidSharedMenuGroup:IDG_VS_FORMAT_ALIGN_Y             0x0100;
+        guidVSStd97:cmdidAlignHorizontalCenters,  guidSharedMenuGroup:IDG_VS_FORMAT_ALIGN_Y,            0x0200;        
+        guidVSStd97:cmdidAlignBottom,             guidSharedMenuGroup:IDG_VS_FORMAT_ALIGN_Y,            0x0300;
+        
+        guidVSStd97:cmdidAlignToGrid,             guidSharedMenuGroup:IDG_VS_FORMAT_ALIGN_GRID,         0x0000;
+        
+        // Size submenu
+        guidVSStd97:cmdidSizeToControlWidth,      guidSharedMenuGroup:IDG_VS_FORMAT_SIZE,               0x0100;
+        guidVSStd97:cmdidSizeToControlHeight,     guidSharedMenuGroup:IDG_VS_FORMAT_SIZE,               0x0200;
+        guidVSStd97:cmdidSizeToControl,           guidSharedMenuGroup:IDG_VS_FORMAT_SIZE,               0x0300;
+        guidVSStd97:cmdidSizeToGrid,              guidSharedMenuGroup:IDG_VS_FORMAT_SIZE,               0x0400;
+        
+        // Horizontal spacing
+        guidVSStd97:cmdidHorizSpaceMakeEqual,     guidSharedMenuGroup:IDG_VS_FORMAT_SPACE_X,            0x0100;
+        guidVSStd97:cmdidHorizSpaceIncrease,      guidSharedMenuGroup:IDG_VS_FORMAT_SPACE_X,            0x0200;
+        guidVSStd97:cmdidHorizSpaceDecrease,      guidSharedMenuGroup:IDG_VS_FORMAT_SPACE_X,            0x0300;
+        guidVSStd97:cmdidHorizSpaceConcatenate,   guidSharedMenuGroup:IDG_VS_FORMAT_SPACE_X,            0x0400;
+        
+        // Vertical spacing
+        guidVSStd97:cmdidVertSpaceMakeEqual,      guidSharedMenuGroup:IDG_VS_FORMAT_SPACE_Y,            0x0100;
+        guidVSStd97:cmdidVertSpaceIncrease,       guidSharedMenuGroup:IDG_VS_FORMAT_SPACE_Y             0x0200;
+        guidVSStd97:cmdidVertSpaceDecrease,       guidSharedMenuGroup:IDG_VS_FORMAT_SPACE_Y,            0x0300;
+        guidVSStd97:cmdidVertSpaceConcatenate,    guidSharedMenuGroup:IDG_VS_FORMAT_SPACE_Y,            0x0400;
+        
+        // Center
+        guidVSStd97:cmdidCenterHorizontally,      guidSharedMenuGroup:IDG_VS_FORMAT_CENTER_CMDS,        0x0000;
+        guidVSStd97:cmdidCenterVertically,        guidSharedMenuGroup:IDG_VS_FORMAT_CENTER_CMDS,        0x0000;
+                                                                                                              
+        // Order
+        guidVSStd97:cmdidBringToFront,            guidSharedMenuGroup:IDG_VS_FORMAT_ORDER_CMDS,         0x0000;
+        guidVSStd97:cmdidSendToBack,              guidSharedMenuGroup:IDG_VS_FORMAT_ORDER_CMDS,         0x0000;
+        
+        // Grid
+        guidVSStd2K:ECMD_SHOWGRID,                guidSharedMenuGroup:IDG_VS_FORMAT_GRID,               0x0100;
+        guidVSStd2K:ECMD_SNAPTOGRID,              guidSharedMenuGroup:IDG_VS_FORMAT_GRID,               0x0200;
+
+        // Positioning
+        guidVSStd2K:ECMD_MAKEABSOLUTE,            guidSharedMenuGroup:IDG_VS_LAYOUT_POSITION_CMDS,      0x0000;
+        guidVSStd2K:ECMD_MAKERELATIVE,            guidSharedMenuGroup:IDG_VS_LAYOUT_POSITION_CMDS,      0x0100;
+        guidVSStd2K:ECMD_MAKESTATIC,              guidSharedMenuGroup:IDG_VS_LAYOUT_POSITION_CMDS,      0x0200;
+        guidVSStd2K:ECMD_MAKEPOSITIONNOTSET,      guidSharedMenuGroup:IDG_VS_LAYOUT_POSITION_CMDS,      0x0300;
+
+    // Auto position options
+    guidVSStd2K:ECMD_AUTOPOSITIONOPTIONS,     guidSharedMenuGroup:IDG_VS_LAYOUT_POSITION_OPTIONS,   0x0000;
+
+        // View menu commands
+        guidVSStd2K:ECMD_VIEWBORDERS,             guidSharedMenuGroup:IDG_VS_VIEW_OPTIONS,              0x0100;
+        guidVSStd2K:ECMD_VIEWDETAILS,             guidSharedMenuGroup:IDG_VS_VIEW_OPTIONS,              0x0200;
+        guidVSStd2K:ECMD_DOCOUTLINETOGGLE,        guidSharedMenuGroup:IDG_VS_VIEW_OPTIONS,              0x0580;
+        guidVSStd2K:ECMD_SMARTTASKS,              guidSharedMenuGroup:IDG_VS_VIEW_OPTIONS,              0x0600;
+        guidVSStd97:cmdidTabOrder,                guidSharedMenuGroup:IDG_VS_VIEW_TABORDER,             0x0000;
+        guidVSStd2K:ECMD_BROKENLINKSREPORT,       guidSharedMenuGroup:IDG_VS_VIEW_LINKS,                0x0100;
+        guidVSStd2K:ECMD_VIEWMARKUP,              guidSHLMainMenu:IDG_VS_VIEW_FORMCODE,                 0x0250;
+        guidVSStd2K:ECMD_VIEWCOMPONENTDESIGNER,   guidSHLMainMenu:IDG_VS_VIEW_FORMCODE,                 0x0260;
+      
+        // Project menu commands
+        guidVSStd2K:ECMD_COPYPROJECT,             guidSharedMenuGroup:IDG_VS_PROJ_PROJECT,              0x0100;
+        guidVSStd2K:ECMD_PUBLISH,                 guidSharedMenuGroup:IDG_VS_PROJ_PROJECT,              0x0100;
+        guidVSStd2K:ECMD_SETBROWSELOCATION,       guidSharedMenuGroup:IDG_VS_PROJ_PROJECT,              0x0200;
+        guidVSStd2K:ECMD_SETASSTARTPAGE,          guidSharedMenuGroup:IDG_VS_PROJ_ADMIN,                0x0200;
+        guidVSStd2K:ECMD_RECALCULATELINKS,        guidSharedMenuGroup:IDG_VS_PROJ_PROJECT,              0x0400;
+        guidVSStd2K:ECMD_WEBPERMISSIONS,          guidSharedMenuGroup:IDG_VS_PROJ_PROJECT,              0x0500;
+#ifndef No_Include_Exclude_Commands
+        guidVSStd2K:ECMD_INCLUDEINPROJECT,        guidSharedMenuGroup:IDG_VS_PROJ_ADDREMOVE,            0x0100;
+        guidVSStd2K:ECMD_EXCLUDEFROMPROJECT,      guidSharedMenuGroup:IDG_VS_PROJ_ADDREMOVE,            0x0100;
+#endif // No_Include_Exclude_Commands
+#ifndef No_Show_All_Files_Command
+        guidVSStd2K:ECMD_SHOWALLFILES,            guidSharedMenuGroup:IDG_VS_PROJ_ADDREMOVE,            0x0200;
+        guidVSStd2K:ECMD_NESTRELATEDFILES,        guidSharedMenuGroup:IDG_VS_PROJ_ADDREMOVE,            0x0250;
+#endif // No_Show_All_Files_Command
+        guidVSStd2K:ECMD_RUNCUSTOMTOOL,           guidSharedMenuGroup:IDG_VS_PROJ_ADDREMOVE,            0x0300;
+        guidVSStd2K:ECMD_STARTOPTIONS,            guidSharedMenuGroup:IDG_VS_PROJ_ADMIN,                0x0300;
+        guidVSStd2K:ECMD_STARTWEBADMINTOOL,       guidSharedMenuGroup:IDG_VS_PROJ_ADMIN,                0x0400;
+        guidVSStd2K:ECMD_ADDPROJECTOUTPUTS,       guidSHLMainMenu:IDG_VS_PROJ_ADD,                      0xFF00;
+        guidVSStd2K:ECMD_ADDREFERENCE,            guidSHLMainMenu:IDG_VS_PROJ_OPTIONS,                  0x0100;
+        guidVSStd2K:ECMD_ADDWEBREFERENCE,         guidSHLMainMenu:IDG_VS_PROJ_OPTIONS,                  0x0200;
+        guidVSStd2K:ECMD_UPDATEWEBREFERENCE,      guidSHLMainMenu:IDG_VS_PROJ_OPTIONS,                  0x0300;
+        guidVSStd2K:ECMD_SETRUNTIMEVERSION,       guidSHLMainMenu:IDG_VS_PROJ_OPTIONS,                  0x0400;
+        guidVSStd2K:ECMD_UPDATEMGDRES,            guidSHLMainMenu:IDG_VS_PROJ_OPTIONS,                  0x0500;
+
+        
+        // Web Project submenu
+        guidVSStd2K:ECMD_COMPARETOMASTER,         guidSharedMenuGroup:IDG_VS_PROJ_WEB2,                 0x0100;
+        guidVSStd2K:ECMD_WORKOFFLINE,             guidSharedMenuGroup:IDG_VS_PROJ_WEB2,                 0x0300;
+        guidVSStd2K:ECMD_SYNCHRONIZEFOLDER,       guidSharedMenuGroup:IDG_VS_PROJ_WEB2,                 0x0500;
+        guidVSStd2K:ECMD_SYNCHRONIZEALLFOLDERS,   guidSharedMenuGroup:IDG_VS_PROJ_WEB2,                 0x0700;
+
+        // Project window toolbar commands
+#ifndef No_Show_All_Files_Command
+        guidVSStd2K:ECMD_SHOWALLFILES,            guidSharedMenuGroup:IDG_VS_PROJ_TOOLBAR2,             0x0100;
+#endif // No_Show_All_Files_Command
+        guidVSStd2K:ECMD_SLNREFRESH,              guidSharedMenuGroup:IDG_VS_PROJ_TOOLBAR2,             0x0200;
+        guidVSStd2K:ECMD_NESTRELATEDFILES,        guidSharedMenuGroup:IDG_VS_PROJ_TOOLBAR2,             0x0250;
+        guidVSStd2K:ECMD_PUBLISH,                 guidSharedMenuGroup:IDG_VS_PROJ_TOOLBAR4,             0x0100;
+        guidVSStd2K:ECMD_STARTWEBADMINTOOL,       guidSharedMenuGroup:IDG_VS_PROJ_TOOLBAR4,             0x0200;
+        guidVSStd2K:ECMD_COPYPROJECT,             guidSharedMenuGroup:IDG_VS_PROJ_TOOLBAR5,             0x0100;
+
+        // Table menu and sub-menu commands
+        guidVSStd2K:ECMD_INSERTTABLE,             guidSharedMenuGroup:IDG_VS_LAYOUT_INSERT,             0x0100;
+        guidVSStd2K:ECMD_INSERTLAYER,             guidSharedMenuGroup:IDG_VS_LAYOUT_INSERT,             0x0200;
+
+        guidVSStd2K:ECMD_INSERTCOLLEFT,           guidSharedMenuGroup:IDG_VS_TABLE_INSERT_1,            0x0100;
+        guidVSStd2K:ECMD_INSERTCOLRIGHT,          guidSharedMenuGroup:IDG_VS_TABLE_INSERT_1,            0x0200;
+        guidVSStd2K:ECMD_INSERTROWABOVE,          guidSharedMenuGroup:IDG_VS_TABLE_INSERT_2,            0x0100;
+        guidVSStd2K:ECMD_INSERTROWBELOW,          guidSharedMenuGroup:IDG_VS_TABLE_INSERT_2,            0x0200;
+        guidVSStd2K:ECMD_INSERTCELLLEFT,          guidSharedMenuGroup:IDG_VS_TABLE_INSERT_3,            0x0100;
+        guidVSStd2K:ECMD_INSERTCELLRIGHT,         guidSharedMenuGroup:IDG_VS_TABLE_INSERT_3,            0x0200;
+        guidVSStd2K:ECMD_INSERTCAPTION,           guidSharedMenuGroup:IDG_VS_TABLE_INSERT_4,            0x0100;
+
+        guidVSStd2K:ECMD_DELETETABLE,             guidSharedMenuGroup:IDG_VS_TABLE_DELETE,              0x0100;
+        guidVSStd2K:ECMD_DELETECOLS,              guidSharedMenuGroup:IDG_VS_TABLE_DELETE,              0x0200;
+        guidVSStd2K:ECMD_DELETEROWS,              guidSharedMenuGroup:IDG_VS_TABLE_DELETE,              0x0300;
+        guidVSStd2K:ECMD_DELETECELLS,             guidSharedMenuGroup:IDG_VS_TABLE_DELETE,              0x0400;
+        guidVSStd2K:ECMD_DELETECAPTION,           guidSharedMenuGroup:IDG_VS_TABLE_DELETE,              0x0500;
+        
+        guidVSStd2K:ECMD_SELECTTABLE,             guidSharedMenuGroup:IDG_VS_TABLE_SELECT,              0x0100;
+        guidVSStd2K:ECMD_SELECTTABLECOL,          guidSharedMenuGroup:IDG_VS_TABLE_SELECT,              0x0200;
+        guidVSStd2K:ECMD_SELECTTABLEROW,          guidSharedMenuGroup:IDG_VS_TABLE_SELECT,              0x0300;
+        guidVSStd2K:ECMD_SELECTTABLECELL,         guidSharedMenuGroup:IDG_VS_TABLE_SELECT,              0x0400;
+
+        guidVSStd2K:ECMD_MERGECELLS,              guidSharedMenuGroup:IDG_VS_TABLE_MAIN,                0x0600;
+
+        guidVSStd2K:ECMD_RESIZEROW,               guidSharedMenuGroup:IDG_VS_TABLE_RESIZE,              0x0100;
+        guidVSStd2K:ECMD_RESIZECOLUMN,            guidSharedMenuGroup:IDG_VS_TABLE_RESIZE,              0x0200;
+
+        // Tools menu commands
+
+        // Right drag context menu
+        guidVSStd2K:ECMD_DRAG_MOVE,               guidSharedMenuGroup:IDG_VS_CTXT_RIGHT_DRAG1,          0x0100;
+        guidVSStd2K:ECMD_DRAG_COPY,               guidSharedMenuGroup:IDG_VS_CTXT_RIGHT_DRAG1,          0x0200;
+        guidVSStd2K:ECMD_DRAG_CANCEL,             guidSharedMenuGroup:IDG_VS_CTXT_RIGHT_DRAG2,          0x0100;
+
+        // Error correction context menu
+        guidVSStd2K:ECMD_CORRECTION_1             guidSHLMainMenu:IDG_VS_CTXT_ERROR_CORRECTION,         0x0100;
+        guidVSStd2K:ECMD_CORRECTION_2             guidSHLMainMenu:IDG_VS_CTXT_ERROR_CORRECTION,         0x0200;
+        guidVSStd2K:ECMD_CORRECTION_3             guidSHLMainMenu:IDG_VS_CTXT_ERROR_CORRECTION,         0x0300;
+        guidVSStd2K:ECMD_CORRECTION_4             guidSHLMainMenu:IDG_VS_CTXT_ERROR_CORRECTION,         0x0400;
+        guidVSStd2K:ECMD_CORRECTION_5             guidSHLMainMenu:IDG_VS_CTXT_ERROR_CORRECTION,         0x0500;
+        guidVSStd2K:ECMD_CORRECTION_6             guidSHLMainMenu:IDG_VS_CTXT_ERROR_CORRECTION,         0x0600;
+        guidVSStd2K:ECMD_CORRECTION_7             guidSHLMainMenu:IDG_VS_CTXT_ERROR_CORRECTION,         0x0700;
+        guidVSStd2K:ECMD_CORRECTION_8             guidSHLMainMenu:IDG_VS_CTXT_ERROR_CORRECTION,         0x0800;
+        guidVSStd2K:ECMD_CORRECTION_9             guidSHLMainMenu:IDG_VS_CTXT_ERROR_CORRECTION,         0x0900;
+        guidVSStd2K:ECMD_CORRECTION_10            guidSHLMainMenu:IDG_VS_CTXT_ERROR_CORRECTION,         0x0A00;
+
+        // Editor command placements 
+        // These are command well only commands so they only are placed here so that they may be seen in the dialogs,
+        // they never are actually seen on the main Edit menu. 
+        guidVSStd2K:ECMD_BACKSPACE,               guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0200;
+        guidVSStd2K:ECMD_RETURN,                  guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0300;
+        guidVSStd2K:ECMD_TAB,                     guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0400;
+        guidVSStd2K:ECMD_LEFT,                    guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0600;
+        guidVSStd2K:ECMD_LEFT_EXT,                guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0700;
+        guidVSStd2K:ECMD_LEFT_EXT_COL,            guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0700;
+        guidVSStd2K:ECMD_RIGHT,                   guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0800;
+        guidVSStd2K:ECMD_RIGHT_EXT,               guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0900;
+        guidVSStd2K:ECMD_RIGHT_EXT_COL,           guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0900;
+        guidVSStd2K:ECMD_UP,                      guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0A00;
+        guidVSStd2K:ECMD_UP_EXT,                  guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0B00;
+        guidVSStd2K:ECMD_UP_EXT_COL,              guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0B00;
+        guidVSStd2K:ECMD_DOWN,                    guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0C00;
+        guidVSStd2K:ECMD_DOWN_EXT,                guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0D00;
+        guidVSStd2K:ECMD_DOWN_EXT_COL,            guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0D00;
+        guidVSStd2K:ECMD_HOME,                    guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0E00;
+        guidVSStd2K:ECMD_HOME_EXT,                guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x0F00;
+        guidVSStd2K:ECMD_END,                     guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1000;
+        guidVSStd2K:ECMD_END_EXT,                 guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1100;
+        guidVSStd2K:ECMD_BOL,                     guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1200;
+        guidVSStd2K:ECMD_BOL_EXT,                 guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1300;
+        guidVSStd2K:ECMD_BOL_EXT_COL,             guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1300;
+        guidVSStd2K:ECMD_FIRSTCHAR                guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1400;
+        guidVSStd2K:ECMD_FIRSTCHAR_EXT            guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1500;
+        guidVSStd2K:ECMD_EOL,                     guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1600;
+        guidVSStd2K:ECMD_EOL_EXT,                 guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1700;
+        guidVSStd2K:ECMD_EOL_EXT_COL,             guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1700;
+        guidVSStd2K:ECMD_LASTCHAR,                guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1700;
+        guidVSStd2K:ECMD_LASTCHAR_EXT,            guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1700;
+        guidVSStd2K:ECMD_PAGEUP,                  guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1800;
+        guidVSStd2K:ECMD_PAGEUP_EXT,              guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1900;
+        guidVSStd2K:ECMD_PAGEDN,                  guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1A00;
+        guidVSStd2K:ECMD_PAGEDN_EXT,              guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1B00;
+        guidVSStd2K:ECMD_TOPLINE,                 guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1C00;
+        guidVSStd2K:ECMD_TOPLINE_EXT,             guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1D00;
+        guidVSStd2K:ECMD_BOTTOMLINE,              guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1E00;
+        guidVSStd2K:ECMD_BOTTOMLINE_EXT,          guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x1F00;
+        guidVSStd2K:ECMD_SCROLLUP,                guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x2000;
+        guidVSStd2K:ECMD_SCROLLDN,                guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x2100;
+        guidVSStd2K:ECMD_SCROLLPAGEUP,            guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x2200;
+        guidVSStd2K:ECMD_SCROLLPAGEDN,            guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x2300;
+        guidVSStd2K:ECMD_SCROLLLEFT,              guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x2400;
+        guidVSStd2K:ECMD_SCROLLRIGHT,             guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x2500;
+        guidVSStd2K:ECMD_SCROLLBOTTOM,            guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x2600;
+        guidVSStd2K:ECMD_SCROLLCENTER,            guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x2700;
+        guidVSStd2K:ECMD_SCROLLTOP,               guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x2800;
+        guidVSStd2K:ECMD_BACKTAB,                 guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x2900;
+        guidVSStd2K:ECMD_FORMATDOCUMENT,          guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x2800;
+        guidVSStd2K:ECMD_FORMATSELECTION,         guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x2900;
+        guidVSStd2K:ECMD_SELTABIFY,               guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x2A00;
+        guidVSStd2K:ECMD_SELUNTABIFY,             guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x2B00;
+        guidVSStd2K:ECMD_CONVERTTABSTOSPACES,     guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x3B00;
+        guidVSStd2K:ECMD_CONVERTSPACESTOTABS,     guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x3C00;
+        guidVSStd2K:ECMD_SELUPCASE,               guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x2C00;
+        guidVSStd2K:ECMD_SELLOWCASE,              guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x2D00;
+        guidVSStd2K:ECMD_VALIDATEHTMLDATA,        guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x2E00;        
+        guidVSStd2K:ECMD_SELTOGGLECASE,           guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x2C00;
+        guidVSStd2K:ECMD_SELSWAPANCHOR,           guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x2E00;
+        guidVSStd2K:ECMD_GOTOBRACE,               guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x3000;
+        guidVSStd2K:ECMD_GOTOBRACE_EXT,           guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x3100;
+        guidVSStd2K:ECMD_TOGGLE_OVERTYPE_MODE,    guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x3400;
+        guidVSStd2K:ECMD_CUTLINE,                 guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x3700;
+        guidVSStd2K:ECMD_DELETELINE,              guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x3800;
+        guidVSStd2K:ECMD_DELETEBLANKLINES,        guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x3900;
+        guidVSStd2K:ECMD_DELETEWHITESPACE,        guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x3A00;
+        guidVSStd2K:ECMD_DELETETOEOL,             guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x3B00;
+        guidVSStd2K:ECMD_DELETETOBOL,             guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x3C00;
+        guidVSStd2K:ECMD_OPENLINEABOVE,           guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x3D00;
+        guidVSStd2K:ECMD_OPENLINEBELOW,           guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x3E00;
+        guidVSStd2K:ECMD_INCREASEFILTER,          guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x3F00;
+        guidVSStd2K:ECMD_DECREASEFILTER,          guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x4000;
+        guidVSStd2K:ECMD_TOGGLETEMPBOOKMARK,      guidStdEditor:IDG_VS_EDITOR_BOOKMARK_ALLDOCS_CMDS,    0x4500;
+        guidVSStd2K:cmdidEnableBookmark,          guidStdEditor:IDG_VS_EDITOR_BOOKMARK_ALLDOCS_CMDS,    0x4600;
+        guidVSStd2K:cmdidToggleBookmark,          guidStdEditor:IDG_VS_EDITOR_BOOKMARK_ALLDOCS_CMDS,    0x4680;
+        guidVSStd2K:ECMD_GOTOPREVBOOKMARK,        guidStdEditor:IDG_VS_EDITOR_BOOKMARK_ALLDOCS_CMDS,    0x4700;
+        guidVSStd2K:ECMD_GOTONEXTBOOKMARK,        guidStdEditor:IDG_VS_EDITOR_BOOKMARK_ALLDOCS_CMDS,    0x4800;
+        guidVSStd2K:ECMD_DELETEALLTEMPBOOKMARKS,  guidStdEditor:IDG_VS_EDITOR_BOOKMARK_ALLDOCS_CMDS,    0x48B0;
+        guidVSStd2K:cmdidPrevBookmarkFolder,      guidStdEditor:IDG_VS_EDITOR_BOOKMARK_FOLDER_CMDS,     0x4760;
+        guidVSStd2K:cmdidNextBookmarkFolder,      guidStdEditor:IDG_VS_EDITOR_BOOKMARK_FOLDER_CMDS,     0x47b0;
+        guidVSStd2K:ECMD_GOTOPREVBOOKMARKINDOC,   guidStdEditor:IDG_VS_EDITOR_BOOKMARK_DOCUMENT_CMDS,   0x4800;
+        guidVSStd2K:ECMD_GOTONEXTBOOKMARKINDOC,   guidStdEditor:IDG_VS_EDITOR_BOOKMARK_DOCUMENT_CMDS,   0x4880;
+        guidVSStd2K:ECMD_DELETEALLBOOKMARKSINDOC, guidStdEditor:IDG_VS_EDITOR_BOOKMARK_DOCUMENT_CMDS,   0x48A0;
+        guidVSStd2K:ECMD_INVOKESNIPPETFROMSHORTCUT,guidStdEditor:IDG_VS_EDITOR_CMDS,                    0x4920;        
+        guidVSStd2K:ECMD_COPYTIP,                 guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x5000;
+        guidVSStd2K:ECMD_PASTETIP,                guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x5050;
+        guidVSStd2K:ECMD_TRANSPOSECHAR,           guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x5100;
+        guidVSStd2K:ECMD_TRANSPOSEWORD,           guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x5200;
+        guidVSStd2K:ECMD_TRANSPOSELINE,           guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x5300;
+        guidVSStd2K:ECMD_SELECTCURRENTWORD,       guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x5400;
+        guidVSStd2K:ECMD_SELTITLECASE,            guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x5500;
+        guidVSStd2K:ECMD_DELETEWORDLEFT,          guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x5600;
+        guidVSStd2K:ECMD_DELETEWORDRIGHT,         guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x5700;
+
+        guidVSStd2K:ECMD_WORDPREV,                guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x5800;
+        guidVSStd2K:ECMD_WORDPREV_EXT,            guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x5900;
+        guidVSStd2K:ECMD_WORDPREV_EXT_COL,        guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x5900;
+        guidVSStd2K:ECMD_WORDNEXT,                guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x6000;
+        guidVSStd2K:ECMD_WORDNEXT_EXT,            guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x6100;
+        guidVSStd2K:ECMD_WORDNEXT_EXT_COL,        guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x6100;
+
+        guidVSStd2K:ECMD_CANCEL,                  guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x6300;
+        guidVSStd2K:ECMD_TOGGLEVISSPACE,          guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x6500;
+        guidVSStd2K:ECMD_TOGGLECARETPASTEPOS,     guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x6600;
+        guidVSStd2K:ECMD_FIRSTNONWHITEPREV,       guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x6900;
+        guidVSStd2K:ECMD_FIRSTNONWHITENEXT,       guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x7000;
+
+        guidVSStd2K:ECMD_SHOWMEMBERLIST,          guidStdEditor:IDG_VS_EDITOR_INTELLISENSE_CMDS,        0x0700;
+        guidVSStd2K:ECMD_PARAMINFO,               guidStdEditor:IDG_VS_EDITOR_INTELLISENSE_CMDS,        0x0900;
+        guidVSStd2K:ECMD_QUICKINFO,               guidStdEditor:IDG_VS_EDITOR_INTELLISENSE_CMDS,        0x0A00;
+        guidVSStd2K:ECMD_COMPLETEWORD,            guidStdEditor:IDG_VS_EDITOR_INTELLISENSE_CMDS,        0x0B00;
+        
+        guidVSStd2K:ECMD_COMPLETION_HIDE_ADVANCED,guidStdEditor:IDG_VS_EDITOR_LANGUAGE_INFO,            0x0B10;
+        guidVSStd2K:ECMD_INSERTFILE,              guidStdEditor:IDG_VS_EDITOR_LANGUAGE_INFO,            0xFD00;
+        guidVSStd2K:ECMD_TOGGLESHORTCUT,          guidStdEditor:IDG_VS_EDITOR_BOOKMARK_TASKLIST_CMDS,   0x6800;
+        guidVSStd2K:ECMD_TOGGLEWORDWRAP,          guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x7200;
+        guidVSStd2K:ECMD_ISEARCH,                 guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x7300;
+        guidVSStd2K:ECMD_ISEARCHBACK,             guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x7400;
+
+        guidVSStd2K:ECMD_COMMENT_BLOCK            guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x7500;
+        guidVSStd2K:ECMD_UNCOMMENT_BLOCK,         guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x7510;
+        guidVSStd2K:ECMD_INDENT,                  guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x7600;
+        guidVSStd2K:ECMD_UNINDENT,                guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x7610;
+        guidVSStd2K:ECMD_SELECT_TAG,              guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x7620;
+        guidVSStd2K:ECMD_SELECT_TAG_CONTENT,      guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x7630;
+        guidVSStd2K:ECMD_ADDHANDLER,              guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x7640;
+        guidVSStd2K:ECMD_EDITHANDLER,             guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x7650;
+        guidVSStd2K:ECMD_REMOVEHANDLER,           guidStdEditor:IDG_VS_EDITOR_ADVANCED_CMDS,            0x7660;
+
+        guidVSStd2K:ECMD_OUTLN_HIDE_SELECTION,    guidStdEditor:IDG_VS_EDITOR_OUTLINING_CMDS,           0x0100;
+        guidVSStd2K:ECMD_OUTLN_TOGGLE_CURRENT,    guidStdEditor:IDG_VS_EDITOR_OUTLINING_CMDS,           0x0110;
+        guidVSStd2K:ECMD_OUTLN_TOGGLE_ALL,        guidStdEditor:IDG_VS_EDITOR_OUTLINING_CMDS,           0x0120;
+        guidVSStd2K:ECMD_OUTLN_STOP_HIDING_ALL,   guidStdEditor:IDG_VS_EDITOR_OUTLINING_CMDS,           0x0140;
+        guidVSStd2K:ECMD_OUTLN_STOP_HIDING_CURRENT, guidStdEditor:IDG_VS_EDITOR_OUTLINING_CMDS,         0x0150;
+        guidVSStd2K:ECMD_OUTLN_COLLAPSE_TO_DEF,   guidStdEditor:IDG_VS_EDITOR_OUTLINING_CMDS,           0x0160;
+        guidVSStd2K:ECMD_OUTLN_START_AUTOHIDING,  guidStdEditor:IDG_VS_EDITOR_OUTLINING_CMDS,           0x0170;
+        guidVSStd2K:ECMD_COLLAPSETAG,              guidStdEditor:IDG_VS_EDITOR_OUTLINING_CMDS,           0x1000;
+        guidVSStd2K:ECMD_UNCOLLAPSETAG,              guidStdEditor:IDG_VS_EDITOR_OUTLINING_CMDS,           0x1010;
+        guidVSStd2K:ECMD_DOUBLECLICK,             guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x6000;
+
+        guidStdEditor:IDG_VS_EDITOR_OUTLINING_CMDS,   guidStdEditor:IDM_VS_EDITOR_CSCD_OUTLINING_MENU     0x0100;
+
+        guidVSStd2K:ECMD_SELTOGOBACK,             guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x7100;
+
+        guidVSStd2K:ECMD_CTLMOVEUP,               guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8010;
+        guidVSStd2K:ECMD_CTLMOVEDOWN,             guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8020;
+        guidVSStd2K:ECMD_CTLMOVELEFT,             guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8030;
+        guidVSStd2K:ECMD_CTLMOVERIGHT,            guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8040;
+        guidVSStd2K:ECMD_CTLSIZEUP,               guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8050;
+        guidVSStd2K:ECMD_CTLSIZEDOWN,             guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8060;
+        guidVSStd2K:ECMD_CTLSIZELEFT,             guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8070;
+        guidVSStd2K:ECMD_CTLSIZERIGHT,            guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8080;
+        guidVSStd2K:ECMD_REVERSECANCEL,           guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8090;
+        guidVSStd2K:ECMD_CANCELDRAG,              guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x80A0;
+        guidVSStd2K:ECMD_DEFAULTACTION,           guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x80B0;
+        guidVSStd2K:ECMD_CTLMOVEUPGRID,           guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x80C0;
+        guidVSStd2K:ECMD_CTLMOVEDOWNGRID,         guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x80D0;
+        guidVSStd2K:ECMD_CTLMOVELEFTGRID,         guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x80E0;
+        guidVSStd2K:ECMD_CTLMOVERIGHTGRID,        guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x80F0;
+        guidVSStd2K:ECMD_CTLSIZERIGHTGRID,        guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8100;
+        guidVSStd2K:ECMD_CTLSIZEUPGRID,           guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8110;
+        guidVSStd2K:ECMD_CTLSIZELEFTGRID,         guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8120;
+        guidVSStd2K:ECMD_CTLSIZEDOWNGRID,         guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8130;
+        guidVSStd2K:ECMD_NEXTCTL,                 guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8140;
+        guidVSStd2K:ECMD_PREVCTL,                 guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8150;
+
+        guidVSStd2K:ECMD_NEXTMETHOD,              guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8160;
+        guidVSStd2K:ECMD_PREVMETHOD,              guidStdEditor:IDG_VS_EDITOR_CMDS,                     0x8170;
+
+        //////////////////////////////////
+        guidVSStd2K:ECMD_TOGGLESHORTCUT,          guidSHLMainMenu:IDG_VS_CODEWIN_SHORTCUT,              0x0100;
+
+        guidVSStd2K:ECMD_SHOWMEMBERLIST,          guidStdEditor:IDG_VS_EDITTOOLBAR_COMPLETION,          0x0100;
+        guidVSStd2K:ECMD_PARAMINFO,               guidStdEditor:IDG_VS_EDITTOOLBAR_COMPLETION,          0x0110;
+        guidVSStd2K:ECMD_QUICKINFO,               guidStdEditor:IDG_VS_EDITTOOLBAR_COMPLETION,          0x0120;
+        guidVSStd2K:ECMD_COMPLETEWORD,            guidStdEditor:IDG_VS_EDITTOOLBAR_COMPLETION,          0x0130;
+        
+        guidVSStd2K:ECMD_UNINDENT,                guidStdEditor:IDG_VS_EDITTOOLBAR_INDENT,              0x0100;
+        guidVSStd2K:ECMD_INDENT,                  guidStdEditor:IDG_VS_EDITTOOLBAR_INDENT,              0x0110;
+
+        guidVSStd2K:ECMD_COMMENT_BLOCK            guidStdEditor:IDG_VS_EDITTOOLBAR_COMMENT,             0x0100;
+        guidVSStd2K:ECMD_UNCOMMENT_BLOCK          guidStdEditor:IDG_VS_EDITTOOLBAR_COMMENT,             0x0110;
+
+        
+        guidVSStd2K:ECMD_TOGGLETEMPBOOKMARK,      guidStdEditor:IDG_VS_EDITTOOLBAR_TEMPBOOKMARKS,       0x0100;
+        guidVSStd2K:ECMD_GOTOPREVBOOKMARK,        guidStdEditor:IDG_VS_EDITTOOLBAR_TEMPBOOKMARKS,       0x0110;
+        guidVSStd2K:ECMD_GOTONEXTBOOKMARK,        guidStdEditor:IDG_VS_EDITTOOLBAR_TEMPBOOKMARKS,       0x0120;       
+        guidVSStd2K:cmdidPrevBookmarkFolder,      guidStdEditor:IDG_VS_EDITTOOLBAR_TEMPBOOKMARKS,       0x0126;
+        guidVSStd2K:cmdidNextBookmarkFolder,      guidStdEditor:IDG_VS_EDITTOOLBAR_TEMPBOOKMARKS,       0x012b;
+        guidVSStd2K:ECMD_GOTOPREVBOOKMARKINDOC,   guidStdEditor:IDG_VS_EDITTOOLBAR_TEMPBOOKMARKS,       0x0130;
+        guidVSStd2K:ECMD_GOTONEXTBOOKMARKINDOC,   guidStdEditor:IDG_VS_EDITTOOLBAR_TEMPBOOKMARKS,       0x0140;
+        guidVSStd2K:ECMD_DELETEALLTEMPBOOKMARKS,  guidStdEditor:IDG_VS_EDITTOOLBAR_TEMPBOOKMARKS,       0x0150;
+
+        guidVSStd2K:cmdidEditorLineFirstColumn,                      guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;              
+        guidVSStd2K:cmdidEditorLineFirstColumnExtend,                guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;              
+
+        guidVSStd2K:ECMD_INSERTSNIPPET,          guidSHLMainMenu:IDG_VS_CODEWIN_SNIPPETS,               0x0800;
+        guidVSStd2K:ECMD_SURROUNDWITH,           guidSHLMainMenu:IDG_VS_CODEWIN_SNIPPETS,               0x0900;
+        //guidVSStd2K:ECMD_CREATESNIPPET           guidSHLMainMenu:IDG_VS_CODEWIN_SNIPPETS,               0x0A00;
+
+
+        // Emacs emulation commands
+        guidEmacsCommandGroup:cmdidEmacsCharLeft,                    guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;              
+        guidEmacsCommandGroup:cmdidEmacsCharRight,                   guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;               
+        guidEmacsCommandGroup:cmdidEmacsLineUp,                      guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                  
+        guidEmacsCommandGroup:cmdidEmacsLineDown,                    guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                
+        guidEmacsCommandGroup:cmdidEmacsLineEnd,                     guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                 
+        guidEmacsCommandGroup:cmdidEmacsHome,                        guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                    
+        guidEmacsCommandGroup:cmdidEmacsEnd,                         guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                   
+        guidEmacsCommandGroup:cmdidEmacsDocumentStart,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;           
+        guidEmacsCommandGroup:cmdidEmacsWordLeft,                    guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                
+        guidEmacsCommandGroup:cmdidEmacsWordRight,                   guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;               
+        guidEmacsCommandGroup:cmdidEmacsGoto,                        guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                    
+        guidEmacsCommandGroup:cmdidEmacsWindowScrollUp,              guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;          
+        guidEmacsCommandGroup:cmdidEmacsWindowScrollDown,            guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;        
+        guidEmacsCommandGroup:cmdidEmacsWindowScrollToCenter,        guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;     
+        guidEmacsCommandGroup:cmdidEmacsWindowStart,                 guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;             
+        guidEmacsCommandGroup:cmdidEmacsWindowEnd,                   guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;               
+        guidEmacsCommandGroup:cmdidEmacsWindowLineToTop,             guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;         
+        guidEmacsCommandGroup:cmdidEmacsWindowSplitVertical,         guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;     
+        guidEmacsCommandGroup:cmdidEmacsWindowOther,                 guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;             
+        guidEmacsCommandGroup:cmdidEmacsWindowCloseOther,            guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                         
+        guidEmacsCommandGroup:cmdidEmacsReturn,                      guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                  
+        guidEmacsCommandGroup:cmdidEmacsReturnAndIndent,             guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;         
+        guidEmacsCommandGroup:cmdidEmacsLineOpen,                    guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;           
+        guidEmacsCommandGroup:cmdidEmacsCharTranspose,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;           
+        guidEmacsCommandGroup:cmdidEmacsWordTranspose,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;           
+        guidEmacsCommandGroup:cmdidEmacsWordUpperCase,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;           
+        guidEmacsCommandGroup:cmdidEmacsWordLowerCase,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;           
+        guidEmacsCommandGroup:cmdidEmacsWordCapitalize,              guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;          
+        guidEmacsCommandGroup:cmdidEmacsWordDeleteToEnd,             guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;         
+        guidEmacsCommandGroup:cmdidEmacsWordDeleteToStart,           guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;       
+        guidEmacsCommandGroup:cmdidEmacsLineCut,                     guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                 
+        guidEmacsCommandGroup:cmdidEmacsPasteRotate,                 guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;             
+        guidEmacsCommandGroup:cmdidEmacsSetMark,                     guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;    
+        guidEmacsCommandGroup:cmdidEmacsPopMark,                     guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;           
+        guidEmacsCommandGroup:cmdidEmacsSwapPointAndMark,            guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;        
+        guidEmacsCommandGroup:cmdidEmacsDeleteSelection,             guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;         
+        guidEmacsCommandGroup:cmdidEmacsFileOpen,                    guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                
+        guidEmacsCommandGroup:cmdidEmacsFileSave,                    guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                
+        guidEmacsCommandGroup:cmdidEmacsFileSaveAs,                  guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;              
+        guidEmacsCommandGroup:cmdidEmacsFileSaveSome,                guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;            
+        guidEmacsCommandGroup:cmdidEmacsSearchIncremental,           guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;       
+        guidEmacsCommandGroup:cmdidEmacsSearchIncrementalBack,       guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;        
+        guidEmacsCommandGroup:cmdidEmacsFindReplace,                 guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;             
+        guidEmacsCommandGroup:cmdidEmacsQuit,                        guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                    
+        guidEmacsCommandGroup:cmdidEmacsUniversalArgument,           guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;       
+        guidEmacsCommandGroup:cmdidEmacsExtendedCommand,             guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;         
+        guidEmacsCommandGroup:cmdidEmacsStartKbdMacro,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;           
+        guidEmacsCommandGroup:cmdidEmacsEndKbdMacro,                 guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;             
+        guidEmacsCommandGroup:cmdidEmacsExecuteKbdMacro,             guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;              
+        guidEmacsCommandGroup:cmdidEmacsQuotedInsert,                guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;              
+
+        // Brief emulation commands            
+        guidBriefCommandGroup:cmdidBriefSelectColumn,                guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefLineIndent,                  guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefBookmarks,                   guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefSelectLine,                  guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefSelectChar,                  guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefSelectCharInclusive,         guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefLineUnindent,                guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefFilePrint,                   guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefSelectSwapAnchor,            guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefInsertFile,                  guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefGoTo,                        guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWindowLeftEdge,              guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWordRight,                   guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWordLeft,                    guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWindowRightEdge,             guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWindowScrollUp,              guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWindowScrollDown,            guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefLineDelete,                  guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWordDeleteToEnd,             guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWordDeleteToStart,           guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefLineDeleteToStart,           guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefLineDeleteToEnd,             guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefLineOpenBelow,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefInsertQuoted,                guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefFileExit,                    guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefFileSave,                    guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefFileSaveAllExit,             guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefFindToggleCaseSensitivity,   guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefSearchIncremental,           guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefFindToggleRegExpr,           guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefFindRepeat,                  guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefFindPrev,                    guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefFind,                        guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefFindReplace,                 guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefBrowse,                      guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefGoToNextErrorTag,            guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefSetRepeatCount,              guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWindowScrollToCenter,        guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWindowSwitchPane,            guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWindowSplit,                 guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWindowScrollToBottom,        guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWindowScrollToTop,           guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefWindowMaximize,              guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefReturn,                      guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                  
+        guidBriefCommandGroup:cmdidBriefEscape,                      guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;                  
+        guidBriefCommandGroup:cmdidBriefBookmarkDrop0,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefBookmarkDrop1,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefBookmarkDrop2,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefBookmarkDrop3,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefBookmarkDrop4,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefBookmarkDrop5,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefBookmarkDrop6,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefBookmarkDrop7,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefBookmarkDrop8,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+        guidBriefCommandGroup:cmdidBriefBookmarkDrop9,               guidStdEditor:IDG_VS_EDITOR_CMDS,  0x0100;
+
+        //////////////////////////////////
+        // Solution context menu placements
+        //////////////////////////////////
+#ifndef VBA_MENUS
+        guidVSStd97:cmdidBuildSln,                guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_BUILD,           0x0100;
+#endif
+        guidVSStd97:cmdidRebuildSln,              guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_BUILD,           0x0200;
+        guidVSStd97:cmdidDeploySln,               guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_BUILD,           0x0300;
+        guidVSStd97:cmdidCleanSln,                guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_BUILD,           0x0400;
+        guidVSStd97:cmdidBatchBuildDlg,           guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_BUILD,           0x0500;
+        guidVSStd97:cmdidSlnCfgMgr,               guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_BUILD,           0x0600;
+
+#ifndef No_Multi_Project_Solutions
+        // Solution context add cascade sub-menu (2 groups)
+        guidVSStd97:cmdidAddNewProject,           guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_ADD_PROJ,        0x0100;
+        guidVSStd97:cmdidAddExistingProject,      guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_ADD_PROJ,        0x0200;
+        guidVSStd97:cmdidAddNewItem,              guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_ADD_ITEM,        0x0100;
+        guidVSStd97:cmdidAddExistingItem,         guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_ADD_ITEM,        0x0200;
+        guidVSStd2K:cmdidNewSolutionFolder,       guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_ADD_ITEM,        0x0300;
+#endif // No_Multi_Project_Solutions
+
+#ifndef No_Set_Startup_Project_Commands
+        guidVSStd97:cmdidSetStartupProject,       guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_START,           0x0100;      
+#endif // No_Set_Startup_Project_Commands
+
+        // Solution context debug cascade sub-menu (1 group)
+        guidVSStd97:cmdidStart,                   guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_DEBUG,           0x0100;
+        guidVSStd97:cmdidStepInto,                guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_DEBUG,           0x0200;
+
+        guidVSStd97:cmdidProjectDependencies,     guidSHLMainMenu:IDG_VS_CTXT_PROJECT_CONFIG,           0x0200;
+        guidVSStd97:cmdidBuildOrder,              guidSHLMainMenu:IDG_VS_CTXT_PROJECT_CONFIG,           0x0210;
+
+#ifndef VSE
+        guidVSStd97:cmdidSaveProjectItem,         guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_SAVE,            0x0100;
+        guidVSStd97:cmdidSaveSolution,            guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_SAVE,            0x0200;
+        guidVSStd97:cmdidCloseSolution,           guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_SAVE,            0x0300;
+#endif //!VSE
+
+        guidVSStd97:cmdidPaste,                   guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_TRANSFER,        0x0100;
+        guidVSStd97:cmdidRename,                  guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_TRANSFER,        0x0200;
+
+#ifndef No_Solution_Folder_Commands
+        guidVSStd2K:cmdidUnhideFolders,           guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_UNHIDE,          0x0100;
+#endif // No_Solution_Folder_Commands
+
+        guidVSStd97:cmdidPropSheetOrProperties,   guidSHLMainMenu:IDG_VS_CTXT_SOLUTION_PROPERTIES,      0x0100;
+
+        //////////////////////////////////
+        // Solution folder context menu placements
+        //////////////////////////////////
+        guidVSStd97:cmdidBuildCtx,                guidSHLMainMenu:IDG_VS_CTXT_SLNFLDR_BUILD,            0x0100;
+        guidVSStd97:cmdidRebuildCtx,              guidSHLMainMenu:IDG_VS_CTXT_SLNFLDR_BUILD,            0x0200;
+
+        guidVSStd97:cmdidAddNewProject,           guidSHLMainMenu:IDG_VS_CTXT_SLNFLDR_ADD_PROJ,         0x0100;
+        guidVSStd97:cmdidAddExistingProject,      guidSHLMainMenu:IDG_VS_CTXT_SLNFLDR_ADD_PROJ,         0x0200;
+
+        guidVSStd97:cmdidAddNewItem,              guidSHLMainMenu:IDG_VS_CTXT_SLNFLDR_ADD_ITEM,         0x0100;
+        guidVSStd97:cmdidAddExistingItem,         guidSHLMainMenu:IDG_VS_CTXT_SLNFLDR_ADD_ITEM,         0x0200;
+        guidVSStd2K:cmdidNewSolutionFolder,       guidSHLMainMenu:IDG_VS_CTXT_SLNFLDR_ADD_ITEM,         0x0300;
+
+        //////////////////////////////////
+        // Project context menu placements
+        //////////////////////////////////
+        guidVSStd2K:ECMD_ADDREFERENCE,            guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD,              0x0200;
+        guidVSStd2K:ECMD_ADDWEBREFERENCECTX,      guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD,              0x0300;
+        guidVSStd2K:cmdidDataShortcut,            guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD,              0x0400;
+
+        guidVSStd97:cmdidBuildCtx,                guidSHLMainMenu:IDG_VS_CTXT_PROJECT_BUILD,            0x0100;
+        guidVSStd97:cmdidRebuildCtx,              guidSHLMainMenu:IDG_VS_CTXT_PROJECT_BUILD,            0x0200;
+        guidVSStd97:cmdidDeployCtx,               guidSHLMainMenu:IDG_VS_CTXT_PROJECT_BUILD,            0x0300;
+        guidVSStd97:cmdidCleanCtx,                guidSHLMainMenu:IDG_VS_CTXT_PROJECT_BUILD,            0x0400;
+#ifndef No_Publish_Commands
+        guidVSStd2K:ECMD_PUBLISHSLNCTX,           guidSHLMainMenu:IDG_VS_CTXT_PROJECT_BUILD,            0x0600;
+#endif // No_Publish_Commands
+        guidVSStd2K:ECMD_WEBDEPLOY,               guidSHLMainMenu:IDG_VS_CTXT_COMPILELINK,              0x0200;
+        guidVSStd2K:ECMD_COMPILE,                 guidSHLMainMenu:IDG_VS_CTXT_COMPILELINK,              0x0300;
+
+        // Project context add cascade sub-menu (3 groups)
+        guidVSStd97:cmdidAddNewItem,              guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_ITEMS,        0x0100;
+        guidVSStd97:cmdidAddExistingItem,         guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_ITEMS,        0x0200;
+        guidVSStd97:cmdidNewFolder,               guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_ITEMS,        0x0300;
+
+#ifndef No_AddWindowsForm_Command_Placement
+        guidVSStd2K:ECMD_ADDWFCFORM,              guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_FORMS,        0x0100;
+#endif // No_AddWindowsForm_Command_Placement
+#ifndef No_AddWebForm_Command_Placement
+        guidVSStd2K:ECMD_ADDWEBFORM,              guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_FORMS,        0x0200;
+#endif // No_AddWebForm_Command_Placement
+#ifndef No_AddMasterPage_Command_Placement
+        guidVSStd2K:ECMD_ADDMASTERPAGE,           guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_FORMS,        0x0250;
+#endif // No_AddMasterPage_Command_Placement
+#ifndef No_AddContentPage_Command_Placement
+        guidVSStd2K:ECMD_ADDCONTENTPAGE,          guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEWBROWSER,         0x0F00;
+#endif // No_AddContentPage_Command_Placement
+#ifndef No_AddWebUserControl_Command_Placement
+        guidVSStd2K:ECMD_ADDWEBUSERCONTROL,       guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_FORMS,        0x0400;
+#endif // No_AddWebUserControl_Command_Placement
+#ifndef No_AddHTMLPage_Command_Placement
+        guidVSStd2K:ECMD_ADDHTMLPAGE,             guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_FORMS,        0x0500;
+#endif // No_AddHTMLPage_Command_Placement
+#ifndef No_AddStyleSheet_Command_Placement
+        guidVSStd2K:ECMD_ADDSTYLESHEET,           guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_FORMS,        0x0550;
+#endif // No_AddStyleSheet_Command_Placement
+#ifndef No_AddUserControl_Command_Placement
+        guidVSStd2K:ECMD_ADDUSERCONTROL,          guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_FORMS,        0x0600;
+#endif // No_AddUserControl_Command_Placement
+
+        
+        guidVDTFlavorCmdSet:cmdidAddNewUDF,       guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_FORMS,        0x0100;
+        guidVDTFlavorCmdSet:cmdidAddNewSProc,     guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_FORMS,        0x0108;
+        guidVDTFlavorCmdSet:cmdidAddNewAggregarte,guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_FORMS,        0x0110;
+        guidVDTFlavorCmdSet:cmdidAddNewTrigger,   guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_FORMS,        0x0118;
+        guidVDTFlavorCmdSet:cmdidAddNewUDT,       guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_FORMS,        0x0120;
+        guidVDTFlavorCmdSet:cmdidAddNewDebugScript,guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD,             0x01000;
+        guidVDTFlavorCmdSet:cmdidAddNewDebugScript,guidSHLMainMenu:IDG_VS_CTXT_FOLDER_ADD,              0x01000;
+
+
+        guidVDTFlavorCmdSet:cmdidSetDefaultDebugScript,  guidSHLMainMenu:IDG_VS_CTXT_ITEM_OPEN,          0x1000;
+        guidVDTFlavorCmdSet:cmdidStartDebugScript,    guidSHLMainMenu:IDG_VS_CTXT_ITEM_OPEN,          0x2000;
+
+
+        guidVSStd2K:ECMD_ADDWEBSERVICE,           guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_MISC,         0x0100;
+        guidVSStd2K:ECMD_ADDTBXCOMPONENT,         guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_MISC,         0x0200;
+        guidVSStd2K:ECMD_ADDMODULE,               guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_MISC,         0x0500;
+        guidVSStd97:cmdidAddClass,                guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_MISC,         0x0600;
+        guidVSStd2K:ECMD_ADDRESOURCE,             guidSHLMainMenu:IDG_VS_CTXT_PROJECT_ADD_MISC,         0x0700;
+
+#ifndef No_ViewInClassDiagram_Menu
+        guidVSStd2K:cmdidViewInClassDiagram,      guidSHLMainMenu:IDG_VS_CTXT_PROJECT_CLASSDIAGRAM,     0x0100;
+#endif  // !No_ViewInClassDiagram_Menu
+
+#ifndef No_Set_Startup_Project_Commands
+        guidVSStd97:cmdidSetStartupProject,       guidSHLMainMenu:IDG_VS_CTXT_PROJECT_START,            0x0100;
+#endif // No_Set_Startup_Project_Commands
+        guidVSStd2K:ECMD_SETRUNTIMEVERSION,       guidSHLMainMenu:IDG_VS_CTXT_PROJECT_START,            0x0150;
+
+        // Project context debug cascade sub-menu (1 group)
+        guidVSStd2K:ECMD_PROJSTARTDEBUG,          guidSHLMainMenu:IDG_VS_CTXT_PROJECT_DEBUG,            0x0100;
+        guidVSStd2K:ECMD_PROJSTEPINTO,            guidSHLMainMenu:IDG_VS_CTXT_PROJECT_DEBUG,            0x0200;
+
+#ifndef VSE
+        guidVSStd97:cmdidSaveProjectItem,         guidSHLMainMenu:IDG_VS_CTXT_PROJECT_SAVE,             0x0100;
+
+        guidVSStd97:cmdidReloadProject,           guidSHLMainMenu:IDG_VS_CTXT_PROJECT_UNLOADRELOAD,     0x0100;
+#ifndef No_Project_Unload_Command
+        guidVSStd97:cmdidUnloadProject,           guidSHLMainMenu:IDG_VS_CTXT_PROJECT_UNLOADRELOAD,     0x0200;
+#endif // No_Project_Unload_Command
+#ifndef No_Solution_Folder_Commands
+        guidVSStd2K:cmdidHideFolder,              guidSHLMainMenu:IDG_VS_CTXT_PROJECT_UNLOADRELOAD,     0x0300;
+        guidVSStd2K:cmdidUnhideFolders,           guidSHLMainMenu:IDG_VS_CTXT_PROJECT_UNLOADRELOAD,     0x0400;
+#endif // No_Solution_Folder_Commands
+
+        guidVSStd2K:cmdidEditProjectFile,         guidSHLMainMenu:IDG_VS_CTXT_PROJECT_EDITFILE,         0x0100;
+
+#ifndef No_Project_Cut_Command
+        guidVSStd97:cmdidCut,                     guidSHLMainMenu:IDG_VS_CTXT_PROJECT_TRANSFER,         0x0100;
+#endif // No_Project_Cut_Command
+        guidVSStd97:cmdidPaste,                   guidSHLMainMenu:IDG_VS_CTXT_PROJECT_TRANSFER,         0x0200;
+#ifndef No_Project_Remove_Command
+        guidVSStd97:cmdidDelete,                  guidSHLMainMenu:IDG_VS_CTXT_PROJECT_TRANSFER,         0x0300;
+#endif // No_Project_Remove_Command
+        guidVSStd97:cmdidRename,                  guidSHLMainMenu:IDG_VS_CTXT_PROJECT_TRANSFER,         0x0400;
+#endif //!VSE
+
+        guidVSStd97:cmdidPropSheetOrProperties,   guidSHLMainMenu:IDG_VS_CTXT_PROJECT_PROPERTIES,       0x0100;
+
+        ///////////////////////////////////////////
+        // Miscellaneous Files Project Context Menu
+        ///////////////////////////////////////////
+        guidVSStd97:cmdidFileNew,                 guidSHLMainMenu:IDG_VS_MISCFILES_PROJ,                0x0100;
+        guidVSStd97:cmdidFileOpen,                guidSHLMainMenu:IDG_VS_MISCFILES_PROJ,                0x0200;
+//        guidVSStd97:cmdidFileOpenFromWeb,         guidSHLMainMenu:IDG_VS_MISCFILES_PROJ,                0x0300;
+
+        //////////////////////////////
+        // Multi-Project Context Menu
+        //////////////////////////////
+        guidVSStd97:cmdidBuildSel,                guidSHLMainMenu:IDG_VS_CTXT_MULTIPROJ_BUILD,          0x0100;
+        guidVSStd97:cmdidRebuildSel,              guidSHLMainMenu:IDG_VS_CTXT_MULTIPROJ_BUILD,          0x0200;
+        guidVSStd97:cmdidDeploySel,               guidSHLMainMenu:IDG_VS_CTXT_MULTIPROJ_BUILD,          0x0300;
+        guidVSStd97:cmdidCleanSel,                guidSHLMainMenu:IDG_VS_CTXT_MULTIPROJ_BUILD,          0x0400;
+
+#ifndef No_Project_Cut_Command
+        guidVSStd97:cmdidCut,                     guidSHLMainMenu:IDG_VS_CTXT_MULTISELECT_TRANSFER,     0x0100;
+#endif // No_Project_Cut_Command
+        guidVSStd97:cmdidCopy,                    guidSHLMainMenu:IDG_VS_CTXT_MULTISELECT_TRANSFER,     0x0200;
+#ifndef No_Project_Remove_Command
+        guidVSStd97:cmdidDelete,                  guidSHLMainMenu:IDG_VS_CTXT_MULTISELECT_TRANSFER,     0x0300;
+#endif // No_Project_Remove_Command
+
+        ////////////////////////////////
+        // Common Item Node context menu
+        ////////////////////////////////
+        guidVSStd97:cmdidViewCode,                guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEW,                0x0150;
+        guidVSStd97:cmdidViewForm,                guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEW,                0x0200;
+#ifndef No_ViewInClassDiagram_Menu
+        guidVSStd2K:cmdidViewInClassDiagram,      guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEW,                0x0250;
+#endif //!No_ViewInClassDiagram_Menu
+        guidVSStd2K:ECMD_VIEWMARKUP,              guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEW,                0x0300;
+        guidVSStd2K:ECMD_VIEWCOMPONENTDESIGNER,   guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEW,                0x0350;
+
+#ifndef VSE
+        guidVSStd97:cmdidOpen,                    guidSHLMainMenu:IDG_VS_CTXT_ITEM_OPEN,                0x0100;
+        guidVSStd97:cmdidOpenWith,                guidSHLMainMenu:IDG_VS_CTXT_ITEM_OPEN,                0x0200;
+
+        guidVSStd97:cmdidPreviewInBrowser,        guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEWBROWSER,         0x0100;
+        guidVSStd97:cmdidBrowseWith,              guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEWBROWSER,         0x0300;
+                                                  
+        guidVSStd2K:ECMD_SETASSTARTPAGE,          guidSHLMainMenu:IDG_VS_CTXT_ITEM_VIEWBROWSER,         0x0700;
+#ifndef No_Include_Exclude_Commands
+        guidVSStd2K:ECMD_INCLUDEINPROJECT,        guidSHLMainMenu:IDG_VS_CTXT_ITEM_INCLUDEEXCLUDE,      0x0200;
+        guidVSStd2K:ECMD_EXCLUDEFROMPROJECT,      guidSHLMainMenu:IDG_VS_CTXT_ITEM_INCLUDEEXCLUDE,      0x0300;
+#endif // No_Include_Exclude_Commands
+        guidVSStd2K:ECMD_RUNCUSTOMTOOL,           guidSHLMainMenu:IDG_VS_CTXT_ITEM_INCLUDEEXCLUDE,      0x0400;
+
+        guidVSStd97:cmdidCut,                     guidSHLMainMenu:IDG_VS_CTXT_ITEM_TRANSFER,            0x0100;
+        guidVSStd97:cmdidCopy,                    guidSHLMainMenu:IDG_VS_CTXT_ITEM_TRANSFER,            0x0200;
+        guidVSStd97:cmdidDelete,                  guidSHLMainMenu:IDG_VS_CTXT_ITEM_TRANSFER,            0x0300;
+        guidVSStd97:cmdidRename,                  guidSHLMainMenu:IDG_VS_CTXT_ITEM_TRANSFER,            0x0400;
+#endif //!VSE
+
+        guidVSStd97:cmdidPropSheetOrProperties,   guidSHLMainMenu:IDG_VS_CTXT_ITEM_PROPERTIES,          0x0100;
+
+        ////////////////////////////////
+        // Project & Item context menu
+        ////////////////////////////////
+        guidVSStd97:cmdidDelete,                  guidSHLMainMenu:IDG_VS_CTXT_DELETE,                   0x0100;
+
+        ////////////////////////////////
+        // Reference context menu
+        ////////////////////////////////
+        guidVSStd2K:ECMD_VIEWREFINOBJECTBROWSER,  guidSHLMainMenu:IDG_VS_CTXT_REFERENCE,                0x100;
+
+        ////////////////////////////////
+        // Folder Node context menu
+        ////////////////////////////////
+        guidSHLMainMenu:IDM_VS_CSCD_PROJECT_ADD,  guidSHLMainMenu:IDG_VS_CTXT_FOLDER_ADD,               0x0100;
+        guidVSStd2K:ECMD_ADDWEBREFERENCECTX,      guidSHLMainMenu:IDG_VS_CTXT_FOLDER_ADD,               0x0200;
+        guidVSStd2K:ECMD_UPDATEWEBREFERENCE,      guidSHLMainMenu:IDG_VS_CTXT_FOLDER_ADD,               0x0300;
+        guidVSStd2K:ECMD_VIEWREFINOBJECTBROWSER,  guidSHLMainMenu:IDG_VS_CTXT_FOLDER_ADD,               0x0400;
+
+        guidVSStd97:cmdidCut,                     guidSHLMainMenu:IDG_VS_CTXT_FOLDER_TRANSFER,          0x0100;
+        guidVSStd97:cmdidCopy,                    guidSHLMainMenu:IDG_VS_CTXT_FOLDER_TRANSFER,          0x0200;
+        guidVSStd97:cmdidPaste,                   guidSHLMainMenu:IDG_VS_CTXT_FOLDER_TRANSFER,          0x0300;
+        guidVSStd97:cmdidDelete,                  guidSHLMainMenu:IDG_VS_CTXT_FOLDER_TRANSFER,          0x0400;
+        guidVSStd97:cmdidRename,                  guidSHLMainMenu:IDG_VS_CTXT_FOLDER_TRANSFER,          0x0500;
+  
+        /////////////////////////////////////////
+        // App Designer Folder Node context menu
+        /////////////////////////////////////////
+        guidVSStd97:cmdidOpen,                    guidSHLMainMenu:IDG_VS_CTXT_APPDESIGNERFOLDER_OPEN,   0x0100;
+
+        /////////////////////////////////////////
+        // Web Reference Folder Node context menu
+        /////////////////////////////////////////
+        guidVSStd2K:ECMD_ADDWEBREFERENCECTX,      guidSHLMainMenu:IDG_VS_CTXT_WEBREFFOLDER_ADD,         0x0100;
+
+        ////////////////////////////////////
+        // Reference Root Node context menu
+        ////////////////////////////////////
+        guidVSStd2K:ECMD_ADDREFERENCE,            guidSHLMainMenu:IDG_VS_CTXT_REFROOT_ADD,              0x0100;
+        guidVSStd2K:ECMD_ADDWEBREFERENCE,         guidSHLMainMenu:IDG_VS_CTXT_REFROOT_ADD,              0x0200;
+
+        guidVSStd97:cmdidPaste,                   guidSHLMainMenu:IDG_VS_CTXT_REFROOT_TRANSFER,         0x0100;
+
+
+        ////////////////////////////////
+        // Properties Panel Toolbar
+        ////////////////////////////////
+        guidVSStd97:cmdidPRSortAlphabeticaly,      guidSHLMainMenu:IDG_VS_PROPERTIES_SORT,          0x0100;
+        guidVSStd97:cmdidPRSortByCategory,         guidSHLMainMenu:IDG_VS_PROPERTIES_SORT,          0x0200;
+
+        guidVSStd97:cmdidPropertyPages,            guidSHLMainMenu:IDG_VS_PROPERTIES_PAGES,         0x0100;
+
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        // Class View placements
+        //////////////////////////////////////////////////////////////////////////////////////
+        //**********************************************************************************************
+        // Class View toolbar groups 
+        // IDM_VS_TOOL_CLASSVIEW
+        //**********************************************************************************************
+
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_FOLDERS,         guidSHLMainMenu:IDM_VS_TOOL_CLASSVIEW,          0x0100;    
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_SEARCH,          guidSHLMainMenu:IDM_VS_TOOL_CLASSVIEW,          0x0200;    
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_SETTINGS         guidSHLMainMenu:IDM_VS_TOOL_CLASSVIEW,          0x0300;
+          
+        //**********************************************************************************************
+        // Class View settings popup menu 
+        // IDG_VS_CLASSVIEW_SETTINGS
+        //    IDM_VS_MNUCTRL_CVGROUPING
+        //**********************************************************************************************
+        guidSHLMainMenu:IDM_VS_MNUCTRL_CVGROUPING,                   guidSHLMainMenu:IDG_VS_CLASSVIEW_SETTINGS,            0x0100;
+        
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_BROWSERSETTINGSBTN,        guidSHLMainMenu:IDM_VS_MNUCTRL_CVGROUPING,             0x0100;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_BASE_DERIVED_GRP,          guidSHLMainMenu:IDM_VS_MNUCTRL_CVGROUPING,             0x0200;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_DISPLAY2                   guidSHLMainMenu:IDM_VS_MNUCTRL_CVGROUPING,             0x0300;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMACCESSGRP,              guidSHLMainMenu:IDM_VS_MNUCTRL_CVGROUPING,             0x0400;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_SHOW_INHERITED,            guidSHLMainMenu:IDM_VS_MNUCTRL_CVGROUPING,             0x0500;
+        
+        //**********************************************************************************************
+        // Class View Go toolbar groups placement
+        // IDM_VS_TOOL_CLASSVIEW_GO
+        //**********************************************************************************************
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_SEARCH2,                   guidSHLMainMenu:IDM_VS_TOOL_CLASSVIEW_GO,        0x0100;
+
+        //**********************************************************************************************
+        // Class View Classes Context menu groups
+        // IDM_VS_CTXT_CV_ITEM
+        //**********************************************************************************************
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_NAVIGATION,      guidSHLMainMenu:IDM_VS_CTXT_CV_ITEM,              0x0100;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMADD,         guidSHLMainMenu:IDM_VS_CTXT_CV_ITEM,              0x0200;
+    #ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_SCC,             guidSHLMainMenu:IDM_VS_CTXT_CV_ITEM,              0x0300;
+    #endif // No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_EDIT,            guidSHLMainMenu:IDM_VS_CTXT_CV_ITEM,              0x0400;
+        //guidSHLMainMenu:IDG_VS_CLASSVIEW_BASE_DERIVED_GRP, guidSHLMainMenu:IDM_VS_CTXT_CV_ITEM,             0x0450;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,        guidSHLMainMenu:IDM_VS_CTXT_CV_ITEM,              0x0500;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_PROPERTIES,      guidSHLMainMenu:IDM_VS_CTXT_CV_ITEM,              0x0600;
+        
+        // Add cascade sub-menu
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMWIZARDS,     guidSHLMainMenu:IDM_VS_CSCD_CV_ITEMADD,           0x0200;
+        // Priority 0x0300 onwards can be used by other teams to add more project level wizards
+
+        //**********************************************************************************************
+        // Class View Classes Multiselect Context menu groups
+        // IDM_VS_CTXT_CV_MULTIPLE
+        //**********************************************************************************************
+
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_NAVIGATION,      guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE,          0x0100;
+    #ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_SCC,             guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE,          0x0200;
+    #endif // No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_EDIT,            guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE,          0x0300;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,        guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE,          0x0400;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_PROPERTIES,      guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE,          0x0500;
+        
+        //**********************************************************************************************
+        // Class View Members Context menu groups
+        // IDM_VS_CTXT_CV_MEMBER
+        //**********************************************************************************************
+
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_NAVIGATION,      guidSHLMainMenu:IDM_VS_CTXT_CV_MEMBER,              0x0100;
+    #ifndef No_Source_Control_Commands    
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_SCC,             guidSHLMainMenu:IDM_VS_CTXT_CV_MEMBER,              0x0300;
+    #endif // No_Source_Control_Commands    
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_EDIT,            guidSHLMainMenu:IDM_VS_CTXT_CV_MEMBER,              0x0400;
+        guidSHLMainMenu:IDG_VS_CALLBROWSER_TYPE_POPUP,    guidSHLMainMenu:IDM_VS_CTXT_CV_MEMBER,              0x0500;
+        //guidSHLMainMenu:IDG_VS_CLASSVIEW_DISPLAY2,      guidSHLMainMenu:IDM_VS_CTXT_CV_MEMBER,              0x0550;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMACCESSGRP,    guidSHLMainMenu:IDM_VS_CTXT_CV_MEMBER,              0x0600;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_SHOW_INHERITED,  guidSHLMainMenu:IDM_VS_CTXT_CV_MEMBER,              0x0650;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMGRP,          guidSHLMainMenu:IDM_VS_CTXT_CV_MEMBER,              0x0700;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_PROPERTIES,      guidSHLMainMenu:IDM_VS_CTXT_CV_MEMBER,              0x0800;
+
+        //**********************************************************************************************
+        // Class View non symbol Members Context menu groups
+        // IDM_VS_CTXT_CV_NON_SYMBOL_MEMBERS
+        //**********************************************************************************************
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMACCESSGRP,    guidSHLMainMenu:IDM_VS_CTXT_CV_NON_SYMBOL_MEMBERS,  0x0100;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_SHOW_INHERITED,  guidSHLMainMenu:IDM_VS_CTXT_CV_NON_SYMBOL_MEMBERS,  0x0150;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMGRP,          guidSHLMainMenu:IDM_VS_CTXT_CV_NON_SYMBOL_MEMBERS,  0x0200;
+
+        //**********************************************************************************************
+        // Class View Members Multiselect Context menu groups
+        // IDM_VS_CTXT_CV_MULTIPLE_MEMBERS
+        //**********************************************************************************************
+
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_NAVIGATION,      guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE_MEMBERS,          0x0100;
+    #ifndef No_Source_Control_Commands        
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_SCC,             guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE_MEMBERS,          0x0200;
+    #endif // No_Source_Control_Commands    
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_EDIT,            guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE_MEMBERS,          0x0300;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMACCESSGRP     guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE_MEMBERS,          0x0400;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_SHOW_INHERITED,  guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE_MEMBERS,          0x0450;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMGRP,          guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE_MEMBERS,          0x0500;
+        guidSHLMainMenu:IDG_VS_CTXT_ITEM_PROPERTIES,      guidSHLMainMenu:IDM_VS_CTXT_CV_MULTIPLE_MEMBERS,          0x0600;
+          
+        //**********************************************************************************************
+        // Class View Project node context menu (uses some of Solution Explorer's groups also)
+        // IDM_VS_CTXT_CV_PROJECT
+        //**********************************************************************************************
+            
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_BUILD,        guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT,           0x0100;
+#ifndef No_Profile_Guided_Optimization
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_BUILD_PGO,    guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT,           0x0110;
+#endif
+        guidSHLMainMenu:IDG_VS_CTXT_COMPILELINK,          guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT,           0x0180;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_CONFIG,       guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT,           0x0200;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJADD,         guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT,           0x0300;
+        guidSHLMainMenu:IDG_VS_CTXT_REFROOT_ADD,          guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT,           0x0350;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_START,        guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT,           0x0400;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_SAVE,         guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT,           0x0500;
+    #ifndef No_Source_Control_Commands
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_SCC,          guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT,           0x0600;
+    #endif // No_Source_Control_Commands
+        //guidSHLMainMenu:IDG_VS_CTXT_PROJECT_TRANSFER,   guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT,           0x0700;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,        guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT,           0x0800;
+        guidSHLMainMenu:IDG_VS_CTXT_PROJECT_PROPERTIES,   guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT,           0x0900;
+        
+        // Add cascade sub-menu
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,     guidSHLMainMenu:IDM_VS_CSCD_CV_PROJADD,           0x0200;
+        // Priority 0x0300 onwards can be used by other teams to add more project level wizards
+
+
+        //**********************************************************************************************
+        // Class View Project References folder node context menu (uses some of Solution Explorer's groups also)
+        // IDM_VS_CTXT_CV_PROJECT_REFS_FOLDER
+        //**********************************************************************************************
+        guidSHLMainMenu:IDG_VS_CTXT_REFROOT_ADD,          guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT_REFS_FOLDER,   0x0100;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,        guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT_REFS_FOLDER,   0x0200;
+        
+        //**********************************************************************************************
+        // Class View Project Reference node context menu (uses some of Solution Explorer's groups also)
+        // IDM_VS_CTXT_CV_PROJECT_REFERENCE
+        //**********************************************************************************************
+        guidSHLMainMenu:IDG_VS_CTXT_REFERENCE,            guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT_REFERENCE,   0x0100;
+        guidSHLMainMenu:IDG_VS_CTXT_DELETE,               guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT_REFERENCE,   0x0200;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,        guidSHLMainMenu:IDM_VS_CTXT_CV_PROJECT_REFERENCE,   0x0300;
+        
+        //**********************************************************************************************
+        // Class View Folder node context menu.
+        // IDM_VS_CTXT_CV_FOLDER
+        //**********************************************************************************************
+        
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_FOLDERS2,        guidSHLMainMenu:IDM_VS_CTXT_CV_FOLDER,            0x0100;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_FOLDERS_EDIT,    guidSHLMainMenu:IDM_VS_CTXT_CV_FOLDER,            0x0200;
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,        guidSHLMainMenu:IDM_VS_CTXT_CV_FOLDER,            0x0300;
+
+        //**********************************************************************************************
+        // // Class View Hierarchy node context menu
+        // IDM_VS_CTXT_CV_GROUPINGFOLDER
+        //**********************************************************************************************
+        guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,        guidSHLMainMenu:IDM_VS_CTXT_CV_GROUPINGFOLDER,    0x0100;
+
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_NAVIGATION commands 
+        //---------------------------------------------------------------------------------------------
+        guidVSStd97:cmdidGotoDefn,                guidSHLMainMenu:IDG_VS_CLASSVIEW_NAVIGATION,          0x0100;
+        guidVSStd97:cmdidGotoDecl,                guidSHLMainMenu:IDG_VS_CLASSVIEW_NAVIGATION,          0x0150;
+        guidVSStd97:cmdidGotoRef,                 guidSHLMainMenu:IDG_VS_CLASSVIEW_NAVIGATION,          0x0200;
+        guidVSStd97:cmdidBrowseDefn,              guidSHLMainMenu:IDG_VS_CLASSVIEW_NAVIGATION,          0x0300;
+        guidVSStd97:cmdidFindReferences,          guidSHLMainMenu:IDG_VS_CLASSVIEW_NAVIGATION,          0x0400; 
+        //guidVSStd97:cmdidQuickObjectSearch,       guidSHLMainMenu:IDG_VS_CLASSVIEW_NAVIGATION,          0x0500;        
+        guidVSStd2K:cmdidCVFilterToType,          guidSHLMainMenu:IDG_VS_CLASSVIEW_NAVIGATION,          0x0600;
+
+
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_EDIT commands 
+        //---------------------------------------------------------------------------------------------
+        guidVSStd97:cmdidCopy,                    guidSHLMainMenu:IDG_VS_CLASSVIEW_EDIT,            0x0100;
+        guidVSStd97:cmdidRename,                  guidSHLMainMenu:IDG_VS_CLASSVIEW_EDIT,            0x0200;
+        guidVSStd97:cmdidDelete,                  guidSHLMainMenu:IDG_VS_CLASSVIEW_EDIT,            0x0300;
+
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_DISPLAY2 commands 
+        //---------------------------------------------------------------------------------------------
+        guidVSStd2K:cmdidCVShowProjectReferences, guidSHLMainMenu:IDG_VS_CLASSVIEW_DISPLAY2,           0x0100;
+        guidVSStd97:cmdidCVShowHidden,            guidSHLMainMenu:IDG_VS_CLASSVIEW_DISPLAY2,           0x0300;
+
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_GROUPING commands 
+        //---------------------------------------------------------------------------------------------
+        guidVSStd2K:cmdidCVSortByBestMatch,       guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,             0x0095;
+        guidVSStd97:cmdidCVSortObjectsAlpha,      guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,             0x0100;
+        guidVSStd97:cmdidCVSortObjectsType,       guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,             0x0200;
+        guidVSStd97:cmdidCVSortObjectsAccess,     guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,             0x0300;
+        guidVSStd97:cmdidCVGroupObjectsType,      guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,             0x0400;
+        //guidVSStd97:cmdidCVGroupObjectsAccess,  guidSHLMainMenu:IDG_VS_CLASSVIEW_GROUPING,           0x0500;
+
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_MEMGRP commands 
+        //---------------------------------------------------------------------------------------------
+        guidVSStd97:cmdidCVSortMembersAlpha,      guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMGRP,             0x0100;
+        guidVSStd97:cmdidCVSortMembersType,       guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMGRP,             0x0200;
+        guidVSStd97:cmdidCVSortMembersAccess,     guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMGRP,             0x0300;
+        guidVSStd2K:cmdidCVGroupMembersType,      guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMGRP,             0x0400;
+
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_MEMACCESSGRP commands 
+        //---------------------------------------------------------------------------------------------
+        guidVSStd2K:cmdidCVViewMembersAsUser,        guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMACCESSGRP,       0x0100;
+        guidVSStd2K:cmdidCVViewMembersAsSubclass,    guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMACCESSGRP,       0x0200;
+        guidVSStd2K:cmdidCVViewMembersAsImplementor, guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMACCESSGRP,       0x0300;
+        guidVSStd2K:cmdidCVViewOtherMembers,         guidSHLMainMenu:IDG_VS_CLASSVIEW_MEMACCESSGRP,       0x0400;
+        
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_SHOW_INHERITED
+        //---------------------------------------------------------------------------------------------
+        
+        guidVSStd2K:cmdidCVShowInheritedMembers,  guidSHLMainMenu:IDG_VS_CLASSVIEW_SHOW_INHERITED,        0x0100;
+        
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_BASE_DERIVED_GRP commands 
+        //---------------------------------------------------------------------------------------------
+        guidVSStd2K:cmdidCVShowBaseTypes,          guidSHLMainMenu:IDG_VS_CLASSVIEW_BASE_DERIVED_GRP,   0x2100;
+        guidVSStd2K:cmdidCVShowDerivedTypes,       guidSHLMainMenu:IDG_VS_CLASSVIEW_BASE_DERIVED_GRP,   0x2200;
+
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_BROWSERSETTINGSBTN commands 
+        //---------------------------------------------------------------------------------------------
+        guidVSStd2K:cmdidCVTypeBrowserSettings,    guidSHLMainMenu:IDG_VS_CLASSVIEW_BROWSERSETTINGSBTN, 0x0100;        
+        
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_SEARCH commands 
+        //---------------------------------------------------------------------------------------------
+        guidVSStd97:cmdidCVBack,                   guidSHLMainMenu:IDG_VS_CLASSVIEW_SEARCH,             0x0100;
+        guidVSStd97:cmdidCVForward,                guidSHLMainMenu:IDG_VS_CLASSVIEW_SEARCH,             0x0300;
+        
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_SEARCH2 commands 
+        //---------------------------------------------------------------------------------------------
+        guidVSStd97:cmdidCVSearchCombo,            guidSHLMainMenu:IDG_VS_CLASSVIEW_SEARCH2,            0x0100;
+        guidVSStd2K:cmdidCVSearch,                 guidSHLMainMenu:IDG_VS_CLASSVIEW_SEARCH2,            0x0200;
+        guidVSStd2K:cmdidCVClearSearch,            guidSHLMainMenu:IDG_VS_CLASSVIEW_SEARCH2,            0x0300;
+
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_FOLDERS commands 
+        //---------------------------------------------------------------------------------------------
+        guidVSStd97:cmdidCVNewFolder,              guidSHLMainMenu:IDG_VS_CLASSVIEW_FOLDERS,            0x0100;        
+
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_FOLDERS2 commands  
+        //---------------------------------------------------------------------------------------------
+        guidVSStd97:cmdidCVNewFolder,             guidSHLMainMenu:IDG_VS_CLASSVIEW_FOLDERS2,            0x0100;
+        guidVSStd97:cmdidMoveToTop,               guidSHLMainMenu:IDG_VS_CLASSVIEW_FOLDERS2,            0x0200;
+    
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_FOLDERS_EDIT commands  
+        // In addition to the standard ClassView edit operations, the folder node can also support pastes.
+        //---------------------------------------------------------------------------------------------
+        guidVSStd97:cmdidCopy,                    guidSHLMainMenu:IDG_VS_CLASSVIEW_FOLDERS_EDIT,        0x0100;
+        guidVSStd97:cmdidPaste,                   guidSHLMainMenu:IDG_VS_CLASSVIEW_FOLDERS_EDIT,        0x0200;     
+        guidVSStd97:cmdidRename,                  guidSHLMainMenu:IDG_VS_CLASSVIEW_FOLDERS_EDIT,        0x0300;
+        guidVSStd97:cmdidDelete,                  guidSHLMainMenu:IDG_VS_CLASSVIEW_FOLDERS_EDIT,        0x0400;
+
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_PROJWIZARDS commands 
+        // Add Item cascade (Class View project node context menu)
+        //---------------------------------------------------------------------------------------------
+        guidVSStd97:cmdidAddClass,                guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,         0x0100;
+        guidVSStd97:cmdidAddInterface,            guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,         0x0300;
+        guidVSStd97:cmdidImplementInterface,      guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,         0x0400;
+        guidVSStd97:cmdidAddMethod,               guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,         0x0500;
+        guidVSStd97:cmdidAddFunction,             guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,         0x0600;
+        guidVSStd97:cmdidAddProperty,             guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,         0x0700;
+        guidVSStd97:cmdidAddVariable,             guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,         0x0800;
+        guidVSStd97:cmdidAddEvent,                guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,         0x0900;
+        guidVSStd97:cmdidAddIndexer,              guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,         0x0a00;
+        guidVSStd97:cmdidAddConnectionPoint,      guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,         0x0b00;
+        guidVSStd97:cmdidOverride,                guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,         0x0c00;
+        guidVSStd2K:ECMD_ADDRESOURCE,             guidSHLMainMenu:IDG_VS_CLASSVIEW_PROJWIZARDS,         0x0d00;
+        
+        //---------------------------------------------------------------------------------------------
+        // IDG_VS_CLASSVIEW_PROJWIZARDS commands 
+        // // Add Item cascade (Class View Item node context menu)
+        //---------------------------------------------------------------------------------------------
+        guidVSStd97:cmdidAddNestedClass,          guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMWIZARDS,         0x0200;
+        guidVSStd97:cmdidAddInterface,            guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMWIZARDS,         0x0300;
+        guidVSStd97:cmdidImplementInterface,      guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMWIZARDS,         0x0400;
+        guidVSStd97:cmdidAddMethod,               guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMWIZARDS,         0x0500;
+        guidVSStd97:cmdidAddFunction,             guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMWIZARDS,         0x0600;
+        guidVSStd97:cmdidAddProperty,             guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMWIZARDS,         0x0700;
+        guidVSStd97:cmdidAddVariable,             guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMWIZARDS,         0x0800;
+        guidVSStd97:cmdidAddEvent,                guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMWIZARDS,         0x0900;
+        guidVSStd97:cmdidAddIndexer,              guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMWIZARDS,         0x0a00;
+        guidVSStd97:cmdidAddConnectionPoint,      guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMWIZARDS,         0x0b00;
+        guidVSStd97:cmdidOverride,                guidSHLMainMenu:IDG_VS_CLASSVIEW_ITEMWIZARDS,         0x0c00;
+
+        //---------------------------------------------------------------------------------------------
+        // Refactor commands
+        //---------------------------------------------------------------------------------------------
+        
+        guidVSStd2K:ECMD_RENAME,                    guidSHLMainMenu:IDG_REFACTORING_COMMON,   0x0100; 
+        guidVSStd2K:ECMD_EXTRACTMETHOD,             guidSHLMainMenu:IDG_REFACTORING_COMMON,   0x0200; 
+
+        guidVSStd2K:ECMD_ENCAPSULATEFIELD,          guidSHLMainMenu:IDG_REFACTORING_ADVANCED, 0x0100; 
+        guidVSStd2K:ECMD_EXTRACTINTERFACE,          guidSHLMainMenu:IDG_REFACTORING_ADVANCED, 0x0200; 
+        guidVSStd2K:ECMD_PROMOTELOCAL,              guidSHLMainMenu:IDG_REFACTORING_ADVANCED, 0x0300; 
+        guidVSStd2K:ECMD_REMOVEPARAMETERS,          guidSHLMainMenu:IDG_REFACTORING_ADVANCED, 0x0400; 
+        guidVSStd2K:ECMD_REORDERPARAMETERS,         guidSHLMainMenu:IDG_REFACTORING_ADVANCED, 0x0500; 
+
+CMDPLACEMENT_END
+
+
+//////////////////////////////////////////////////////////////////////////////
+// VISIBILITY_SECTION
+//
+// This sections determines when commands will be visible, in a static sense
+// as opposed to dynamically.  If you put a command in here and give it a
+// GUID that it should be active for, then the shell checks the GUID provided
+// versus the current project or document GUIDs that are active.  If the
+// command appears in this section, but the GUID it should be active for is
+// not the currently active one, then the command will not show up.
+//
+// ** Commands that do not appear in this section are statically visible by
+//    default
+//
+// You should use this section if you don't want specific commands to appear
+// in the shell unless a specific GUID (such as your package GUID) is active.
+//
+//////////////////////////////////////////////////////////////////////////////
+/*
+    This section removed because it caused the below 4 intellisense commands to be
+    visible all the time, even if no editor was up. -CFlaat, 3-20-2000.
+
+VISIBILITY_SECTION
+  // GUID:CMDID                 GUID when VISIBLE
+  guidVSStd2K:ECMD_SHOWMEMBERLIST,          guidNotViewSourceMode;
+  guidVSStd2K:ECMD_PARAMINFO,                   guidNotViewSourceMode;
+  guidVSStd2K:ECMD_QUICKINFO,                   guidNotViewSourceMode;
+  guidVSStd2K:ECMD_COMPLETEWORD,                guidNotViewSourceMode;
+
+VISIBILITY_END
+*/
+
+//////////////////////////////////////////////////////////////////////////////
+// KEYBINDINGS_SECTION
+//
+// This sections defines the keystroke mappings for the commands.
+//
+// The Keystate field is done using the following:
+//    A = Alt, S = Shift, C = Control, W = Windows Key
+//
+// Example of the Keystate assignment, if you want a two key combination
+// of Ctrl-X, Ctrl-Shift-C then the syntax would be :
+//
+//  'x':C:'c':CS
+//
+//////////////////////////////////////////////////////////////////////////////
+
+// {8B382828-6202-11d1-8870-0000F87579D2}
+#define GUID_TextEditorFactory {0x8b382828, 0x6202, 0x11d1, {0x88, 0x70, 0x0, 0x0, 0xf8, 0x75, 0x79, 0xd2}}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// VISIBILITY_SECTION
+// 
+// This sections determines when commands will be visible, in a static sense
+// as opposed to dynamically.  If you put a command in here and give it a 
+// GUID that it should be active for, then the shell checks the GUID provided
+// versus the current project or document GUIDs that are active.  If the 
+// command appears in this section, but the GUID it should be active for is
+// not the currently active one, then the command will not show up.  
+//
+// ** Commands that do not appear in this section are statically visible by
+//    default 
+//
+// You should use this section if you don't want specific commands to appear
+// in the shell unless a specific GUID (such as your package GUID) is active.
+//
+//////////////////////////////////////////////////////////////////////////////
+VISIBILITY_SECTION
+  // GUID:CMDID                 GUID when VISIBLE
+  guidStdEditor:IDM_VS_TOOL_TEXTEDITOR, GUID_TextEditorFactory;
+VISIBILITY_END
+
+KEYBINDINGS_SECTION
+//GUID:CMDID                                EDITORGUID, EMULATIONGUID    KEYSTATE
+//-----------------------------
+// Global bindings
+//-----------------------------
+  guidVSStd2K:ECMD_CTLMOVEUP,              guidVSStd97,  guidVSStd97,      VK_UP:C;
+  guidVSStd2K:ECMD_CTLMOVEDOWN,            guidVSStd97,  guidVSStd97,      VK_DOWN:C;
+  guidVSStd2K:ECMD_CTLMOVELEFT,            guidVSStd97,  guidVSStd97,      VK_LEFT:C;
+  guidVSStd2K:ECMD_CTLMOVERIGHT,           guidVSStd97,  guidVSStd97,      VK_RIGHT:C;
+  guidVSStd2K:ECMD_CTLSIZERIGHT,           guidVSStd97,  guidVSStd97,      VK_RIGHT:CS;
+  guidVSStd2K:ECMD_CTLSIZEUP,              guidVSStd97,  guidVSStd97,      VK_UP:CS;
+  guidVSStd2K:ECMD_CTLSIZELEFT,            guidVSStd97,  guidVSStd97,      VK_LEFT:CS;
+  guidVSStd2K:ECMD_CTLSIZEDOWN,            guidVSStd97,  guidVSStd97,      VK_DOWN:CS;
+  guidVSStd2K:ECMD_DEFAULTACTION,          guidVSStd97,  guidVSStd97,      VK_RETURN:;
+  guidVSStd2K:ECMD_CTLMOVEUPGRID,          guidVSStd97,  guidVSStd97,      VK_UP:;
+  guidVSStd2K:ECMD_CTLMOVEDOWNGRID,        guidVSStd97,  guidVSStd97,      VK_DOWN:;
+  guidVSStd2K:ECMD_CTLMOVELEFTGRID,        guidVSStd97,  guidVSStd97,      VK_LEFT:;
+  guidVSStd2K:ECMD_CTLMOVERIGHTGRID,       guidVSStd97,  guidVSStd97,      VK_RIGHT:;
+  guidVSStd2K:ECMD_CTLSIZERIGHTGRID,       guidVSStd97,  guidVSStd97,      VK_RIGHT:S;
+  guidVSStd2K:ECMD_CTLSIZEUPGRID,          guidVSStd97,  guidVSStd97,      VK_UP:S;
+  guidVSStd2K:ECMD_CTLSIZELEFTGRID,        guidVSStd97,  guidVSStd97,      VK_LEFT:S;
+  guidVSStd2K:ECMD_CTLSIZEDOWNGRID,        guidVSStd97,  guidVSStd97,      VK_DOWN:S;
+  guidVSStd2K:ECMD_NEXTCTL,                guidVSStd97,  guidVSStd97,      VK_TAB:;
+  guidVSStd2K:ECMD_PREVCTL,                guidVSStd97,  guidVSStd97,      VK_TAB:S;
+  
+  guidVSStd2K:ECMD_GOTONEXTBOOKMARK,       guidVSStd97,  guidVSStd97,      'k':C:'n':C;
+  guidVSStd2K:ECMD_GOTOPREVBOOKMARK,       guidVSStd97,  guidVSStd97,      'k':C:'p':C;
+  
+  guidVSStd2K:cmdidNextBookmarkFolder,     guidVSStd97,  guidVSStd97,      'k':CS:'n':CS;
+  guidVSStd2K:cmdidPrevBookmarkFolder,     guidVSStd97,  guidVSStd97,      'k':CS:'p':CS;
+  guidVSStd2K:cmdidNewBookmarkFolder,      guidVSStd97,  guidVSStd97,      'k':C:'f':C;
+
+  guidVSStd2K:ECMD_RENAME,                      guidVSStd97,     guidVSStd97, 'R':C:'R':C;
+  guidVSStd2K:ECMD_EXTRACTMETHOD,               guidVSStd97,     guidVSStd97, 'R':C:'M':C;
+  guidVSStd2K:ECMD_ENCAPSULATEFIELD,            guidVSStd97,     guidVSStd97, 'R':C:'E':C;
+  guidVSStd2K:ECMD_EXTRACTINTERFACE,            guidVSStd97,     guidVSStd97, 'R':C:'I':C;
+  guidVSStd2K:ECMD_PROMOTELOCAL,                guidVSStd97,     guidVSStd97, 'R':C:'P':C;
+  guidVSStd2K:ECMD_REMOVEPARAMETERS,            guidVSStd97,     guidVSStd97, 'R':C:'V':C;
+  guidVSStd2K:ECMD_REORDERPARAMETERS,           guidVSStd97,     guidVSStd97, 'R':C:'O':C;
+  guidVSStd2K:ECMD_GENERATEMETHODSTUB,          guidVSStd97,     guidVSStd97, 'K':C:'M':C;
+  guidVSStd2K:ECMD_SURROUNDWITH,                guidVSStd97,     guidVSStd97, 'K':C:'S':C;
+  guidVSStd2K:ECMD_INSERTSNIPPET,               guidVSStd97,     guidVSStd97, 'K':C:'X':C; 
+  guidVSStd2K:ECMD_SMARTTASKS,                  guidVSStd97,     guidVSStd97,  VK_F10:AS;
+
+
+//-----------------------------
+// Standard Editor bindings
+//-----------------------------
+//guidVSStd2K:ECMD_TYPECHAR
+  guidVSStd2K:ECMD_BACKSPACE,                 GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_BACK:S;
+  guidVSStd2K:ECMD_BACKSPACE,                 GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_BACK:;
+  guidVSStd2K:ECMD_RETURN,                    GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_RETURN:S;    // BUG: failing to register.
+  guidVSStd2K:ECMD_RETURN,                    GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_RETURN:;    // BUG: failing to register.
+  guidVSStd2K:ECMD_TAB,                       GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_TAB:;
+  guidVSStd2K:ECMD_LEFT,                      GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_LEFT:;
+  guidVSStd2K:ECMD_LEFT_EXT,                  GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_LEFT:S;
+  guidVSStd2K:ECMD_LEFT_EXT_COL,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_LEFT:AS;
+  guidVSStd2K:ECMD_RIGHT,                     GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_RIGHT:;
+  guidVSStd2K:ECMD_RIGHT_EXT,                 GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_RIGHT:S;
+  guidVSStd2K:ECMD_RIGHT_EXT_COL,             GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_RIGHT:AS;
+  guidVSStd2K:ECMD_UP,                        GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_UP:;
+  guidVSStd2K:ECMD_UP_EXT,                    GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_UP:S;
+  guidVSStd2K:ECMD_UP_EXT_COL,                GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_UP:AS;
+  guidVSStd2K:ECMD_DOWN,                      GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_DOWN:;
+  guidVSStd2K:ECMD_DOWN_EXT,                  GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_DOWN:S;
+  guidVSStd2K:ECMD_DOWN_EXT_COL,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_DOWN:AS;
+  guidVSStd2K:ECMD_HOME,                      GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_HOME:C;
+  guidVSStd2K:ECMD_HOME_EXT,                  GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_HOME:CS;
+  guidVSStd2K:ECMD_END,                       GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_END:C;
+  guidVSStd2K:ECMD_END_EXT,                   GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_END:CS;
+  guidVSStd2K:ECMD_BOL,                       GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_HOME:;
+  guidVSStd2K:ECMD_BOL_EXT,                   GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_HOME:S;
+  guidVSStd2K:ECMD_BOL_EXT_COL,               GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_HOME:AS;
+//guidVSStd2K:ECMD_FIRSTCHAR,                 GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_FIRSTCHAR_EXT,             GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+  guidVSStd2K:ECMD_EOL,                       GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_END:;
+  guidVSStd2K:ECMD_EOL_EXT,                   GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_END:S;
+  guidVSStd2K:ECMD_EOL_EXT_COL,               GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_END:AS;
+//guidVSStd2K:ECMD_LASTCHAR,                  GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_LASTCHAR_EXT,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+  guidVSStd2K:ECMD_PAGEUP,                    GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_PRIOR:;
+  guidVSStd2K:ECMD_PAGEUP_EXT,                GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_PRIOR:S;
+  guidVSStd2K:ECMD_PAGEDN,                    GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_NEXT:;
+  guidVSStd2K:ECMD_PAGEDN_EXT,                GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_NEXT:S;
+  guidVSStd2K:ECMD_TOPLINE,                   GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_PRIOR:C;
+  guidVSStd2K:ECMD_TOPLINE_EXT,               GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_PRIOR:CS;
+  guidVSStd2K:ECMD_BOTTOMLINE,                GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_NEXT:C;
+  guidVSStd2K:ECMD_BOTTOMLINE_EXT,            GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_NEXT:CS;
+  guidVSStd2K:ECMD_SCROLLUP,                  GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_UP:C;
+  guidVSStd2K:ECMD_SCROLLDN,                  GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_DOWN:C;
+//guidVSStd2K:ECMD_SCROLLPAGEUP,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_SCROLLPAGEDN,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_SCROLLLEFT,                GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_SCROLLRIGHT,               GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_SCROLLBOTTOM,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_SCROLLCENTER,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_SCROLLTOP,                 GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+  guidVSStd2K:ECMD_BACKTAB,                   GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_TAB:S;
+//guidVSStd2K:ECMD_SELECTALL                  GUID_TextEditorFactory, GUID_TextEditorFactory                     ;          //Handled as cmdidSelectAll
+  guidVSStd2K:ECMD_SELLOWCASE,                GUID_TextEditorFactory, GUID_TextEditorFactory,                    'u':C;
+//guidVSStd2K:ECMD_SELTABIFY,                 GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_SELTOGGLECASE,             GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_SELUNTABIFY,               GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+  guidVSStd2K:ECMD_SELUPCASE,                 GUID_TextEditorFactory, GUID_TextEditorFactory,                    'u':CS;
+  guidVSStd2K:ECMD_SELSWAPANCHOR,             GUID_TextEditorFactory, GUID_TextEditorFactory,                    'k':C:'a':C;
+//guidVSStd2K:ECMD_GOTOLINE,                  GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;          //Handled as cmdidGoto
+  guidVSStd2K:ECMD_GOTOBRACE,                 GUID_TextEditorFactory, GUID_TextEditorFactory,                    221:C;
+  guidVSStd2K:ECMD_GOTOBRACE_EXT,             GUID_TextEditorFactory, GUID_TextEditorFactory,                    221:CS;
+//guidVSStd2K:ECMD_GOBACK,                    GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_SELECTMODE,                GUID_TextEditorFactory, GUID_TextEditorFactory,                    'r':C:'s':C;
+  guidVSStd2K:ECMD_TOGGLE_OVERTYPE_MODE,      GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_INSERT: ;
+//guidVSStd2K:ECMD_CUT,                       //cmdidCut                   ;
+//guidVSStd2K:ECMD_COPY,                      //cmdidCopy                  ;
+//guidVSStd2K:ECMD_PASTE,                     //cmdidPaste                 ;
+  guidVSStd2K:ECMD_CUTLINE,                   GUID_TextEditorFactory, GUID_TextEditorFactory,                    'l':C;
+  guidVSStd2K:ECMD_DELETELINE,                GUID_TextEditorFactory, GUID_TextEditorFactory,                    'l':CS;
+//guidVSStd2K:ECMD_DELETEBLANKLINES,          GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+  guidVSStd2K:ECMD_DELETEWHITESPACE,          GUID_TextEditorFactory, GUID_TextEditorFactory,                    'k':C:220:C;
+//guidVSStd2K:ECMD_DELETETOEOL,               GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_DELETETOBOL,               GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+  guidVSStd2K:ECMD_OPENLINEABOVE,             GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_RETURN:C;
+  guidVSStd2K:ECMD_OPENLINEBELOW,             GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_RETURN:CS;
+  guidVSStd2K:ECMD_INCREASEFILTER,            GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_OEM_PERIOD:A;
+  guidVSStd2K:ECMD_DECREASEFILTER,            GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_OEM_COMMA:A;
+  guidVSStd2K:ECMD_COPYTIP,                   GUID_TextEditorFactory, GUID_TextEditorFactory,                     'c':CSA;
+  guidVSStd2K:ECMD_PASTETIP,                  GUID_TextEditorFactory, GUID_TextEditorFactory,                     'p':CSA;
+//  guidVSStd2K:ECMD_INDENT,                  GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_TAB;
+//  guidVSStd2K:ECMD_UNINDENT,                GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_TAB:S;
+  guidVSStd2K:ECMD_FORMATDOCUMENT,            GUID_TextEditorFactory, GUID_TextEditorFactory,                    'k':C:'d':C;
+  guidVSStd2K:ECMD_FORMATSELECTION,           GUID_TextEditorFactory, GUID_TextEditorFactory,                    'k':C:'f':C;
+//guidVSStd2K:ECMD_UNDO,                      //cmdidUndo                  ;
+//guidVSStd2K:ECMD_UNDONOMOVE,                GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_REDO,                      //cmdidRedo                  ;
+//guidVSStd2K:ECMD_REDONOMOVE,                GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+  guidVSStd2K:ECMD_DELETEALLTEMPBOOKMARKS,    GUID_TextEditorFactory, GUID_TextEditorFactory,                    'k':C:'l':C;
+  guidVSStd2K:ECMD_TOGGLETEMPBOOKMARK,        GUID_TextEditorFactory, GUID_TextEditorFactory,                    'k':C:'k':C;
+  //guidVSStd2K:ECMD_GOTONEXTBOOKMARK,        GUID_TextEditorFactory, GUID_TextEditorFactory,                    'k':C:'n':C;
+  //guidVSStd2K:ECMD_GOTOPREVBOOKMARK,        GUID_TextEditorFactory, GUID_TextEditorFactory,                    'k':C:'p':C;   
+
+  // Find & Replace are shell commands                                   ;
+//guidVSStd2K:ECMD_FIND,                      GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_REPLACE,                   GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_REPLACE_ALL,               GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_FINDNEXT,                  GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_FINDNEXTWORD,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_FINDPREV,                  GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_FINDPREVWORD,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_FINDAGAIN,                 GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+  guidVSStd2K:ECMD_TRANSPOSECHAR,             GUID_TextEditorFactory, GUID_TextEditorFactory,                    't':C;
+  guidVSStd2K:ECMD_TRANSPOSEWORD,             GUID_TextEditorFactory, GUID_TextEditorFactory,                    't':CS;
+  guidVSStd2K:ECMD_TRANSPOSELINE,             GUID_TextEditorFactory, GUID_TextEditorFactory,                    't':AS;
+  guidVSStd2K:ECMD_SELECTCURRENTWORD,         GUID_TextEditorFactory, GUID_TextEditorFactory,                    'w':C;
+//guidVSStd2K:ECMD_SELTITLECASE,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+  guidVSStd2K:ECMD_DELETEWORDRIGHT,           GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_DELETE:C;
+  guidVSStd2K:ECMD_DELETEWORDLEFT,            GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_BACK:C;
+  guidVSStd2K:ECMD_WORDPREV,                  GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_LEFT:C;
+  guidVSStd2K:ECMD_WORDPREV_EXT,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_LEFT:CS;
+  guidVSStd2K:ECMD_WORDPREV_EXT_COL,          GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_LEFT:CAS;
+  guidVSStd2K:ECMD_WORDNEXT,                  GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_RIGHT:C;
+  guidVSStd2K:ECMD_WORDNEXT_EXT,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_RIGHT:CS;
+  guidVSStd2K:ECMD_WORDNEXT_EXT_COL,          GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_RIGHT:CAS;
+//guidVSStd2K:ECMD_COMMENTBLOCK,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_UNCOMMENTBLOCK,            GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_SETREPEATCOUNT,            GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_WIDGETMARGIN_LBTNDOWN,     GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+//guidVSStd2K:ECMD_SHOWCONTEXTMENU,           GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+  guidVSStd2K:ECMD_CANCEL,                    GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_ESCAPE:;
+  guidVSStd2K:ECMD_QUICKINFO,                 GUID_TextEditorFactory, GUID_TextEditorFactory,                    'k':C:'i':C;
+  guidVSStd2K:ECMD_PARAMINFO,                 GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_SPACE:CS;
+  guidVSStd2K:ECMD_TOGGLEVISSPACE,            GUID_TextEditorFactory, GUID_TextEditorFactory,                    'r':C:'w':C;
+//guidVSStd2K:ECMD_TOGGLECARETPASTEPOS,       GUID_TextEditorFactory, GUID_TextEditorFactory,                    ;
+  guidVSStd2K:ECMD_COMPLETEWORD,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_RIGHT:A;
+  guidVSStd2K:ECMD_COMPLETEWORD,              GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_SPACE:C;
+  guidVSStd2K:ECMD_SHOWMEMBERLIST,            GUID_TextEditorFactory, GUID_TextEditorFactory,                    'j':C;
+  guidVSStd2K:ECMD_TOGGLESHORTCUT,            GUID_TextEditorFactory, GUID_TextEditorFactory,                    'k':C:'h':C;
+  guidVSStd2K:ECMD_TOGGLEWORDWRAP,            GUID_TextEditorFactory, GUID_TextEditorFactory,                    'e':C:'w':C;
+  guidVSStd2K:ECMD_ISEARCH,                   GUID_TextEditorFactory, GUID_TextEditorFactory,                    'i':C;
+  guidVSStd2K:ECMD_ISEARCHBACK,               GUID_TextEditorFactory, GUID_TextEditorFactory,                    'i':CS;
+  guidVSStd2K:ECMD_OUTLN_HIDE_SELECTION       GUID_TextEditorFactory, GUID_TextEditorFactory,                    'm':C:'h':C;
+  guidVSStd2K:ECMD_OUTLN_TOGGLE_CURRENT,      GUID_TextEditorFactory, GUID_TextEditorFactory,                    'm':C:'m':C;
+  guidVSStd2K:ECMD_OUTLN_TOGGLE_ALL,          GUID_TextEditorFactory, GUID_TextEditorFactory,                    'm':C:'l':C;
+  guidVSStd2K:ECMD_OUTLN_STOP_HIDING_ALL,     GUID_TextEditorFactory, GUID_TextEditorFactory,                    'm':C:'p':C;
+  guidVSStd2K:ECMD_OUTLN_STOP_HIDING_CURRENT, GUID_TextEditorFactory, GUID_TextEditorFactory,                    'm':C:'u':C;
+  guidVSStd2K:ECMD_OUTLN_COLLAPSE_TO_DEF,     GUID_TextEditorFactory, GUID_TextEditorFactory,                    'm':C:'o':C;
+  guidVSStd2K:ECMD_COLLAPSETAG,               GUID_TextEditorFactory, GUID_TextEditorFactory,                    'm':C:'t':C;
+  guidVSStd2K:ECMD_COMMENT_BLOCK              GUID_TextEditorFactory, GUID_TextEditorFactory,                    'k':C:'c':C;
+  guidVSStd2K:ECMD_UNCOMMENT_BLOCK,           GUID_TextEditorFactory, GUID_TextEditorFactory,                    'k':C:'u':C;
+  guidVSStd2K:ECMD_SELTOGOBACK                GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_OEM_PLUS:C;
+//  guidVSStd97:cmdidObjectBrowser,           GUID_TextEditorFactory, GUID_TextEditorFactory,                    VK_F2:;    // To invoke object browser when focus is on editor.
+
+KEYBINDINGS_END
+

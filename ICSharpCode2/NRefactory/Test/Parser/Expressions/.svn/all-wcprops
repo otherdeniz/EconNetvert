@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions
+END
+AssignmentExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/AssignmentExpressionTests.cs
+END
+PrimitiveExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/PrimitiveExpressionTests.cs
+END
+InvocationExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/InvocationExpressionTests.cs
+END
+AnonymousMethodTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/AnonymousMethodTests.cs
+END
+UnaryOperatorExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/UnaryOperatorExpressionTests.cs
+END
+GlobalReferenceExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/GlobalReferenceExpressionTests.cs
+END
+StackAllocExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/StackAllocExpressionTests.cs
+END
+DefaultValueExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/DefaultValueExpressionTests.cs
+END
+IdentifierExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/IdentifierExpressionTests.cs
+END
+ParenthesizedExpressionTest.cs
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/ParenthesizedExpressionTest.cs
+END
+ClassReferenceExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/ClassReferenceExpressionTests.cs
+END
+CheckedExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/CheckedExpressionTests.cs
+END
+ThisReferenceExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/ThisReferenceExpressionTests.cs
+END
+BaseReferenceExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/BaseReferenceExpressionTests.cs
+END
+UncheckedExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/UncheckedExpressionTests.cs
+END
+ObjectCreateExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/ObjectCreateExpressionTests.cs
+END
+CastExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/CastExpressionTests.cs
+END
+IndexerExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/IndexerExpressionTests.cs
+END
+PointerReferenceExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/PointerReferenceExpressionTests.cs
+END
+SizeOfExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/SizeOfExpressionTests.cs
+END
+BinaryOperatorExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/BinaryOperatorExpressionTests.cs
+END
+TypeReferenceExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/TypeReferenceExpressionTests.cs
+END
+FieldReferenceExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/FieldReferenceExpressionTests.cs
+END
+ArrayCreateExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/ArrayCreateExpressionTests.cs
+END
+TypeOfIsExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/TypeOfIsExpressionTests.cs
+END
+ConditionalExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/ConditionalExpressionTests.cs
+END
+TypeOfExpressionTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/Expressions/TypeOfExpressionTests.cs
+END

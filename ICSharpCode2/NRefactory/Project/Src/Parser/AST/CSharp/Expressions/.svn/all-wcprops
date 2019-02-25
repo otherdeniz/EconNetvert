@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/CSharp/Expressions
+END
+IndexerExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/CSharp/Expressions/IndexerExpression.cs
+END
+PointerReferenceExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/CSharp/Expressions/PointerReferenceExpression.cs
+END
+SizeOfExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/CSharp/Expressions/SizeOfExpression.cs
+END
+DirectionExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/CSharp/Expressions/DirectionExpression.cs
+END
+StackAllocExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/CSharp/Expressions/StackAllocExpression.cs
+END
+DefaultValueExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/CSharp/Expressions/DefaultValueExpression.cs
+END
+ConditionalExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/CSharp/Expressions/ConditionalExpression.cs
+END
+CheckedExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/CSharp/Expressions/CheckedExpression.cs
+END
+AnonymousMethodExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/CSharp/Expressions/AnonymousMethodExpression.cs
+END
+UncheckedExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/CSharp/Expressions/UncheckedExpression.cs
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/VBNet/Expressions
+END
+TypeOfIsExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/VBNet/Expressions/TypeOfIsExpression.cs
+END
+ClassReferenceExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/VBNet/Expressions/ClassReferenceExpression.cs
+END
+AddressOfExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/VBNet/Expressions/AddressOfExpression.cs
+END

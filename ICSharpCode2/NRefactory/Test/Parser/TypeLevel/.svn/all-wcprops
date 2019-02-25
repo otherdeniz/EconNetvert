@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/TypeLevel
+END
+FieldDeclarationTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/TypeLevel/FieldDeclarationTests.cs
+END
+PropertyDeclarationTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/TypeLevel/PropertyDeclarationTests.cs
+END
+ConstructorDeclarationTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/TypeLevel/ConstructorDeclarationTests.cs
+END
+CustomEventTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/TypeLevel/CustomEventTests.cs
+END
+OperatorDeclarationTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/TypeLevel/OperatorDeclarationTests.cs
+END
+DestructorDeclarationTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/TypeLevel/DestructorDeclarationTests.cs
+END
+IndexerDeclarationTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/TypeLevel/IndexerDeclarationTests.cs
+END
+DeclareDeclarationTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/TypeLevel/DeclareDeclarationTests.cs
+END
+MethodDeclarationTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/TypeLevel/MethodDeclarationTests.cs
+END
+EventDeclarationTests.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Test/Parser/TypeLevel/EventDeclarationTests.cs
+END

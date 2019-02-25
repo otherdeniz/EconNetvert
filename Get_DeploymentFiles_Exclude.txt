@@ -1,0 +1,7 @@
+.suo
+.user
+.log
+.txt
+\bin\
+\obj\
+\ndoc_msdn_temp\

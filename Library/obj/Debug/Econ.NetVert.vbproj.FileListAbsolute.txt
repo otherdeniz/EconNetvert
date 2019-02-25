@@ -1,0 +1,11 @@
+D:\Deniz\Econ.NetVert\Library\bin\debug\Econ.NetVert.dll.config
+D:\Deniz\Econ.NetVert\Library\bin\debug\Econ.NetVert.dll
+D:\Deniz\Econ.NetVert\Library\bin\debug\Econ.NetVert.pdb
+D:\Deniz\Econ.NetVert\Library\bin\debug\Econ.NetVert.xml
+D:\Deniz\Econ.NetVert\Library\bin\debug\ICSharpCode.NRefactory.dll
+D:\Deniz\Econ.NetVert\Library\bin\debug\ICSharpCode.SharpRefactory.dll
+D:\Deniz\Econ.NetVert\Library\bin\debug\ICSharpCode.SharpRefactoryVB.dll
+D:\Deniz\Econ.NetVert\Library\obj\Debug\Econ.NetVert.vbprojResolveAssemblyReference.cache
+D:\Deniz\Econ.NetVert\Library\obj\Debug\Econ.NetVert.dll
+D:\Deniz\Econ.NetVert\Library\obj\Debug\Econ.NetVert.xml
+D:\Deniz\Econ.NetVert\Library\obj\Debug\Econ.NetVert.pdb

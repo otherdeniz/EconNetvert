@@ -1,0 +1,575 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc
+END
+SharedCmdDef.ctc
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/SharedCmdDef.ctc
+END
+msdbg.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/msdbg.h
+END
+vseeguids.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vseeguids.h
+END
+olecm.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/olecm.h
+END
+dbgmetric.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/dbgmetric.h
+END
+vsshell2.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vsshell2.h
+END
+textmgruuids.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/textmgruuids.h
+END
+enc.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/enc.h
+END
+IVsSccProvider.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsSccProvider.h
+END
+compsvcspkg80.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/compsvcspkg80.h
+END
+vbapkg.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vbapkg.h
+END
+vsbrowse.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vsbrowse.h
+END
+sccmnid.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/sccmnid.h
+END
+IVsSccVirtualFolders.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsSccVirtualFolders.h
+END
+SharedCmdPlace.ctc
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/SharedCmdPlace.ctc
+END
+IVsSccOpenFromSourceControl.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsSccOpenFromSourceControl.h
+END
+ShellCmdPlace.ctc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/ShellCmdPlace.ctc
+END
+ivsqueryeditquerysave2.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/ivsqueryeditquerysave2.h
+END
+vsshelluuids.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vsshelluuids.h
+END
+stdidcmd.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/stdidcmd.h
+END
+vsshlex.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vsshlex.h
+END
+uilocale.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/uilocale.h
+END
+vslangproj80.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vslangproj80.h
+END
+SCGuids.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/SCGuids.h
+END
+EnvSdkVersion.ver
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/EnvSdkVersion.ver
+END
+ivstrackprojectdocumentsevents2.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/ivstrackprojectdocumentsevents2.h
+END
+textfind2.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/textfind2.h
+END
+vslangproj2.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vslangproj2.h
+END
+containedlanguage.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/containedlanguage.h
+END
+dteinternal.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/dteinternal.h
+END
+customfind.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/customfind.h
+END
+dsrfid.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/dsrfid.h
+END
+vsshlctx.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vsshlctx.h
+END
+Webapplicationctx.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/Webapplicationctx.h
+END
+vsshell.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vsshell.h
+END
+ivstrackprojectdocuments2.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/ivstrackprojectdocuments2.h
+END
+IVsRegisterScciProvider.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsRegisterScciProvider.h
+END
+VSRegKeyNames.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/VSRegKeyNames.h
+END
+textfind.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/textfind.h
+END
+vslangproj.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vslangproj.h
+END
+IVsSccToolsOptions.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsSccToolsOptions.h
+END
+ee.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/ee.h
+END
+IVsSccEnlistmentPathTranslation.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsSccEnlistmentPathTranslation.h
+END
+ocdesign.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/ocdesign.h
+END
+objext.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/objext.h
+END
+IVsTrackProjectDocumentsEvents80.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsTrackProjectDocumentsEvents80.h
+END
+ShellCmdDef.ctc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/ShellCmdDef.ctc
+END
+unipriv.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/unipriv.h
+END
+common.ver
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/common.ver
+END
+ideodl.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/ideodl.h
+END
+designer.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/designer.h
+END
+IVsSccManagerTooltip.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsSccManagerTooltip.h
+END
+IVsSccControlNewSolution.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsSccControlNewSolution.h
+END
+IVsWebServices.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsWebServices.h
+END
+vssplash.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vssplash.h
+END
+ocundoid.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/ocundoid.h
+END
+vsmanaged.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vsmanaged.h
+END
+context2.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/context2.h
+END
+ivssccmanager2.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/ivssccmanager2.h
+END
+IVsTrackProjectDocuments80.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsTrackProjectDocuments80.h
+END
+sh.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/sh.h
+END
+vsassert.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vsassert.h
+END
+oleipc.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/oleipc.h
+END
+proffserv.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/proffserv.h
+END
+dte.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/dte.h
+END
+IVsSccProjectEnlistmentFactory.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsSccProjectEnlistmentFactory.h
+END
+virtkeys.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/virtkeys.h
+END
+IVsSccGlyphs.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsSccGlyphs.h
+END
+dpkg.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/dpkg.h
+END
+helpsys.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/helpsys.h
+END
+IVsSccProjectProviderBinding.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsSccProjectProviderBinding.h
+END
+vsshell80.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vsshell80.h
+END
+textmgr.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/textmgr.h
+END
+ivssccproviderfactory.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/ivssccproviderfactory.h
+END
+contextuuids.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/contextuuids.h
+END
+IVsSccAddWebProjectFromSourceControl.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsSccAddWebProjectFromSourceControl.h
+END
+IVsSccProjectEnlistmentChoice.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsSccProjectEnlistmentChoice.h
+END
+vsshlids.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vsshlids.h
+END
+vshelp.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/vshelp.h
+END
+ivssccproject2.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/ivssccproject2.h
+END
+warning.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/warning.h
+END
+scc.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/scc.h
+END
+completion.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/completion.h
+END
+IVsQueryEditQuerySave80.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/IVsQueryEditQuerySave80.h
+END
+stdiduie.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/stdiduie.h
+END
+idsref.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/idsref.h
+END
+textmgr2.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/textmgr2.h
+END
+fpstfmt.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/fpstfmt.h
+END
+completionuuids.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/completionuuids.h
+END
+VSShellInterfaces.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/VSShellInterfaces.h
+END
+context.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/context.h
+END
+encbuild.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/encbuild.h
+END
+unicase.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/unicase.h
+END
+webmigration.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/webmigration.h
+END
+singlefileeditor.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/Econ/!svn/ver/128/Econ_Tools/NetVert/v2.x/BuildTools/vssdk80/Common_Inc/singlefileeditor.h
+END

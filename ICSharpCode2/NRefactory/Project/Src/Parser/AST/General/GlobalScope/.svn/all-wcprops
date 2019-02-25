@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/GlobalScope
+END
+UsingDeclaration.cs
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/GlobalScope/UsingDeclaration.cs
+END
+CompilationUnit.cs
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/GlobalScope/CompilationUnit.cs
+END
+DelegateDeclaration.cs
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/GlobalScope/DelegateDeclaration.cs
+END
+NamespaceDeclaration.cs
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/GlobalScope/NamespaceDeclaration.cs
+END
+TypeDeclaration.cs
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/GlobalScope/TypeDeclaration.cs
+END

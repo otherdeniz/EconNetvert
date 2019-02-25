@@ -1,0 +1,89 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+    </meta>
+    <meta name="generator" content="NDoc 1.3" />
+    <title>RefactoryOnlineProvider Members</title>
+    <link rel="stylesheet" type="text/css" href="ndoc.css">
+    </link>
+    <script src="ndoc.js" type="text/javascript">
+    </script>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead" nowrap="true">Econ NetVert Library Documentation</td>
+            <td class="product" nowrap="true">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">RefactoryOnlineProvider Members
+					</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p>
+        <a href="Econ.NetVert.RefactoryOnlineProvider.html">RefactoryOnlineProvider overview</a>
+      </p>
+      <h4 class="dtH4">Public Static (Shared) Fields</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="pubfield.gif"></img><img src="static.gif" /><a href="Econ.NetVert.RefactoryOnlineProvider.Instance.html">Instance</a></td><td width="50%"> </td></tr></table>
+      </div>
+      <h4 class="dtH4">Public Instance Constructors</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif" /><a href="Econ.NetVert.RefactoryOnlineProviderConstructor.html">RefactoryOnlineProvider Constructor</a></td><td width="50%">Initializes a new instance of the <a href="Econ.NetVert.RefactoryOnlineProvider.html">RefactoryOnlineProvider</a> class.</td></tr></table>
+      </div>
+      <h4 class="dtH4">Public Instance Properties</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="Econ.NetVert.RefactoryOnlineProvider.Name.html">Name</a></td><td width="50%"> </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="Econ.NetVert.RefactoryOnlineProvider.PreAndPostParseFlags.html">PreAndPostParseFlags</a></td><td width="50%"> </td></tr></table>
+      </div>
+      <h4 class="dtH4">Public Instance Methods</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="Econ.NetVert.RefactoryOnlineProvider.ConvertCStoVB.html">ConvertCStoVB</a></td><td width="50%"> </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="Econ.NetVert.RefactoryOnlineProvider.ConvertVBtoCS.html">ConvertVBtoCS</a></td><td width="50%"> </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemObjectClassEqualsTopic.htm">Equals</a> (inherited from <b>Object</b>)</td><td width="50%">Determines whether the specified <a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemObjectClassTopic.htm">Object</a> is equal to the current <a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemObjectClassTopic.htm">Object</a>.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemObjectClassGetHashCodeTopic.htm">GetHashCode</a> (inherited from <b>Object</b>)</td><td width="50%">Serves as a hash function for a particular type. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemObjectClassGetTypeTopic.htm">GetType</a> (inherited from <b>Object</b>)</td><td width="50%">Gets the <a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemTypeClassTopic.htm">Type</a> of the current instance.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemObjectClassToStringTopic.htm">ToString</a> (inherited from <b>Object</b>)</td><td width="50%">Returns a <a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemStringClassTopic.htm">String</a> that represents the current <a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemObjectClassTopic.htm">Object</a>.</td></tr></table>
+      </div>
+      <h4 class="dtH4">Protected Instance Methods</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"></img><a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemObjectClassFinalizeTopic.htm">Finalize</a> (inherited from <b>Object</b>)</td><td width="50%">Allows an <a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemObjectClassTopic.htm">Object</a> to attempt to free resources and perform other cleanup operations before the <a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemObjectClassTopic.htm">Object</a> is reclaimed by garbage collection.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"></img><a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemObjectClassMemberwiseCloneTopic.htm">MemberwiseClone</a> (inherited from <b>Object</b>)</td><td width="50%">Creates a shallow copy of the current <a href="ms-help://MS.NETFrameworkSDKv2.0/cpref/html/frlrfSystemObjectClassTopic.htm">Object</a>.</td></tr></table>
+      </div>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="Econ.NetVert.RefactoryOnlineProvider.html">RefactoryOnlineProvider Class</a> | <a href="Econ.NetVert.html">Econ.NetVert Namespace</a></p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="RefactoryOnlineProvider class">
+        </param>
+        <param name="Keyword" value="Econ.NetVert.RefactoryOnlineProvider class">
+        </param>
+        <param name="Keyword" value="RefactoryOnlineProvider class, all members">
+        </param>
+      </object>
+      <DIV CLASS="footer">
+        <p>
+          <center>
+            <font color="red">
+              <i>
+								Syntax based on .NET Framework version 2.0.<br />
+								Documentation version 2.2.1.10.
+							</i>
+            </font>
+          </center>
+        </p>
+      </DIV>
+    </div>
+  </body>
+</html>

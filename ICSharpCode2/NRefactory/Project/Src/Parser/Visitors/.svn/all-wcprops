@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/Visitors
+END
+AbstractASTVisitor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/Visitors/AbstractASTVisitor.cs
+END
+IASTVisitor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/Visitors/IASTVisitor.cs
+END
+LookupTableVisitor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/Visitors/LookupTableVisitor.cs
+END
+CSharpToVBNetConvertVisitor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/Visitors/CSharpToVBNetConvertVisitor.cs
+END
+VBNetToCSharpConvertVisitor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/Visitors/VBNetToCSharpConvertVisitor.cs
+END
+PrefixFieldsVisitor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/Visitors/PrefixFieldsVisitor.cs
+END

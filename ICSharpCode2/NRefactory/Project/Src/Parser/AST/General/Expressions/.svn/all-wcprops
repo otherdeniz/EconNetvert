@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions
+END
+TypeReferenceExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/TypeReferenceExpression.cs
+END
+BinaryOperatorExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/BinaryOperatorExpression.cs
+END
+FieldReferenceExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/FieldReferenceExpression.cs
+END
+ArrayCreateExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/ArrayCreateExpression.cs
+END
+ParenthesizedExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/ParenthesizedExpression.cs
+END
+TypeOfExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/TypeOfExpression.cs
+END
+PrimitiveExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/PrimitiveExpression.cs
+END
+AssignmentExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/AssignmentExpression.cs
+END
+InvocationExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/InvocationExpression.cs
+END
+UnaryOperatorExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/UnaryOperatorExpression.cs
+END
+Expression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/Expression.cs
+END
+IdentifierExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/IdentifierExpression.cs
+END
+ArrayInitializerExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/ArrayInitializerExpression.cs
+END
+ThisReferenceExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/ThisReferenceExpression.cs
+END
+BaseReferenceExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/BaseReferenceExpression.cs
+END
+ObjectCreateExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/ObjectCreateExpression.cs
+END
+CastExpression.cs
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/Econ/!svn/ver/13/Econ_Tools/NetVert/v2.x/ICSharpCode2/NRefactory/Project/Src/Parser/AST/General/Expressions/CastExpression.cs
+END

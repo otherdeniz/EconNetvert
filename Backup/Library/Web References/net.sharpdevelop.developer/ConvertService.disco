@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://codeconverter.sharpdevelop.net/ConvertService.asmx?wsdl" docRef="http://codeconverter.sharpdevelop.net/ConvertService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://codeconverter.sharpdevelop.net/ConvertService.asmx" xmlns:q1="http://developer.sharpdevelop.net/CodeConverter.NET/" binding="q1:ConvertServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://codeconverter.sharpdevelop.net/ConvertService.asmx" xmlns:q2="http://developer.sharpdevelop.net/CodeConverter.NET/" binding="q2:ConvertServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

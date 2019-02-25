@@ -1,0 +1,80 @@
+10
+
+dir
+154
+https://server2010.otherpoker.basel:3690/svn/Econ/Econ_Tools/NetVert/v2.x/Deployment_Source
+https://server2010.otherpoker.basel:3690/svn/Econ
+
+
+
+2008-11-05T14:37:21.859375Z
+152
+esen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+acba428c-f4e4-da11-be5a-00c051a80195
+
+BuildTools
+dir
+
+GuiTool
+dir
+
+Library
+dir
+
+VSAddIn
+dir
+
+CmdLineTool
+dir
+
+Econ.NetVert_v2.sln
+file
+
+
+
+
+2011-06-09T20:09:19.672072Z
+1dd5548c4090a6e90816541aedb31f9f
+2008-11-05T14:37:21.859375Z
+152
+esen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10399
+
+Installer
+dir
+
