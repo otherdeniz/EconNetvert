@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7C919224-05D2-42D3-81A3-8EA08D9EA356}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Econ.NetVert</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>true</DelaySign>
+    <OutputType>Library</OutputType>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>Off</OptionStrict>
+    <RootNamespace>Econ.NetVert</RootNamespace>
+    <StartupObject>Econ.NetVert.%28Keine%29</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <MyType>Windows</MyType>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>false</SignAssembly>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\debug\</OutputPath>
+    <DocumentationFile>Econ.NetVert.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>NET20=True</DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\release\</OutputPath>
+    <DocumentationFile>Econ.NetVert.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>NET20=True</DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.NRefactory, Version=2.0.0.922, Culture=neutral, PublicKeyToken=efe927acf176eea2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\ICSharpCode.NRefactory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpRefactory, Version=1.1.0.1964, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\ICSharpCode.SharpRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpRefactoryVB, Version=1.1.0.1964, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\ICSharpCode.SharpRefactoryVB.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+  <Name>Microsoft.VisualBasic</Name>
+</Reference>
+<Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASPXConverter.cs" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeFileConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConverterLanguagesEnumeration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ASPXFileConverter.cs" />
+    <Compile Include="My Project\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ProviderParserFlagsEnum.cs" />
+    <Compile Include="RefactoryNet11Provider.cs" />
+    <Compile Include="CSVBConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="INetVertConverter.cs" />
+    <Compile Include="NetVertException.cs" />
+    <Compile Include="ProcessedFileEventArgs.cs" />
+    <Compile Include="RefactoryNet20Provider.cs" />
+    <Compile Include="IRefactoryProvider.cs" />
+    <Compile Include="RefactoryOnlineProvider.cs" />
+    <Compile Include="SettingsManager.cs" />
+    <Compile Include="VBCSConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VSProjectFileConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web References\net.sharpdevelop.developer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://codeconverter.sharpdevelop.net/ConvertService.asmx%3fop=PerformConversion">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\net.sharpdevelop.developer\</RelPath>
+      <UpdateFromURL>http://codeconverter.sharpdevelop.net/ConvertService.asmx%3fop=PerformConversion</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Econ_NetVert_net_sharpdevelop_developer_ConvertService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\net.sharpdevelop.developer\ConvertService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Settings.settings">
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\net.sharpdevelop.developer\ConvertService.disco" />
+    <None Include="Web References\net.sharpdevelop.developer\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Component Include="libs\ICSharpCode.NRefactory.dll" />
+    <Component Include="libs\ICSharpCode.SharpRefactory.dll" />
+    <Component Include="libs\ICSharpCode.SharpRefactoryVB.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>SET SNKFILE=$(ProjectDir)EconNetVert_Key.snk
+SET TOOLDIR=$(SolutionDir)BuildTools
+SET OUTDIR=$(ProjectDir)bin\merged
+SET DLL1=$(TargetDir)Econ.NetVert.dll
+SET DLL2=$(ProjectDir)libs\ICSharpCode.NRefactory.dll
+SET DLL3=$(ProjectDir)libs\ICSharpCode.SharpRefactory.dll
+SET DLL4=$(ProjectDir)libs\ICSharpCode.SharpRefactoryVB.dll
+SET DLLOUT=%25OUTDIR%25\Econ.NetVert.dll
+echo. Merging $(ProjectName)
+IF NOT EXIST "%25OUTDIR%25" MKDIR "%25OUTDIR%25"
+IF '$(ConfigurationName)'=='Release' goto merge_nodebug
+:merge_debug
+"%25TOOLDIR%25\IL\ILMerge.exe" /log /internalize /out:"%25DLLOUT%25" "%25DLL1%25" "%25DLL2%25" "%25DLL3%25" "%25DLL4%25"
+goto merge_done
+:merge_nodebug
+"%25TOOLDIR%25\IL\ILMerge.exe" /log /ndebug /internalize /out:"%25DLLOUT%25" "%25DLL1%25" "%25DLL2%25" "%25DLL3%25" "%25DLL4%25"
+:merge_done
+IF NOT '$(ConfigurationName)'=='Release' goto skip_ndoc
+echo. Creating Documentation for $(ProjectName)
+"%25TOOLDIR%25\ndoc\NDocConsole.exe" -documenter=MSDN_2003 -project="$(ProjectDir)EconNetVert.ndoc"
+:skip_ndoc</PostBuildEvent>
+  </PropertyGroup>
+</Project>
