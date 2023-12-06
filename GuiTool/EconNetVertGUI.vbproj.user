@@ -55,7 +55,4 @@
     </StartWorkingDirectory>
     <StartWithIE>true</StartWithIE>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|AnyCPU' ">
-    <StartWithIE>true</StartWithIE>
-  </PropertyGroup>
 </Project>

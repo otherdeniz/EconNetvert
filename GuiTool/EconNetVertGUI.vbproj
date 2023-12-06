@@ -56,86 +56,17 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>Win32Only=True</DefineConstants>
-    <BaseAddress>285212672</BaseAddress>
-    <DocumentationFile>netvertgui.xml</DocumentationFile>
-    <WarningLevel>1</WarningLevel>
-    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisLogFile>bin\debug\netvertgui.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
-    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
-    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
-    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>Win32Only=True</DefineConstants>
-    <BaseAddress>285212672</BaseAddress>
-    <DocumentationFile>netvertgui.xml</DocumentationFile>
-    <Optimize>true</Optimize>
-    <WarningLevel>1</WarningLevel>
-    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
-    <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisLogFile>bin\release\netvertgui.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
-    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
-    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
-    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Linux|x86'">
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Linux\</OutputPath>
-    <BaseAddress>285212672</BaseAddress>
-    <DocumentationFile>netvertgui.xml</DocumentationFile>
-    <Optimize>true</Optimize>
-    <WarningLevel>1</WarningLevel>
-    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
-    <DebugType />
-    <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisLogFile>bin\Linux\netvertgui.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
-    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
-    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
-    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Linux|AnyCPU'">
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <Prefer32Bit>false</Prefer32Bit>
+    <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Econ.ApplicationUpdater, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>libs\Econ.ApplicationUpdater.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.AvalonEdit">
-      <HintPath>libs\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.TextEditor, Version=2.0.0.1591, Culture=neutral, PublicKeyToken=4d61825e8dd49f1a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -167,7 +98,9 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppIcon.ico" />
+    <Content Include="AppIcon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\release_merged\netvertgui.exe" />
     <Content Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -281,15 +214,7 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>IF NOT '$(ConfigurationName)'=='Release' goto skip
-SET TOOLDIR=$(SolutionDir)BuildTools
-SET OUTDIR=$(ProjectDir)bin\release_merged
-SET ASSEMBLY1=$(ProjectDir)bin\release\netvertgui.exe
-SET ASSEMBLY2=$(ProjectDir)libs\ICSharpCode.TextEditor.dll
-SET ASSEMBLYOUT=%25OUTDIR%25\netvertgui.exe
-IF NOT EXIST "%25OUTDIR%25" MKDIR "%25OUTDIR%25"
-echo. Merging $(ProjectName)
-"%25TOOLDIR%25\IL\ILMerge.exe" /log /ndebug /internalize /out:"%25ASSEMBLYOUT%25" "%25ASSEMBLY1%25" "%25ASSEMBLY2%25"  /targetplatform:4,C:\Windows\Microsoft.NET\Framework\v4.0.30319
-:skip</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

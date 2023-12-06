@@ -98,48 +98,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\x86\Debug\</OutputPath>
-    <DefineConstants>NET20=True</DefineConstants>
-    <BaseAddress>285212672</BaseAddress>
-    <DocumentationFile>Econ.NetVert.xml</DocumentationFile>
-    <WarningLevel>1</WarningLevel>
-    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisLogFile>bin\debug\Econ.NetVert.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
-    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
-    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
-    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\x86\Release\</OutputPath>
-    <DefineConstants>NET20=True</DefineConstants>
-    <BaseAddress>285212672</BaseAddress>
-    <DocumentationFile>Econ.NetVert.xml</DocumentationFile>
-    <Optimize>true</Optimize>
-    <WarningLevel>1</WarningLevel>
-    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
-    <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisLogFile>bin\release\Econ.NetVert.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
-    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
-    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
-    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpRefactory, Version=1.1.0.1964, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
@@ -288,23 +246,7 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>SET SNKFILE=$(ProjectDir)EconNetVert_Key.snk
-SET TOOLDIR=$(SolutionDir)BuildTools
-SET OUTDIR=$(ProjectDir)bin\merged
-SET DLL1=$(TargetDir)Econ.NetVert.dll
-SET DLL2=$(ProjectDir)libs\ICSharpCode.NRefactory.dll
-SET DLL3=$(ProjectDir)libs\ICSharpCode.SharpRefactory.dll
-SET DLL4=$(ProjectDir)libs\ICSharpCode.SharpRefactoryVB.dll
-SET DLLOUT=%25OUTDIR%25\Econ.NetVert.dll
-echo. Merging $(ProjectName)
-IF NOT EXIST "%25OUTDIR%25" MKDIR "%25OUTDIR%25"
-IF '$(ConfigurationName)'=='Release' goto merge_nodebug
-:merge_debug
-"%25TOOLDIR%25\IL\ILMerge.exe" /log /internalize /out:"%25DLLOUT%25" "%25DLL1%25" "%25DLL2%25" "%25DLL3%25" "%25DLL4%25"  /targetplatform:4,C:\Windows\Microsoft.NET\Framework\v4.0.30319
-goto merge_done
-:merge_nodebug
-"%25TOOLDIR%25\IL\ILMerge.exe" /log /ndebug /internalize /out:"%25DLLOUT%25" "%25DLL1%25" "%25DLL2%25" "%25DLL3%25" "%25DLL4%25"  /targetplatform:4,C:\Windows\Microsoft.NET\Framework\v4.0.30319
-:merge_done
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
