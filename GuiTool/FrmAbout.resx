@@ -120,28 +120,27 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAABIJJREFUWEftl7FL
-        I1EQh/NnXJsypWXgqsAVF7AwYGEghQQLCSkOsQppglgEsZBgIcFC0ELYK4RccRCbgzQHWhykOViLK1Ja
-        Wlzxbr7ZnfhWk82aFMfBLQx5u9nd9+3Mb+bNy+X+H/+yB8YPzmH+N9zdv75m/9c7Q1fcHrjCZuDWtgJX
-        2R8knl3JF06OXDtwhTajCMr9fpLzQK7LBRnbBMUdAdkduXo3dHtnE3dwEdneaehKzaEAXq4OxoSt8wjq
-        8vuTQuEdzrn+EqjanbhKJ1SrHsYm11rnAnf16IAu7cjHrHJouDwAA7RQ2q+FEWgFEhCz+vHEYYBVO3cS
-        yhW8pRNIeIAyuEIt8k7lnNAljXv5r9SU8AlE4yRphLPaGS8PBQThYmIf7BlURnLPK3AJS34jmGoKEDPz
-        VHX/OXyV5qUrNweSEPJMe0EiAGUw6oH4qMTeIYxAR2KPPRnrhEyrH441XGqIXfTUuxFNyeTTpJBx8C26
-        XljvpeuMEJiXTNwaMg2lc4Xac9gM2NctmmlItmnmAfM5mrj/5dHlP/bE+i64jc4PrkJXrPUXCx8AC42m
-        P9qKNWTXgzgjX9Yt7iftj66TMJdfH6UsjN3RRegYA8R543CJ2uVrpnUbh0w9Nb9okmE2Mb94xczO6+3h
-        Yu/MKhvmocL7KAMjQ2tBoj75zxY2+grkg6Cb6bmMy80V6tSzvONMI6xyzKt7ZBVLiQIAEttAEoLx8P5J
-        ykEG/axSWHmWdM6vR2mNXnwQYMwAevfhKFvIqu2RK++PdL0qbEm9kF80gQjTgAnTkWSOecG840MAggFa
-        rGWs4o3unQsnTm3868mNfkgpED2QpnsnY4XTRVRgfUA8A8RUOzIpMAbh//auw8VFkZcDw0uBufsZvSzx
-        xfGE1BZSmwr9EooiiH4a3ZGGrX8z0ffwPjO/cqfKhPDwEJ6xL/KB+HoMINqNNdI/5dg7HjomJzwURioz
-        Ymb5yKRXwmBhSngnTtnWWejKn4YuL00Zv5leOuMmCirH6GGU/o7i7jARqpfhQvB0isuC2HNaMs5zbpxS
-        OvReJkTElhl+MbPKS8u6DJAuSXKYdwDCQ7OWn+n7Se2pV6ygxUI2ILJsWSCDMA+1bivzw6ZZIalt5Z0x
-        mrFUZkFk9Sa7lvGSHyZAgMOChzkeL+0ONIPMSGkmNs8AQ0tBa0GL8db21PeKwaR6iLbBilpJxG1hYUya
-        G4w1YOw6skKhE98rrVvxinhHD29Hk5AC7QCpjPl7LMboBs8A47eoQFGhF2lK05sQdXIK5nsrbZGe+17t
-        f+P2FCC/oafBL0lBBWxNvFzcjopgfkPGcp2XohPzEACZNLToKwmPLrIxkG15/G0QezTbr5Xb4VT8eGiW
-        hrg2V9SLgPifzR+bQIPhV4HizaLBlPbH2j+3TiMPaV/uZZZpaGGlzgLFPbQagFXasvp7MOzRdK+/mWy+
-        zDvoyNdQalHMCuPfx8LJYqmAsoNodGY37b6G/Eo9N8OWgXnLMwCZl0xPUc7Pb4Pf8v6l7jWgvwrhk5tH
-        0oD+AEJ20DCJfkioAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAEXElEQVRYR+2Xv2vbQBTH/Wd09egxo6GT
+        oUMNGWLoEEOGYjIE46GETMaLKRlC6FBMhmAyFJKhoA4Fdyg4S8FLIRkKXgrK0CFjxgwdru/z7p5zciIl
+        dmhLoV94SDqfdB+/XzqV/uuf1vTCOSxcqs7Ob4+ZWv2xq74cucqLxK2sJ66xM7pz3lJyolIvcZUeZx7A
+        /byW60TGZUDOdaKouikgWxPX2kvd9uGle/3O2/ZB6mqdsQAePx6MBbtHHur467VC4R2uGZ8Hau5dukY/
+        VWvuBpOx7pHAnVw55tQ25c88RhqaCMAALZRmFkakQAJi1nrjDbBm/0xC+Qhv6QISHoPgWNmQQYFrHBG6
+        rDGX32odCZ9AtN9mjXA2+9PloYAgXLYYx5kn9FpOMtcBXFReS2Y5FZt5qrlzE75G59jVOyMpCLmnd08h
+        sIAtph4Iasg1Y4QRaJ/sN0CISmvtThVCjWSXfBp8lJySxcO0EufJFz9eWR0UAxEC85Ilt4YseKiy4UFi
+        4HCrivC0pdq08oD54Bcefrpy5ecDsaFLTv3165PUVTeGxUAIAAuNXossh2w8iRJeb4pE2e+/z8Icf76S
+        tjB1++9SPWeM6/buEr0LAAtj9zSETD2V3zTJG1uYI14xs+tWb7w4DFIg8VDlqYfy5vMKb4ZpGVXWhrdA
+        yJv4vN6R5ywroGYibIRVFH6+JaqKV8kMJNhIvMtxfH4t7eAB+fNYUc7lVV/W5EsMEhtAT57tPwyo2Zu4
+        +s5E31eVdekXciQnSMIw5U4Rpn2pHPOCeSeGMGO8uvHAhtneO3PppVOb/rh2k2/SCiQfKNPtt1OF05eo
+        wIZbVHgGiFnuBJgYxGzwPr2/KSJgeBgwZ9/9zZl/HBaknCltOnS4VQUUjY/8ae9NNGzDj5f6HJ5nFnfu
+        QhEebsAz9m9iIGAMiO3GCuVfoO03sjOQxQkPjZHOTDLz+ghTikUYLEwZmADUPUxd/dXYlWVTxjHctrDo
+        X2hyMSl+RnVrnAnVfLhIeHaKYfrSAqZ0VHJTjkViQbxzFwyhovOyZQ3TF5L1LvMOQHgor9urKO1MmAKQ
+        5Q5AVFmYvpC0qwcIA+qeNvLDplUhpW0e4Zycib3DC5PqWsZLBkGYAOEcSy5ynlXbGs08gVHSLBzDsKVg
+        a8EWY9GdYOwVgyn0ENsGFscjNUnuMCygYy1zg7ENGDvEh0KRJ1kQ8YocVTkv6BLbAUoZi7+xOCdvDCbe
+        ogJFMwxTc6VeAKbvvYLMQ3q+qHT/G7angMSbeTb4NWmogK2Il6svfRMsr8m5jHM/eWIeQrG3cnPoPhEe
+        fckGIPvkiT+D+D6z77V6L50l/3xlGQxaGgjx8cdHoMHMgMLHosHUdqa6f+4eeA+RJ40IxHIoN6EXFVsN
+        wBo9eftHMHyj6bf+i+zmy7zjYW5yqLApLiNenLwsFVC+INr9u7cUcQ7FnTq3wn63ADIIyydTmPLnpYvj
+        lb8JEUtJgsLQnEqlX0J20DDQBW7PAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>
