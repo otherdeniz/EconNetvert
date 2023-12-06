@@ -96,6 +96,9 @@ Public Class ASPXConverter
         'search "<%"
         TmpStart = aspxSource.IndexOf("<%", TmpStart + 1)
         If TmpStart > -1 Then
+          If aspxSource.Substring(TmpStart, 4) = "<%--" Then
+            Continue Do
+          End If
           'search "%>"
           TmpEnd = aspxSource.IndexOf("%>", TmpStart + 2)
           If TmpEnd > -1 Then
@@ -129,11 +132,11 @@ Public Class ASPXConverter
                 'Add Temporary Out-Variable-Prefix
                 TmpCodeLines = "NETVERTASPNETOUT " & TmpS
               End If
-              Try
-
-              Catch ex As Exception
-
-              End Try
+              If (TmpS <> "") AndAlso _
+                 (TmpS.Substring(0, 1) = "#") Then
+                'Add Temporary Out-Variable-Prefix
+                TmpCodeLines = "NETVERTASPNETEVAL =" & TmpS.Substring(1)
+              End If
               'if StrTrimmLeft(StrTrimmLeft(StrTrimmLeft(tmpcodelines," "), chr(9).ToString)
               TmpConvertCode &= TmpCodeLines & vbCrLf
               TmpLastEnd = TmpEnd
@@ -174,7 +177,8 @@ Public Class ASPXConverter
       End Select
 
       'Remove Temporary Out-Variable-Prefix
-      TmpConvertCode = TmpConvertCode.Replace("NETVERTASPNETOUT ", "")
+      TmpConvertCode = TmpConvertCode.Replace("NETVERTASPNETOUT ", "" _
+                                    ).Replace("NETVERTASPNETEVAL =", "#")
       'Insert HTML-Blocks
       For iBlock As Int32 = 0 To TmpHtmlBlocks.Count - 1
         TmpConvertCode = TmpConvertCode.Replace(TmpComment & "HTMLBLOCK-" & (iBlock + 1).ToString & ".", _

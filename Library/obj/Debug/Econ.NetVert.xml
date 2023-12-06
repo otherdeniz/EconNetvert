@@ -208,6 +208,14 @@ Econ.NetVert
  </summary>
  -----------------------------------------------------------------------------
 </member>
+<member name="P:Econ.NetVert.CodeFileConverter.WrapNamespace">
+ -----------------------------------------------------------------------------
+ <summary>
+ If converting from VB.NET to C#, this namespace will be wrapped around.
+ If converting from C# to VB.NET, this namespace will be un-wrapped around.
+ </summary>
+ -----------------------------------------------------------------------------
+</member>
 <member name="M:Econ.NetVert.CodeFileConverter.ConvertFiles(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
  -----------------------------------------------------------------------------
  <summary>
@@ -229,6 +237,19 @@ Econ.NetVert
  </summary>
  <param name="sourceFile">The full path and filename to the source codefile.</param>
  <param name="targetFile">The full path and filename to the destination codefile (default is same than sourceFile with changed extension).</param>
+ <param name="overwriteExistingFile">True if existing file should be overwriten (default is false).</param>
+ <param name="fixNamespaces">True if enable the append/remove default-using-statements as defined in the FixNamespaces Property (default is false).</param>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:Econ.NetVert.CodeFileConverter.ConvertFilePair(System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Convert codefile pair (main- and designer-file).
+ </summary>
+ <param name="sourceFile">The full path and filename to the source codefile.</param>
+ <param name="sourceDesignerFile">The full path and filename to the source designer-codefile.</param>
+ <param name="targetFile">The full path and filename to the destination codefile (default is same than sourceFile with changed extension).</param>
+ <param name="targetDesignerFile">The full path and filename to the destination designer-codefile (default is same than sourceDesignerFile with changed extension).</param>
  <param name="overwriteExistingFile">True if existing file should be overwriten (default is false).</param>
  <param name="fixNamespaces">True if enable the append/remove default-using-statements as defined in the FixNamespaces Property (default is false).</param>
  -----------------------------------------------------------------------------
@@ -435,7 +456,7 @@ Econ.NetVert
  </history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:Econ.NetVert.CSVBConverter.Convert(System.String,System.String)">
+<member name="M:Econ.NetVert.CSVBConverter.Convert(System.String,System.String,System.String)">
  -----------------------------------------------------------------------------
  <summary>
  Converts one or many namespaces, classes or methods.
@@ -557,7 +578,7 @@ Econ.NetVert
  </history>
  -----------------------------------------------------------------------------
 </member>
-<member name="M:Econ.NetVert.VBCSConverter.Convert(System.String,System.String)">
+<member name="M:Econ.NetVert.VBCSConverter.Convert(System.String,System.String,System.String)">
  -----------------------------------------------------------------------------
  <summary>
  Converts one or many namespaces, classes or methods.

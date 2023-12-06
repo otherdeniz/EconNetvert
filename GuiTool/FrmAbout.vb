@@ -71,7 +71,6 @@ Public Class FrmAbout
   Friend WithEvents Label7 As System.Windows.Forms.Label
   Friend WithEvents Label9 As System.Windows.Forms.Label
   Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-  Friend WithEvents Label5 As System.Windows.Forms.Label
   Friend WithEvents LnkMail As System.Windows.Forms.LinkLabel
   Friend WithEvents LnkInternet As System.Windows.Forms.LinkLabel
   Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -84,33 +83,30 @@ Public Class FrmAbout
   Friend WithEvents LblNewVer As System.Windows.Forms.Label
   Friend WithEvents ChkEnableUpdate As System.Windows.Forms.CheckBox
   Friend WithEvents BtnUpdate As System.Windows.Forms.Button
-  Friend WithEvents LnkForum As System.Windows.Forms.LinkLabel
   <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
     Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAbout))
-    Me.BtnClose = New System.Windows.Forms.Button
-    Me.Label1 = New System.Windows.Forms.Label
-    Me.Label2 = New System.Windows.Forms.Label
-    Me.Label3 = New System.Windows.Forms.Label
-    Me.Label4 = New System.Windows.Forms.Label
-    Me.LblVersion = New System.Windows.Forms.Label
-    Me.LblDate = New System.Windows.Forms.Label
-    Me.Label7 = New System.Windows.Forms.Label
-    Me.Label9 = New System.Windows.Forms.Label
-    Me.PictureBox1 = New System.Windows.Forms.PictureBox
-    Me.LnkMail = New System.Windows.Forms.LinkLabel
-    Me.Label5 = New System.Windows.Forms.Label
-    Me.LnkInternet = New System.Windows.Forms.LinkLabel
-    Me.LnkForum = New System.Windows.Forms.LinkLabel
-    Me.GroupBox1 = New System.Windows.Forms.GroupBox
-    Me.GroupBox2 = New System.Windows.Forms.GroupBox
-    Me.BtnUpdate = New System.Windows.Forms.Button
-    Me.ChkEnableUpdate = New System.Windows.Forms.CheckBox
-    Me.LblNewFeats = New System.Windows.Forms.Label
-    Me.Label13 = New System.Windows.Forms.Label
-    Me.Label6 = New System.Windows.Forms.Label
-    Me.LblNewDate = New System.Windows.Forms.Label
-    Me.Label10 = New System.Windows.Forms.Label
-    Me.LblNewVer = New System.Windows.Forms.Label
+    Me.BtnClose = New System.Windows.Forms.Button()
+    Me.Label1 = New System.Windows.Forms.Label()
+    Me.Label2 = New System.Windows.Forms.Label()
+    Me.Label3 = New System.Windows.Forms.Label()
+    Me.Label4 = New System.Windows.Forms.Label()
+    Me.LblVersion = New System.Windows.Forms.Label()
+    Me.LblDate = New System.Windows.Forms.Label()
+    Me.Label7 = New System.Windows.Forms.Label()
+    Me.Label9 = New System.Windows.Forms.Label()
+    Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+    Me.LnkMail = New System.Windows.Forms.LinkLabel()
+    Me.LnkInternet = New System.Windows.Forms.LinkLabel()
+    Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+    Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+    Me.BtnUpdate = New System.Windows.Forms.Button()
+    Me.ChkEnableUpdate = New System.Windows.Forms.CheckBox()
+    Me.LblNewFeats = New System.Windows.Forms.Label()
+    Me.Label13 = New System.Windows.Forms.Label()
+    Me.Label6 = New System.Windows.Forms.Label()
+    Me.LblNewDate = New System.Windows.Forms.Label()
+    Me.Label10 = New System.Windows.Forms.Label()
+    Me.LblNewVer = New System.Windows.Forms.Label()
     CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
     Me.GroupBox1.SuspendLayout()
     Me.GroupBox2.SuspendLayout()
@@ -120,7 +116,7 @@ Public Class FrmAbout
     '
     Me.BtnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom
     Me.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
-    Me.BtnClose.Location = New System.Drawing.Point(192, 277)
+    Me.BtnClose.Location = New System.Drawing.Point(192, 264)
     Me.BtnClose.Name = "BtnClose"
     Me.BtnClose.Size = New System.Drawing.Size(80, 23)
     Me.BtnClose.TabIndex = 0
@@ -142,7 +138,7 @@ Public Class FrmAbout
     Me.Label2.Name = "Label2"
     Me.Label2.Size = New System.Drawing.Size(303, 16)
     Me.Label2.TabIndex = 2
-    Me.Label2.Text = "Deniz Esen, Econ Dimension GmbH"
+    Me.Label2.Text = "Deniz Esen, Basel, Switzerland"
     '
     'Label3
     '
@@ -215,15 +211,7 @@ Public Class FrmAbout
     Me.LnkMail.Size = New System.Drawing.Size(303, 16)
     Me.LnkMail.TabIndex = 13
     Me.LnkMail.TabStop = True
-    Me.LnkMail.Text = "d.esen@econdimension.com"
-    '
-    'Label5
-    '
-    Me.Label5.Location = New System.Drawing.Point(6, 97)
-    Me.Label5.Name = "Label5"
-    Me.Label5.Size = New System.Drawing.Size(80, 16)
-    Me.Label5.TabIndex = 3
-    Me.Label5.Text = "Online-Forum:"
+    Me.LnkMail.Text = "esen@other.ch"
     '
     'LnkInternet
     '
@@ -234,18 +222,7 @@ Public Class FrmAbout
     Me.LnkInternet.Size = New System.Drawing.Size(303, 16)
     Me.LnkInternet.TabIndex = 13
     Me.LnkInternet.TabStop = True
-    Me.LnkInternet.Text = "www.econdimension.com"
-    '
-    'LnkForum
-    '
-    Me.LnkForum.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-    Me.LnkForum.Location = New System.Drawing.Point(86, 97)
-    Me.LnkForum.Name = "LnkForum"
-    Me.LnkForum.Size = New System.Drawing.Size(303, 16)
-    Me.LnkForum.TabIndex = 13
-    Me.LnkForum.TabStop = True
-    Me.LnkForum.Text = "www.econdimension.com/devcenter_en/dev_forum.aspx"
+    Me.LnkInternet.Text = "econnetvert.codeplex.com"
     '
     'GroupBox1
     '
@@ -253,11 +230,9 @@ Public Class FrmAbout
                 Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
     Me.GroupBox1.Controls.Add(Me.LnkMail)
     Me.GroupBox1.Controls.Add(Me.Label4)
-    Me.GroupBox1.Controls.Add(Me.LnkForum)
     Me.GroupBox1.Controls.Add(Me.Label9)
     Me.GroupBox1.Controls.Add(Me.LnkInternet)
     Me.GroupBox1.Controls.Add(Me.LblDate)
-    Me.GroupBox1.Controls.Add(Me.Label5)
     Me.GroupBox1.Controls.Add(Me.Label7)
     Me.GroupBox1.Controls.Add(Me.Label1)
     Me.GroupBox1.Controls.Add(Me.LblVersion)
@@ -265,7 +240,7 @@ Public Class FrmAbout
     Me.GroupBox1.Controls.Add(Me.Label3)
     Me.GroupBox1.Location = New System.Drawing.Point(59, 8)
     Me.GroupBox1.Name = "GroupBox1"
-    Me.GroupBox1.Size = New System.Drawing.Size(395, 126)
+    Me.GroupBox1.Size = New System.Drawing.Size(395, 109)
     Me.GroupBox1.TabIndex = 14
     Me.GroupBox1.TabStop = False
     Me.GroupBox1.Text = "Current Version"
@@ -283,9 +258,9 @@ Public Class FrmAbout
     Me.GroupBox2.Controls.Add(Me.LblNewDate)
     Me.GroupBox2.Controls.Add(Me.Label10)
     Me.GroupBox2.Controls.Add(Me.LblNewVer)
-    Me.GroupBox2.Location = New System.Drawing.Point(59, 141)
+    Me.GroupBox2.Location = New System.Drawing.Point(59, 124)
     Me.GroupBox2.Name = "GroupBox2"
-    Me.GroupBox2.Size = New System.Drawing.Size(395, 130)
+    Me.GroupBox2.Size = New System.Drawing.Size(395, 134)
     Me.GroupBox2.TabIndex = 15
     Me.GroupBox2.TabStop = False
     Me.GroupBox2.Text = "Newest available Version"
@@ -317,7 +292,7 @@ Public Class FrmAbout
                 Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
     Me.LblNewFeats.Location = New System.Drawing.Point(86, 72)
     Me.LblNewFeats.Name = "LblNewFeats"
-    Me.LblNewFeats.Size = New System.Drawing.Size(303, 55)
+    Me.LblNewFeats.Size = New System.Drawing.Size(303, 59)
     Me.LblNewFeats.TabIndex = 15
     Me.LblNewFeats.Text = "-"
     '
@@ -368,7 +343,7 @@ Public Class FrmAbout
     'FrmAbout
     '
     Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
-    Me.ClientSize = New System.Drawing.Size(466, 311)
+    Me.ClientSize = New System.Drawing.Size(466, 298)
     Me.Controls.Add(Me.GroupBox2)
     Me.Controls.Add(Me.PictureBox1)
     Me.Controls.Add(Me.BtnClose)
@@ -418,10 +393,6 @@ Public Class FrmAbout
 
   Private Sub LnkInternet_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LnkInternet.LinkClicked
     System.Diagnostics.Process.Start("http://" & LnkInternet.Text)
-  End Sub
-
-  Private Sub LnkForum_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LnkForum.LinkClicked
-    System.Diagnostics.Process.Start("http://" & LnkForum.Text)
   End Sub
 
   Private Sub ChkEnableUpdate_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkEnableUpdate.CheckedChanged

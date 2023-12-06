@@ -1,2 +1,0 @@
-obj\Release\ResolveAssemblyReference.cache
-obj\Release\ICSharpCode.NRefactory.dll

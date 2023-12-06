@@ -7,10 +7,10 @@
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
-"SccProjectName" = "8:SAK"
-"SccLocalPath" = "8:SAK"
-"SccAuxPath" = "8:SAK"
-"SccProvider" = "8:SAK"
+"SccProjectName" = "8:"
+"SccLocalPath" = "8:"
+"SccAuxPath" = "8:"
+"SccProvider" = "8:"
     "Hierarchy"
     {
         "Entry"
@@ -21,25 +21,37 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0C9F900200914D96BD547A10FB35990F"
+        "MsmKey" = "8:_07F96F201E8048139AFEB35F7AA14EAA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3C3D258D7E56B1CEE638D22F2DD14A97"
+        "MsmKey" = "8:_1A432D735E4028008EAAF8C4BBFA404C"
+        "OwnerKey" = "8:_2988A586C1D6C714138F06406F23F2F5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1A432D735E4028008EAAF8C4BBFA404C"
         "OwnerKey" = "8:_8582C72C13B442878D6A4243E707EB2C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3C3D258D7E56B1CEE638D22F2DD14A97"
+        "MsmKey" = "8:_2988A586C1D6C714138F06406F23F2F5"
+        "OwnerKey" = "8:_8582C72C13B442878D6A4243E707EB2C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2988A586C1D6C714138F06406F23F2F5"
         "OwnerKey" = "8:_6C9243BE31C24126863543FFB65C8CF1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5EA0088BCC904091943CD4722DC6CF39"
+        "MsmKey" = "8:_61ED2371C77745D7BE80A04DD46088F6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,62 +63,68 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_7322C0B0BE713443265ACA116DCCD134"
-        "OwnerKey" = "8:_3C3D258D7E56B1CEE638D22F2DD14A97"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7322C0B0BE713443265ACA116DCCD134"
-        "OwnerKey" = "8:_8582C72C13B442878D6A4243E707EB2C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_8582C72C13B442878D6A4243E707EB2C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_93C7D109AC0144C89C33728B7FD9702C"
+        "MsmKey" = "8:_AF3C37F2A76FB589DF4FF17DFE54710F"
+        "OwnerKey" = "8:_2988A586C1D6C714138F06406F23F2F5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_AF3C37F2A76FB589DF4FF17DFE54710F"
+        "OwnerKey" = "8:_8582C72C13B442878D6A4243E707EB2C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BAD466CFD70FE92346EDA93420FE431A"
+        "OwnerKey" = "8:_2988A586C1D6C714138F06406F23F2F5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BAD466CFD70FE92346EDA93420FE431A"
+        "OwnerKey" = "8:_8582C72C13B442878D6A4243E707EB2C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E4B05ACB5B5C49AD9C48F06D92D833DA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_95CDC2795438C5B8B13B67DDF4BE8CA0"
+        "MsmKey" = "8:_F1DB24E15B49A3FD8AF06F6819A52C45"
         "OwnerKey" = "8:_6C9243BE31C24126863543FFB65C8CF1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9CD98633105120C767BEC32D7EBA0D81"
-        "OwnerKey" = "8:_3C3D258D7E56B1CEE638D22F2DD14A97"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9CD98633105120C767BEC32D7EBA0D81"
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_8582C72C13B442878D6A4243E707EB2C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9DCE24F1F32B1065B9C44ABBD6BD7F4C"
-        "OwnerKey" = "8:_3C3D258D7E56B1CEE638D22F2DD14A97"
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6C9243BE31C24126863543FFB65C8CF1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9DCE24F1F32B1065B9C44ABBD6BD7F4C"
-        "OwnerKey" = "8:_8582C72C13B442878D6A4243E707EB2C"
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F1DB24E15B49A3FD8AF06F6819A52C45"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C07154F298C9440A8613744311C19BF1"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_61ED2371C77745D7BE80A04DD46088F6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -118,43 +136,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6C9243BE31C24126863543FFB65C8CF1"
+        "OwnerKey" = "8:_2988A586C1D6C714138F06406F23F2F5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_95CDC2795438C5B8B13B67DDF4BE8CA0"
+        "OwnerKey" = "8:_BAD466CFD70FE92346EDA93420FE431A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8582C72C13B442878D6A4243E707EB2C"
+        "OwnerKey" = "8:_AF3C37F2A76FB589DF4FF17DFE54710F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3C3D258D7E56B1CEE638D22F2DD14A97"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9CD98633105120C767BEC32D7EBA0D81"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7322C0B0BE713443265ACA116DCCD134"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9DCE24F1F32B1065B9C44ABBD6BD7F4C"
+        "OwnerKey" = "8:_1A432D735E4028008EAAF8C4BBFA404C"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -211,10 +211,15 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Net.Framework.2.0"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0"
                     {
-                    "Name" = "8:Microsoft .NET Framework 2.0"
-                    "ProductCode" = "8:Microsoft.Net.Framework.2.0"
+                    "Name" = "8:Microsoft .NET Framework 4 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
                     }
                 }
             }
@@ -239,7 +244,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "Version" = "8:2.0.50727"
+                "FrameworkVersion" = "8:v4.0"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=9832"
                 }
@@ -251,7 +256,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Econ.NetVert, Version=2.2.1.10, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Econ.NetVert, Version=2.4.4.17, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_07E7DE394A9844B0A78FF5EE0C7B37E2"
@@ -278,10 +283,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0C9F900200914D96BD547A10FB35990F"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_07F96F201E8048139AFEB35F7AA14EAA"
             {
-            "SourcePath" = "8:..\\Library\\doc\\EconNetVert.chm"
-            "TargetName" = "8:Econ.NetVert Library Documentation.chm"
+            "SourcePath" = "8:HelpIcon.ico"
+            "TargetName" = "8:HelpIcon.ico"
             "Tag" = "8:"
             "Folder" = "8:_4AE4A51AC4754B5090D792680C8C75DA"
             "Condition" = "8:"
@@ -298,14 +303,45 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3C3D258D7E56B1CEE638D22F2DD14A97"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1A432D735E4028008EAAF8C4BBFA404C"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Econ.NetVert, Version=2.2.1.10, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:ICSharpCode.NRefactory, Version=4.0.0.7070, Culture=neutral, PublicKeyToken=efe927acf176eea2, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3C3D258D7E56B1CEE638D22F2DD14A97"
+                    "_1A432D735E4028008EAAF8C4BBFA404C"
+                    {
+                    "Name" = "8:ICSharpCode.NRefactory.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:ICSharpCode.NRefactory.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4AE4A51AC4754B5090D792680C8C75DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2988A586C1D6C714138F06406F23F2F5"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Econ.NetVert, Version=2.4.4.17, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_2988A586C1D6C714138F06406F23F2F5"
                     {
                     "Name" = "8:Econ.NetVert.dll"
                     "Attributes" = "3:512"
@@ -329,10 +365,21 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5EA0088BCC904091943CD4722DC6CF39"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_61ED2371C77745D7BE80A04DD46088F6"
             {
-            "SourcePath" = "8:..\\VSAddIn\\bin\\Package_Output\\EconNetVert_VSAddIn.vsi"
-            "TargetName" = "8:EconNetVert_VSAddIn.vsi"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Econ.ApplicationUpdater, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_61ED2371C77745D7BE80A04DD46088F6"
+                    {
+                    "Name" = "8:Econ.ApplicationUpdater.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\GuiTool\\libs\\Econ.ApplicationUpdater.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AE4A51AC4754B5090D792680C8C75DA"
             "Condition" = "8:"
@@ -380,14 +427,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7322C0B0BE713443265ACA116DCCD134"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AF3C37F2A76FB589DF4FF17DFE54710F"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:ICSharpCode.SharpRefactory, Version=1.1.0.1964, Culture=neutral"
                 "ScatterAssemblies"
                 {
-                    "_7322C0B0BE713443265ACA116DCCD134"
+                    "_AF3C37F2A76FB589DF4FF17DFE54710F"
                     {
                     "Name" = "8:ICSharpCode.SharpRefactory.dll"
                     "Attributes" = "3:512"
@@ -411,65 +458,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_93C7D109AC0144C89C33728B7FD9702C"
-            {
-            "SourcePath" = "8:HelpIcon.ico"
-            "TargetName" = "8:HelpIcon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_4AE4A51AC4754B5090D792680C8C75DA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_95CDC2795438C5B8B13B67DDF4BE8CA0"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Econ.ApplicationUpdater, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_95CDC2795438C5B8B13B67DDF4BE8CA0"
-                    {
-                    "Name" = "8:Econ.ApplicationUpdater.DLL"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Econ.ApplicationUpdater.DLL"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_4AE4A51AC4754B5090D792680C8C75DA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9CD98633105120C767BEC32D7EBA0D81"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BAD466CFD70FE92346EDA93420FE431A"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:ICSharpCode.SharpRefactoryVB, Version=1.1.0.1964, Culture=neutral"
                 "ScatterAssemblies"
                 {
-                    "_9CD98633105120C767BEC32D7EBA0D81"
+                    "_BAD466CFD70FE92346EDA93420FE431A"
                     {
                     "Name" = "8:ICSharpCode.SharpRefactoryVB.dll"
                     "Attributes" = "3:512"
@@ -493,41 +489,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9DCE24F1F32B1065B9C44ABBD6BD7F4C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E4B05ACB5B5C49AD9C48F06D92D833DA"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:ICSharpCode.NRefactory, Version=2.1.0.2216, Culture=neutral, PublicKeyToken=efe927acf176eea2, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_9DCE24F1F32B1065B9C44ABBD6BD7F4C"
-                    {
-                    "Name" = "8:ICSharpCode.NRefactory.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:ICSharpCode.NRefactory.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_4AE4A51AC4754B5090D792680C8C75DA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C07154F298C9440A8613744311C19BF1"
-            {
-            "SourcePath" = "8:VsInstallerIcon.ico"
-            "TargetName" = "8:VsInstallerIcon.ico"
+            "SourcePath" = "8:EconNetVert.chm"
+            "TargetName" = "8:EconNetVert.chm"
             "Tag" = "8:"
             "Folder" = "8:_4AE4A51AC4754B5090D792680C8C75DA"
             "Condition" = "8:"
@@ -542,6 +507,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F1DB24E15B49A3FD8AF06F6819A52C45"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Econ.ApplicationUpdater, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F1DB24E15B49A3FD8AF06F6819A52C45"
+                    {
+                    "Name" = "8:Econ.ApplicationUpdater.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Econ.ApplicationUpdater.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4AE4A51AC4754B5090D792680C8C75DA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
         }
@@ -605,28 +601,30 @@
         "MsiBootstrapper"
         {
         "LangId" = "3:1033"
+        "RequiresElevation" = "11:FALSE"
         }
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Econ NetVert"
-        "ProductCode" = "8:{87D72F40-61C1-41FF-A058-85E5EF96085A}"
-        "PackageCode" = "8:{2259DC22-3051-4750-BD6E-68853EA665C0}"
+        "ProductCode" = "8:{14A7D85E-3131-4E73-8BA7-B4C9B64A2661}"
+        "PackageCode" = "8:{485D722C-99E4-4036-9421-26B526A6E9F2}"
         "UpgradeCode" = "8:{5A6CD4F7-3FAC-4F31-89F3-168D4A69A888}"
+        "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:2.2.1"
-        "Manufacturer" = "8:Econ Dimension GmbH"
+        "ProductVersion" = "8:2.4.5"
+        "Manufacturer" = "8:Deniz Esen, Basel, Switzerland"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Econ NetVert 2.2.1.10"
-        "Subject" = "8:Econ NetVert 2.2.1.10"
-        "ARPCONTACT" = "8:Econ Dimension GmbH"
+        "Title" = "8:Econ NetVert 2.4"
+        "Subject" = "8:Econ NetVert 2.4"
+        "ARPCONTACT" = "8:Deniz Esen"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Econ NetVert Installer"
-        "ARPURLINFOABOUT" = "8:http://www.econdimension.com"
+        "ARPURLINFOABOUT" = "8:http://www.other.ch"
         "ARPPRODUCTICON" = "8:_6C9243BE31C24126863543FFB65C8CF1"
         "ARPIconIndex" = "3:32512"
         "SearchPath" = "8:"
@@ -779,6 +777,338 @@
                                         "Values"
                                         {
                                             "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_75C12679DB444DD58BCCA23AE2837F5C"
+                                            {
+                                            "Name" = "8:"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Convert with NetVert to..."
+                                            }
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_11435ECE4F224DF3B88ADA4F9A450323"
+                    {
+                    "Name" = "8:VisualStudio.Launcher.csproj.10.0"
+                    "Condition" = "8:"
+                    "AlwaysCreate" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:FALSE"
+                    "Transitive" = "11:FALSE"
+                        "Keys"
+                        {
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_7EF0FA8B3DA9481EA033B686943E1005"
+                            {
+                            "Name" = "8:shell"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_54940CF111744418AD5759C8631F9144"
+                                    {
+                                    "Name" = "8:NetVert"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_FAE6700B9D9941E9BF4E26136583BB10"
+                                            {
+                                            "Name" = "8:Command"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_A2F376EA1052463F8F9BF2C41C764C9C"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:\"[TARGETDIR]\\netvertgui.exe\" \"%1\" /t"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_F7AC97C81E624BD7A77E77023DCCC700"
+                                            {
+                                            "Name" = "8:"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Convert with NetVert to..."
+                                            }
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_14D655BB7BB149E5B2E75E8DE821ED98"
+                    {
+                    "Name" = "8:VisualStudio.ascx.10.0"
+                    "Condition" = "8:"
+                    "AlwaysCreate" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:FALSE"
+                    "Transitive" = "11:FALSE"
+                        "Keys"
+                        {
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_8D08E5FABA0542AA998F87815212D381"
+                            {
+                            "Name" = "8:shell"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_685D71C4BDA747158F18F6B0406386FC"
+                                    {
+                                    "Name" = "8:NetVert"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_81F973183CEA430C9A8B9CF774D7EAEF"
+                                            {
+                                            "Name" = "8:Command"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_99533A1C7B02496592BF8CE4E44E1411"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:\"[TARGETDIR]\\netvertgui.exe\" \"%1\" /t"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_822A7AB583A846D5A77DF45756CF7606"
+                                            {
+                                            "Name" = "8:"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Convert with NetVert to..."
+                                            }
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_2CBD4CE981DC4D208EA15FAFF352F33F"
+                    {
+                    "Name" = "8:VisualStudio.vb.10.0"
+                    "Condition" = "8:"
+                    "AlwaysCreate" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:FALSE"
+                    "Transitive" = "11:FALSE"
+                        "Keys"
+                        {
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_22D3230DFB54457D8FB88B7D35AC879F"
+                            {
+                            "Name" = "8:shell"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_96D749384AAA43868C6A2A941CDDB207"
+                                    {
+                                    "Name" = "8:NetVert"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_0FE208B2ACCD465C863C80F852F46C14"
+                                            {
+                                            "Name" = "8:Command"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_F5CB463AD0374EEC8D70F06551723438"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:\"[TARGETDIR]\\netvertgui.exe\" \"%1\" /t"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_D5FA847BDF8A4A35836EA97D6B934FAD"
+                                            {
+                                            "Name" = "8:"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Convert with NetVert to..."
+                                            }
+                                        }
+                                    }
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_E44CF93F6B664F4BB04AA815B51C15DB"
+                                    {
+                                    "Name" = "8:NetVert2"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_5F9F30CC3B07440A810858BB7B0DBE15"
+                                            {
+                                            "Name" = "8:Command"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_DA7A00DB9830491A8DF7CBFFC221D937"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:\"[TARGETDIR]\\netvertgui.exe\" \"%1\" /c"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_05D2E25B48614E7AA8B0C693AE29A8A8"
+                                            {
+                                            "Name" = "8:"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Convert with NetVert"
+                                            }
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_3AA4C7BEF182472DBA47F793F8492106"
+                    {
+                    "Name" = "8:VisualStudio.vbproj.10.0"
+                    "Condition" = "8:"
+                    "AlwaysCreate" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:FALSE"
+                    "Transitive" = "11:FALSE"
+                        "Keys"
+                        {
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_5ADCB0D3F61B443DBD011F4BE7F72052"
+                            {
+                            "Name" = "8:shell"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_D8EAA8BB99A945DC899C4F21E73E1116"
+                                    {
+                                    "Name" = "8:NetVert"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_F559448A1DD041418DB31083C9700C49"
+                                            {
+                                            "Name" = "8:Command"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_F6A382851AF146C689B4988CB31BDC1E"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:\"[TARGETDIR]\\netvertgui.exe\" \"%1\" /t"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_FE404FB4B9EA4EAA9B6BE070FEBFADC7"
                                             {
                                             "Name" = "8:"
                                             "Condition" = "8:"
@@ -958,6 +1288,78 @@
                         {
                         }
                     }
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_5D17A0E1DEFF4439A7EE62C7840B7E1B"
+                    {
+                    "Name" = "8:VisualStudio.Launcher.vbproj.10.0"
+                    "Condition" = "8:"
+                    "AlwaysCreate" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:FALSE"
+                    "Transitive" = "11:FALSE"
+                        "Keys"
+                        {
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_0CBDD76760944FA5A936C3F9C2E0D3FA"
+                            {
+                            "Name" = "8:shell"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_5E7182B985084778AAB17AED47832B60"
+                                    {
+                                    "Name" = "8:NetVert"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_AB73F132BE2C4D4CA2760CD4421AF2B0"
+                                            {
+                                            "Name" = "8:Command"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_020E1400B3A34023B5404A4C797D02F8"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:\"[TARGETDIR]\\netvertgui.exe\" \"%1\" /t"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_E0DCFA2F993C4A93B48C6B33220F7F61"
+                                            {
+                                            "Name" = "8:"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Convert with NetVert to..."
+                                            }
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
                     "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_62BFCE01FB9A423288DE8C61C25EB9B2"
                     {
                     "Name" = "8:VisualStudio.vbproj.8.0"
@@ -1011,6 +1413,150 @@
                                         "Values"
                                         {
                                             "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_AB54358662E7450EAA8D0EF4BBD0C5C7"
+                                            {
+                                            "Name" = "8:"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Convert with NetVert to..."
+                                            }
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_6CAE9513B8A64A698B452F1116CA7E8B"
+                    {
+                    "Name" = "8:VisualStudio.aspx.10.0"
+                    "Condition" = "8:"
+                    "AlwaysCreate" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:FALSE"
+                    "Transitive" = "11:FALSE"
+                        "Keys"
+                        {
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_440E8F4133594717B523AA4B9EA075DC"
+                            {
+                            "Name" = "8:shell"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_994A7310C12D453897B4A51758A762A8"
+                                    {
+                                    "Name" = "8:NetVert"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_6E5A766DB4AB441EBEA6AA9CFB8663BF"
+                                            {
+                                            "Name" = "8:Command"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_56F2CD685FEE43C5B34DB0D1A954F24A"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:\"[TARGETDIR]\\netvertgui.exe\" \"%1\" /t"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_31AC450BEC30416ABC11199A6F1A9BB9"
+                                            {
+                                            "Name" = "8:"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Convert with NetVert to..."
+                                            }
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_7227D907047E4D93BC672FEF3CFA65E4"
+                    {
+                    "Name" = "8:VisualStudio.asmx.10.0"
+                    "Condition" = "8:"
+                    "AlwaysCreate" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:FALSE"
+                    "Transitive" = "11:FALSE"
+                        "Keys"
+                        {
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_72A2590C43D9467FAF66109443A942BC"
+                            {
+                            "Name" = "8:shell"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_FD59439182D04DBB8E2CBB40E887B8DF"
+                                    {
+                                    "Name" = "8:NetVert"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_8B4DCF904A4E4DABB10283BF8D0AB3AC"
+                                            {
+                                            "Name" = "8:Command"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_0AB859B81DE24EB0A0516BBC96C171F8"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:\"[TARGETDIR]\\netvertgui.exe\" \"%1\" /t"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_03DB0CFBA9A64E05B359642CE139514C"
                                             {
                                             "Name" = "8:"
                                             "Condition" = "8:"
@@ -1406,6 +1952,122 @@
                         {
                         }
                     }
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_B654DD55D8604E6D9514C1FFDD7EF5E7"
+                    {
+                    "Name" = "8:VisualStudio.cs.10.0"
+                    "Condition" = "8:"
+                    "AlwaysCreate" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:FALSE"
+                    "Transitive" = "11:FALSE"
+                        "Keys"
+                        {
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_B7E537C43EB54A36B72BF13E1CD334EB"
+                            {
+                            "Name" = "8:shell"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_083B0EEF78BA4284A2D4800852B89268"
+                                    {
+                                    "Name" = "8:NetVert"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_CB086A16E1C54BB08563B3B3AF990AC6"
+                                            {
+                                            "Name" = "8:Command"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_11113133CC404342B401C405D70FA757"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:\"[TARGETDIR]\\netvertgui.exe\" \"%1\" /t"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_DF0300A158254AB49F9527111846172B"
+                                            {
+                                            "Name" = "8:"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Convert with NetVert to..."
+                                            }
+                                        }
+                                    }
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_F56027FEA91E4BD496600EF6721DDD51"
+                                    {
+                                    "Name" = "8:NetVert2"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_326A22EEB35D4B52B24113BDE02EE4DD"
+                                            {
+                                            "Name" = "8:Command"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_A7775C9C30764E6EAB7AEC9E914141F8"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:\"[TARGETDIR]\\netvertgui.exe\" \"%1\" /c"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_3CAA0A17578A4472A8D0D329B0E93ECF"
+                                            {
+                                            "Name" = "8:"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Convert with NetVert"
+                                            }
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
                     "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_BB51814B966847D6BB4E1DEE6F893316"
                     {
                     "Name" = "8:VisualStudio.csfile.7.1"
@@ -1691,6 +2353,78 @@
                                         "Values"
                                         {
                                             "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_4D4EB0200B5648318F774BAB5E45B784"
+                                            {
+                                            "Name" = "8:"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Convert with NetVert to..."
+                                            }
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_CEE6882F07B343EFB90F9B8DEB830638"
+                    {
+                    "Name" = "8:VisualStudio.csproj.10.0"
+                    "Condition" = "8:"
+                    "AlwaysCreate" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:FALSE"
+                    "Transitive" = "11:FALSE"
+                        "Keys"
+                        {
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_3531D6DDEF1B468493FB1EB580877E61"
+                            {
+                            "Name" = "8:shell"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_28728532EFEE42128B25B17DFD4E293F"
+                                    {
+                                    "Name" = "8:NetVert"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_E7AA84B1329E4659BC698DE1BD3BCBAD"
+                                            {
+                                            "Name" = "8:Command"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_C6EC398B7D954555861A7EC5C8A701A0"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:\"[TARGETDIR]\\netvertgui.exe\" \"%1\" /t"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_F832DDD4623B4E699DD313E3980D370B"
                                             {
                                             "Name" = "8:"
                                             "Condition" = "8:"
@@ -2034,20 +2768,6 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_09E16DA6F6D144DCA240C9C902DFA2FB"
-            {
-            "Name" = "8:Econ NetVert Library Documentation"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_0C9F900200914D96BD547A10FB35990F"
-            "Folder" = "8:_80E26565585542678D92A49ABF9EEA7D"
-            "WorkingFolder" = "8:_4AE4A51AC4754B5090D792680C8C75DA"
-            "Icon" = "8:_93C7D109AC0144C89C33728B7FD9702C"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1CDB47B1F85F4E23B79A185CB94EC034"
             {
             "Name" = "8:Econ NetVert GUI"
@@ -2062,20 +2782,6 @@
             "Icon" = "8:_6C9243BE31C24126863543FFB65C8CF1"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_667FDF00F6F54F77AC79017AD6C849DB"
-            {
-            "Name" = "8:Install Econ NetVert Visual Studio 2005 AddIn"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_5EA0088BCC904091943CD4722DC6CF39"
-            "Folder" = "8:_80E26565585542678D92A49ABF9EEA7D"
-            "WorkingFolder" = "8:_4AE4A51AC4754B5090D792680C8C75DA"
-            "Icon" = "8:_C07154F298C9440A8613744311C19BF1"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_8EAC2D8CDB8746FAB035338F7DBBAADC"
             {
             "Name" = "8:Econ NetVert Console"
@@ -2088,6 +2794,20 @@
             "Folder" = "8:_80E26565585542678D92A49ABF9EEA7D"
             "WorkingFolder" = "8:_4AE4A51AC4754B5090D792680C8C75DA"
             "Icon" = "8:_8582C72C13B442878D6A4243E707EB2C"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D801A09D55454E65B64AD989640183FF"
+            {
+            "Name" = "8:Econ NetVert Library Documentation"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_E4B05ACB5B5C49AD9C48F06D92D833DA"
+            "Folder" = "8:_80E26565585542678D92A49ABF9EEA7D"
+            "WorkingFolder" = "8:_4AE4A51AC4754B5090D792680C8C75DA"
+            "Icon" = "8:_07F96F201E8048139AFEB35F7AA14EAA"
             "Feature" = "8:"
             }
         }

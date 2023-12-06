@@ -32,7 +32,8 @@ Public Class RefactoryNet11Provider
       Return ProviderParserFlags.HandleComments Or _
              ProviderParserFlags.HandleCommonLanguagePreparation Or _
              ProviderParserFlags.HandleICSharpCodeParserBugs Or _
-             ProviderParserFlags.HandleSomeNet2LangFeatures
+             ProviderParserFlags.HandleSomeNet2LangFeatures Or _
+             ProviderParserFlags.HandleEmptyLines
     End Get
   End Property
 

@@ -11,6 +11,7 @@
 '=================================
 
 Imports System.IO
+Imports System.Collections.Generic
 
 ''' -----------------------------------------------------------------------------
 ''' Project	 : Econ.NetVert
@@ -51,6 +52,16 @@ Imports System.IO
 ''' </history>
 ''' -----------------------------------------------------------------------------
 Public NotInheritable Class VSProjectFileConverter
+
+#Region "NESTED"
+
+  Private Class PairedCodeFile
+    'PUBLIC PROPERTIES
+    Public Property MainFilePath As String = ""
+    Public Property DesignerFilePath As String = ""
+  End Class
+
+#End Region
 
   'DECLARATIONS
   Private FLanguage As ConverterLanguages
@@ -309,9 +320,9 @@ Public NotInheritable Class VSProjectFileConverter
     Dim TmpTarDir As DirectoryInfo
     Dim TmpProjStr As String
     Dim TmpFiles As New ArrayList
-    Dim TmpRel As String
-    Dim TmpFSrc As String
-    Dim TmpFDest As String = ""
+    'Dim TmpRel As String
+    'Dim TmpFSrc As String
+    'Dim TmpFDest As String = ""
     Dim TmpE As ProcessedFileEventArgs
     Dim TmpI As Int32
     Dim TmpI2 As Int32
@@ -386,58 +397,122 @@ Public NotInheritable Class VSProjectFileConverter
           'set current default-NS-fix
           FFileConverter.FixNamespaces = FFixNamespaces
         End If
+        'get root-namespace
+        Dim rootNs As ArrayList = GetAllSubStrings(TmpProjStr, "<RootNamespace>", "</RootNamespace>")
+        If rootNs.Count > 0 Then
+          FFileConverter.WrapNamespace = rootNs(0)
+        Else
+          FFileConverter.WrapNamespace = ""
+        End If
         'get all 2002/2003 files (RelPath=") or (RelPath = ")
         TmpFiles.AddRange(GetAllSubStrings(TmpProjStr, "RelPath=""", """"))
         TmpFiles.AddRange(GetAllSubStrings(TmpProjStr, "RelPath = """, """"))
         'get all 2005 files (Include=") or (Include = ")
         TmpFiles.AddRange(GetAllSubStrings(TmpProjStr, "Include=""", """"))
         TmpFiles.AddRange(GetAllSubStrings(TmpProjStr, "Include = """, """"))
-        'convert all codefiles and copy all other files
-        For I As Int32 = 0 To TmpFiles.Count - 1
-          TmpRel = TmpFiles(I)
-          TmpFSrc = Path.Combine(TmpSrcDir.FullName, TmpRel)
-          If File.Exists(TmpFSrc) Then
-            If TmpRel Like FFileConverter.DefaultWildcard Then
-              'a codefile to convert
-              TmpFDest = Path.ChangeExtension(Path.Combine(TmpTarDir.FullName, TmpRel), "." & FFileConverter.OutputFileExtension)
-              'convert codefile now
-              FFileConverter.ConvertFile(TmpFSrc, TmpFDest, overwriteExistingFile, fixNamespaces)
-            ElseIf (TmpRel Like "*.aspx") OrElse _
-                   (TmpRel Like "*.ascx") OrElse _
-                   (TmpRel Like "*.asmx") Then
-              'a ASP.NET file to convert
-              If TmpSrcDir.FullName <> TmpTarDir.FullName Then
-                TmpFDest = Path.Combine(TmpTarDir.FullName, TmpRel)
-              Else
-                TmpFDest = Path.ChangeExtension(Path.Combine(TmpTarDir.FullName, TmpRel), ".converted." & Path.GetExtension(TmpRel))
-              End If
-              'convert aspxfile now
-              FAspxFileConverter.ConvertFile(TmpFSrc, TmpFDest, overwriteExistingFile)
+        'seperate regular and designer-files
+        Dim noneDesignerFiles As New List(Of String)
+        Dim designerFiles As New List(Of String)
+        For Each f As String In TmpFiles
+          Dim fullPath As String = Path.Combine(TmpSrcDir.FullName, f)
+          If File.Exists(fullPath) Then
+            If f.ToLower() Like "*.designer.*" Then
+              designerFiles.Add(f)
             Else
-              'a file to copy (if choosen targetdir does not equal sourcedir)
-              If TmpSrcDir.FullName <> TmpTarDir.FullName Then
-                TmpFDest = Path.Combine(TmpTarDir.FullName, TmpRel)
-                With Directory.GetParent(TmpFDest)
-                  If Not .Exists Then
-                    'OLD: OutputText("Creating directory " & .FullName)
-                    .Create()
-                  End If
-                End With
-                If (Not File.Exists(TmpFDest)) OrElse overwriteExistingFile Then
-                  'message out and increment copy files count
-                  'OutputText("Copy file " & TmpFDest)
-                  RaiseEvent AfterFileProcessed(Me, New ProcessedFileEventArgs(ProcessedFileEventArgs.ConverterFileTypes.OtherFile, _
-                                                                               TmpFSrc, "", TmpFDest, "", ProcessedFileEventArgs.ConverterOperations.FlatCopy, FLanguage, ""))
-                  FCopyFilesCount += 1
-                  'copy file now
-                  Try
-                    File.Copy(TmpFSrc, TmpFDest, True)
-                  Catch ex As Exception
-                    'filecopy error
-                    RaiseEvent AfterFileProcessed(Me, New ProcessedFileEventArgs(ProcessedFileEventArgs.ConverterFileTypes.OtherFile, _
-                                                                                 TmpFSrc, "", TmpFDest, "", ProcessedFileEventArgs.ConverterOperations.Skipped_Error, FLanguage, ex.Message))
-                  End Try
+              noneDesignerFiles.Add(f)
+            End If
+          End If
+        Next
+        'create 3 lists:
+        ' - 1 with standalone code-files
+        ' - 1 with codefiles and associated designer-file
+        ' - 1 with other files
+        Dim singleFiles As New List(Of String)
+        Dim pairedFiles As New List(Of PairedCodeFile)
+        Dim otherFiles As New List(Of String)
+        For Each f As String In noneDesignerFiles
+          If f Like FFileConverter.DefaultWildcard Then
+            'f is code file
+            Dim designerFile As String = Path.ChangeExtension(f, ".Designer" & Path.GetExtension(f))
+            Dim isPaired As Boolean = False
+            For Each df As String In designerFiles
+              If df.ToLower() = designerFile.ToLower() Then
+                isPaired = True
+                designerFiles.Remove(df)
+                Exit For
+              End If
+            Next
+            If isPaired Then
+              Dim pcf As New PairedCodeFile
+              pcf.MainFilePath = f
+              pcf.DesignerFilePath = designerFile
+              pairedFiles.Add(pcf)
+            Else
+              singleFiles.Add(f)
+            End If
+          Else
+            'f is other file
+            otherFiles.Add(f)
+          End If
+        Next
+        'add rest of designer-files to single-file-list because no associated code-file found to create a pair
+        For Each f As String In designerFiles
+          singleFiles.Add(f)
+        Next
+        'convert all paired codefiles
+        For Each pcf As PairedCodeFile In pairedFiles
+          'a codefile to convert
+          Dim fullPathSrc As String = Path.Combine(TmpSrcDir.FullName, pcf.MainFilePath)
+          Dim fullPathDst As String = Path.ChangeExtension(Path.Combine(TmpTarDir.FullName, pcf.MainFilePath), "." & FFileConverter.OutputFileExtension)
+          Dim fullPathSrc2 As String = Path.Combine(TmpSrcDir.FullName, pcf.DesignerFilePath)
+          Dim fullPathDst2 As String = Path.ChangeExtension(Path.Combine(TmpTarDir.FullName, pcf.DesignerFilePath), "." & FFileConverter.OutputFileExtension)
+          'convert codefile-pair now
+          FFileConverter.ConvertFilePair(fullPathSrc, fullPathSrc2, fullPathDst, fullPathDst2, overwriteExistingFile, fixNamespaces)
+        Next
+        'convert all single codefiles
+        For Each f As String In singleFiles
+          'a codefile to convert
+          Dim fullPathSrc As String = Path.Combine(TmpSrcDir.FullName, f)
+          Dim fullPathDst As String = Path.ChangeExtension(Path.Combine(TmpTarDir.FullName, f), "." & FFileConverter.OutputFileExtension)
+          'convert codefile now
+          FFileConverter.ConvertFile(fullPathSrc, fullPathDst, overwriteExistingFile, fixNamespaces)
+        Next
+        'process all other files
+        For Each f As String In otherFiles
+          Dim fullPathSrc As String = Path.Combine(TmpSrcDir.FullName, f)
+          Dim fullPathDst As String = Path.Combine(TmpTarDir.FullName, f)
+          If (f Like "*.aspx") OrElse _
+             (f Like "*.ascx") OrElse _
+             (f Like "*.asmx") Then
+            'a ASP.NET file to convert
+            If TmpSrcDir.FullName = TmpTarDir.FullName Then
+              fullPathDst = Path.ChangeExtension(Path.Combine(TmpTarDir.FullName, f), ".converted" & Path.GetExtension(f))
+            End If
+            'convert aspxfile now
+            FAspxFileConverter.ConvertFile(fullPathSrc, fullPathDst, overwriteExistingFile)
+          Else
+            'a file to copy (if choosen targetdir does not equal sourcedir)
+            If TmpSrcDir.FullName <> TmpTarDir.FullName Then
+              With Directory.GetParent(fullPathDst)
+                If Not .Exists Then
+                  'OLD: OutputText("Creating directory " & .FullName)
+                  .Create()
                 End If
+              End With
+              If (Not File.Exists(fullPathDst)) OrElse overwriteExistingFile Then
+                'message out and increment copy files count
+                'OutputText("Copy file " & TmpFDest)
+                RaiseEvent AfterFileProcessed(Me, New ProcessedFileEventArgs(ProcessedFileEventArgs.ConverterFileTypes.OtherFile, _
+                                                                             fullPathSrc, "", fullPathDst, "", ProcessedFileEventArgs.ConverterOperations.FlatCopy, FLanguage, ""))
+                FCopyFilesCount += 1
+                'copy file now
+                Try
+                  File.Copy(fullPathSrc, fullPathDst, True)
+                Catch ex As Exception
+                  'filecopy error
+                  RaiseEvent AfterFileProcessed(Me, New ProcessedFileEventArgs(ProcessedFileEventArgs.ConverterFileTypes.OtherFile, _
+                                                                               fullPathSrc, "", fullPathDst, "", ProcessedFileEventArgs.ConverterOperations.Skipped_Error, FLanguage, ex.Message))
+                End Try
               End If
             End If
           End If
@@ -445,19 +520,53 @@ Public NotInheritable Class VSProjectFileConverter
         'VS2002/2003: replace <VisualBasic with <CSHARP
         'VS2005: replace "$(MSBuildBinPath)\Microsoft.VisualBasic.targets" with "$(MSBuildBinPath)\Microsoft.CSharp.targets"
         'and replace all extensions (.vb") -> (.cs") and (.vb<) -> (.cs<)
+        'and replace ProjectTypeGUIDs:
+        'Windows (C#) 	{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}
+        'Windows (VB.NET) 	{F184B08F-C81C-45F6-A57F-5ABD9991F28F}
+        'Legacy (2003) Smart Device (C#) 	{20D4826A-C6FA-45DB-90F4-C717570B9F32}
+        'Legacy (2003) Smart Device (VB.NET) 	{CB4CE8C6-1BDB-4DC7-A4D3-65A1999772F8}
+        'Smart Device (C#) 	{4D628B5B-2FBC-4AA6-8C16-197242AEB884}
+        'Smart Device (VB.NET) 	{68B1623D-7FB9-47D8-8664-7ECEA3297D4F}
+        'Workflow (C#) 	{14822709-B5A1-4724-98CA-57A101D1B079}
+        'Workflow (VB.NET) 	{D59BE175-2ED0-4C54-BE3D-CDAA9F3214C8}
+        'SharePoint (VB.NET) 	{EC05E597-79D4-47f3-ADA0-324C4F7C7484}
+        'SharePoint (C#) 	{593B0543-81F6-4436-BA1E-4747859CAAE2}
         Select Case FLanguage
           Case ConverterLanguages.VBNetToCSharp
             TmpProjStr = TmpProjStr.Replace("<VisualBasic", "<CSHARP").Replace( _
-                                            """$(MSBuildBinPath)\Microsoft.VisualBasic.targets""", """$(MSBuildBinPath)\Microsoft.CSharp.targets""").Replace( _
-                                            """$(MSBuildBinPath)\Microsoft.VisualBasic.Targets""", """$(MSBuildBinPath)\Microsoft.CSharp.Targets""").Replace( _
+                                            "Path)\Microsoft.VisualBasic.targets""", "Path)\Microsoft.CSharp.targets""").Replace( _
+                                            "Path)\Microsoft.VisualBasic.Targets""", "Path)\Microsoft.CSharp.Targets""").Replace( _
                                             ".vb""", ".cs""").Replace( _
-                                            ".vb<", ".cs<")
+                                            ".vb<", ".cs<").Replace( _
+                                            "{F184B08F-C81C-45F6-A57F-5ABD9991F28F}", "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}").Replace( _
+                                            "{CB4CE8C6-1BDB-4DC7-A4D3-65A1999772F8}", "{20D4826A-C6FA-45DB-90F4-C717570B9F32}").Replace( _
+                                            "{68B1623D-7FB9-47D8-8664-7ECEA3297D4F}", "{4D628B5B-2FBC-4AA6-8C16-197242AEB884}").Replace( _
+                                            "{D59BE175-2ED0-4C54-BE3D-CDAA9F3214C8}", "{14822709-B5A1-4724-98CA-57A101D1B079}").Replace( _
+                                            "{EC05E597-79D4-47f3-ADA0-324C4F7C7484}", "{593B0543-81F6-4436-BA1E-4747859CAAE2}")
+            'Add Refference : <Reference Include="Microsoft.VisualBasic" ...
+            If Not TmpProjStr.Contains("<Reference Include=""Microsoft.VisualBasic""") Then
+              'VS 2005/2008
+              TmpProjStr = TmpProjStr.Replace("<Reference Include=""System"" />", _
+                                                "<Reference Include=""Microsoft.VisualBasic"" />" & vbCrLf & _
+                                                "<Reference Include=""System"" />")
+              'VS 2010
+              TmpProjStr = TmpProjStr.Replace("<Reference Include=""System"">", _
+                                                "<Reference Include=""Microsoft.VisualBasic"">" & vbCrLf & _
+                                                "  <Name>Microsoft.VisualBasic</Name>" & vbCrLf & _
+                                                "</Reference>" & vbCrLf & _
+                                                "<Reference Include=""System"">")
+            End If
           Case ConverterLanguages.CSharpToVBNet
             TmpProjStr = TmpProjStr.Replace("<CSHARP", "<VisualBasic").Replace( _
-                                            """$(MSBuildBinPath)\Microsoft.CSharp.targets""", """$(MSBuildBinPath)\Microsoft.VisualBasic.targets""").Replace( _
-                                            """$(MSBuildBinPath)\Microsoft.CSharp.Targets""", """$(MSBuildBinPath)\Microsoft.VisualBasic.Targets""").Replace( _
+                                            "Path)\Microsoft.CSharp.targets""", "Path)\Microsoft.VisualBasic.targets""").Replace( _
+                                            "Path)\Microsoft.CSharp.Targets""", "Path)\Microsoft.VisualBasic.Targets""").Replace( _
                                             ".cs""", ".vb""").Replace( _
-                                            ".cs<", ".vb<")
+                                            ".cs<", ".vb<").Replace( _
+                                            "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}", "{F184B08F-C81C-45F6-A57F-5ABD9991F28F}").Replace( _
+                                            "{20D4826A-C6FA-45DB-90F4-C717570B9F32}", "{CB4CE8C6-1BDB-4DC7-A4D3-65A1999772F8}").Replace( _
+                                            "{4D628B5B-2FBC-4AA6-8C16-197242AEB884}", "{68B1623D-7FB9-47D8-8664-7ECEA3297D4F}").Replace( _
+                                            "{14822709-B5A1-4724-98CA-57A101D1B079}", "{D59BE175-2ED0-4C54-BE3D-CDAA9F3214C8}").Replace( _
+                                            "{593B0543-81F6-4436-BA1E-4747859CAAE2}", "{EC05E597-79D4-47f3-ADA0-324C4F7C7484}")
         End Select
         If File.Exists(targetFile) Then
           TmpE.ModifyStatus(ProcessedFileEventArgs.ConverterOperations.Success_Overwriting)

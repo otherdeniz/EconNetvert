@@ -20,6 +20,7 @@ Public Class FrmMain
   Private FTextBuilder As StringBuilder
   Private FCurrentState As FormWindowState = FormWindowState.Normal
   Private FCurrentEditor As ICSharpCode.TextEditor.TextEditorControl
+  Friend WithEvents ApplicationUpdater As Econ.Updater.ApplicationUpdater
   Private FCurrentHelperBox As TextEditorHelperBox
 
   'CONSTRUCTOR
@@ -58,7 +59,6 @@ Public Class FrmMain
   Friend WithEvents HelperBoxToCs As Econ.Netvert.Gui.TextEditorHelperBox
   Friend WithEvents HelperBoxFromCs As Econ.Netvert.Gui.TextEditorHelperBox
   Friend WithEvents HelperBoxToVb As Econ.Netvert.Gui.TextEditorHelperBox
-  Friend WithEvents ApplicationUpdater As Econ.Updater.ApplicationUpdater
   Friend WithEvents CmbRefactoryProvider As System.Windows.Forms.ComboBox
   Friend WithEvents ToolTipSimple As System.Windows.Forms.ToolTip
   Friend WithEvents TxtFromVb As ICSharpCode.TextEditor.TextEditorControl
@@ -171,132 +171,133 @@ Public Class FrmMain
   Friend WithEvents ChkRecurseProj As System.Windows.Forms.CheckBox
   Friend WithEvents TxtOutputProj As System.Windows.Forms.TextBox
   <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-    Me.components = New System.ComponentModel.Container
+    Me.components = New System.ComponentModel.Container()
     Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMain))
-    Me.TabMain = New System.Windows.Forms.TabControl
-    Me.TabPageVBtoCS = New System.Windows.Forms.TabPage
-    Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
-    Me.Panel3 = New System.Windows.Forms.Panel
-    Me.TxtFromVb = New ICSharpCode.TextEditor.TextEditorControl
+    Me.TabMain = New System.Windows.Forms.TabControl()
+    Me.TabPageVBtoCS = New System.Windows.Forms.TabPage()
+    Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+    Me.Panel3 = New System.Windows.Forms.Panel()
+    Me.TxtFromVb = New ICSharpCode.TextEditor.TextEditorControl()
     Me.MnuEditor = New System.Windows.Forms.ContextMenuStrip(Me.components)
-    Me.MnuSearch = New System.Windows.Forms.ToolStripMenuItem
-    Me.MnuGotoLine = New System.Windows.Forms.ToolStripMenuItem
-    Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripSeparator
-    Me.MnuUndo = New System.Windows.Forms.ToolStripMenuItem
-    Me.MnuRedo = New System.Windows.Forms.ToolStripMenuItem
-    Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripSeparator
-    Me.MnuCut = New System.Windows.Forms.ToolStripMenuItem
-    Me.MnuCopy = New System.Windows.Forms.ToolStripMenuItem
-    Me.MnuPaste = New System.Windows.Forms.ToolStripMenuItem
-    Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator
-    Me.MnuSelectAll = New System.Windows.Forms.ToolStripMenuItem
-    Me.HelperBoxFromVb = New Econ.Netvert.Gui.TextEditorHelperBox
-    Me.Panel4 = New System.Windows.Forms.Panel
-    Me.BtnVBClear = New System.Windows.Forms.Button
-    Me.Label5 = New System.Windows.Forms.Label
-    Me.BtnVBOpen = New System.Windows.Forms.Button
-    Me.Panel5 = New System.Windows.Forms.Panel
-    Me.TxtToCs = New ICSharpCode.TextEditor.TextEditorControl
-    Me.HelperBoxToCs = New Econ.Netvert.Gui.TextEditorHelperBox
-    Me.Panel6 = New System.Windows.Forms.Panel
-    Me.BtnCSCopy = New System.Windows.Forms.Button
-    Me.BtnCSSave = New System.Windows.Forms.Button
-    Me.Label6 = New System.Windows.Forms.Label
-    Me.PnlBottomVC = New System.Windows.Forms.Panel
-    Me.BtnVbToCs = New System.Windows.Forms.Button
-    Me.BtnVbToCsMethod = New System.Windows.Forms.Button
-    Me.TabPageCStoVB = New System.Windows.Forms.TabPage
-    Me.SplitContainer2 = New System.Windows.Forms.SplitContainer
-    Me.Panel8 = New System.Windows.Forms.Panel
-    Me.TxtFromCS = New ICSharpCode.TextEditor.TextEditorControl
-    Me.HelperBoxFromCs = New Econ.Netvert.Gui.TextEditorHelperBox
-    Me.Panel9 = New System.Windows.Forms.Panel
-    Me.Label8 = New System.Windows.Forms.Label
-    Me.BtnCSClear = New System.Windows.Forms.Button
-    Me.BtnCSOpen = New System.Windows.Forms.Button
-    Me.Panel2 = New System.Windows.Forms.Panel
-    Me.TxtToVb = New ICSharpCode.TextEditor.TextEditorControl
-    Me.HelperBoxToVb = New Econ.Netvert.Gui.TextEditorHelperBox
-    Me.Panel7 = New System.Windows.Forms.Panel
-    Me.BtnVBCopy = New System.Windows.Forms.Button
-    Me.BtnVBSave = New System.Windows.Forms.Button
-    Me.Label7 = New System.Windows.Forms.Label
-    Me.PnlBottomCV = New System.Windows.Forms.Panel
-    Me.BtnCsToVbMethod = New System.Windows.Forms.Button
-    Me.BtnCsToVb = New System.Windows.Forms.Button
-    Me.TabPageFiles = New System.Windows.Forms.TabPage
-    Me.ChkFixNs = New System.Windows.Forms.CheckBox
-    Me.ChkOverwrite = New System.Windows.Forms.CheckBox
-    Me.GroupBox1 = New System.Windows.Forms.GroupBox
-    Me.TxtOutput = New System.Windows.Forms.TextBox
-    Me.ChkRecurse = New System.Windows.Forms.CheckBox
-    Me.BtnBrowseTarget = New System.Windows.Forms.Button
-    Me.TxtTarget = New System.Windows.Forms.TextBox
-    Me.Label3 = New System.Windows.Forms.Label
-    Me.BtnBrowseSrc = New System.Windows.Forms.Button
-    Me.TxtSrcFolder = New System.Windows.Forms.TextBox
-    Me.Label2 = New System.Windows.Forms.Label
-    Me.CmbLang = New System.Windows.Forms.ComboBox
-    Me.Label1 = New System.Windows.Forms.Label
-    Me.Label4 = New System.Windows.Forms.Label
-    Me.TxtWildcard = New System.Windows.Forms.TextBox
-    Me.BtnConvertFiles = New System.Windows.Forms.Button
-    Me.TabPageAspx = New System.Windows.Forms.TabPage
-    Me.ChkFixNsWeb = New System.Windows.Forms.CheckBox
-    Me.ChkOverwriteWeb = New System.Windows.Forms.CheckBox
-    Me.GroupBox3 = New System.Windows.Forms.GroupBox
-    Me.TxtOutputWeb = New System.Windows.Forms.TextBox
-    Me.BtnBrowseTargetWeb = New System.Windows.Forms.Button
-    Me.TxtTargetFolderWeb = New System.Windows.Forms.TextBox
-    Me.Label13 = New System.Windows.Forms.Label
-    Me.BtnBrowseSrcWeb = New System.Windows.Forms.Button
-    Me.TxtSrcFolderWeb = New System.Windows.Forms.TextBox
-    Me.Label14 = New System.Windows.Forms.Label
-    Me.CmbLangWeb = New System.Windows.Forms.ComboBox
-    Me.Label15 = New System.Windows.Forms.Label
-    Me.Label16 = New System.Windows.Forms.Label
-    Me.TxtWildcardWeb = New System.Windows.Forms.TextBox
-    Me.ChkRecurseWeb = New System.Windows.Forms.CheckBox
-    Me.BtnConvertWeb = New System.Windows.Forms.Button
-    Me.TabPageProj = New System.Windows.Forms.TabPage
-    Me.ChkFixNsProj = New System.Windows.Forms.CheckBox
-    Me.ChkOverwriteProj = New System.Windows.Forms.CheckBox
-    Me.GroupBox2 = New System.Windows.Forms.GroupBox
-    Me.TxtOutputProj = New System.Windows.Forms.TextBox
-    Me.BtnBrowseTargetProj = New System.Windows.Forms.Button
-    Me.TxtDestFolderProj = New System.Windows.Forms.TextBox
-    Me.Label9 = New System.Windows.Forms.Label
-    Me.BtnBrowseSrcProj = New System.Windows.Forms.Button
-    Me.TxtSrcFolderProj = New System.Windows.Forms.TextBox
-    Me.Label10 = New System.Windows.Forms.Label
-    Me.CmbLangProj = New System.Windows.Forms.ComboBox
-    Me.Label11 = New System.Windows.Forms.Label
-    Me.Label12 = New System.Windows.Forms.Label
-    Me.TxtWildcardProj = New System.Windows.Forms.TextBox
-    Me.ChkRecurseProj = New System.Windows.Forms.CheckBox
-    Me.BtnConvertProjects = New System.Windows.Forms.Button
-    Me.FolderBrowser = New System.Windows.Forms.FolderBrowserDialog
+    Me.MnuSearch = New System.Windows.Forms.ToolStripMenuItem()
+    Me.MnuGotoLine = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripSeparator()
+    Me.MnuUndo = New System.Windows.Forms.ToolStripMenuItem()
+    Me.MnuRedo = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripSeparator()
+    Me.MnuCut = New System.Windows.Forms.ToolStripMenuItem()
+    Me.MnuCopy = New System.Windows.Forms.ToolStripMenuItem()
+    Me.MnuPaste = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
+    Me.MnuSelectAll = New System.Windows.Forms.ToolStripMenuItem()
+    Me.HelperBoxFromVb = New Econ.NetVert.Gui.TextEditorHelperBox()
+    Me.Panel4 = New System.Windows.Forms.Panel()
+    Me.BtnVBClear = New System.Windows.Forms.Button()
+    Me.Label5 = New System.Windows.Forms.Label()
+    Me.BtnVBOpen = New System.Windows.Forms.Button()
+    Me.Panel5 = New System.Windows.Forms.Panel()
+    Me.TxtToCs = New ICSharpCode.TextEditor.TextEditorControl()
+    Me.HelperBoxToCs = New Econ.NetVert.Gui.TextEditorHelperBox()
+    Me.Panel6 = New System.Windows.Forms.Panel()
+    Me.BtnCSCopy = New System.Windows.Forms.Button()
+    Me.BtnCSSave = New System.Windows.Forms.Button()
+    Me.Label6 = New System.Windows.Forms.Label()
+    Me.PnlBottomVC = New System.Windows.Forms.Panel()
+    Me.BtnVbToCs = New System.Windows.Forms.Button()
+    Me.BtnVbToCsMethod = New System.Windows.Forms.Button()
+    Me.TabPageCStoVB = New System.Windows.Forms.TabPage()
+    Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+    Me.Panel8 = New System.Windows.Forms.Panel()
+    Me.TxtFromCS = New ICSharpCode.TextEditor.TextEditorControl()
+    Me.HelperBoxFromCs = New Econ.NetVert.Gui.TextEditorHelperBox()
+    Me.Panel9 = New System.Windows.Forms.Panel()
+    Me.Label8 = New System.Windows.Forms.Label()
+    Me.BtnCSClear = New System.Windows.Forms.Button()
+    Me.BtnCSOpen = New System.Windows.Forms.Button()
+    Me.Panel2 = New System.Windows.Forms.Panel()
+    Me.TxtToVb = New ICSharpCode.TextEditor.TextEditorControl()
+    Me.HelperBoxToVb = New Econ.NetVert.Gui.TextEditorHelperBox()
+    Me.Panel7 = New System.Windows.Forms.Panel()
+    Me.BtnVBCopy = New System.Windows.Forms.Button()
+    Me.BtnVBSave = New System.Windows.Forms.Button()
+    Me.Label7 = New System.Windows.Forms.Label()
+    Me.PnlBottomCV = New System.Windows.Forms.Panel()
+    Me.BtnCsToVbMethod = New System.Windows.Forms.Button()
+    Me.BtnCsToVb = New System.Windows.Forms.Button()
+    Me.TabPageFiles = New System.Windows.Forms.TabPage()
+    Me.ChkFixNs = New System.Windows.Forms.CheckBox()
+    Me.ChkOverwrite = New System.Windows.Forms.CheckBox()
+    Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+    Me.TxtOutput = New System.Windows.Forms.TextBox()
+    Me.ChkRecurse = New System.Windows.Forms.CheckBox()
+    Me.BtnBrowseTarget = New System.Windows.Forms.Button()
+    Me.TxtTarget = New System.Windows.Forms.TextBox()
+    Me.Label3 = New System.Windows.Forms.Label()
+    Me.BtnBrowseSrc = New System.Windows.Forms.Button()
+    Me.TxtSrcFolder = New System.Windows.Forms.TextBox()
+    Me.Label2 = New System.Windows.Forms.Label()
+    Me.CmbLang = New System.Windows.Forms.ComboBox()
+    Me.Label1 = New System.Windows.Forms.Label()
+    Me.Label4 = New System.Windows.Forms.Label()
+    Me.TxtWildcard = New System.Windows.Forms.TextBox()
+    Me.BtnConvertFiles = New System.Windows.Forms.Button()
+    Me.TabPageAspx = New System.Windows.Forms.TabPage()
+    Me.ChkFixNsWeb = New System.Windows.Forms.CheckBox()
+    Me.ChkOverwriteWeb = New System.Windows.Forms.CheckBox()
+    Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+    Me.TxtOutputWeb = New System.Windows.Forms.TextBox()
+    Me.BtnBrowseTargetWeb = New System.Windows.Forms.Button()
+    Me.TxtTargetFolderWeb = New System.Windows.Forms.TextBox()
+    Me.Label13 = New System.Windows.Forms.Label()
+    Me.BtnBrowseSrcWeb = New System.Windows.Forms.Button()
+    Me.TxtSrcFolderWeb = New System.Windows.Forms.TextBox()
+    Me.Label14 = New System.Windows.Forms.Label()
+    Me.CmbLangWeb = New System.Windows.Forms.ComboBox()
+    Me.Label15 = New System.Windows.Forms.Label()
+    Me.Label16 = New System.Windows.Forms.Label()
+    Me.TxtWildcardWeb = New System.Windows.Forms.TextBox()
+    Me.ChkRecurseWeb = New System.Windows.Forms.CheckBox()
+    Me.BtnConvertWeb = New System.Windows.Forms.Button()
+    Me.TabPageProj = New System.Windows.Forms.TabPage()
+    Me.ChkFixNsProj = New System.Windows.Forms.CheckBox()
+    Me.ChkOverwriteProj = New System.Windows.Forms.CheckBox()
+    Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+    Me.TxtOutputProj = New System.Windows.Forms.TextBox()
+    Me.BtnBrowseTargetProj = New System.Windows.Forms.Button()
+    Me.TxtDestFolderProj = New System.Windows.Forms.TextBox()
+    Me.Label9 = New System.Windows.Forms.Label()
+    Me.BtnBrowseSrcProj = New System.Windows.Forms.Button()
+    Me.TxtSrcFolderProj = New System.Windows.Forms.TextBox()
+    Me.Label10 = New System.Windows.Forms.Label()
+    Me.CmbLangProj = New System.Windows.Forms.ComboBox()
+    Me.Label11 = New System.Windows.Forms.Label()
+    Me.Label12 = New System.Windows.Forms.Label()
+    Me.TxtWildcardProj = New System.Windows.Forms.TextBox()
+    Me.ChkRecurseProj = New System.Windows.Forms.CheckBox()
+    Me.BtnConvertProjects = New System.Windows.Forms.Button()
+    Me.FolderBrowser = New System.Windows.Forms.FolderBrowserDialog()
     Me.ToolTipButtons = New System.Windows.Forms.ToolTip(Me.components)
-    Me.CmbRefactoryProvider = New System.Windows.Forms.ComboBox
-    Me.DlgFileOpen = New System.Windows.Forms.OpenFileDialog
-    Me.DlgFileSave = New System.Windows.Forms.SaveFileDialog
+    Me.CmbRefactoryProvider = New System.Windows.Forms.ComboBox()
+    Me.DlgFileOpen = New System.Windows.Forms.OpenFileDialog()
+    Me.DlgFileSave = New System.Windows.Forms.SaveFileDialog()
     Me.NetVertTrayIcon = New System.Windows.Forms.NotifyIcon(Me.components)
     Me.MnuNetVert = New System.Windows.Forms.ContextMenuStrip(Me.components)
-    Me.MnuShowWindow = New System.Windows.Forms.ToolStripMenuItem
-    Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
-    Me.MnuConvertSrc = New System.Windows.Forms.ToolStripMenuItem
-    Me.VBtoCSCodeMenu = New System.Windows.Forms.ToolStripMenuItem
-    Me.CStoVBCodeMenu = New System.Windows.Forms.ToolStripMenuItem
-    Me.MnuConvertStatements = New System.Windows.Forms.ToolStripMenuItem
-    Me.VBtoCSStatementsMenu = New System.Windows.Forms.ToolStripMenuItem
-    Me.CStoVBStatementsMenu = New System.Windows.Forms.ToolStripMenuItem
-    Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator
-    Me.MnuExit = New System.Windows.Forms.ToolStripMenuItem
-    Me.BtnAbout = New System.Windows.Forms.Button
+    Me.MnuShowWindow = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
+    Me.MnuConvertSrc = New System.Windows.Forms.ToolStripMenuItem()
+    Me.VBtoCSCodeMenu = New System.Windows.Forms.ToolStripMenuItem()
+    Me.CStoVBCodeMenu = New System.Windows.Forms.ToolStripMenuItem()
+    Me.MnuConvertStatements = New System.Windows.Forms.ToolStripMenuItem()
+    Me.VBtoCSStatementsMenu = New System.Windows.Forms.ToolStripMenuItem()
+    Me.CStoVBStatementsMenu = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
+    Me.MnuExit = New System.Windows.Forms.ToolStripMenuItem()
+    Me.BtnAbout = New System.Windows.Forms.Button()
     Me.ToolTipSimple = New System.Windows.Forms.ToolTip(Me.components)
     Me.ApplicationUpdater = New Econ.Updater.ApplicationUpdater(Me.components)
     Me.TabMain.SuspendLayout()
     Me.TabPageVBtoCS.SuspendLayout()
+    CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
     Me.SplitContainer1.Panel1.SuspendLayout()
     Me.SplitContainer1.Panel2.SuspendLayout()
     Me.SplitContainer1.SuspendLayout()
@@ -307,6 +308,7 @@ Public Class FrmMain
     Me.Panel6.SuspendLayout()
     Me.PnlBottomVC.SuspendLayout()
     Me.TabPageCStoVB.SuspendLayout()
+    CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
     Me.SplitContainer2.Panel1.SuspendLayout()
     Me.SplitContainer2.Panel2.SuspendLayout()
     Me.SplitContainer2.SuspendLayout()
@@ -385,14 +387,12 @@ Public Class FrmMain
     Me.TxtFromVb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
     Me.TxtFromVb.ContextMenuStrip = Me.MnuEditor
     Me.TxtFromVb.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.TxtFromVb.IsIconBarVisible = False
+    Me.TxtFromVb.IsReadOnly = False
     Me.TxtFromVb.Location = New System.Drawing.Point(0, 24)
     Me.TxtFromVb.Name = "TxtFromVb"
     Me.TxtFromVb.ShowEOLMarkers = True
-    Me.TxtFromVb.ShowInvalidLines = False
     Me.TxtFromVb.ShowSpaces = True
     Me.TxtFromVb.ShowTabs = True
-    Me.TxtFromVb.ShowVRuler = True
     Me.TxtFromVb.Size = New System.Drawing.Size(335, 442)
     Me.TxtFromVb.TabIndex = 1
     '
@@ -400,78 +400,78 @@ Public Class FrmMain
     '
     Me.MnuEditor.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MnuSearch, Me.MnuGotoLine, Me.ToolStripMenuItem5, Me.MnuUndo, Me.MnuRedo, Me.ToolStripMenuItem4, Me.MnuCut, Me.MnuCopy, Me.MnuPaste, Me.ToolStripMenuItem3, Me.MnuSelectAll})
     Me.MnuEditor.Name = "MnuEditor"
-    Me.MnuEditor.Size = New System.Drawing.Size(182, 198)
+    Me.MnuEditor.Size = New System.Drawing.Size(177, 198)
     '
     'MnuSearch
     '
     Me.MnuSearch.Image = CType(resources.GetObject("MnuSearch.Image"), System.Drawing.Image)
     Me.MnuSearch.Name = "MnuSearch"
     Me.MnuSearch.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
-    Me.MnuSearch.Size = New System.Drawing.Size(181, 22)
+    Me.MnuSearch.Size = New System.Drawing.Size(176, 22)
     Me.MnuSearch.Text = "Search..."
     '
     'MnuGotoLine
     '
     Me.MnuGotoLine.Name = "MnuGotoLine"
     Me.MnuGotoLine.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-    Me.MnuGotoLine.Size = New System.Drawing.Size(181, 22)
+    Me.MnuGotoLine.Size = New System.Drawing.Size(176, 22)
     Me.MnuGotoLine.Text = "Goto Line..."
     '
     'ToolStripMenuItem5
     '
     Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-    Me.ToolStripMenuItem5.Size = New System.Drawing.Size(178, 6)
+    Me.ToolStripMenuItem5.Size = New System.Drawing.Size(173, 6)
     '
     'MnuUndo
     '
     Me.MnuUndo.Image = CType(resources.GetObject("MnuUndo.Image"), System.Drawing.Image)
     Me.MnuUndo.Name = "MnuUndo"
-    Me.MnuUndo.Size = New System.Drawing.Size(181, 22)
+    Me.MnuUndo.Size = New System.Drawing.Size(176, 22)
     Me.MnuUndo.Text = "Undo"
     '
     'MnuRedo
     '
     Me.MnuRedo.Image = CType(resources.GetObject("MnuRedo.Image"), System.Drawing.Image)
     Me.MnuRedo.Name = "MnuRedo"
-    Me.MnuRedo.Size = New System.Drawing.Size(181, 22)
+    Me.MnuRedo.Size = New System.Drawing.Size(176, 22)
     Me.MnuRedo.Text = "Redo"
     '
     'ToolStripMenuItem4
     '
     Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-    Me.ToolStripMenuItem4.Size = New System.Drawing.Size(178, 6)
+    Me.ToolStripMenuItem4.Size = New System.Drawing.Size(173, 6)
     '
     'MnuCut
     '
     Me.MnuCut.Image = CType(resources.GetObject("MnuCut.Image"), System.Drawing.Image)
     Me.MnuCut.Name = "MnuCut"
-    Me.MnuCut.Size = New System.Drawing.Size(181, 22)
+    Me.MnuCut.Size = New System.Drawing.Size(176, 22)
     Me.MnuCut.Text = "Cut"
     '
     'MnuCopy
     '
     Me.MnuCopy.Image = CType(resources.GetObject("MnuCopy.Image"), System.Drawing.Image)
     Me.MnuCopy.Name = "MnuCopy"
-    Me.MnuCopy.Size = New System.Drawing.Size(181, 22)
+    Me.MnuCopy.Size = New System.Drawing.Size(176, 22)
     Me.MnuCopy.Text = "Copy"
     '
     'MnuPaste
     '
     Me.MnuPaste.Image = CType(resources.GetObject("MnuPaste.Image"), System.Drawing.Image)
     Me.MnuPaste.Name = "MnuPaste"
-    Me.MnuPaste.Size = New System.Drawing.Size(181, 22)
+    Me.MnuPaste.Size = New System.Drawing.Size(176, 22)
     Me.MnuPaste.Text = "Paste"
     '
     'ToolStripMenuItem3
     '
     Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-    Me.ToolStripMenuItem3.Size = New System.Drawing.Size(178, 6)
+    Me.ToolStripMenuItem3.Size = New System.Drawing.Size(173, 6)
     '
     'MnuSelectAll
     '
     Me.MnuSelectAll.Image = CType(resources.GetObject("MnuSelectAll.Image"), System.Drawing.Image)
     Me.MnuSelectAll.Name = "MnuSelectAll"
-    Me.MnuSelectAll.Size = New System.Drawing.Size(181, 22)
+    Me.MnuSelectAll.Size = New System.Drawing.Size(176, 22)
     Me.MnuSelectAll.Text = "Select all"
     '
     'HelperBoxFromVb
@@ -482,7 +482,7 @@ Public Class FrmMain
     Me.HelperBoxFromVb.Size = New System.Drawing.Size(335, 21)
     Me.HelperBoxFromVb.TabIndex = 2
     Me.HelperBoxFromVb.TextEditorControl = Me.TxtFromVb
-    Me.HelperBoxFromVb.TextEditorHelperBoxType = Econ.Netvert.Gui.TextEditorHelperBoxTypes.SearchBox
+    Me.HelperBoxFromVb.TextEditorHelperBoxType = Econ.NetVert.Gui.TextEditorHelperBoxTypes.SearchBox
     Me.HelperBoxFromVb.Visible = False
     '
     'Panel4
@@ -546,14 +546,12 @@ Public Class FrmMain
     Me.TxtToCs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
     Me.TxtToCs.ContextMenuStrip = Me.MnuEditor
     Me.TxtToCs.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.TxtToCs.IsIconBarVisible = False
+    Me.TxtToCs.IsReadOnly = False
     Me.TxtToCs.Location = New System.Drawing.Point(0, 24)
     Me.TxtToCs.Name = "TxtToCs"
     Me.TxtToCs.ShowEOLMarkers = True
-    Me.TxtToCs.ShowInvalidLines = False
     Me.TxtToCs.ShowSpaces = True
     Me.TxtToCs.ShowTabs = True
-    Me.TxtToCs.ShowVRuler = True
     Me.TxtToCs.Size = New System.Drawing.Size(364, 442)
     Me.TxtToCs.TabIndex = 2
     '
@@ -565,7 +563,7 @@ Public Class FrmMain
     Me.HelperBoxToCs.Size = New System.Drawing.Size(364, 21)
     Me.HelperBoxToCs.TabIndex = 3
     Me.HelperBoxToCs.TextEditorControl = Me.TxtToCs
-    Me.HelperBoxToCs.TextEditorHelperBoxType = Econ.Netvert.Gui.TextEditorHelperBoxTypes.SearchBox
+    Me.HelperBoxToCs.TextEditorHelperBoxType = Econ.NetVert.Gui.TextEditorHelperBoxTypes.SearchBox
     Me.HelperBoxToCs.Visible = False
     '
     'Panel6
@@ -626,7 +624,7 @@ Public Class FrmMain
     'BtnVbToCs
     '
     Me.BtnVbToCs.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.BtnVbToCs.Image = Global.Econ.Netvert.Gui.My.Resources.Resources.Go
+    Me.BtnVbToCs.Image = Global.Econ.NetVert.Gui.My.Resources.Resources.Go
     Me.BtnVbToCs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
     Me.BtnVbToCs.Location = New System.Drawing.Point(0, 8)
     Me.BtnVbToCs.Name = "BtnVbToCs"
@@ -637,7 +635,7 @@ Public Class FrmMain
     'BtnVbToCsMethod
     '
     Me.BtnVbToCsMethod.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.BtnVbToCsMethod.Image = Global.Econ.Netvert.Gui.My.Resources.Resources.Go
+    Me.BtnVbToCsMethod.Image = Global.Econ.NetVert.Gui.My.Resources.Resources.Go
     Me.BtnVbToCsMethod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
     Me.BtnVbToCsMethod.Location = New System.Drawing.Point(128, 8)
     Me.BtnVbToCsMethod.Name = "BtnVbToCsMethod"
@@ -692,14 +690,12 @@ Public Class FrmMain
     Me.TxtFromCS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
     Me.TxtFromCS.ContextMenuStrip = Me.MnuEditor
     Me.TxtFromCS.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.TxtFromCS.IsIconBarVisible = False
+    Me.TxtFromCS.IsReadOnly = False
     Me.TxtFromCS.Location = New System.Drawing.Point(0, 24)
     Me.TxtFromCS.Name = "TxtFromCS"
     Me.TxtFromCS.ShowEOLMarkers = True
-    Me.TxtFromCS.ShowInvalidLines = False
     Me.TxtFromCS.ShowSpaces = True
     Me.TxtFromCS.ShowTabs = True
-    Me.TxtFromCS.ShowVRuler = True
     Me.TxtFromCS.Size = New System.Drawing.Size(335, 442)
     Me.TxtFromCS.TabIndex = 2
     '
@@ -711,7 +707,7 @@ Public Class FrmMain
     Me.HelperBoxFromCs.Size = New System.Drawing.Size(335, 21)
     Me.HelperBoxFromCs.TabIndex = 4
     Me.HelperBoxFromCs.TextEditorControl = Me.TxtFromCS
-    Me.HelperBoxFromCs.TextEditorHelperBoxType = Econ.Netvert.Gui.TextEditorHelperBoxTypes.SearchBox
+    Me.HelperBoxFromCs.TextEditorHelperBoxType = Econ.NetVert.Gui.TextEditorHelperBoxTypes.SearchBox
     Me.HelperBoxFromCs.Visible = False
     '
     'Panel9
@@ -775,14 +771,12 @@ Public Class FrmMain
     Me.TxtToVb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
     Me.TxtToVb.ContextMenuStrip = Me.MnuEditor
     Me.TxtToVb.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.TxtToVb.IsIconBarVisible = False
+    Me.TxtToVb.IsReadOnly = False
     Me.TxtToVb.Location = New System.Drawing.Point(0, 24)
     Me.TxtToVb.Name = "TxtToVb"
     Me.TxtToVb.ShowEOLMarkers = True
-    Me.TxtToVb.ShowInvalidLines = False
     Me.TxtToVb.ShowSpaces = True
     Me.TxtToVb.ShowTabs = True
-    Me.TxtToVb.ShowVRuler = True
     Me.TxtToVb.Size = New System.Drawing.Size(364, 442)
     Me.TxtToVb.TabIndex = 2
     '
@@ -794,7 +788,7 @@ Public Class FrmMain
     Me.HelperBoxToVb.Size = New System.Drawing.Size(364, 21)
     Me.HelperBoxToVb.TabIndex = 5
     Me.HelperBoxToVb.TextEditorControl = Me.TxtToVb
-    Me.HelperBoxToVb.TextEditorHelperBoxType = Econ.Netvert.Gui.TextEditorHelperBoxTypes.SearchBox
+    Me.HelperBoxToVb.TextEditorHelperBoxType = Econ.NetVert.Gui.TextEditorHelperBoxTypes.SearchBox
     Me.HelperBoxToVb.Visible = False
     '
     'Panel7
@@ -855,7 +849,7 @@ Public Class FrmMain
     'BtnCsToVbMethod
     '
     Me.BtnCsToVbMethod.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.BtnCsToVbMethod.Image = Global.Econ.Netvert.Gui.My.Resources.Resources.Go
+    Me.BtnCsToVbMethod.Image = Global.Econ.NetVert.Gui.My.Resources.Resources.Go
     Me.BtnCsToVbMethod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
     Me.BtnCsToVbMethod.Location = New System.Drawing.Point(128, 8)
     Me.BtnCsToVbMethod.Name = "BtnCsToVbMethod"
@@ -866,7 +860,7 @@ Public Class FrmMain
     'BtnCsToVb
     '
     Me.BtnCsToVb.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.BtnCsToVb.Image = Global.Econ.Netvert.Gui.My.Resources.Resources.Go
+    Me.BtnCsToVb.Image = Global.Econ.NetVert.Gui.My.Resources.Resources.Go
     Me.BtnCsToVb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
     Me.BtnCsToVb.Location = New System.Drawing.Point(0, 8)
     Me.BtnCsToVb.Name = "BtnCsToVb"
@@ -1047,7 +1041,7 @@ Public Class FrmMain
     Me.BtnConvertFiles.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
     Me.BtnConvertFiles.Enabled = False
     Me.BtnConvertFiles.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.BtnConvertFiles.Image = Global.Econ.Netvert.Gui.My.Resources.Resources.Go
+    Me.BtnConvertFiles.Image = Global.Econ.NetVert.Gui.My.Resources.Resources.Go
     Me.BtnConvertFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
     Me.BtnConvertFiles.Location = New System.Drawing.Point(569, 16)
     Me.BtnConvertFiles.Name = "BtnConvertFiles"
@@ -1231,7 +1225,7 @@ Public Class FrmMain
     Me.BtnConvertWeb.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
     Me.BtnConvertWeb.Enabled = False
     Me.BtnConvertWeb.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.BtnConvertWeb.Image = Global.Econ.Netvert.Gui.My.Resources.Resources.Go
+    Me.BtnConvertWeb.Image = Global.Econ.NetVert.Gui.My.Resources.Resources.Go
     Me.BtnConvertWeb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
     Me.BtnConvertWeb.Location = New System.Drawing.Point(569, 16)
     Me.BtnConvertWeb.Name = "BtnConvertWeb"
@@ -1413,7 +1407,7 @@ Public Class FrmMain
     Me.BtnConvertProjects.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
     Me.BtnConvertProjects.Enabled = False
     Me.BtnConvertProjects.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.BtnConvertProjects.Image = Global.Econ.Netvert.Gui.My.Resources.Resources.Go
+    Me.BtnConvertProjects.Image = Global.Econ.NetVert.Gui.My.Resources.Resources.Go
     Me.BtnConvertProjects.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
     Me.BtnConvertProjects.Location = New System.Drawing.Point(569, 16)
     Me.BtnConvertProjects.Name = "BtnConvertProjects"
@@ -1436,7 +1430,7 @@ Public Class FrmMain
     Me.CmbRefactoryProvider.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
     Me.CmbRefactoryProvider.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
     Me.CmbRefactoryProvider.FormattingEnabled = True
-    Me.CmbRefactoryProvider.Items.AddRange(New Object() {"ICSharpCode 1.1", "ICSharpCode 2.1", "NRefactory WebService"})
+    Me.CmbRefactoryProvider.Items.AddRange(New Object() {"ICSharpCode 1.1 (local)", "ICSharpCode 4.0 (local)", "NRefactory WebService"})
     Me.CmbRefactoryProvider.Location = New System.Drawing.Point(563, 2)
     Me.CmbRefactoryProvider.Name = "CmbRefactoryProvider"
     Me.CmbRefactoryProvider.Size = New System.Drawing.Size(140, 21)
@@ -1463,73 +1457,73 @@ Public Class FrmMain
     '
     Me.MnuNetVert.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MnuShowWindow, Me.ToolStripMenuItem1, Me.MnuConvertSrc, Me.MnuConvertStatements, Me.ToolStripMenuItem2, Me.MnuExit})
     Me.MnuNetVert.Name = "MnuNetVert"
-    Me.MnuNetVert.Size = New System.Drawing.Size(239, 104)
+    Me.MnuNetVert.Size = New System.Drawing.Size(244, 104)
     '
     'MnuShowWindow
     '
     Me.MnuShowWindow.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-    Me.MnuShowWindow.Image = Global.Econ.Netvert.Gui.My.Resources.Resources.window
+    Me.MnuShowWindow.Image = Global.Econ.NetVert.Gui.My.Resources.Resources.window
     Me.MnuShowWindow.Name = "MnuShowWindow"
-    Me.MnuShowWindow.Size = New System.Drawing.Size(238, 22)
+    Me.MnuShowWindow.Size = New System.Drawing.Size(243, 22)
     Me.MnuShowWindow.Text = "Show window"
     '
     'ToolStripMenuItem1
     '
     Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-    Me.ToolStripMenuItem1.Size = New System.Drawing.Size(235, 6)
+    Me.ToolStripMenuItem1.Size = New System.Drawing.Size(240, 6)
     '
     'MnuConvertSrc
     '
     Me.MnuConvertSrc.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VBtoCSCodeMenu, Me.CStoVBCodeMenu})
     Me.MnuConvertSrc.Name = "MnuConvertSrc"
-    Me.MnuConvertSrc.Size = New System.Drawing.Size(238, 22)
+    Me.MnuConvertSrc.Size = New System.Drawing.Size(243, 22)
     Me.MnuConvertSrc.Text = "Convert source in clipboard"
     '
     'VBtoCSCodeMenu
     '
-    Me.VBtoCSCodeMenu.Image = Global.Econ.Netvert.Gui.My.Resources.Resources.VB_to_CS2_16
+    Me.VBtoCSCodeMenu.Image = Global.Econ.NetVert.Gui.My.Resources.Resources.VB_to_CS2_16
     Me.VBtoCSCodeMenu.Name = "VBtoCSCodeMenu"
-    Me.VBtoCSCodeMenu.Size = New System.Drawing.Size(178, 22)
+    Me.VBtoCSCodeMenu.Size = New System.Drawing.Size(176, 22)
     Me.VBtoCSCodeMenu.Text = "From VB.NET to C#"
     '
     'CStoVBCodeMenu
     '
-    Me.CStoVBCodeMenu.Image = Global.Econ.Netvert.Gui.My.Resources.Resources.CS_to_VB2_16
+    Me.CStoVBCodeMenu.Image = Global.Econ.NetVert.Gui.My.Resources.Resources.CS_to_VB2_16
     Me.CStoVBCodeMenu.Name = "CStoVBCodeMenu"
-    Me.CStoVBCodeMenu.Size = New System.Drawing.Size(178, 22)
+    Me.CStoVBCodeMenu.Size = New System.Drawing.Size(176, 22)
     Me.CStoVBCodeMenu.Text = "From C# to VB.NET"
     '
     'MnuConvertStatements
     '
     Me.MnuConvertStatements.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VBtoCSStatementsMenu, Me.CStoVBStatementsMenu})
     Me.MnuConvertStatements.Name = "MnuConvertStatements"
-    Me.MnuConvertStatements.Size = New System.Drawing.Size(238, 22)
+    Me.MnuConvertStatements.Size = New System.Drawing.Size(243, 22)
     Me.MnuConvertStatements.Text = "Convert statements in clipboard"
     '
     'VBtoCSStatementsMenu
     '
-    Me.VBtoCSStatementsMenu.Image = Global.Econ.Netvert.Gui.My.Resources.Resources.VB_to_CS2_16
+    Me.VBtoCSStatementsMenu.Image = Global.Econ.NetVert.Gui.My.Resources.Resources.VB_to_CS2_16
     Me.VBtoCSStatementsMenu.Name = "VBtoCSStatementsMenu"
-    Me.VBtoCSStatementsMenu.Size = New System.Drawing.Size(178, 22)
+    Me.VBtoCSStatementsMenu.Size = New System.Drawing.Size(176, 22)
     Me.VBtoCSStatementsMenu.Text = "From VB.NET to C#"
     '
     'CStoVBStatementsMenu
     '
-    Me.CStoVBStatementsMenu.Image = Global.Econ.Netvert.Gui.My.Resources.Resources.CS_to_VB2_16
+    Me.CStoVBStatementsMenu.Image = Global.Econ.NetVert.Gui.My.Resources.Resources.CS_to_VB2_16
     Me.CStoVBStatementsMenu.Name = "CStoVBStatementsMenu"
-    Me.CStoVBStatementsMenu.Size = New System.Drawing.Size(178, 22)
+    Me.CStoVBStatementsMenu.Size = New System.Drawing.Size(176, 22)
     Me.CStoVBStatementsMenu.Text = "From C# to VB.NET"
     '
     'ToolStripMenuItem2
     '
     Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-    Me.ToolStripMenuItem2.Size = New System.Drawing.Size(235, 6)
+    Me.ToolStripMenuItem2.Size = New System.Drawing.Size(240, 6)
     '
     'MnuExit
     '
-    Me.MnuExit.Image = Global.Econ.Netvert.Gui.My.Resources.Resources.XP_Exit_16
+    Me.MnuExit.Image = Global.Econ.NetVert.Gui.My.Resources.Resources.XP_Exit_16
     Me.MnuExit.Name = "MnuExit"
-    Me.MnuExit.Size = New System.Drawing.Size(238, 22)
+    Me.MnuExit.Size = New System.Drawing.Size(243, 22)
     Me.MnuExit.Text = "Exit Econ NetVert"
     '
     'BtnAbout
@@ -1548,7 +1542,7 @@ Public Class FrmMain
     '
     Me.ApplicationUpdater.ApplicationId = "1816e5a9-2370-44d5-a8dd-7dbd3ecd9a21"
     Me.ApplicationUpdater.AutoCheckOnStartup = True
-    Me.ApplicationUpdater.ServerURL = "http://updater.econdimension.com"
+    Me.ApplicationUpdater.ServerURL = "http://updater.otherpoker.ch"
     '
     'FrmMain
     '
@@ -1570,6 +1564,7 @@ Public Class FrmMain
     Me.TabPageVBtoCS.ResumeLayout(False)
     Me.SplitContainer1.Panel1.ResumeLayout(False)
     Me.SplitContainer1.Panel2.ResumeLayout(False)
+    CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
     Me.SplitContainer1.ResumeLayout(False)
     Me.Panel3.ResumeLayout(False)
     Me.MnuEditor.ResumeLayout(False)
@@ -1580,6 +1575,7 @@ Public Class FrmMain
     Me.TabPageCStoVB.ResumeLayout(False)
     Me.SplitContainer2.Panel1.ResumeLayout(False)
     Me.SplitContainer2.Panel2.ResumeLayout(False)
+    CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
     Me.SplitContainer2.ResumeLayout(False)
     Me.Panel8.ResumeLayout(False)
     Me.Panel9.ResumeLayout(False)
@@ -1969,9 +1965,13 @@ Public Class FrmMain
       TmpConv.ConvertFiles(TxtSrcFolderWeb.Text, TxtWildcardWeb.Text, TxtTargetFolderWeb.Text, ChkRecurseWeb.Checked, ChkOverwriteWeb.Checked)
       'finished
       OutputTextWeb(TmpConv.SummaryText)
+#If DEBUG Then
+    Catch ex As Exception When False
+#Else
     Catch ex As Exception
       'common error
       OutputTextWeb("Error: " & ex.Message & vbCrLf & ex.StackTrace & vbCrLf)
+#End If
     End Try
     're-enable button
     CheckButtonWeb()
@@ -2046,14 +2046,13 @@ Public Class FrmMain
       TmpConv.ConvertProjects(TxtSrcFolderProj.Text, TxtWildcardProj.Text, TxtDestFolderProj.Text, ChkRecurseProj.Checked, ChkOverwriteProj.Checked, ChkFixNsProj.Checked)
       'finished
       OutputTextProj(TmpConv.SummaryText)
-      'OutputTextProj("Converted Projects: " & TmpConv.TotalProjectsCount.ToString & vbCrLf)
-      'OutputTextProj("Copied Files: " & TmpConv.CopyFilesCount.ToString & vbCrLf)
-      'OutputTextProj("Processed Code-Files: " & TmpConv.TotalCodeFilesCount.ToString & vbCrLf)
-      'OutputTextProj("Converted Code-Files: " & TmpConv.ConvertedCodeFilesCount.ToString & vbCrLf)
-      'OutputTextProj("Failed Code-Files: " & TmpConv.FailedCodeFilesCount.ToString & vbCrLf)
+#If DEBUG Then
+    Catch ex As Exception When False
+#Else
     Catch ex As Exception
       'common error
       OutputTextProj("Error: " & ex.Message & vbCrLf & ex.StackTrace & vbCrLf)
+#End If
     End Try
     're-enable button
     CheckButtonProj()
@@ -2410,7 +2409,7 @@ Public Class FrmMain
 
   Private Sub MnuSelectAll_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles MnuSelectAll.Click
     With FCurrentEditor.ActiveTextAreaControl
-      .SelectionManager.SetSelection(New Point(0, 0), _
+      .SelectionManager.SetSelection(.Document.OffsetToPosition(0), _
                                      .Document.OffsetToPosition(FCurrentEditor.Text.Length))
     End With
   End Sub

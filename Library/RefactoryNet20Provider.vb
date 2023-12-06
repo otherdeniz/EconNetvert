@@ -23,7 +23,7 @@ Public Class RefactoryNet20Provider
 
   Public ReadOnly Property Name() As String Implements IRefactoryProvider.Name
     Get
-      Return "ICSharpCode.NRefactory 2.0"
+      Return "ICSharpCode.NRefactory 4.0"
     End Get
   End Property
 
@@ -32,7 +32,8 @@ Public Class RefactoryNet20Provider
       Return ProviderParserFlags.HandleComments Or _
              ProviderParserFlags.HandleCommonLanguagePreparation Or _
              ProviderParserFlags.HandleICSharpCodeParserBugs Or _
-             ProviderParserFlags.HandleSomeNet2LangFeatures
+             ProviderParserFlags.HandleSomeNet2LangFeatures Or _
+             ProviderParserFlags.HandleEmptyLines
     End Get
   End Property
 

@@ -15,4 +15,5 @@ Public Enum ProviderParserFlags
   HandleCommonLanguagePreparation = 2 ^ 1
   HandleICSharpCodeParserBugs = 2 ^ 2
   HandleSomeNet2LangFeatures = 2 ^ 3
+  HandleEmptyLines = 2 ^ 4
 End Enum

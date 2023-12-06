@@ -13,9 +13,13 @@
 Friend Class NetVertException
   Inherits Exception
 
+  'DECLARATIONS
+  Public Property ErrorLine As Int32
+
   'CONSTRUCTOR
-  Public Sub New(ByVal message As String)
+  Public Sub New(ByVal message As String, Optional ByVal errorLine As Int32 = -1)
     MyBase.New(message)
+    Me.ErrorLine = errorLine
   End Sub
 
   'PUBLIC

@@ -9,3 +9,17 @@ D:\Deniz\Econ.NetVert\Library\obj\Debug\Econ.NetVert.vbprojResolveAssemblyRefere
 D:\Deniz\Econ.NetVert\Library\obj\Debug\Econ.NetVert.dll
 D:\Deniz\Econ.NetVert\Library\obj\Debug\Econ.NetVert.xml
 D:\Deniz\Econ.NetVert\Library\obj\Debug\Econ.NetVert.pdb
+C:\Code\Git\EconNetvert\Library\bin\debug\Econ.NetVert.dll.config
+C:\Code\Git\EconNetvert\Library\bin\debug\Econ.NetVert.dll
+C:\Code\Git\EconNetvert\Library\bin\debug\Econ.NetVert.pdb
+C:\Code\Git\EconNetvert\Library\bin\debug\Econ.NetVert.xml
+C:\Code\Git\EconNetvert\Library\bin\debug\ICSharpCode.NRefactory.dll
+C:\Code\Git\EconNetvert\Library\bin\debug\ICSharpCode.SharpRefactory.dll
+C:\Code\Git\EconNetvert\Library\bin\debug\ICSharpCode.SharpRefactoryVB.dll
+C:\Code\Git\EconNetvert\Library\bin\debug\ICSharpCode.NRefactory.pdb
+C:\Code\Git\EconNetvert\Library\obj\Debug\Econ.NetVert.vbproj.AssemblyReference.cache
+C:\Code\Git\EconNetvert\Library\obj\Debug\Econ.NetVert.vbproj.CoreCompileInputs.cache
+C:\Code\Git\EconNetvert\Library\obj\Debug\Econ.NetVert.vbproj.CopyComplete
+C:\Code\Git\EconNetvert\Library\obj\Debug\Econ.NetVert.dll
+C:\Code\Git\EconNetvert\Library\obj\Debug\Econ.NetVert.xml
+C:\Code\Git\EconNetvert\Library\obj\Debug\Econ.NetVert.pdb

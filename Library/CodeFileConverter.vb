@@ -56,6 +56,7 @@ Public NotInheritable Class CodeFileConverter
   Private FConvertedCount As Int32 = 0
   Private FFailedCount As Int32 = 0
   Private FFixNamespaces As String = "System,System.Collections,System.Data,System.Diagnostics"
+  Private FWrapNamespace As String = ""
 
   'EVENTS
 #Region "PUBLIC Events"
@@ -198,6 +199,21 @@ Public NotInheritable Class CodeFileConverter
     End Set
   End Property
 
+  ''' -----------------------------------------------------------------------------
+  ''' <summary>
+  ''' If converting from VB.NET to C#, this namespace will be wrapped around.
+  ''' If converting from C# to VB.NET, this namespace will be un-wrapped around.
+  ''' </summary>
+  ''' -----------------------------------------------------------------------------
+  Public Property WrapNamespace() As String
+    Get
+      Return FWrapNamespace
+    End Get
+    Set(ByVal value As String)
+      FWrapNamespace = value
+    End Set
+  End Property
+
 #End Region
 
 #Region "Convert Functions"
@@ -285,7 +301,6 @@ Public NotInheritable Class CodeFileConverter
       With Directory.GetParent(targetFile)
         If Not .Exists Then
           'create directory
-          'OLD: OutputText("Creating directory " & .FullName)
           .Create()
         End If
       End With
@@ -293,7 +308,6 @@ Public NotInheritable Class CodeFileConverter
       If File.Exists(targetFile) AndAlso _
          Not overwriteExistingFile Then
         'Skipped, file exists
-        'OLD: OutputText("Skipped, file exists " & targetFile)
         'RaiseEvent AfterFileProcessed(Me, New ProcessedFileEventArgs(sourceFile, 0, targetFile, 0, ProcessedFileEventArgs.FileStatus.Skipped_Exists, FLanguage, ""))
         RaiseEvent AfterFileProcessed(Me, New ProcessedFileEventArgs(ProcessedFileEventArgs.ConverterFileTypes.CodeFile, _
                                                                      sourceFile, "", targetFile, "", ProcessedFileEventArgs.ConverterOperations.Skipped_Exists, FLanguage, ""))
@@ -312,16 +326,15 @@ Public NotInheritable Class CodeFileConverter
         End If
         'create Converter instance with apropreate language
         If FLanguage = ConverterLanguages.VBNetToCSharp Then
-          TmpConv = VBCSConverter.Convert(TmpE.InputSource, TmpFixNS)
+          TmpConv = VBCSConverter.Convert(TmpE.InputSource, TmpFixNS, FWrapNamespace)
         ElseIf FLanguage = ConverterLanguages.CSharpToVBNet Then
-          TmpConv = CSVBConverter.Convert(TmpE.InputSource, TmpFixNS)
+          TmpConv = CSVBConverter.Convert(TmpE.InputSource, TmpFixNS, FWrapNamespace)
         Else
           Throw New Exception("Converter-Language not supported")
         End If
         If TmpConv.HasError Then
           'has an error
           FFailedCount += 1
-          'OLD: OutputText("Error in " & sourceFile & vbCrLf & TmpConv.ErrorText)
           TmpE.ModifyStatus(ProcessedFileEventArgs.ConverterOperations.Skipped_Error, TmpConv.ErrorText)
           RaiseEvent AfterFileProcessed(Me, TmpE)
         Else
@@ -364,6 +377,196 @@ Public NotInheritable Class CodeFileConverter
 
   End Sub
 
+  ''' -----------------------------------------------------------------------------
+  ''' <summary>
+  ''' Convert codefile pair (main- and designer-file).
+  ''' </summary>
+  ''' <param name="sourceFile">The full path and filename to the source codefile.</param>
+  ''' <param name="sourceDesignerFile">The full path and filename to the source designer-codefile.</param>
+  ''' <param name="targetFile">The full path and filename to the destination codefile (default is same than sourceFile with changed extension).</param>
+  ''' <param name="targetDesignerFile">The full path and filename to the destination designer-codefile (default is same than sourceDesignerFile with changed extension).</param>
+  ''' <param name="overwriteExistingFile">True if existing file should be overwriten (default is false).</param>
+  ''' <param name="fixNamespaces">True if enable the append/remove default-using-statements as defined in the FixNamespaces Property (default is false).</param>
+  ''' -----------------------------------------------------------------------------
+  Public Sub ConvertFilePair(ByVal sourceFile As String, _
+                             ByVal sourceDesignerFile As String, _
+                             Optional ByVal targetFile As String = "", _
+                             Optional ByVal targetDesignerFile As String = "", _
+                             Optional ByVal overwriteExistingFile As Boolean = False, _
+                             Optional ByVal fixNamespaces As Boolean = False)
+    'Throw New NotImplementedException("UNDER CONSTRUCTION")
+    Dim TmpConv As INetVertConverter
+    Dim TmpFixNS As String = ""
+
+    Try
+
+      If targetFile = "" Then
+        targetFile = Path.ChangeExtension(sourceFile, "." & OutputFileExtension)
+      End If
+      If targetDesignerFile = "" Then
+        targetDesignerFile = Path.ChangeExtension(sourceDesignerFile, "." & OutputFileExtension)
+      End If
+      With Directory.GetParent(targetFile)
+        If Not .Exists Then
+          'create directory
+          .Create()
+        End If
+      End With
+      FTotalCount += 2
+      If File.Exists(targetFile) AndAlso _
+         Not overwriteExistingFile Then
+        'Skipped, file exists
+        RaiseEvent AfterFileProcessed(Me, New ProcessedFileEventArgs(ProcessedFileEventArgs.ConverterFileTypes.CodeFile, _
+                                                                     sourceFile, "", targetFile, "", ProcessedFileEventArgs.ConverterOperations.Skipped_Exists, FLanguage, ""))
+      Else
+        Dim mainFileContent As String = ""
+        Dim designerFileContent As String = ""
+        With New StreamReader(New FileStream(sourceFile, FileMode.Open), System.Text.Encoding.Default)
+          mainFileContent = .ReadToEnd
+          .Close()
+        End With
+        With New StreamReader(New FileStream(sourceDesignerFile, FileMode.Open), System.Text.Encoding.Default)
+          designerFileContent = .ReadToEnd
+          .Close()
+        End With
+        'set Namespaces to fix
+        If fixNamespaces Then
+          TmpFixNS = FFixNamespaces
+        End If
+        'create EventArgs
+        Dim evtArgsMain As ProcessedFileEventArgs
+        evtArgsMain = New ProcessedFileEventArgs(ProcessedFileEventArgs.ConverterFileTypes.CodeFile, _
+                                                 sourceFile, mainFileContent, targetFile, "", ProcessedFileEventArgs.ConverterOperations.Before_Conversion, FLanguage, "")
+        RaiseEvent BeforeFileProcessed(Me, evtArgsMain)
+        Dim evtArgsDesigner As ProcessedFileEventArgs
+        evtArgsDesigner = New ProcessedFileEventArgs(ProcessedFileEventArgs.ConverterFileTypes.CodeFile, _
+                                                     sourceDesignerFile, designerFileContent, targetDesignerFile, "", ProcessedFileEventArgs.ConverterOperations.Before_Conversion, FLanguage, "")
+        RaiseEvent BeforeFileProcessed(Me, evtArgsDesigner)
+        'pre-parse file-pair
+        If FLanguage = ConverterLanguages.VBNetToCSharp Then
+          VBCSConverter.PreParseFilePair(evtArgsMain.InputSource, evtArgsDesigner.InputSource)
+        ElseIf FLanguage = ConverterLanguages.CSharpToVBNet Then
+          'nothing to do yet
+        Else
+          Throw New Exception("Converter-Language not supported")
+        End If
+        '---BEGIN MAIN-FILE---
+        'create Converter instance with apropreate language
+        Try
+          If FLanguage = ConverterLanguages.VBNetToCSharp Then
+            TmpConv = VBCSConverter.Convert(evtArgsMain.InputSource, TmpFixNS, FWrapNamespace)
+          ElseIf FLanguage = ConverterLanguages.CSharpToVBNet Then
+            TmpConv = CSVBConverter.Convert(evtArgsMain.InputSource, TmpFixNS, FWrapNamespace)
+          Else
+            Throw New Exception("Converter-Language not supported")
+          End If
+          If TmpConv.HasError Then
+            'has an error
+            FFailedCount += 1
+            evtArgsMain.ModifyStatus(ProcessedFileEventArgs.ConverterOperations.Skipped_Error, TmpConv.ErrorText)
+            RaiseEvent AfterFileProcessed(Me, evtArgsMain)
+            evtArgsMain = Nothing
+          Else
+            'no error
+            FConvertedCount += 1
+            If File.Exists(targetFile) Then
+              evtArgsMain.ModifyStatus(ProcessedFileEventArgs.ConverterOperations.Success_Overwriting)
+              File.Delete(targetFile)
+            Else
+              evtArgsMain.ModifyStatus(ProcessedFileEventArgs.ConverterOperations.Success_Creating)
+            End If
+            evtArgsMain.OutputSource = TmpConv.OutputSource
+            RaiseEvent AfterFileProcessed(Me, evtArgsMain)
+          End If
+        Catch ex As NetVertException
+          RaiseEvent AfterFileProcessed(Me, New ProcessedFileEventArgs(ProcessedFileEventArgs.ConverterFileTypes.CodeFile, _
+                                                                       sourceFile, "", targetFile, "", ProcessedFileEventArgs.ConverterOperations.Skipped_Error, FLanguage, ex.Message))
+          evtArgsMain = Nothing
+        End Try
+        '---BEGIN DESIGNER-FILE---
+        'create Converter instance with apropreate language
+        Try
+          If FLanguage = ConverterLanguages.VBNetToCSharp Then
+            TmpConv = VBCSConverter.Convert(evtArgsDesigner.InputSource, TmpFixNS, FWrapNamespace)
+          ElseIf FLanguage = ConverterLanguages.CSharpToVBNet Then
+            TmpConv = CSVBConverter.Convert(evtArgsDesigner.InputSource, TmpFixNS, FWrapNamespace)
+          Else
+            Throw New Exception("Converter-Language not supported")
+          End If
+          If TmpConv.HasError Then
+            'has an error
+            FFailedCount += 1
+            evtArgsDesigner.ModifyStatus(ProcessedFileEventArgs.ConverterOperations.Skipped_Error, TmpConv.ErrorText)
+            RaiseEvent AfterFileProcessed(Me, evtArgsDesigner)
+            evtArgsDesigner = Nothing
+          Else
+            'no error
+            FConvertedCount += 1
+            If File.Exists(targetDesignerFile) Then
+              evtArgsDesigner.ModifyStatus(ProcessedFileEventArgs.ConverterOperations.Success_Overwriting)
+              File.Delete(targetDesignerFile)
+            Else
+              evtArgsDesigner.ModifyStatus(ProcessedFileEventArgs.ConverterOperations.Success_Creating)
+            End If
+            evtArgsDesigner.OutputSource = TmpConv.OutputSource
+            RaiseEvent AfterFileProcessed(Me, evtArgsDesigner)
+          End If
+        Catch ex As NetVertException
+          RaiseEvent AfterFileProcessed(Me, New ProcessedFileEventArgs(ProcessedFileEventArgs.ConverterFileTypes.CodeFile, _
+                                                                       sourceDesignerFile, "", targetDesignerFile, "", ProcessedFileEventArgs.ConverterOperations.Skipped_Error, FLanguage, ex.Message))
+          evtArgsDesigner = Nothing
+        End Try
+        If evtArgsMain IsNot Nothing AndAlso evtArgsDesigner IsNot Nothing Then
+          'post-parse file-pair
+          If FLanguage = ConverterLanguages.VBNetToCSharp Then
+            'nothing to do yet
+          ElseIf FLanguage = ConverterLanguages.CSharpToVBNet Then
+            CSVBConverter.PostParseFilePair(evtArgsMain.OutputSource, evtArgsDesigner.OutputSource)
+          Else
+            Throw New Exception("Converter-Language not supported")
+          End If
+        End If
+        If evtArgsMain IsNot Nothing Then
+          'save new stream to file (main-file)
+          Try
+            With File.CreateText(evtArgsMain.OutputFile)
+              .Write(evtArgsMain.OutputSource)
+              .Close()
+            End With
+          Catch ex As Exception
+            evtArgsMain.ModifyStatus(ProcessedFileEventArgs.ConverterOperations.Skipped_Error, ex.Message)
+            RaiseEvent AfterFileProcessed(Me, evtArgsMain)
+          End Try
+        End If
+        If evtArgsDesigner IsNot Nothing Then
+          'save new stream to file (designer-file)
+          Try
+            With File.CreateText(evtArgsDesigner.OutputFile)
+              .Write(evtArgsDesigner.OutputSource)
+              .Close()
+            End With
+          Catch ex As Exception
+            evtArgsDesigner.ModifyStatus(ProcessedFileEventArgs.ConverterOperations.Skipped_Error, ex.Message)
+            RaiseEvent AfterFileProcessed(Me, evtArgsDesigner)
+          End Try
+        End If
+
+      End If
+
+#If DEBUG Then
+    Catch ex As Exception When False
+#Else
+    Catch ex As Exception
+      'common error
+      RaiseEvent AfterFileProcessed(Me, New ProcessedFileEventArgs(ProcessedFileEventArgs.ConverterFileTypes.CodeFile, _
+                                                                   sourceFile, "", targetFile, "", ProcessedFileEventArgs.ConverterOperations.Skipped_Error, FLanguage, ex.Message))
+      RaiseEvent AfterFileProcessed(Me, New ProcessedFileEventArgs(ProcessedFileEventArgs.ConverterFileTypes.CodeFile, _
+                                                                   sourceDesignerFile, "", targetDesignerFile, "", ProcessedFileEventArgs.ConverterOperations.Skipped_Error, FLanguage, ex.Message))
+#End If
+    End Try
+
+  End Sub
+
 #End Region
 
   ''' -----------------------------------------------------------------------------
@@ -376,12 +579,5 @@ Public NotInheritable Class CodeFileConverter
     FConvertedCount = 0
     FFailedCount = 0
   End Sub
-
-  'PRIVATE
-  'Private Sub OutputText(ByVal textLine As String)
-  '  If Not FOutputFunction Is Nothing Then
-  '    FOutputFunction.Invoke(textLine & vbCrLf)
-  '  End If
-  'End Sub
 
 End Class

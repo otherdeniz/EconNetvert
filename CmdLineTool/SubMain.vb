@@ -178,7 +178,7 @@ Module ModuleMain
   Private Sub ShowInfo(ByVal fullInfo As Boolean)
     If fullInfo Then
       Console.WriteLine(cAppName)
-      Console.WriteLine("by Deniz Esen, Econ Dimension GmbH, www.econdimension.com")
+      Console.WriteLine("by Deniz Esen, 2006-2011, econnetvert.codeplex.com")
       Console.WriteLine("")
       Console.WriteLine("Convert source files, ASP.NET files or Visual Studio projects")
       Console.WriteLine("between VB.NET and C#.")

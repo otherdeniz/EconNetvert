@@ -11,6 +11,7 @@
 '=================================
 
 Imports System.IO
+Imports System.Collections.Generic
 
 ''' -----------------------------------------------------------------------------
 ''' Project	 : Econ.NetVert
@@ -117,6 +118,7 @@ Public NotInheritable Class CSVBConverter
   Private FErrorText As String = ""
   Private FResultSource As String = ""
   Private FOverloadableOperators() As String = Split("+ - IsFalse IsTrue Not + - * / \ & ^ >> << <> > < >= <= And Like Mod Or Xor CType", " ")
+  Private SkipHandlingOfLines As New List(Of Int32)
 
   'SHARED
 #Region "Convert Functions"
@@ -133,27 +135,46 @@ Public NotInheritable Class CSVBConverter
   ''' </remarks>
   ''' -----------------------------------------------------------------------------
   Public Shared Function Convert(ByVal csSource As String, _
-                                 Optional ByVal fixNamespaces As String = "") As CSVBConverter
-    Dim TmpPreResult As PreParseResult
+                                 Optional ByVal fixNamespaces As String = "", _
+                                 Optional ByVal unwrapNamespace As String = "") As CSVBConverter
+    Dim TmpPreResult As PreParseResult = Nothing
     Dim TmpVBSrc As String
+    Dim doRetry As Boolean
     Dim RetConv As New CSVBConverter
 
-    Try
-      TmpPreResult = RetConv.PreParse(csSource)
-      TmpVBSrc = RetConv.ConvertSource(TmpPreResult.ResultString, TmpPreResult)
-      RetConv.FResultSource = RetConv.PostParse(TmpVBSrc, TmpPreResult, fixNamespaces)
+    Do
+      RetConv.FHasError = False
+      RetConv.FErrorText = ""
+      doRetry = False
+      Try
+        TmpPreResult = RetConv.PreParse(csSource, unwrapNamespace)
+        TmpVBSrc = RetConv.ConvertSource(TmpPreResult.ResultString, TmpPreResult)
+        RetConv.FResultSource = RetConv.PostParse(TmpVBSrc, TmpPreResult, fixNamespaces)
 #If DEBUG Then
-      'catch only internal exceptions
-    Catch nEx As NetVertException
-      RetConv.FHasError = True
-      RetConv.FErrorText = nEx.Message
+        'catch only internal exceptions
+      Catch ex As NetVertException
+        RetConv.FHasError = True
+        RetConv.FErrorText = ex.Message
 #Else
       'catch all exceptions
     Catch ex As Exception
       RetConv.FHasError = True
       RetConv.FErrorText = ex.Message
 #End If
-    End Try
+        If TypeOf ex Is NetVertException AndAlso _
+           TmpPreResult IsNot Nothing Then
+          With CType(ex, NetVertException)
+            If .ErrorLine > 0 AndAlso _
+               .ErrorLine <= TmpPreResult.OriginalSourceLines.Length AndAlso _
+               RetConv.IsCommentOrEmptyLine(TmpPreResult.OriginalSourceLines(.ErrorLine - 1)) AndAlso _
+               Not RetConv.SkipHandlingOfLines.Contains(.ErrorLine) Then
+              RetConv.SkipHandlingOfLines.Add(.ErrorLine)
+              doRetry = True
+            End If
+          End With
+        End If
+      End Try
+    Loop While doRetry
     Return RetConv
   End Function
 
@@ -178,7 +199,12 @@ Public NotInheritable Class CSVBConverter
     If Not TmpConv.HasError Then
       If csMethodBody <> "" Then
         'remove BorderSub
-        TmpConv.FResultSource = TmpConv.FResultSource.Substring(19, TmpConv.FResultSource.Length - 30)
+        Dim iStart As Int32 = TmpConv.FResultSource.IndexOf("BorderSub()") + 13
+        Dim iEnd As Int32 = TmpConv.FResultSource.LastIndexOf("End Sub") - 2
+        If iEnd > iStart Then
+          TmpConv.FResultSource = TmpConv.FResultSource.Substring(iStart, iEnd - iStart)
+        End If
+        'TmpConv.FResultSource = TmpConv.FResultSource.Substring(19, TmpConv.FResultSource.Length - 30)
         'decrese indention (left-trimm 2 spaces)
         If TmpConv.FResultSource.IndexOf(vbCrLf) > -1 Then
           'Linebreak by CR-LF
@@ -198,6 +224,38 @@ Public NotInheritable Class CSVBConverter
     End If
     Return TmpConv
   End Function
+
+  Public Shared Sub PostParseFilePair(ByRef mainFileSource As String, ByRef designerFileSource As String)
+    'BEGIN EventHandler-Mapping
+    'EventHandler-Mapping (.designer-File):
+    '   "Me.Button1.Click += New System.EventHandler(Me.Button1_Click)"
+    '     -> "AddHandler Me.Button1.Click, AddressOf Me.Button1_Click"
+    Dim lastAssignPos As Int32 = 0
+    Do
+      lastAssignPos = designerFileSource.IndexOf(" += New System.EventHandler(", lastAssignPos + 1)
+      If lastAssignPos = -1 Then
+        Exit Do
+      Else
+        'process line
+        Dim lineEnd As Int32 = designerFileSource.IndexOf(vbCrLf, lastAssignPos)
+        If lineEnd = -1 Then Exit Do 'abort (must have end-of-line)
+        Dim lineStart As Int32 = designerFileSource.Substring(0, lastAssignPos).LastIndexOf(vbCrLf)
+        If lineStart = -1 Then lineStart = 0
+        Dim handlerPos As Int32 = designerFileSource.IndexOf("Me.", lineStart)
+        If handlerPos > lastAssignPos OrElse handlerPos = -1 Then Continue Do 'skip (must start with "Me.")
+        Dim handlerDecl As String = designerFileSource.Substring(handlerPos, lastAssignPos - handlerPos).TrimEnd(" "c)
+        If handlerDecl.Contains(" ") Then Continue Do 'skip (must not contain white-space)
+        Dim closeBracePos As Int32 = designerFileSource.IndexOf(")", lastAssignPos)
+        If closeBracePos > lineEnd OrElse closeBracePos < lastAssignPos + 28 Then Continue Do 'skip (must close the brace on same line)
+        Dim eventDecl As String = designerFileSource.Substring(lastAssignPos + 28, closeBracePos - lastAssignPos - 28)
+        'REPLACE CODE-LINE IN DESIGNER-FILE NOW
+        designerFileSource = designerFileSource.Substring(0, handlerPos) & _
+                             "AddHandler " & handlerDecl & ", AddressOf " & eventDecl & _
+                             designerFileSource.Substring(closeBracePos + 1)
+      End If
+    Loop
+    'END EventHandler-Mapping
+  End Sub
 
 #End Region
 
@@ -260,7 +318,7 @@ Public NotInheritable Class CSVBConverter
   'PRIVATE
 #Region "Parse Process Functions"
 
-  Private Function PreParse(ByVal csSrc As String) As PreParseResult
+  Private Function PreParse(ByVal csSrc As String, ByVal unwrapNamespace As String) As PreParseResult
     Dim TmpLines As String()
     Dim TmpLine As String
     Dim TmpFirstComments As String = ""
@@ -349,14 +407,20 @@ Public NotInheritable Class CSVBConverter
     TmpBeforeCode = True
     TmpBorderCloseLine = TmpLines.Length - 1
     For I As Int32 = 0 To TmpLines.Length - 1
+      If Me.SkipHandlingOfLines.Contains(I + 1) Then
+        'this line is skipped from handling, because of error before
+        Continue For
+      End If
       'get line without leading spaces
       TmpLine = StrTrimmLeft(StrTrimmLeft(TmpLines(I), " ", True), Chr(9).ToString, True)
       If TmpLine.Length = 0 Then
         'empty line
-        If TmpInClass AndAlso _
-           (TmpInCommentArea = CommentAreaKinds.Supported) AndAlso _
-           ProviderHasParserFlag(ProviderParserFlags.HandleComments) Then
-          TmpLines(I) = "string EmptyLineVar;"
+        If ProviderHasParserFlag(ProviderParserFlags.HandleEmptyLines) Then
+          If TmpInClass AndAlso _
+             (TmpInCommentArea = CommentAreaKinds.Supported) AndAlso _
+             ProviderHasParserFlag(ProviderParserFlags.HandleComments) Then
+            TmpLines(I) = "string EmptyLineVar;"
+          End If
         End If
       Else
         If (TmpLine.Length > 1) AndAlso _
@@ -388,10 +452,28 @@ Public NotInheritable Class CSVBConverter
           ElseIf (TmpLine.ToLower.IndexOf("assembly: ") > -1) Then
             'before add border class (ASSEMBLY statement)
           ElseIf ((TmpLine.Length > 10) AndAlso (TmpLine.Substring(0, 10).ToLower = "namespace ")) Then
+            'before add border class (NAMESPACE statement)
+            Dim removeNamespace As Boolean = False
+            If TmpLine.Length > 10 + unwrapNamespace.Length + 1 AndAlso _
+               TmpLine.Substring(0, 10 + unwrapNamespace.Length + 1).ToLower() = "namespace " & unwrapNamespace.ToLower() & "." Then
+              'trim namespace
+              TmpLines(I) = "namespace " & TmpLine.Substring(10 + unwrapNamespace.Length + 1)
+            Else
+              'remove namespace
+              removeNamespace = True
+              TmpLines(I) = ""
+            End If
             If TmpLine.IndexOf("{") > -1 Then
               TmpI = GetCloseTagLine(TmpLines, I)
+              If removeNamespace Then
+                TmpLines(TmpI) = ""
+              End If
             Else
               TmpI = GetCloseTagLine(TmpLines, I + 1)
+              If removeNamespace Then
+                TmpLines(I + 1) = ""
+                TmpLines(TmpI) = ""
+              End If
             End If
             If TmpI > -1 Then
               TmpBorderCloseLine = TmpI
@@ -512,7 +594,7 @@ Public NotInheritable Class CSVBConverter
           End If
         End If
       End If
-      Throw New NetVertException(TmpS)
+      Throw New NetVertException(TmpS, TmpLine)
     End Try
     Return RetS
   End Function
@@ -944,6 +1026,11 @@ Public NotInheritable Class CSVBConverter
 
   Private Function ProviderHasParserFlag(ByVal parserFlag As ProviderParserFlags) As Boolean
     Return (SettingsManager.CurrentRefactoryProvider.PreAndPostParseFlags And parserFlag) = parserFlag
+  End Function
+
+  Private Function IsCommentOrEmptyLine(ByVal codeLine As String) As Boolean
+    Dim truncLine As String = codeLine.TrimStart(" "c, Chr(9))
+    Return (truncLine.StartsWith("//") OrElse truncLine.Length = 0)
   End Function
 
 #End Region

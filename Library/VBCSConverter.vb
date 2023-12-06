@@ -11,6 +11,7 @@
 '=================================
 
 Imports System.IO
+Imports System.Collections.Generic
 
 ''' -----------------------------------------------------------------------------
 ''' Project	 : Econ.NetVert
@@ -119,6 +120,7 @@ Public NotInheritable Class VBCSConverter
   Private FErrorText As String = ""
   Private FResultSource As String = ""
   Private FOverloadableOperators() As String = Split("+ - IsFalse IsTrue Not + - * / \ & ^ >> << <> > < >= <= And Like Mod Or Xor CType", " ")
+  Private SkipHandlingOfLines As New List(Of Int32)
 
   'SHARED
 #Region "Convert Functions"
@@ -135,27 +137,49 @@ Public NotInheritable Class VBCSConverter
   ''' </remarks>
   ''' -----------------------------------------------------------------------------
   Public Shared Function Convert(ByVal vbSource As String, _
-                                 Optional ByVal fixNamespaces As String = "") As VBCSConverter
-    Dim TmpPreResult As PreParseResult
+                                 Optional ByVal fixNamespaces As String = "", _
+                                 Optional ByVal wrapNamespace As String = "") As VBCSConverter
+    Dim TmpPreResult As PreParseResult = Nothing
     Dim TmpCSSrc As String
+    Dim doRetry As Boolean
     Dim RetConv As New VBCSConverter
 
-    Try
-      TmpPreResult = RetConv.PreParse(vbSource)
-      TmpCSSrc = RetConv.ConvertSource(TmpPreResult.ResultString, TmpPreResult)
-      RetConv.FResultSource = RetConv.PostParse(TmpCSSrc, TmpPreResult, fixNamespaces)
+    Do
+      RetConv.FHasError = False
+      RetConv.FErrorText = ""
+      doRetry = False
+      Try
+        TmpPreResult = RetConv.PreParse(vbSource, wrapNamespace)
+        TmpCSSrc = RetConv.ConvertSource(TmpPreResult.ResultString, TmpPreResult)
+        RetConv.FResultSource = RetConv.PostParse(TmpCSSrc, TmpPreResult, fixNamespaces)
 #If DEBUG Then
-      'catch only internal exceptions
-    Catch nEx As NetVertException
-      RetConv.FHasError = True
-      RetConv.FErrorText = nEx.Message
+        'catch only internal exceptions
+      Catch ex As NetVertException
+        RetConv.FHasError = True
+        RetConv.FErrorText = ex.Message
 #Else
       'catch all exceptions
     Catch ex As Exception
       RetConv.FHasError = True
       RetConv.FErrorText = ex.Message
 #End If
-    End Try
+        If TypeOf ex Is NetVertException AndAlso _
+           TmpPreResult IsNot Nothing Then
+          With CType(ex, NetVertException)
+            'If .ErrorLine > 0 AndAlso _
+            '   .ErrorLine <= TmpPreResult.OriginalSourceLines.Length AndAlso _
+            '   RetConv.IsCommentOrEmptyLine(TmpPreResult.OriginalSourceLines(.ErrorLine - 1)) AndAlso _
+            '   Not RetConv.SkipHandlingOfLines.Contains(.ErrorLine) Then
+            If .ErrorLine > 0 AndAlso _
+               .ErrorLine <= TmpPreResult.OriginalSourceLines.Length AndAlso _
+               Not RetConv.SkipHandlingOfLines.Contains(.ErrorLine) Then
+              RetConv.SkipHandlingOfLines.Add(.ErrorLine)
+              doRetry = True
+            End If
+          End With
+        End If
+      End Try
+    Loop While doRetry
     Return RetConv
   End Function
 
@@ -183,7 +207,11 @@ Public NotInheritable Class VBCSConverter
     If (Not TmpConv.HasError) AndAlso _
        (vbMethodBody <> "") Then
       'remove BorderSub
-      TmpConv.FResultSource = TmpConv.FResultSource.Substring(23, TmpConv.FResultSource.Length - 28)
+      Dim iStart As Int32 = TmpConv.FResultSource.IndexOf("{") + 3
+      Dim iEnd As Int32 = TmpConv.FResultSource.LastIndexOf("}") - 2
+      If iEnd > iStart Then
+        TmpConv.FResultSource = TmpConv.FResultSource.Substring(iStart, iEnd - iStart)
+      End If
       'decrese indention (left-trimm 2 spaces)
       If TmpConv.FResultSource.IndexOf(vbCrLf) > -1 Then
         'Linebreak by CR-LF
@@ -202,6 +230,91 @@ Public NotInheritable Class VBCSConverter
     End If
     Return TmpConv
   End Function
+
+  Public Shared Sub PreParseFilePair(ByRef mainFileSource As String, ByRef designerFileSource As String)
+    'BEGIN C# spezification
+    'C# spezification: "partial" keyword must be spezified on all class declarations
+    Dim iDStart As Int32 = designerFileSource.IndexOf("Partial Class ")
+    If iDStart > -1 Then
+      Dim iDEnd As Int32 = designerFileSource.IndexOf(vbCrLf, iDStart)
+      Dim className As String = designerFileSource.Substring(iDStart + 14, iDEnd - iDStart - 14)
+      Dim iMStart As Int32 = mainFileSource.IndexOf("Class " & className & vbCrLf)
+      If iMStart > -1 Then
+        Dim iMLineEnd As Int32 = iMStart + 6 + className.Length
+        Dim mainBlocks() As String = New String() {"", "", ""}
+        Dim preStartSrc As String = mainFileSource.Substring(0, iMStart)
+        Dim iMLineStart As Int32 = preStartSrc.LastIndexOf(vbCrLf)
+        If iMLineStart = -1 Then
+          mainBlocks(1) = mainFileSource.Substring(0, iMLineEnd)
+        Else
+          mainBlocks(0) = mainFileSource.Substring(0, iMLineStart + 2)
+          mainBlocks(1) = mainFileSource.Substring(iMLineStart + 2, iMLineEnd - iMLineStart - 2)
+        End If
+        mainBlocks(2) = mainFileSource.Substring(iMLineEnd)
+        If Not mainBlocks(1).Contains("Partial ") Then
+          mainBlocks(1) = "Partial " & mainBlocks(1)
+        End If
+        mainFileSource = mainBlocks(0) & mainBlocks(1) & mainBlocks(2)
+      End If
+    End If
+    'END C# spezification
+    'BEGIN EventHandler-Mapping
+    'EventHandler-Mapping: "Handles Button1.Click" -> "Button1.Click += New System.EventHandler(Me.button1_Click)"
+    Dim lastHandlesStart As Int32 = 0
+    Do
+      lastHandlesStart = mainFileSource.IndexOf(" Handles ", lastHandlesStart + 1)
+      If lastHandlesStart = -1 Then
+        Exit Do
+      Else
+        'Parse Main-File "Handles"-Code
+        Dim lineEnd As Int32 = mainFileSource.IndexOf(vbCrLf, lastHandlesStart)
+        If lineEnd = -1 Then Exit Do 'must have end-of-line
+        Dim lineStart As Int32 = mainFileSource.Substring(0, lastHandlesStart).LastIndexOf(vbCrLf)
+        If lineStart = -1 Then lineStart = 0
+        Dim subPos As Int32 = mainFileSource.IndexOf("Sub ", lineStart)
+        If subPos = -1 Then Continue Do
+        Dim argsPos As Int32 = mainFileSource.IndexOf("(", subPos)
+        If argsPos = -1 Then Continue Do
+        Dim subName As String = mainFileSource.Substring(subPos + 4, argsPos - subPos - 4)
+        If subName.Contains(" ") Then Continue Do
+        Dim eventDeclMulti As String() = Split(mainFileSource.Substring(lastHandlesStart + 9, lineEnd - lastHandlesStart - 9), ",")
+        For Each eventDecl As String In eventDeclMulti
+          eventDecl = eventDecl.TrimStart(" "c).TrimEnd(" "c)
+          If eventDecl.Contains(" ") Then Continue Do
+          If Not eventDecl.Contains(".") Then Continue Do
+          Dim objectName As String = eventDecl.Substring(0, eventDecl.IndexOf("."))
+          Dim eventName As String = eventDecl.Substring(eventDecl.LastIndexOf(".") + 1)
+          'Search in Designer-File for target position
+          Dim objectDeclStart As Int32 = 0
+          Do
+            objectDeclStart = designerFileSource.IndexOf(objectName & vbCrLf, objectDeclStart + 1)
+            If objectDeclStart = -1 Then
+              Exit Do 'not found any more
+            Else
+              Dim dLineEnd As Int32 = designerFileSource.IndexOf(vbCrLf, objectDeclStart)
+              If dLineEnd = -1 Then Exit Do 'must have end-of-line
+              Dim dLineStart As Int32 = designerFileSource.Substring(0, objectDeclStart).LastIndexOf(vbCrLf)
+              If dLineStart = -1 Then dLineStart = 0
+              Dim lineCode As String = designerFileSource.Substring(dLineStart, dLineEnd - dLineStart)
+              If lineCode.Replace(vbCrLf, "").Replace(" ", "").Replace(vbTab, "") = "'" & objectName Then
+                'Object-Decl. start-position Comment found, search forward to first code-line
+                objectDeclStart = designerFileSource.IndexOf("Me." & objectName & ".", objectDeclStart)
+                If objectDeclStart = -1 Then Exit Do 'must have at least one existing code-line
+                'INSERT STATEMENT TO DESIGNER-FILE NOW
+                designerFileSource = designerFileSource.Substring(0, objectDeclStart) & _
+                                     "Me." & objectName & "." & eventName & " += New System.EventHandler(Me." & subName & ")" & vbCrLf & _
+                                     designerFileSource.Substring(objectDeclStart)
+                'REMOVE STATEMENT FROM MAIN-FILE NOW
+                mainFileSource = mainFileSource.Substring(0, lastHandlesStart) & _
+                                 mainFileSource.Substring(lineEnd)
+              End If
+            End If
+          Loop
+        Next
+      End If
+    Loop
+    'END EventHandler-Mapping
+  End Sub
 
 #End Region
 
@@ -264,7 +377,7 @@ Public NotInheritable Class VBCSConverter
   'PRIVATE
 #Region "Parse Process Functions"
 
-  Private Function PreParse(ByVal vbSrc As String) As PreParseResult
+  Private Function PreParse(ByVal vbSrc As String, ByVal wrapNamespace As String) As PreParseResult
     Dim TmpLines As String()
     Dim TmpLine As String
     Dim TmpFirstComments As String = ""
@@ -302,7 +415,6 @@ Public NotInheritable Class VBCSConverter
       vbSrc = UseKeywordAsIdentifier(vbSrc, "Override")
       vbSrc = UseKeywordAsIdentifier(vbSrc, "Select")
       vbSrc = UseKeywordAsIdentifier(vbSrc, "Single")
-      vbSrc = UseKeywordAsIdentifier(vbSrc, "Global")
       vbSrc = UseKeywordAsIdentifier(vbSrc, "Shared")
       vbSrc = UseKeywordAsIdentifier(vbSrc, "Default")
       vbSrc = UseKeywordAsIdentifier(vbSrc, "ReadOnly")
@@ -316,8 +428,15 @@ Public NotInheritable Class VBCSConverter
       vbSrc = UseKeywordAsIdentifier(vbSrc, "Custom")
       'ASP.NET Global.asax CodeBehind-Problem: Class Global -> "Global" must be interpreted as Identifier
       vbSrc = vbSrc.Replace("Class Global" & vbCrLf, "Class [Global]" & vbCrLf)
+      'and the coresponding instance variable declarations of Class "Global"
+      vbSrc = vbSrc.Replace("New Global" & vbCrLf, "New [Global]" & vbCrLf).Replace( _
+                            "New Global(", "New [Global](").Replace( _
+                            "As Global" & vbCrLf, "As [Global]" & vbCrLf)
       'repair string-append syntax 'str &= "blabla"' --> 'str += "blabla"'
       vbSrc = vbSrc.Replace(" &= """, " += """)
+      'disable WinForms App-Framework special code (not supported in C#)
+      vbSrc = vbSrc.Replace(vbCrLf & "#If _MyType = ""WindowsForms"" Then" & vbCrLf, _
+                            vbCrLf & "#If False Then" & vbCrLf)
     End If
     'get all lines of code
     If vbSrc.IndexOf(vbCrLf) > -1 Then
@@ -331,13 +450,19 @@ Public NotInheritable Class VBCSConverter
     TmpBeforeCode = True
     TmpBorderCloseLine = TmpLines.Length - 1
     For I As Int32 = 0 To TmpLines.Length - 1
+      If Me.SkipHandlingOfLines.Contains(I + 1) Then
+        'this line is skipped from handling, because of error before
+        Continue For
+      End If
       'get line without leading spaces
       TmpLine = TmpLines(I).TrimStart(" "c, Chr(9)) 'StrTrimmLeft(StrTrimmLeft(TmpLines(I), " ", True), Chr(9).ToString, True)
       If TmpLine.Length = 0 Then
         'empty line
-        If TmpInClass AndAlso _
-           TmpInCommentArea = CommentAreaKinds.Supported Then
-          TmpLines(I) = "dim EmptyLineVar as string"
+        If ProviderHasParserFlag(ProviderParserFlags.HandleEmptyLines) Then
+          If TmpInClass AndAlso _
+             TmpInCommentArea = CommentAreaKinds.Supported Then
+            TmpLines(I) = "dim EmptyLineVar as string"
+          End If
         End If
       Else
         Select Case TmpLine.Substring(0, 1)
@@ -402,7 +527,14 @@ Public NotInheritable Class VBCSConverter
                       End With
                   End Select
                   If TmpB Then
-                    TmpLines(I) = "dim " & TmpS & "Var as string = """ & TmpLine.Replace("""", "§§").Replace("\", "§$") & """"
+                    Dim thisLineOnly As String = TmpLine
+                    Dim thisLinesNext As String = ""
+                    Dim lineSepIdx As Integer = TmpLine.IndexOf(vbCrLf)
+                    If lineSepIdx > -1 Then
+                      thisLineOnly = TmpLine.Substring(0, lineSepIdx)
+                      thisLinesNext = TmpLine.Substring(lineSepIdx)
+                    End If
+                    TmpLines(I) = "dim " & TmpS & "Var as string = """ & thisLineOnly.Replace("""", "§§").Replace("\", "§$") & """" & thisLinesNext
                   End If 'TmpB
                 Else  'TmpInClass
                   If GetNextCodeLine(TmpLines, I).ToLower Like "<assembly:*>*" Then
@@ -433,6 +565,11 @@ Public NotInheritable Class VBCSConverter
               'before add broder class (OPTION statement)
             ElseIf ((TmpLine.Length > 10) AndAlso (TmpLine.Substring(0, 10).ToLower = "namespace ")) Then
               'before add broder class (NAMESPACE statement)
+              'Wrap namespace around
+              If Not String.IsNullOrEmpty(wrapNamespace) Then
+                TmpLines(I) = TmpLines(I).Substring(0, 10) & wrapNamespace & "." & TmpLines(I).Substring(10)
+              End If
+              'Search for end of namespace
               For J As Int32 = I + 1 To TmpLines.Length - 1
                 If (TmpLines(J).TrimStart(" "c, Chr(9)).ToLower Like "end namespace*") Then
                   TmpBorderCloseLine = J
@@ -467,11 +604,25 @@ Public NotInheritable Class VBCSConverter
                   Next
                   'add borderclass now before current line
                   TmpInClass = True
-                  TmpLine = "Class BorderClass" & vbCrLf & TmpLines(I)
-                  TmpLines(I) = TmpLine
-                  TmpLines(TmpBorderCloseLine) = TmpLines(TmpBorderCloseLine) & vbCrLf & "End Class" '& vbCrLf
-                  RetRes.LineShifts.Add(RetRes.GetShift(I) + I)
-                  RetRes.LineShifts.Add(RetRes.GetShift(TmpBorderCloseLine) + TmpBorderCloseLine + 1)
+                  If String.IsNullOrEmpty(wrapNamespace) Then
+                    TmpLine = "Class BorderClass" & vbCrLf & TmpLines(I)
+                    TmpLines(I) = TmpLine
+                    TmpLines(TmpBorderCloseLine) = TmpLines(TmpBorderCloseLine) & vbCrLf & "End Class"
+                    RetRes.LineShifts.Add(RetRes.GetShift(I) + I)
+                    RetRes.LineShifts.Add(RetRes.GetShift(TmpBorderCloseLine) + TmpBorderCloseLine + 1)
+                  Else
+                    TmpLine = "Namespace " & wrapNamespace & vbCrLf & _
+                              "Class BorderClass" & vbCrLf & _
+                              TmpLines(I)
+                    TmpLines(I) = TmpLine
+                    TmpLines(TmpBorderCloseLine) = TmpLines(TmpBorderCloseLine) & vbCrLf & _
+                                                   "End Class" & vbCrLf & _
+                                                   "End Namespace"
+                    RetRes.LineShifts.Add(RetRes.GetShift(I) + I)
+                    RetRes.LineShifts.Add(RetRes.GetShift(I) + I)
+                    RetRes.LineShifts.Add(RetRes.GetShift(TmpBorderCloseLine) + TmpBorderCloseLine + 1)
+                    RetRes.LineShifts.Add(RetRes.GetShift(TmpBorderCloseLine) + TmpBorderCloseLine + 1)
+                  End If
                 End If
               End If
 
@@ -623,7 +774,7 @@ Public NotInheritable Class VBCSConverter
           End If
         End If
       End If
-      Throw New NetVertException(TmpS)
+      Throw New NetVertException(TmpS, TmpLine)
     Catch ex As Exception
       'other exception
       TmpS = "Error: " & ex.Message
@@ -955,6 +1106,11 @@ Public NotInheritable Class VBCSConverter
   Private Function ProviderHasParserFlag(ByVal parserFlag As ProviderParserFlags) As Boolean
     Return (SettingsManager.CurrentRefactoryProvider.PreAndPostParseFlags And parserFlag) = parserFlag
   End Function
+
+  'Private Function IsCommentOrEmptyLine(ByVal codeLine As String) As Boolean
+  '  Dim truncLine As String = codeLine.TrimStart(" "c, Chr(9))
+  '  Return (truncLine.StartsWith("'") OrElse truncLine.Length = 0)
+  'End Function
 
 #End Region
 
